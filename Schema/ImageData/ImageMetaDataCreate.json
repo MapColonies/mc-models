@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "ImageMetaDataCreate",
+    "title": "Image metadata create",
+    "description": "additional data related to raster layer",
+    "allOf": [
+        {
+            "$ref": "#/definitions/ImageMetaDataCreate",
+            "type": "object"
+        }
+    ],
+    "definitions": {
+        "ImageMetaDataCreate": {
+            "type": "object",
+            "examples": [
+                {
+                    "id": "012b0cd6-0f53-4c41-ad0b-dbe3b6c83750",
+                    "date": "2020-11-11T11:11:11Z"
+                }
+            ],
+            "required": [
+                "id",
+                "date"
+            ],
+            "additionalProperties": true,
+            "properties": {
+                "id": {
+                    "$id": "#/properties/id",
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "the raster unique identifier",
+                    "default": "",
+                    "examples": [
+                        "012b0cd6-0f53-4c41-ad0b-dbe3b6c83750"
+                    ]
+                },
+                "date": {
+                    "$id": "#/properties/date",
+                    "type": "string",
+                    "format": "date-time",
+                    "tsType": "Date",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "2020-11-11T11:11:11Z"
+                    ]
+                }
+            }
+        }
+    }
+}
