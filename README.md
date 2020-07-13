@@ -35,3 +35,5 @@ build and deploy commands:
     ```
     npm run clean
     ``` 
+
+ **please note the node this was developed using node 12 and wont work with old versions of node.**
