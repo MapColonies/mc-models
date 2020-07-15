@@ -30,7 +30,7 @@
                "maximum": 599
             },
             "message": {
-               "type": "string"
+               "type": ["string", "object"]
             }
          },
          "required": ["statusCode", "message"]
