@@ -10,7 +10,7 @@
     "build": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "clean": "rimraf lib && rimraf src/types && rimraf src/TypeMap.ts rimraf *.tgz",
     "generate": "node generateTypes.js",
-    "dockerLocal": "docker build -t mc-models --build-arg host=localhost . && docker run -p 80:80 --name mc-models mc-models",
+    "dockerLocal": "docker build -t mc-models --build-arg host=localhost . && docker run -d -p 80:80 --name mc-models mc-models",
     "dockerRemove": "docker rm -f mc-models "
   },
   "author": "",
