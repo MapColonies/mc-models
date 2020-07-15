@@ -1,0 +1,44 @@
+{
+   "$schema": "http://json-schema.org/draft-07/schema",
+   "$id": "ImageMetadataResponse",
+   "allOf": [
+      {
+         "$ref": "http://mc-models/Schema/Http/ApiHttpResponse.base.json#/definitions/ApiHttpResponse",
+         "type": "object"
+      },
+      {
+         "$ref": "#/definitions/ImageMetadataResponseData"
+      }
+   ],
+   "definitions": {
+      "ImageMetadataResponseData": {
+         "properties": {
+            "data": {
+               "type": "object",
+               "oneOf": [
+                  {
+                     "$ref": "http://mc-models/Schema/ImageMetadata/ImageMetadata.base.json#/definitions/ImageMetadata"
+                  },
+                  {
+                     "type": "object",
+                     "additionalProperties": false
+                  }
+               ]
+            }
+         }
+      },
+      "ApiHttpError": {
+         "properties": {
+            "statusCode": {
+               "type": "integer",
+               "minimum": 100,
+               "maximum": 599
+            },
+            "message": {
+               "type": "string"
+            }
+         },
+         "required": ["statusCode", "message"]
+      }
+   }
+}

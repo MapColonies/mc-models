@@ -1,0 +1,152 @@
+{
+   "$schema": "http://json-schema.org/draft-07/schema",
+   "$id": "ImageMetadata",
+   "allOf": [
+      {
+         "$ref": "#/definitions/ImageMetadata",
+         "type": "object"
+      }
+   ],
+   "definitions": {
+      "ImageMetadata": {
+         "type": "object",
+         "example": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "creationTime": "2020-07-13T06:53:16.202Z",
+            "imagingTime": "2020-07-13T05:53:16.202Z",
+            "resolution": 3.5,
+            "footprint": {
+               "type": "Polygon",
+               "coordinates": [
+                  [
+                     [100.0, 0.0],
+                     [101.0, 0.0],
+                     [101.0, 1.0],
+                     [100.0, 1.0],
+                     [100.0, 0.0]
+                  ]
+               ]
+            },
+            "imageUri": "uri",
+            "height": 300,
+            "width": 500,
+            "imageBitPerPixel": 24,
+            "isBitSigned": true,
+            "imageSource": "layer's creator",
+            "cloudCoverPercentage": 93.2,
+            "additionalFilesUri": ["additional file 1 uri", "additional file 2 uri"],
+            "geographicReferenceSystem": 4326
+         },
+         "additionalProperties": true,
+         "properties": {
+            "id": {
+               "$id": "#/properties/id",
+               "type": "string",
+               "format": "uuid",
+               "description": "the raster unique identifier",
+               "example": "012b0cd6-0f53-4c41-ad0b-dbe3b6c83750"
+            },
+            "creationTime": {
+               "$id": "#/properties/creationTime",
+               "type": "string",
+               "format": "date-time",
+               "tsType": "Date",
+               "description": "layer creation time.",
+               "example": "2020-07-13T06:53:16.202Z"
+            },
+            "imagingTime": {
+               "$id": "#/properties/imagingTime",
+               "type": "string",
+               "format": "date-time",
+               "tsType": "Date",
+               "description": "the raster imaging time.",
+               "example": "2020-07-13T05:53:16.202Z"
+            },
+            "resolution": {
+               "$id": "#/properties/resolution",
+               "type": "number",
+               "description": "raster image resolution.",
+               "example": 3.5
+            },
+            "footprint": {
+               "$id": "#/properties/footprint",
+               "type": "object",
+               "description": "geojson footprint of the raster.",
+               "$ref": "http://mc-models/Schema/geojson/GeoJSON.json",
+               "tsType": "Object",
+               "example": {
+                  "type": "Polygon",
+                  "coordinates": [
+                     [
+                        [100.0, 0.0],
+                        [101.0, 0.0],
+                        [101.0, 1.0],
+                        [100.0, 1.0],
+                        [100.0, 0.0]
+                     ]
+                  ]
+               }
+            },
+            "imageUri": {
+               "$id": "#/properties/imageUri",
+               "type": "string",
+               "description": "image storage location uri.",
+               "example": "uri"
+            },
+            "height": {
+               "$id": "#/properties/height",
+               "type": "integer",
+               "description": "raster hight.",
+               "example": 300
+            },
+            "width": {
+               "$id": "#/properties/width",
+               "type": "integer",
+               "description": "raster width.",
+               "example": 500
+            },
+            "imageBitPerPixel": {
+               "$id": "#/properties/imageBitPerPixel",
+               "type": "integer",
+               "description": "number of bits of each pixel of the raster.",
+               "example": 24
+            },
+            "isBitSigned": {
+               "$id": "#/properties/isBitSigned",
+               "type": "boolean",
+               "description": "indicates if the raster bits ar signed.",
+               "example": true
+            },
+            "imageSource": {
+               "$id": "#/properties/imageSource",
+               "type": "string",
+               "description": "name of the layer's creator.",
+               "example": "layer's creator"
+            },
+            "cloudCoverPercentage": {
+               "$id": "#/properties/cloudCoverPercentage",
+               "type": "number",
+               "description": "cloud coverage of the raster image.",
+               "example": 93.2,
+               "maximum": 100,
+               "minimum": 0
+            },
+            "additionalFilesUri": {
+               "$id": "#/properties/additionalFilesUri",
+               "type": "array",
+               "description": "list of additional files URIs",
+               "example": ["additional file 1 uri", "additional file 2 uri"],
+               "items": {
+                  "type": "string"
+               }
+            },
+            "geographicReferenceSystem": {
+               "$id": "#/properties/geographicReferenceSystem",
+               "type": "integer",
+               "description": "srid of the location coordinates.",
+               "example": 4326
+            }
+         }
+      }
+   }
+}
