@@ -1,14 +1,14 @@
 {
-    "compilerOptions": {
-      "target": "es2017",
+   "compilerOptions": {
+      "target": "ES5",
       "module": "commonjs",
       "declaration": true,
-      "outDir": "./lib/cjs",
+      "outDir": "lib/cjs",
       "strict": true,
       "esModuleInterop": true,
       "allowSyntheticDefaultImports": true,
       "moduleResolution": "node"
-    },
-    "include": ["src/"],
-    "exclude": ["node_modules", "Schema"]
-  }
+   },
+   "include": ["."],
+   "exclude": ["node_modules", "lib"]
+}
