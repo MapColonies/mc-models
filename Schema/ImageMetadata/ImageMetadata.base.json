@@ -27,13 +27,17 @@
                   ]
                ]
             },
+            "imageSection":"north",
             "imageUri": "uri",
             "height": 300,
             "width": 500,
+            "sensorType": "RGB",
+            "imageColorType": "BW",
             "imageBitPerPixel": 24,
+            "imageFormat": "tiff",
             "isBitSigned": true,
             "imageSource": "layer's creator",
-            "cloudCoverPercentage": 93.2,
+            "cloudCoverPercentage": 93,
             "additionalFilesUri": ["additional file 1 uri", "additional file 2 uri"],
             "geographicReferenceSystem": 4326
          },
@@ -87,6 +91,12 @@
                   ]
                }
             },
+            "imageSection": {
+               "$id": "#/properties/imageSection",
+               "type": "string",
+               "description": "image section of the raster.",
+               "example": "north"
+            },
             "imageUri": {
                "$id": "#/properties/imageUri",
                "type": "string",
@@ -105,11 +115,31 @@
                "description": "raster width.",
                "example": 500
             },
+            "sensorType":{
+               "$id": "#/properties/sensorType",
+               "type": "string",
+               "enum": ["VIS","RGB","Pan_Sharpen"],
+               "description": "imaging sensor type.",
+               "example": "RGB"
+            },
+            "imageColorType": {
+               "$id": "#/properties/imageColorType",
+               "type": "string",
+               "enum": ["Color","BW"],
+               "description": "raster color type.",
+               "example": "BW"
+            },
             "imageBitPerPixel": {
                "$id": "#/properties/imageBitPerPixel",
                "type": "integer",
                "description": "number of bits of each pixel of the raster.",
                "example": 24
+            },
+            "imageFormat":{
+               "$id": "#/properties/imageFormat",
+               "type": "string",
+               "description": "raster file format.",
+               "example": "tiff"
             },
             "isBitSigned": {
                "$id": "#/properties/isBitSigned",
@@ -125,9 +155,9 @@
             },
             "cloudCoverPercentage": {
                "$id": "#/properties/cloudCoverPercentage",
-               "type": "number",
+               "type": "integer",
                "description": "cloud coverage of the raster image.",
-               "example": 93.2,
+               "example": 93,
                "maximum": 100,
                "minimum": 0
             },
@@ -143,7 +173,7 @@
             "geographicReferenceSystem": {
                "$id": "#/properties/geographicReferenceSystem",
                "type": "integer",
-               "description": "srid of the location coordinates.",
+               "description": "SRID of the location coordinates.",
                "example": 4326
             }
          }

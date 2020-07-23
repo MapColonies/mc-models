@@ -9,5 +9,5 @@
          "type": "object"
       }
    ],
-   "required": ["id", "creationTime", "imagingTime", "resolution", "footprint", "imageUri", "height", "width"]
+   "required": ["id", "creationTime", "imagingTime", "resolution", "footprint", "imageSection", "imageUri", "height", "width", "imageColorType"]
 }
