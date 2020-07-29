@@ -1,25 +1,33 @@
 {
-   "name": "mc-model-types",
-   "version": "1.0.0",
-   "description": "json schemas for validations and generated ts models",
-   "main": "./lib/cjs/index.js",
-   "module": "./lib/esm/index.js",
-   "scripts": {
-      "prepare": "npm run build",
-      "build": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
-      "clean": "rimraf lib && rimraf *.tgz"
-   },
-   "author": "",
-   "license": "ISC",
-   "devDependencies": {
-      "rimraf": "^3.0.2",
-      "typescript": "^3.9.7"
-   },
-   "files": [
-      "lib/**/*"
-   ],
-   "dependencies": {
-      "ajv": "^6.12.3",
-      "axios": "^0.19.2"
-   }
+  "name": "@map-colonies/mc-model-types",
+  "version": "1.0.0",
+  "description": "json schemas for validations and generated ts models",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "homepage": "https://github.com/MapColonies/mc-models#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MapColonies/mc-models.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MapColonies/mc-models/issues"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
+    "clean": "rimraf lib && rimraf *.tgz"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.7"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {
+    "ajv": "^6.12.3",
+    "axios": "^0.19.2"
+  }
 }
