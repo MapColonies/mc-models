@@ -1,32 +1,40 @@
 {
-   "name": "mc-nest-schema-validator",
-   "version": "1.0.0",
-   "description": "nest module for validating json schema",
-   "main": "lib/cjs/index.js",
-   "module": "lib/esm/index.js",
-   "scripts": {
-      "build": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
-      "prepare": "install-peers && npm run build"
-   },
-   "author": "",
-   "license": "ISC",
-   "dependencies": {
-      "class-validator": "^0.12.2",
-      "config": "^3.3.1",
-      "mc-schema-validator": "1.0.0",
-      "typescript": "^3.9.7"
-   },
-   "peerDependencies": {
-      "@nestjs/common": "7.x",
-      "@nestjs/core": "7.x",
-      "@nestjs/swagger": "4.x",
-      "rxjs": "*"
-   },
-   "files": [
-      "lib/**/*"
-   ],
-   "devDependencies": {
-      "@types/config": "0.0.36",
-      "install-peers-cli": "^2.2.0"
-   }
+  "name": "@map-colonies/mc-nest-schema-validator",
+  "version": "1.0.0",
+  "description": "nest module for validating json schema",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "homepage": "https://github.com/MapColonies/mc-models#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MapColonies/mc-models.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MapColonies/mc-models/issues"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
+    "prepare": "install-peers && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "class-validator": "^0.12.2",
+    "config": "^3.3.1",
+    "mc-schema-validator": "1.0.0",
+    "typescript": "^3.9.7"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "7.x",
+    "@nestjs/core": "7.x",
+    "@nestjs/swagger": "4.x",
+    "rxjs": "*"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "devDependencies": {
+    "@types/config": "0.0.36",
+    "install-peers-cli": "^2.2.0"
+  }
 }
