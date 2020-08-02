@@ -1,11 +1,12 @@
 import { has, get } from 'config';
 
-type Logger = {
-  log(level: string, message: string): void;
-};
-export class config {
-  static schemaSourceRoot: string = has('validation.schemaSourceRoot')
+export type Logger = {
+  log: (level: string, message: string) => void;
+}
+export class Config {
+  public static schemaSourceRoot: string = has('validation.schemaSourceRoot')
     ? get<string>('validation.schemaSourceRoot')
     : '';
-  static logger: Logger;
+
+  public static logger: Logger;
 }

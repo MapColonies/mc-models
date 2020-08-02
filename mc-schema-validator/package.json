@@ -18,12 +18,25 @@
     "jest-mock-axios": "^4.2.0",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.1.3",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/parser": "^3.7.1",
+    "nyc": "^15.1.0",
+    "standard-version": "^8.0.2"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
     "prepare": "npm run build",
-    "test": "jest"
+    "test": "npm run lint && jest",
+    "lint": "eslint ./**/*.js",
+    "lint:fix": "eslint --fix ./**/*.ts",
+    "release": "standard-version -t mc-schema-validator@"
   },
   "dependencies": {
     "ajv": "^6.12.3",

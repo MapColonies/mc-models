@@ -1,9 +1,9 @@
 import {
   ValidationArguments,
   ValidatorConstraint,
-  ValidatorConstraintInterface,
+  ValidatorConstraintInterface
 } from 'class-validator';
-import { SchemaValidator, ValidationStatus } from 'mc-schema-validator';
+import { SchemaValidator, ValidationStatus } from '@map-colonies/mc-schema-validator';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import Ajv from 'ajv';
 
@@ -12,7 +12,7 @@ import Ajv from 'ajv';
 export class SchemaValidatorConstraint implements ValidatorConstraintInterface {
   private errors?: Ajv.ErrorObject[];
 
-  async validate(
+  public async validate(
     value: unknown,
     validationArguments?: ValidationArguments
   ): Promise<boolean> {
@@ -21,9 +21,11 @@ export class SchemaValidatorConstraint implements ValidatorConstraintInterface {
       value
     );
     this.errors = res.errors;
-    return res.status == ValidationStatus.valid;
+    return res.status === ValidationStatus.valid;
   }
-  defaultMessage?(validationArguments?: ValidationArguments): string {
+
+  //eslint-disable-next-line @typescript-eslint/no-unused-vars
+  public defaultMessage?(validationArguments?: ValidationArguments): string {
     throw new BadRequestException(this.errors);
   }
 }

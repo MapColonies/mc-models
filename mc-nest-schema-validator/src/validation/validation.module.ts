@@ -1,23 +1,23 @@
 import { Module, Global, Inject } from '@nestjs/common';
 import { ValidationInterceptor } from './ValidationInterceptor';
-import { SchemaValidator } from 'mc-schema-validator';
+import { SchemaValidator } from '@map-colonies/mc-schema-validator';
 import { SchemaValidatorConstraint } from './SchemaValidatorConstraint';
-import { config } from '../config';
+import { Config, Logger } from '../config';
 
 @Global()
 @Module({
   providers: [
     {
       provide: SchemaValidator,
-      useValue: SchemaValidator.getInstance(),
+      useValue: SchemaValidator.getInstance()
     },
     ValidationInterceptor,
-    SchemaValidatorConstraint,
+    SchemaValidatorConstraint
   ],
-  exports: [ValidationInterceptor, SchemaValidator, SchemaValidatorConstraint],
+  exports: [ValidationInterceptor, SchemaValidator, SchemaValidatorConstraint]
 })
 export class ValidationModule {
-  constructor(@Inject('Logger') logger) {
-    config.logger = logger;
+  public constructor(@Inject('Logger') logger: Logger) {
+    Config.logger = logger;
   }
 }

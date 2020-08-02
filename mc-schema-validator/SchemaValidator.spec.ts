@@ -13,33 +13,33 @@ const testSchema = {
   properties: {
     required: {
       $id: '#/properties/required',
-      type: 'string',
+      type: 'string'
     },
     optional: {
       $id: '#/properties/optional',
-      type: 'string',
-    },
-  },
+      type: 'string'
+    }
+  }
 };
 const validItems = [
   {
     required: 'required value',
-    optional: 'optional value',
+    optional: 'optional value'
+  },
+  {
+    required: 'required value'
   },
   {
     required: 'required value',
-  },
-  {
-    required: 'required value',
     optional: 'optional value',
-    additionalValue: 'value',
-  },
+    additionalValue: 'value'
+  }
 ];
 const invalidItems = [
   {
-    optional: 'optional value',
+    optional: 'optional value'
   },
-  {},
+  {}
 ];
 
 beforeEach(() => {
