@@ -32,7 +32,7 @@ export class SchemaValidator {
   constructor(private tryLoadMissingSchema = true) {
     this.ajv = new Ajv({
       loadSchema: this.loadSchema,
-      extendRefs: true,
+      extendRefs: true
     });
   }
 
@@ -46,8 +46,7 @@ export class SchemaValidator {
   }
 
   private async getValidator(schemaUrl: string) {
-    if (!this.validators[schemaUrl] && this.tryLoadMissingSchema)
-      await this.LoadValidator(schemaUrl);
+    if (!this.validators[schemaUrl] && this.tryLoadMissingSchema) { await this.LoadValidator(schemaUrl) }
     if (this.validators[schemaUrl]) {
       const validate = await this.validators[schemaUrl].validate;
       if (!this.validators[schemaUrl].error) return validate;
@@ -59,7 +58,7 @@ export class SchemaValidator {
   async LoadValidator(schemaUrl: string): Promise<void> {
     if (!this.validators[schemaUrl]) {
       this.validators[schemaUrl] = {
-        schema: schemaUrl,
+        schema: schemaUrl
       };
     }
     try {
@@ -81,7 +80,7 @@ export class SchemaValidator {
     if (await validate(data)) return { status: ValidationStatus.valid };
     return {
       status: ValidationStatus.invalid,
-      errors: validate.errors,
+      errors: validate.errors
     };
   }
 }

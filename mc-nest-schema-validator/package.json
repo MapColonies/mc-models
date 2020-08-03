@@ -1,6 +1,6 @@
 {
   "name": "@map-colonies/mc-nest-schema-validator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "nest module for validating json schema",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
@@ -14,14 +14,18 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
-    "prepare": "install-peers && npm run build"
+    "prepare": "install-peers && npm run build",
+    "lint": "eslint ./src/**",
+    "lint:fix": "eslint --fix ./src/**",
+    "release": "standard-version -t mc-nest-schema-validator@",
+    "install-peers": "install-peers"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@map-colonies/mc-schema-validator": "^1.0.1",
     "class-validator": "^0.12.2",
     "config": "^3.3.1",
-    "mc-schema-validator": "1.0.0",
     "typescript": "^3.9.7"
   },
   "peerDependencies": {
@@ -35,6 +39,16 @@
   ],
   "devDependencies": {
     "@types/config": "0.0.36",
-    "install-peers-cli": "^2.2.0"
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/parser": "^3.7.1",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "install-peers-cli": "^2.2.0",
+    "nyc": "^15.1.0",
+    "standard-version": "^8.0.2"
   }
 }

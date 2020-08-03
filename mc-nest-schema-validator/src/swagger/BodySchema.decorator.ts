@@ -1,19 +1,21 @@
 import { ApiBody } from '@nestjs/swagger';
-import { config } from '../config';
+import { Config } from '../config';
 
 export function BodySchema(schemaUrl: string): MethodDecorator {
-  if (!schemaUrl.match(/^http(s)?:\/\/.*/))
+  const httpRegex = /^http(s)?:\/\/.*/;
+  if (!httpRegex.exec(schemaUrl)) {
     schemaUrl = schemaUrl.startsWith('/')
-      ? config.schemaSourceRoot + schemaUrl
-      : config.schemaSourceRoot + '/' + schemaUrl;
+      ? Config.schemaSourceRoot + schemaUrl
+      : Config.schemaSourceRoot + '/' + schemaUrl;
+  }
 
   return ApiBody({
     schema: {
       allOf: [
         {
-          $ref: schemaUrl,
-        },
-      ],
-    },
+          $ref: schemaUrl
+        }
+      ]
+    }
   });
 }

@@ -4,24 +4,24 @@ import {
   InternalServerErrorException,
   Injectable,
   NestInterceptor,
-  CallHandler,
+  CallHandler
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { SchemaValidator, ValidationStatus } from 'mc-schema-validator';
+import { SchemaValidator, ValidationStatus } from '@map-colonies/mc-schema-validator';
 import { Observable } from 'rxjs';
 import { ISchemaOptions } from './ISchemaOptions';
-import { config } from '../config';
+import { Config } from '../config';
 
 @Injectable()
 export class ValidationInterceptor implements NestInterceptor {
   constructor(
-    private reflector: Reflector,
-    private validator: SchemaValidator
+    private readonly reflector: Reflector,
+    private readonly validator: SchemaValidator
   ) {}
 
   async intercept(
     context: ExecutionContext,
-    next: CallHandler<any>
+    next: CallHandler
   ): Promise<Observable<any>> {
     let validationErrors: unknown;
     try {
@@ -49,7 +49,7 @@ export class ValidationInterceptor implements NestInterceptor {
               try {
                 data[key] = JSON.parse(data[key]);
               } catch (err) {
-                config.logger?.log('info', `invalid json: ${err.message}`);
+                Config.logger.log('info', `invalid json: ${err.message}`);
                 validationErrors = err;
               }
             });
@@ -58,15 +58,16 @@ export class ValidationInterceptor implements NestInterceptor {
       if (!validationErrors) {
         const res = await this.validator.validate(schema, data);
         if (res.status == ValidationStatus.valid) return next.handle();
-        else if (res.status == ValidationStatus.missingValidator)
-          config.logger?.log(
+        else if (res.status == ValidationStatus.missingValidator) {
+ Config.logger.log(
             'warn',
             `no validator was registered for: ${schema}`
           );
+        }
         validationErrors = res.errors;
       }
     } catch (err) {
-      config.logger?.log('error', `validation schema error: ${err}`);
+      Config.logger.log('error', `validation schema error: ${err}`);
       throw new InternalServerErrorException();
     }
     throw new BadRequestException(validationErrors);

@@ -1,0 +1,37 @@
+{
+  "extends": "standard",
+  "plugins": ["import", "node", "promise", "standard","@typescript-eslint/eslint-plugin"],
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 8
+  },
+  "rules": {
+    "eol-last": "off",
+    "space-before-function-paren": "off",
+    "indent": ["error", 2],
+    "quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "semi": [
+      "error",
+      "always",
+      {
+        "omitLastInOneLineBlock": true
+      }
+    ],
+    "one-var": ["off"],
+    "space-before-blocks": ["off"],
+    "camelcase": ["warn"],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error"
+  }
+}
