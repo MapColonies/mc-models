@@ -23,7 +23,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@map-colonies/mc-schema-validator": "1.0.0",
+    "@map-colonies/mc-schema-validator": "^1.0.1",
     "class-validator": "^0.12.2",
     "config": "^3.3.1",
     "typescript": "^3.9.7"
