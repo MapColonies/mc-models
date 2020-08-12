@@ -1,7 +1,7 @@
 import { ApiResponse } from '@nestjs/swagger';
 import { Config } from '../config';
 
-export function ResponseSchema(schemaUrl: string, status: number = 200): MethodDecorator {
+export function ResponseSchema(schemaUrl: string, status = 200): MethodDecorator {
   const httpRegex = /^http(s)?:\/\/.*/;
   if (!httpRegex.exec(schemaUrl)) {
     schemaUrl = schemaUrl.startsWith('/')
