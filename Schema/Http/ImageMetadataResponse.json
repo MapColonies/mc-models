@@ -26,19 +26,6 @@
                ]
             }
          }
-      },
-      "ApiHttpError": {
-         "properties": {
-            "statusCode": {
-               "type": "integer",
-               "minimum": 100,
-               "maximum": 599
-            },
-            "message": {
-               "type": "string"
-            }
-         },
-         "required": ["statusCode", "message"]
       }
    }
 }
