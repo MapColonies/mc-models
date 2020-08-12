@@ -30,7 +30,10 @@
                "maximum": 599
             },
             "message": {
-               "type": ["string", "object"]
+               "oneOf": [
+                  {"type": "string"},
+                  {"type": "object"}
+               ]
             }
          },
          "required": ["statusCode", "message"]
