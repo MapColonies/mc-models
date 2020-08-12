@@ -1,5 +1,5 @@
 {
-  "name": "@map-colonies/mc-nest-schema-validator",
+  "name": "@map-colonies/nest-schema-validator",
   "version": "1.0.1",
   "description": "nest module for validating json schema",
   "main": "lib/cjs/index.js",
@@ -17,7 +17,7 @@
     "prepare": "install-peers && npm run build",
     "lint": "eslint ./src/**",
     "lint:fix": "eslint --fix ./src/**",
-    "release": "standard-version -t mc-nest-schema-validator@",
+    "release": "standard-version -t nest-schema-validator@",
     "install-peers": "install-peers"
   },
   "author": "",
