@@ -5,7 +5,7 @@ const serviceName = require('./package.json').name;
 
 const SchemaFolders = ['./Schema'];
 const SkipFolders = ['Schema/geojson'];
-const OutputFolder = 'mc-Model-Types/generatedTypes';
+const OutputFolder = 'mc-model-types/generatedTypes';
 const ServiceUrl = `http://${serviceName}`;
 const KeepFolderStructure = false;
 const geoJsonDirectory = './schema/geojson/';
