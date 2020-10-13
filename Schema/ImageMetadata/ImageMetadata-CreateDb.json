@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "ImageMetaDataCreate",
+  "title": "Image metadata create",
+  "description": "additional data related to raster layer",
+  "allOf": [
+    {
+      "$ref": "http://mc-models/Schema/ImageMetadata/ImageMetadata-Create.json",
+      "type": "object"
+    }
+  ],
+  "required": ["imageUri"],
+  "example": {}
+}
