@@ -1,0 +1,75 @@
+{
+   "$schema": "http://json-schema.org/draft-07/schema",
+   "$id": "ImageMetadataResponse",
+   "allOf": [
+      {
+         "$ref": "http://mc-models/Schema/Http/ApiHttpResponse.base.json#/definitions/ApiHttpResponse",
+         "type": "object"
+      },
+      {
+         "$ref": "#/definitions/ImageMetadataArrayResponseData"
+      }
+   ],
+   "example": {
+      "success": true,
+      "data": {
+         "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+         "creationTime": "2020-07-13T06:53:16.202Z",
+         "imagingTime": "2020-07-13T05:53:16.202Z",
+         "resolution": 3.5,
+         "footprint": {
+            "type": "Polygon",
+            "coordinates": [
+               [
+                  [100.0, 0.0],
+                  [101.0, 0.0],
+                  [101.0, 1.0],
+                  [100.0, 1.0],
+                  [100.0, 0.0]
+               ]
+            ]
+         },
+         "imageSection":"north",
+         "imageUri": "uri",
+         "height": 300,
+         "width": 500,
+         "sensorType": "RGB",
+         "imageColorType": "BW",
+         "imageBitPerPixel": 24,
+         "imageFormat": "tiff",
+         "isBitSigned": true,
+         "imageSource": "layer's creator",
+         "cloudCoverPercentage": 93,
+         "additionalFilesUri": ["additional file 1 uri", "additional file 2 uri"],
+         "geographicReferenceSystem": 4326
+      },
+      "error": {
+        "statusCode": 0
+      }
+    },
+   "definitions": {
+      "ImageMetadataArrayResponseData": {
+         "properties": {
+            "data": {
+               "type": "object",
+               "oneOf": [
+                  {
+                     "type":"object",
+                     "properties": {
+                        "imageMetadateArray":{
+                           "type":"array",
+                           "items": {
+                              "$ref": "http://mc-models/Schema/ImageMetadata/ImageMetadata.base.json#/definitions/ImageMetadata"
+                           }
+                        }
+                     }
+                  },{
+                     "type":"object",
+                     "additionalProperties": false
+                  }
+               ]
+            }
+         }
+      }
+   }
+}
