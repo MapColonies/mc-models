@@ -33,15 +33,6 @@ step to build:
 
 to create local package tgz file run `npm pack` after the build
 
-### mc-nest-schema-validator
-
-step to build:
-
-1. run `yarn install` at repository root folder
-2. run `npm run build` at "nestValidation" folder
-
-to create local package tgz file run `npm pack` after the build
-
 ## Schema structure
 
 added schemas should be written according to the fallowing rule:
