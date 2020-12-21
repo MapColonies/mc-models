@@ -1,17 +1,26 @@
 {
-  "name": "mc-models",
-  "version": "1.0.0",
+  "name": "@map-colonies/mc-model-types",
+  "version": "1.0.1",
   "description": "json schemas for validations and generated ts models",
-  "scripts": {
-    "test": "jest",
-    "prepare": "npm run generate",
-    "clean": "rimraf generatedTypes",
-    "generate": "node generateTypes.js",
-    "dockerLocal": "docker build -t mc-models --build-arg host=localhost . && docker run -d -p 80:80 --name mc-models mc-models",
-    "dockerRemove": "docker rm -f mc-models"
-  },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "homepage": "https://github.com/MapColonies/mc-models#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MapColonies/mc-models.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MapColonies/mc-models/issues"
+  },
+  "scripts": {
+    "prepare": "npm run generate && npm run build",
+    "clean": "rimraf generatedTypes && rimraf lib && rimraf *.tgz",
+    "generate": "node generateTypes.js",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json",
+    "release": "standard-version -t mc-model-types@"
+  },
   "devDependencies": {
     "json-schema-to-typescript": "^9.1.0",
     "rimraf": "^3.0.2",
@@ -20,7 +29,8 @@
     "@commitlint/config-conventional": "^9.1.1",
     "commitlint": "^9.1.0",
     "cz-conventional-changelog": "^3.2.0",
-    "husky": "^4.2.5"
+    "husky": "^4.2.5",
+    "standard-version": "^8.0.2"
   },
   "husky": {
     "hooks": {
@@ -32,8 +42,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "private": "true",
-  "workspaces": [
-    "mc-model-types"
+  "files": [
+    "lib/**/*"
   ]
 }
