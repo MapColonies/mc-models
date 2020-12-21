@@ -9,6 +9,6 @@
       "allowSyntheticDefaultImports": true,
       "moduleResolution": "node"
    },
-   "include": ["."],
+   "include": [".", "../index.ts"],
    "exclude": ["node_modules", "lib"]
 }
