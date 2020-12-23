@@ -3,7 +3,7 @@
    "$id": "ImageMetadataResponse",
    "allOf": [
       {
-         "$ref": "http://mc-models/Schema/Http/ApiHttpResponse.base.json#/definitions/ApiHttpResponse",
+         "$ref": "./ApiHttpResponse.base.json#/definitions/ApiHttpResponse",
          "type": "object"
       },
       {
@@ -21,15 +21,30 @@
             "type": "Polygon",
             "coordinates": [
                [
-                  [100.0, 0.0],
-                  [101.0, 0.0],
-                  [101.0, 1.0],
-                  [100.0, 1.0],
-                  [100.0, 0.0]
+                  [
+                     100.0,
+                     0.0
+                  ],
+                  [
+                     101.0,
+                     0.0
+                  ],
+                  [
+                     101.0,
+                     1.0
+                  ],
+                  [
+                     100.0,
+                     1.0
+                  ],
+                  [
+                     100.0,
+                     0.0
+                  ]
                ]
             ]
          },
-         "imageSection":"north",
+         "imageSection": "north",
          "imageUri": "uri",
          "height": 300,
          "width": 500,
@@ -40,13 +55,16 @@
          "isBitSigned": true,
          "imageSource": "layer's creator",
          "cloudCoverPercentage": 93,
-         "additionalFilesUri": ["additional file 1 uri", "additional file 2 uri"],
+         "additionalFilesUri": [
+            "additional file 1 uri",
+            "additional file 2 uri"
+         ],
          "geographicReferenceSystem": 4326
       },
       "error": {
-        "statusCode": 0
+         "statusCode": 0
       }
-    },
+   },
    "definitions": {
       "ImageMetadataArrayResponseData": {
          "properties": {
@@ -54,17 +72,18 @@
                "type": "object",
                "oneOf": [
                   {
-                     "type":"object",
+                     "type": "object",
                      "properties": {
-                        "imageMetadateArray":{
-                           "type":"array",
+                        "imageMetadateArray": {
+                           "type": "array",
                            "items": {
-                              "$ref": "http://mc-models/Schema/ImageMetadata/ImageMetadata.base.json#/definitions/ImageMetadata"
+                              "$ref": "../ImageMetadata/ImageMetadata.base.json#/definitions/ImageMetadata"
                            }
                         }
                      }
-                  },{
-                     "type":"object",
+                  },
+                  {
+                     "type": "object",
                      "additionalProperties": false
                   }
                ]

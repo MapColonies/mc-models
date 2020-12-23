@@ -19,15 +19,30 @@
                "type": "Polygon",
                "coordinates": [
                   [
-                     [100.0, 0.0],
-                     [101.0, 0.0],
-                     [101.0, 1.0],
-                     [100.0, 1.0],
-                     [100.0, 0.0]
+                     [
+                        100.0,
+                        0.0
+                     ],
+                     [
+                        101.0,
+                        0.0
+                     ],
+                     [
+                        101.0,
+                        1.0
+                     ],
+                     [
+                        100.0,
+                        1.0
+                     ],
+                     [
+                        100.0,
+                        0.0
+                     ]
                   ]
                ]
             },
-            "imageSection":"north",
+            "imageSection": "north",
             "imageUri": "uri",
             "height": 300,
             "width": 500,
@@ -38,7 +53,10 @@
             "isBitSigned": true,
             "imageSource": "layer's creator",
             "cloudCoverPercentage": 93,
-            "additionalFilesUri": ["additional file 1 uri", "additional file 2 uri"],
+            "additionalFilesUri": [
+               "additional file 1 uri",
+               "additional file 2 uri"
+            ],
             "geographicReferenceSystem": 4326
          },
          "additionalProperties": true,
@@ -76,17 +94,32 @@
                "$id": "#/properties/footprint",
                "type": "object",
                "description": "geojson footprint of the raster.",
-               "$ref": "http://mc-models/Schema/geojson/GeoJSON.json",
+               "$ref": "../geojson/GeoJSON.json",
                "tsType": "Object",
                "example": {
                   "type": "Polygon",
                   "coordinates": [
                      [
-                        [100.0, 0.0],
-                        [101.0, 0.0],
-                        [101.0, 1.0],
-                        [100.0, 1.0],
-                        [100.0, 0.0]
+                        [
+                           100.0,
+                           0.0
+                        ],
+                        [
+                           101.0,
+                           0.0
+                        ],
+                        [
+                           101.0,
+                           1.0
+                        ],
+                        [
+                           100.0,
+                           1.0
+                        ],
+                        [
+                           100.0,
+                           0.0
+                        ]
                      ]
                   ]
                }
@@ -115,17 +148,24 @@
                "description": "raster width.",
                "example": 500
             },
-            "sensorType":{
+            "sensorType": {
                "$id": "#/properties/sensorType",
                "type": "string",
-               "enum": ["VIS","RGB","Pan_Sharpen"],
+               "enum": [
+                  "VIS",
+                  "RGB",
+                  "Pan_Sharpen"
+               ],
                "description": "imaging sensor type.",
                "example": "RGB"
             },
             "imageColorType": {
                "$id": "#/properties/imageColorType",
                "type": "string",
-               "enum": ["Color","BW"],
+               "enum": [
+                  "Color",
+                  "BW"
+               ],
                "description": "raster color type.",
                "example": "BW"
             },
@@ -135,7 +175,7 @@
                "description": "number of bits of each pixel of the raster.",
                "example": 24
             },
-            "imageFormat":{
+            "imageFormat": {
                "$id": "#/properties/imageFormat",
                "type": "string",
                "description": "raster file format.",
@@ -165,7 +205,10 @@
                "$id": "#/properties/additionalFilesUri",
                "type": "array",
                "description": "list of additional files URIs",
-               "example": ["additional file 1 uri", "additional file 2 uri"],
+               "example": [
+                  "additional file 1 uri",
+                  "additional file 2 uri"
+               ],
                "items": {
                   "type": "string"
                }
