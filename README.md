@@ -8,7 +8,8 @@ this project is used to serve json schemas for input validation and generate mat
  - generated typescript types for map colonies shared models
  - json schema files for model validation 
 ## package usage:
-  the package can be installed with `npm install @map-colonies/mc-models-types`
+  the package can be installed with `npm install @map-colonies/mc-models-types`.
+  the schemas for the validation are in the package, in order to use it for validation the schema files must be accessed directly. 
 ## building the package:
 
 1. run `npm install` to install project dependencies.
