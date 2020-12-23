@@ -3,7 +3,7 @@
    "$id": "ImageMetadataResponse",
    "allOf": [
       {
-         "$ref": "http://mc-models/Schema/Http/ApiHttpResponse.base.json#/definitions/ApiHttpResponse",
+         "$ref": "./ApiHttpResponse.base.json#/definitions/ApiHttpResponse",
          "type": "object"
       },
       {
@@ -17,7 +17,7 @@
                "type": "object",
                "oneOf": [
                   {
-                     "$ref": "http://mc-models/Schema/ImageMetadata/ImageMetadata.base.json#/definitions/ImageMetadata"
+                     "$ref": "../ImageMetadata/ImageMetadata.base.json#/definitions/ImageMetadata"
                   },
                   {
                      "type": "object",

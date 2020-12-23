@@ -1,14 +1,11 @@
 const json2ts = require('json-schema-to-typescript');
 const path = require('path');
 const fs = require('fs');
-const serviceName = 'mc-models';
 
 const SchemaFolders = ['./Schema'];
 const SkipFolders = ['Schema/geojson'];
 const OutputFolder = './generatedTypes';
-const ServiceUrl = `http://${serviceName}`;
 const KeepFolderStructure = false;
-const geoJsonDirectory = './schema/geojson/';
 
 const index = ['//this is auto generated file to import all types'];
 
@@ -23,38 +20,6 @@ const getOutputFileName = (fullPath) => {
 const getDestinationFile = (fullPath) => {
   let fileName = getOutputFileName(fullPath);
   return path.join(OutputFolder, fileName);
-};
-
-const getUrl = (fullPath) => {
-  const relativePath = path
-    .normalize(path.relative(process.cwd(), fullPath))
-    .replace(/\\/g, '/');
-  if (relativePath.charAt(0) == '.') {
-    return ServiceUrl + relativePath.slice(1);
-  } else {
-    return ServiceUrl + '/' + relativePath;
-  }
-};
-
-const regex = new RegExp(`^${ServiceUrl}/`, 'i');
-const resolver = {
-  order: 1,
-  canRead: regex,
-  read(file) {
-    const path = file.url.replace(ServiceUrl, '.');
-    return new Promise((resolve, reject) => {
-      if (path.toLowerCase().startsWith(geoJsonDirectory)) {
-        return resolve('{}');
-      }
-      fs.readFile(path, (err, data) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(data);
-        }
-      });
-    });
-  },
 };
 
 const ensureDirectoryExistence = (filePath) => {
@@ -72,7 +37,7 @@ const compileAndMap = async (fullPath) => {
   return new Promise((resolve, reject) => {
     json2ts
       .compile(schema, schema.$id, {
-        $refOptions: { resolve: { mcResolver: resolver } },
+        cwd: path.dirname(fullPath)
       })
       .then((ts) => {
         const destPath = getDestinationFile(fullPath);
@@ -106,7 +71,8 @@ const compileNested = async (folder) => {
 
 const main = async () => {
   for (let i = 0; i < SchemaFolders.length; i++) {
-    await compileNested(SchemaFolders[i]);
+    const dir =  path.join(__dirname,SchemaFolders[i]);
+    await compileNested(dir);
   }
   fs.writeFileSync(`${OutputFolder}/index.ts`, index.join('\n'));
 };

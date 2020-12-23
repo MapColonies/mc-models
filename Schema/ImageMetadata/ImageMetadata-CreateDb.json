@@ -5,10 +5,12 @@
   "description": "additional data related to raster layer",
   "allOf": [
     {
-      "$ref": "http://mc-models/Schema/ImageMetadata/ImageMetadata-Create.json",
+      "$ref": "./ImageMetadata-Create.json",
       "type": "object"
     }
   ],
-  "required": ["imageUri"],
+  "required": [
+    "imageUri"
+  ],
   "example": {}
 }

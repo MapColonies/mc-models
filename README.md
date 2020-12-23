@@ -4,32 +4,17 @@ this project is used to serve json schemas for input validation and generate mat
 
 **please note the node this was developed using node 12 and wont work with old versions of node.**
 
-## included items:
+## package includes:
+ - generated typescript types for map colonies shared models
+ - json schema files for model validation 
+## package usage:
+  the package can be installed with `npm install @map-colonies/mc-models-types`.
+  the schemas for the validation are in the package, in order to use it for validation the schema files must be accessed directly. 
+## building the package:
 
-- docker file for creating image of static http server with schemas.
-- mc-model package with framework independent schema validator and typescript type definitions for project modules.
-- mc-nest-schema-validator package with schema validation module for nest and decorators to update generated swagger to use schemas.
-
-## usage:
-
-### schema server
-
-- to run the schema server local on port 80 run the following command:
-  ```
-  npm run dockerLocal
-  ```
-- to remove local docker container:
-  ```
-  npm run dockerRemove
-  ```
-
-### mc-models
-
-step to build:
-
-1. run `yarn install` at repository root folder
-2. run `npm run generate` at repository root folder
-3. run `npm run build` at "mcModelsPackage" folder
+1. run `npm install` to install project dependencies.
+2. run `npm run generate` to generate the type script types.
+3. run `npm run build` to compile the type script types and references to type definitions.
 
 to create local package tgz file run `npm pack` after the build
 
@@ -37,7 +22,7 @@ to create local package tgz file run `npm pack` after the build
 
 added schemas should be written according to the fallowing rule:
 
-- \$ref to other file should include full url. the domain of this service is 'mc-models'.
+- \$ref to other files must be relative path.
 - types will be generated only for files that ends with ".base.json".
 - all schemas must be under tge "Schema" directory.
 - in order to prevent duplicates types generation (this will cause code generation to fail) and allow easier modification the schemas should be split to multiple files:

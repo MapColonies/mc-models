@@ -5,9 +5,11 @@
    "description": "additional data related to raster layer",
    "allOf": [
       {
-         "$ref": "http://mc-models/Schema/ImageMetadata/ImageMetadata.base.json#/definitions/ImageMetadata",
+         "$ref": "./ImageMetadata.base.json#/definitions/ImageMetadata",
          "type": "object"
       }
    ],
-   "required": ["id"]
+   "required": [
+      "id"
+   ]
 }

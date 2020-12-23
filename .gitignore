@@ -4,7 +4,7 @@ node_modules
 mcModelsPackage/src/types
 mcModelsPackage/lib
 **/node_modules
-generatedTypes/*
+generatedTypes
 lib
 
 #IDE
