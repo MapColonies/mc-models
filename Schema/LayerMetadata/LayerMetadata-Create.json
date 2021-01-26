@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "LayerMetadataCreate",
+  "title": "Layer metadata create",
+  "description": "additional data related to raster layer",
+  "allOf": [
+    {
+      "$ref": "./LayerMetadata.base.json#/definitions/LayerMetadata",
+      "type": "object"
+    }
+  ],
+  "required": [
+    "source",
+    "updateDate",
+    "resolution",
+    "ep90",
+    "sensorType",
+    "rms",
+    "scale",
+    "dsc",
+    "tileUris",
+    "geometry"
+  ]
+}

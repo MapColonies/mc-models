@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "StatusMetadata",
+  "allOf": [
+    {
+      "$ref": "#/definitions/StatusMetadata",
+      "type": "object"
+    }
+  ],
+  "definitions": {
+    "StatusMetadata": {
+      "type": "object",
+      "example": {
+        "ingestionStartDate": "2020-07-13T06:53:16.202Z",
+        "ingestionEndDate": "2020-07-13T06:53:16.202Z",
+        "layerTileLocation": "uri"
+      },
+      "additionalProperties": true,
+      "properties": {
+        "ingestionStartDate": {
+          "$id": "#/properties/updateDate",
+          "type": "string",
+          "format": "date-time",
+          "tsType": "Date",
+          "description": "Layer creation time",
+          "example": "2020-07-13T06:53:16.202Z"
+        },
+        "ingestionEndDate": {
+          "$id": "#/properties/updateDate",
+          "type": "string",
+          "format": "date-time",
+          "tsType": "Date",
+          "description": "Layer creation time",
+          "example": "2020-07-13T06:53:16.202Z"
+        },
+        "layerTileLocation": {
+          "$id": "#/properties/scale",
+          "type": "string",
+          "description": "Scale of layer",
+          "example": "uri"
+        }
+      }
+    }
+  }
+}
