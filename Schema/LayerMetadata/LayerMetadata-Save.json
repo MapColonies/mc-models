@@ -1,16 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "ImageMetaDataCreate",
-  "title": "Image metadata create",
+  "$id": "LayerMetadataCreate",
+  "title": "Layer metadata create",
   "description": "additional data related to raster layer",
   "allOf": [
     {
-      "$ref": "./ImageMetadata-Create.json",
+      "$ref": "./LayerMetadata-Status.json",
       "type": "object"
     }
   ],
-  "required": [
-    "imageUri"
-  ],
+  "required": [""],
   "example": {}
 }
