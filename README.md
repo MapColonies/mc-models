@@ -16,9 +16,7 @@ the schemas for the validation are in the package, in order to use it for valida
 
 ## building the package:
 
-1. run `npm install` to install project dependencies.
-2. run `npm run generate` to generate the type script types.
-3. run `npm run build` to compile the type script types and references to type definitions.
+run `npm install` to install project dependencies.
 
 to create local package tgz file run `npm pack` after the build
 

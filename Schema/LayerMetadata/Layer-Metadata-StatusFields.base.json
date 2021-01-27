@@ -3,6 +3,10 @@
   "$id": "StatusMetadata",
   "allOf": [
     {
+      "$ref": "./LayerMetadata-Create.json",
+      "type": "object"
+    },
+    {
       "$ref": "#/definitions/StatusMetadata",
       "type": "object"
     }
@@ -36,7 +40,7 @@
         "layerTileLocation": {
           "$id": "#/properties/scale",
           "type": "string",
-          "description": "Scale of layer",
+          "description": "Location of tiles",
           "example": "uri"
         }
       }

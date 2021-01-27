@@ -5,11 +5,7 @@
   "description": "additional data related to raster layer",
   "allOf": [
     {
-      "$ref": "./LayerMetadata-Create.json",
-      "type": "object"
-    },
-    {
-      "$ref": "./LayerMetadata-StatusFields.json",
+      "$ref": "./LayerMetadata-StatusFields.base.json",
       "type": "object"
     }
   ],

@@ -1,0 +1,23 @@
+name: Lint
+
+on: [pull_request]
+
+jobs:
+  yamllint:
+    name: Run yaml lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Yaml-Lint Checks
+        run: npm run lint:yaml

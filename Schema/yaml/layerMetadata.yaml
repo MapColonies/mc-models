@@ -1,0 +1,76 @@
+openapi: "3.0.1"
+info:
+  title: Layer metadata definitions
+  version: 1.0.0
+servers:
+  - url: http://localhost:80/
+definitions:
+  LayerMetadata:
+    type: object
+    description: fdsfs
+    required:
+      - source
+      - updateDate
+      - resolution
+      - ep90
+      - sensorType
+      - rms
+      - scale
+      - dsc
+      - tileUris
+      - geometry
+    properties:
+      source:
+        type: string
+        description: Name of source
+      updateDate:
+        type: string
+        description: Update date
+        format: date-time
+      resolution:
+        type: number
+        description: Resolution of tif files
+      ep90:
+        type: number
+        description: Accuracy
+      sensorType:
+        type: string
+        enum:
+          - VIS
+          - RGB
+          - Pan_Sharpen
+        description: The sensor type
+      rms:
+        type: number
+      scale:
+        type: string
+      dsc:
+        type: string
+      tileUris:
+        type: array
+        items:
+          type: string
+      geometry:
+        $ref: geojson.yaml#/Geometry
+  StatusLayerMetadata:
+    type: object
+    description: Metadata for layer status
+    required:
+      - ingestionStartDate
+      - ingestionEndDate
+      - layerTileLocation
+    properties:
+      allOf:
+        - $ref: "#/definitions/LayerMetadata"
+        - properties:
+            ingestionStartDate:
+              type: string
+              format: date
+              description: Ingestion start time date
+            ingestionEndDate:
+              type: string
+              format: date
+              description: Ingestion end time date
+            layerTileLocation:
+              typr: string
+              description: Url of tile location
