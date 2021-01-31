@@ -1,4 +1,4 @@
-import { LayerMetadata } from "./LayerMetadata";
+import { LayerMetadata } from "./layerMetadata";
 
 export interface StatusMetadata extends LayerMetadata {
   /**

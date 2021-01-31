@@ -1,2 +1,2 @@
-export * from "./LayerMetadata";
-export * from "./LayerMetadata-StatusFields";
+export * from "./layerMetadata";
+export * from "./layerMetadata-StatusFields";
