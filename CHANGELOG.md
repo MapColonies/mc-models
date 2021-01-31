@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@2.0.0...mc-model-types@2.1.0) (2021-01-31)
+
+
+### Features
+
+* **metadata models:** update layer metadata models ([#19](https://github.com/MapColonies/mc-models/issues/19)) ([95b06d1](https://github.com/MapColonies/mc-models/commit/95b06d17de50ab8f5efb335899fe316e6ba80b74))
+
 ## 2.0.0 (2020-12-23)
 
 
