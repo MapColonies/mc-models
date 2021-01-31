@@ -2,19 +2,7 @@ openapi: "3.0.1"
 info:
   title: Geojson definitions
   version: 1.0.0
-servers:
-  - url: http://localhost:80/
 definitions:
-  Error:
-    required:
-      - code
-      - message
-    properties:
-      code:
-        type: string
-      message:
-        type: string
-
   Geometry:
     type: object
     description: GeoJSon geometry
@@ -144,24 +132,3 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/Geometry"
-
-responses:
-  Standard500ErrorResponse:
-    description: An unexpected error occured.
-    schema:
-      $ref: "#/definitions/Error"
-
-  BadRequest400ErrorResponse:
-    description: The JSON is not valid
-    schema:
-      $ref: "#/definitions/Error"
-
-  Unauthorized401ErrorResponse:
-    description: The request requires an user authentication
-    schema:
-      $ref: "#/definitions/Error"
-
-  Forbidden403ErrorResponse:
-    description: the access is not allowed
-    schema:
-      $ref: "#/definitions/Error"
