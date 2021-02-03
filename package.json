@@ -4,8 +4,8 @@
   "description": "json schemas for validations and generated ts models",
   "author": "",
   "license": "MIT",
-  "main": "./lib/cjs/index.js",
-  "module": "./lib/esm/index.js",
+  "main": "",
+  "types": "./Schema/models/index.d.ts",
   "homepage": "https://github.com/MapColonies/mc-models#readme",
   "repository": {
     "type": "git",
@@ -19,10 +19,12 @@
     "clean": "rimraf *.tgz",
     "release": "standard-version -t mc-model-types@"
   },
+  "dependencies": {
+    "@types/geojson": "^7946.0.7"
+  },
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^10.0.0",
-    "@types/geojson": "^7946.0.7",
     "@types/node": "^14.14.14",
     "commitlint": "^9.1.0",
     "cz-conventional-changelog": "^3.2.0",
