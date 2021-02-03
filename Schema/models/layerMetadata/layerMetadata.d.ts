@@ -4,6 +4,7 @@ export enum SensorType {
   "VIS",
   "RGB",
   "Pan_Sharpen",
+  "OTHER",
 }
 
 export interface LayerMetadata {
@@ -11,6 +12,10 @@ export interface LayerMetadata {
    * Layer's unique identifier
    */
   source?: string;
+  /**
+   * Layer's source name
+   */
+  sourceName?: string;
   /**
    * Layer creation time
    */
@@ -37,9 +42,9 @@ export interface LayerMetadata {
    */
   dsc?: string;
   /**
-   * List of URIs for the layer tiles
+   * List of URIs for the layer files
    */
-  tileUris?: string[];
+  fileUris?: string[];
   /**
    * General geometry
    */
