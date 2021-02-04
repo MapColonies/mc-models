@@ -4,7 +4,7 @@
   "description": "json schemas for validations and generated ts models",
   "author": "",
   "license": "MIT",
-  "main": "",
+  "main": "./Schema/models/index.js",
   "types": "./Schema/models/index.d.ts",
   "homepage": "https://github.com/MapColonies/mc-models#readme",
   "repository": {
@@ -15,9 +15,13 @@
     "url": "https://github.com/MapColonies/mc-models/issues"
   },
   "scripts": {
-    "lint:yaml": "yamllint --schema=CORE_SCHEMA ./Schema/yaml/**/*.yaml",
-    "clean": "rimraf *.tgz",
-    "release": "standard-version -t mc-model-types@"
+    "lint:yaml": "yamllint --schema=CORE_SCHEMA ./yaml/**/*.yaml",
+    "clean": "rimraf *.tgz Schema",
+    "release": "standard-version -t mc-model-types@",
+    "build": "tsc  --project tsconfig.json",
+    "copy:yaml": "copyfiles some.json \"./yaml/**/*.yaml\" ./Schema",
+    "copy": "npm run copy:yaml",
+    "prepack": "npm run clean && npm run build && npm run copy"
   },
   "dependencies": {
     "@types/geojson": "^7946.0.7"
@@ -27,10 +31,12 @@
     "@commitlint/config-conventional": "^10.0.0",
     "@types/node": "^14.14.14",
     "commitlint": "^9.1.0",
+    "copyfiles": "^2.4.1",
     "cz-conventional-changelog": "^3.2.0",
     "husky": "^4.2.5",
     "rimraf": "^3.0.2",
     "standard-version": "^9.0.0",
+    "typescript": "^3.8.3",
     "yaml-lint": "^1.2.4"
   },
   "husky": {

@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+       "target": "ES5",
+       "module": "commonjs",
+       "declaration": true,
+       "outDir": "Schema",
+       "rootDir": ".",
+       "strict": true,
+       "esModuleInterop": true,
+       "allowSyntheticDefaultImports": true,
+       "moduleResolution": "node"
+    },
+    "include": ["models"],
+    "exclude": ["node_modules"]
+ }
+ 
