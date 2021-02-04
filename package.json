@@ -15,7 +15,7 @@
     "url": "https://github.com/MapColonies/mc-models/issues"
   },
   "scripts": {
-    "lint:yaml": "yamllint --schema=CORE_SCHEMA ./Schema/yaml/**/*.yaml",
+    "lint:yaml": "yamllint --schema=CORE_SCHEMA ./yaml/**/*.yaml",
     "clean": "rimraf *.tgz Schema",
     "release": "standard-version -t mc-model-types@",
     "build": "tsc  --project tsconfig.json",
