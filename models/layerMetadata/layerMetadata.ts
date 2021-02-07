@@ -1,10 +1,10 @@
 import { GeoJSON } from "geojson";
 
 export enum SensorType {
-  "VIS",
-  "RGB",
-  "Pan_Sharpen",
-  "OTHER",
+  VIS = "VIS",
+  RGB = "RGB",
+  Pan_Sharpen = "Pan_Sharpen",
+  OTHER = "OTHER",
 }
 
 export interface LayerMetadata {
@@ -15,7 +15,7 @@ export interface LayerMetadata {
   /**
    * layer version
    */
-  version?: string
+  version?: string;
   /**
    * Layer's source name
    */

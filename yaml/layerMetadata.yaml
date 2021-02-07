@@ -17,7 +17,7 @@ definitions:
       - rms
       - scale
       - dsc
-      - tileUris
+      - fileUris
       - geometry
     properties:
       source:
@@ -32,7 +32,7 @@ definitions:
       updateDate:
         type: string
         description: Update date
-        format: date-time
+        format: date
       resolution:
         type: number
         description: Resolution of tif files
@@ -45,6 +45,7 @@ definitions:
           - VIS
           - RGB
           - Pan_Sharpen
+          - OTHER
         description: The sensor type
       rms:
         type: number
@@ -52,7 +53,7 @@ definitions:
         type: string
       dsc:
         type: string
-      tileUris:
+      fileUris:
         type: array
         items:
           type: string
