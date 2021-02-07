@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.3](https://github.com/MapColonies/mc-models/compare/mc-model-types@2.1.2...mc-model-types@2.1.3) (2021-02-07)
+
+
+### Bug Fixes
+
+* fixed geometry ref ([#29](https://github.com/MapColonies/mc-models/issues/29)) ([da6f124](https://github.com/MapColonies/mc-models/commit/da6f124115c94dc81c568675bde683880f43b610))
+
 ### [2.1.2](https://github.com/MapColonies/mc-models/compare/mc-model-types@2.1.1...mc-model-types@2.1.2) (2021-02-07)
 
 
