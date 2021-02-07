@@ -57,7 +57,7 @@ definitions:
         items:
           type: string
       geometry:
-        $ref: geojson.yaml#/Geometry
+        $ref: geojson.yaml#/definitions/Geometry
   StatusLayerMetadata:
     type: object
     description: Metadata for layer status
