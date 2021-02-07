@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.2](https://github.com/MapColonies/mc-models/compare/mc-model-types@2.1.1...mc-model-types@2.1.2) (2021-02-07)
+
+
+### Bug Fixes
+
+* added support for enums ([#24](https://github.com/MapColonies/mc-models/issues/24)) ([0e93a32](https://github.com/MapColonies/mc-models/commit/0e93a32653f6034551cde7a8344caf7c2d59da8d))
+* added version filed ([#27](https://github.com/MapColonies/mc-models/issues/27)) ([8ee8649](https://github.com/MapColonies/mc-models/commit/8ee8649a8ad6c330b6d32dabe69c91e6ec465fcb))
+
 ### [2.1.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@2.1.0...mc-model-types@2.1.1) (2021-02-03)
 
 
