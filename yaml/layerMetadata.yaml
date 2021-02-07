@@ -8,6 +8,8 @@ definitions:
     description: fdsfs
     required:
       - source
+      - sourceName
+      - version
       - updateDate
       - resolution
       - ep90
@@ -19,6 +21,12 @@ definitions:
       - geometry
     properties:
       source:
+        type: string
+        description: Layer's unique identifier
+      version:
+        type: string
+        description: layer's version
+      sourceName:
         type: string
         description: Name of source
       updateDate:
