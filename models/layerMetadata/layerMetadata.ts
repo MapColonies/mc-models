@@ -13,6 +13,10 @@ export interface LayerMetadata {
    */
   source?: string;
   /**
+   * layer version
+   */
+  version?: string
+  /**
    * Layer's source name
    */
   sourceName?: string;
