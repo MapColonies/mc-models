@@ -1,6 +1,6 @@
 import { LayerMetadata } from "./layerMetadata";
 
-export interface StatusMetadata extends LayerMetadata {
+export class StatusMetadata extends LayerMetadata {
   /**
    * Layer creation time
    */

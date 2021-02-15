@@ -24,7 +24,8 @@
     "prepack": "npm run clean && npm run build && npm run copy"
   },
   "dependencies": {
-    "@types/geojson": "^7946.0.7"
+    "@types/geojson": "^7946.0.7",
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
