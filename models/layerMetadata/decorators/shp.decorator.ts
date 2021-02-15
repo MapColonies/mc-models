@@ -2,7 +2,7 @@ import "reflect-metadata";
 
 const shpMappingMetadataKey = Symbol("shpmapping");
 
-export interface ISHPMapping {
+export interface IShpMapping {
   shpFile: ShapeFileType;
   valuePath: string;
 }
@@ -13,7 +13,7 @@ export enum ShapeFileType {
   SHAPE_METADATA = 'ShapeMetadata',
 }
 
-export function shpMapping(shpmapping: ISHPMapping) {
+export function shpMapping(shpmapping: IShpMapping) {
   return Reflect.metadata(shpMappingMetadataKey, shpmapping);
 }
 

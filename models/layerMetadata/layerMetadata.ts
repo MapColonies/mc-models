@@ -1,8 +1,8 @@
 import { GeoJSON } from "geojson";
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from "./decorators/csw.decorator";
-import { getShpMapping, ISHPMapping, ShapeFileType, shpMapping } from "./decorators/shp.decorator";
+import { getShpMapping, IShpMapping, ShapeFileType, shpMapping } from "./decorators/shp.decorator";
 
-export interface IPropSHPMapping extends ISHPMapping{
+export interface IPropSHPMapping extends IShpMapping{
   prop: string
 }
 
@@ -137,7 +137,7 @@ export class LayerMetadata {
     return getPyCSWMapping(new LayerMetadata(), prop);
   }
 
-  static getShpMapping(prop: string): ISHPMapping {
+  static getShpMapping(prop: string): IShpMapping {
     return getShpMapping(new LayerMetadata(), prop);
   }
 
@@ -155,7 +155,6 @@ export class LayerMetadata {
         }
       }
     }
-    console.log(ret);
     return ret;
   }
 
@@ -173,7 +172,6 @@ export class LayerMetadata {
         }
       }
     }
-    console.log(ret);
     return ret;
   }
 
