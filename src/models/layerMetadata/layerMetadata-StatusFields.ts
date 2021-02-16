@@ -1,16 +1,16 @@
-import { LayerMetadata } from "./layerMetadata";
+import { LayerMetadata } from './layerMetadata';
 
 export class StatusMetadata extends LayerMetadata {
   /**
    * Layer creation time
    */
-  ingestionStartDate?: Date;
+  public ingestionStartDate?: Date;
   /**
    * Layer creation time
    */
-  ingestionEndDate?: Date;
+  public ingestionEndDate?: Date;
   /**
    * Location of tiles"
    */
-  layerTileLocation?: string;
+  public layerTileLocation?: string;
 }

@@ -4,17 +4,13 @@
     "module": "commonjs",
     "experimentalDecorators": true,
     "declaration": true,
+    "rootDir": "./src",
     "outDir": "Schema",
-    "rootDir": ".",
     "strict": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node"
   },
-  "include": [
-    "models"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src", "tests"],
+  "exclude": ["dist", "Schema", "node_modules"]
 }
