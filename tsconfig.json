@@ -4,6 +4,7 @@
     "module": "commonjs",
     "experimentalDecorators": true,
     "declaration": true,
+    "rootDir": "./src",
     "outDir": "Schema",
     "strict": true,
     "esModuleInterop": true,
