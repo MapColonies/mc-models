@@ -2,82 +2,83 @@ openapi: "3.0.1"
 info:
   title: Layer metadata definitions
   version: 1.0.0
-definitions:
-  LayerMetadata:
-    type: object
-    description: fdsfs
-    required:
-      - source
-      - sourceName
-      - version
-      - updateDate
-      - resolution
-      - ep90
-      - sensorType
-      - rms
-      - scale
-      - dsc
-      - fileUris
-      - geometry
-    properties:
-      source:
-        type: string
-        description: Layer's unique identifier
-      version:
-        type: string
-        description: layer's version
-      sourceName:
-        type: string
-        description: Name of source
-      updateDate:
-        type: string
-        description: Update date
-        format: date
-      resolution:
-        type: number
-        description: Resolution of tif files
-      ep90:
-        type: number
-        description: Accuracy
-      sensorType:
-        type: string
-        enum:
-          - VIS
-          - RGB
-          - Pan_Sharpen
-          - OTHER
-        description: The sensor type
-      rms:
-        type: number
-      scale:
-        type: string
-      dsc:
-        type: string
-      fileUris:
-        type: array
-        items:
+components:
+  schemas:
+    LayerMetadata:
+      type: object
+      description: layer meta data
+      required:
+        - source
+        - sourceName
+        - version
+        - updateDate
+        - resolution
+        - ep90
+        - sensorType
+        - rms
+        - scale
+        - dsc
+        - fileUris
+        - geometry
+      properties:
+        source:
           type: string
-      geometry:
-        $ref: geojson.yaml#/definitions/Geometry
-  StatusLayerMetadata:
-    type: object
-    description: Metadata for layer status
-    required:
-      - ingestionStartDate
-      - ingestionEndDate
-      - layerTileLocation
-    properties:
-      allOf:
-        - $ref: "#/definitions/LayerMetadata"
-        - properties:
-            ingestionStartDate:
-              type: string
-              format: date
-              description: Ingestion start time date
-            ingestionEndDate:
-              type: string
-              format: date
-              description: Ingestion end time date
-            layerTileLocation:
-              typr: string
-              description: Url of tile location
+          description: Layer's unique identifier
+        version:
+          type: string
+          description: layer's version
+        sourceName:
+          type: string
+          description: Name of source
+        updateDate:
+          type: string
+          description: Update date
+          format: date
+        resolution:
+          type: number
+          description: Resolution of tif files
+        ep90:
+          type: number
+          description: Accuracy
+        sensorType:
+          type: string
+          enum:
+            - VIS
+            - RGB
+            - Pan_Sharpen
+            - OTHER
+          description: The sensor type
+        rms:
+          type: number
+        scale:
+          type: string
+        dsc:
+          type: string
+        fileUris:
+          type: array
+          items:
+            type: string
+        geometry:
+          $ref: geojson.yaml#/components/schemas/Geometry
+    StatusLayerMetadata:
+      type: object
+      description: Metadata for layer status
+      required:
+        - ingestionStartDate
+        - ingestionEndDate
+        - layerTileLocation
+      properties:
+        allOf:
+          - $ref: "#/components/schemas/LayerMetadata"
+          - properties:
+              ingestionStartDate:
+                type: string
+                format: date
+                description: Ingestion start time date
+              ingestionEndDate:
+                type: string
+                format: date
+                description: Ingestion end time date
+              layerTileLocation:
+                typr: string
+                description: Url of tile location
