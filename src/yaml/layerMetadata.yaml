@@ -58,7 +58,7 @@ components:
           type: array
           items:
             type: string
-            pattern: "^.+(\.(tiff|TIFF))$"
+            pattern: "^.+(\\.(tiff|TIFF))$"
         geometry:
           $ref: geojson.yaml#/components/schemas/Geometry
     StatusLayerMetadata:
