@@ -35,7 +35,7 @@ definitions:
         format: date
       resolution:
         type: number
-        description: Resolution of tif files
+        description: Resolution of tiff files
       ep90:
         type: number
         description: Accuracy
@@ -57,6 +57,7 @@ definitions:
         type: array
         items:
           type: string
+          pattern: "^.+(\.(tiff|TIFF))$"
       geometry:
         $ref: geojson.yaml#/definitions/Geometry
   StatusLayerMetadata:
