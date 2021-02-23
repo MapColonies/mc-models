@@ -36,7 +36,7 @@ components:
           format: date
         resolution:
           type: number
-          description: Resolution of tif files
+          description: Resolution of tiff files
         ep90:
           type: number
           description: Accuracy
@@ -58,6 +58,7 @@ components:
           type: array
           items:
             type: string
+            pattern: "^.+(\\.([Tt][Ii][Ff][Ff]|[Tt][Ii][Ff]))$"
         geometry:
           $ref: geojson.yaml#/components/schemas/Geometry
     StatusLayerMetadata:
