@@ -58,7 +58,7 @@ components:
           type: array
           items:
             type: string
-            pattern: "^.+(\\.(tiff|tif|TIFF|TIF))$"
+            pattern: "^.+(\\.([Tt][Ii][Ff][Ff]|[Tt][Ii][Ff]))$"
         geometry:
           $ref: geojson.yaml#/components/schemas/Geometry
     StatusLayerMetadata:
