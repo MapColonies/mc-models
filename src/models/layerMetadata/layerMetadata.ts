@@ -125,6 +125,11 @@ export class LayerMetadata {
   public geometry?: GeoJSON = undefined;
 
   /**
+   * layer id
+   */
+  public id?: string = undefined;
+
+  /**
    * layer version
    */
   public version?: string = undefined;

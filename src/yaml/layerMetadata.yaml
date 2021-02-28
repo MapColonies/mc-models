@@ -10,6 +10,7 @@ components:
       required:
         - source
         - sourceName
+        - id
         - version
         - updateDate
         - resolution
@@ -24,6 +25,9 @@ components:
         source:
           type: string
           description: Layer's unique identifier
+        id:
+          type: string
+          description: Layer's id
         version:
           type: string
           description: layer's version
@@ -33,7 +37,7 @@ components:
         updateDate:
           type: string
           description: Update date
-          format: date
+          format: date-time
         resolution:
           type: number
           description: Resolution of tiff files
@@ -74,11 +78,11 @@ components:
           - properties:
               ingestionStartDate:
                 type: string
-                format: date
+                format: date-time
                 description: Ingestion start time date
               ingestionEndDate:
                 type: string
-                format: date
+                format: date-time
                 description: Ingestion end time date
               layerTileLocation:
                 typr: string
