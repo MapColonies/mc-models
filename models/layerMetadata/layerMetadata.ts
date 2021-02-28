@@ -9,9 +9,13 @@ export enum SensorType {
 
 export interface LayerMetadata {
   /**
-   * Layer's unique identifier
+   * Layer's identifier - Composed of id + version
    */
   source?: string;
+  /**
+   * Layer's unique identifier
+   */
+  id?: string;
   /**
    * layer version
    */

@@ -9,6 +9,7 @@ definitions:
     required:
       - source
       - sourceName
+      - id
       - version
       - updateDate
       - resolution
@@ -22,6 +23,9 @@ definitions:
     properties:
       source:
         type: string
+        description: Layer's identifier - Composed of id + version
+      id:
+        type: string
         description: Layer's unique identifier
       version:
         type: string
@@ -32,7 +36,7 @@ definitions:
       updateDate:
         type: string
         description: Update date
-        format: date
+        format: date-time
       resolution:
         type: number
         description: Resolution of tif files
@@ -72,11 +76,11 @@ definitions:
         - properties:
             ingestionStartDate:
               type: string
-              format: date
+              format: date-time
               description: Ingestion start time date
             ingestionEndDate:
               type: string
-              format: date
+              format: date-time
               description: Ingestion end time date
             layerTileLocation:
               typr: string
