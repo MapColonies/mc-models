@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@3.0.0...mc-model-types@3.0.1) (2021-03-03)
+
+
+### Bug Fixes
+
+* publicly exported shape file types ([#49](https://github.com/MapColonies/mc-models/issues/49)) ([e13c17a](https://github.com/MapColonies/mc-models/commit/e13c17a18a85472669f13ddf38d696d4189b1b1f))
+
 ## [3.0.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@2.1.4...mc-model-types@3.0.0) (2021-03-03)
 
 
