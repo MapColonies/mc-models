@@ -28,7 +28,7 @@ components:
       discriminator:
           propertyName: type
       type: object
-      oneOf:
+      anyOf:
         - $ref: '#/components/schemas/Point'
         - $ref: '#/components/schemas/LineString'
         - $ref: '#/components/schemas/Polygon'
