@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@2.1.4...mc-model-types@3.0.0) (2021-03-03)
+
+
+### Features
+
+* **align-boilerplate:** initial, lint fixed ([#36](https://github.com/MapColonies/mc-models/issues/36)) ([508df46](https://github.com/MapColonies/mc-models/commit/508df46309f554cfee3be0d8874b2f2a60d548e6))
+* **mapping-decorators:** decorators hold mapping objects ([#33](https://github.com/MapColonies/mc-models/issues/33)) ([ded1f7e](https://github.com/MapColonies/mc-models/commit/ded1f7eae1491088448ad717ab0f8b65035b13d2))
+* **unit-tests:** implemented and integrated ([#37](https://github.com/MapColonies/mc-models/issues/37)) ([8f4a1d9](https://github.com/MapColonies/mc-models/commit/8f4a1d9fdedcf278953bdea3e9f3df287dabacab))
+
+
+### Bug Fixes
+
+* change oneof to anyof due to validator limits ([#47](https://github.com/MapColonies/mc-models/issues/47)) ([a5bd3f2](https://github.com/MapColonies/mc-models/commit/a5bd3f2cf2af58cb7f27ab96ecb9097ff93c87f6))
+* **dates:** change dates in yaml to date-time and add id field ([#45](https://github.com/MapColonies/mc-models/issues/45)) ([7dcce54](https://github.com/MapColonies/mc-models/commit/7dcce5458825ea0b643685b5f4bd0894f8103670))
+* **yaml-pattern:** tif or tiff case insensitive pattern ([#42](https://github.com/MapColonies/mc-models/issues/42)) ([3c7478f](https://github.com/MapColonies/mc-models/commit/3c7478fd6fe0a817b3fb627230c258ba8f122133))
+* fix to valid openapi3 format ([#40](https://github.com/MapColonies/mc-models/issues/40)) ([7ae678f](https://github.com/MapColonies/mc-models/commit/7ae678fc1b381d64f764e1a6377baa160b60ba87))
+
 ### [2.1.4](https://github.com/MapColonies/mc-models/compare/mc-model-types@2.1.3...mc-model-types@2.1.4) (2021-02-08)
 
 
