@@ -134,11 +134,6 @@ export class LayerMetadata {
    */
   public version?: string = undefined;
 
-  /**
-   * List of URIs for the layer files
-   */
-  public fileUris?: string[] = undefined;
-
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
     return getPyCSWMapping(new LayerMetadata(), prop);
   }
