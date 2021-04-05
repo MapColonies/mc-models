@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@3.0.1...mc-model-types@3.1.0) (2021-04-05)
+
+
+### Features
+
+* added ingestion param model ([#50](https://github.com/MapColonies/mc-models/issues/50)) ([d184679](https://github.com/MapColonies/mc-models/commit/d184679976520e56cc2d895ca6699b3b66e2c2fd))
+
 ### [3.0.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@3.0.0...mc-model-types@3.0.1) (2021-03-03)
 
 
