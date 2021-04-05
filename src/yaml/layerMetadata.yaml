@@ -19,7 +19,6 @@ components:
         - rms
         - scale
         - dsc
-        - fileUris
         - geometry
       properties:
         source:
@@ -58,11 +57,6 @@ components:
           type: string
         dsc:
           type: string
-        fileUris:
-          type: array
-          items:
-            type: string
-            pattern: "^.+(\\.([Tt][Ii][Ff][Ff]|[Tt][Ii][Ff]))$"
         geometry:
           $ref: geojson.yaml#/components/schemas/Geometry
     StatusLayerMetadata:
@@ -85,5 +79,5 @@ components:
                 format: date-time
                 description: Ingestion end time date
               layerTileLocation:
-                typr: string
+                type: string
                 description: Url of tile location

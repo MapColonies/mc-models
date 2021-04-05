@@ -1,0 +1,25 @@
+openapi: "3.0.1"
+info:
+  title: Layer ingestion parameters definitions
+  version: 1.0.0
+components:
+  schemas:
+    IngestionParams:
+      type: object
+      description: ingestion parameters
+      required:
+        - metadata
+        - originDirectory
+        - fileNames
+      properties:
+        metadata:
+          $ref: '../layerMetadata.yaml#/components/schemas/LayerMetadata'
+        originDirectory:
+          type: string
+          description: layer source directory
+        fileNames:
+          type: array
+          description: layer sources
+          items:
+            type: string
+            pattern: "^.+(\\.([Tt][Ii][Ff][Ff]|[Tt][Ii][Ff]))$"
