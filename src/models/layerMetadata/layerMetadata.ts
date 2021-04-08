@@ -40,8 +40,8 @@ export class LayerMetadata {
       type: 'text',
       nullable: false,
       isPrimary: false,
-      isIndexed: false,   
-    }
+      isIndexed: false,
+    },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
@@ -65,8 +65,8 @@ export class LayerMetadata {
       type: 'text',
       nullable: false,
       isPrimary: false,
-      isIndexed: false,   
-    }
+      isIndexed: false,
+    },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
@@ -90,8 +90,8 @@ export class LayerMetadata {
       type: 'timestamp without time zone',
       nullable: false,
       isPrimary: false,
-      isIndexed: false,   
-    }
+      isIndexed: false,
+    },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
@@ -115,8 +115,8 @@ export class LayerMetadata {
       type: 'real', // check if 'decimal' type is needed
       nullable: false,
       isPrimary: false,
-      isIndexed: false,   
-    }
+      isIndexed: false,
+    },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
@@ -140,8 +140,8 @@ export class LayerMetadata {
       type: 'real', // check if 'decimal' type is needed
       nullable: true,
       isPrimary: false,
-      isIndexed: false,   
-    }
+      isIndexed: false,
+    },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
@@ -165,8 +165,8 @@ export class LayerMetadata {
       type: 'text',
       nullable: false,
       isPrimary: false,
-      isIndexed: false,   
-    }
+      isIndexed: false,
+    },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
@@ -191,7 +191,7 @@ export class LayerMetadata {
       nullable: true,
       isPrimary: false,
       isIndexed: false,
-    }
+    },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
@@ -215,8 +215,8 @@ export class LayerMetadata {
       type: 'text',
       nullable: true,
       isPrimary: false,
-      isIndexed: false,   
-    }
+      isIndexed: false,
+    },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
@@ -240,8 +240,8 @@ export class LayerMetadata {
       type: 'text',
       nullable: true,
       isPrimary: false,
-      isIndexed: false,   
-    }
+      isIndexed: false,
+    },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
@@ -265,8 +265,8 @@ export class LayerMetadata {
       type: 'text',
       nullable: true,
       isPrimary: false,
-      isIndexed: false,   
-    }
+      isIndexed: false,
+    },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
@@ -290,15 +290,15 @@ export class LayerMetadata {
       type: 'text',
       nullable: true,
       isPrimary: false,
-      isIndexed: false,   
-    }
+      isIndexed: false,
+    },
   })
   public id?: string = undefined;
 
   /**
    * layer version
    */
-   @pycsw({
+  @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:version',
     queryableField: 'mc:vserion',
@@ -311,8 +311,8 @@ export class LayerMetadata {
       type: 'text',
       nullable: true,
       isPrimary: false,
-      isIndexed: false,   
-    }
+      isIndexed: false,
+    },
   })
   public version?: string = undefined;
 
@@ -347,7 +347,6 @@ export class LayerMetadata {
     const ret = [];
     const layer = new LayerMetadata();
     for (const prop in layer) {
-      
       const catalogDbMap = getCatalogDBMapping(layer, prop);
       if (catalogDbMap) {
         ret.push({
