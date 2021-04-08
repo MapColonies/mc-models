@@ -8,8 +8,8 @@ export interface IColumnProps {
   type: string;
   nullable?: boolean;
   defaultValue?: string;
-  isPrimary: boolean;
-  isIndexed: boolean;
+  isPrimary?: boolean;
+  isIndexed?: boolean;
   spatialFeatureType?: string;
   srid?: number;
 }

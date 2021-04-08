@@ -11,6 +11,10 @@ export interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
 }
 
+export interface IPropCatalogDBMapping extends ICatalogDBMapping {
+  prop: string;
+}
+
 export enum SensorType {
   VIS = 'VIS',
   RGB = 'RGB',
@@ -320,6 +324,10 @@ export class LayerMetadata {
     return getShpMapping(new LayerMetadata(), prop);
   }
 
+  public static getCatalogDBMapping(prop: string): ICatalogDBMapping | undefined {
+    return getCatalogDBMapping(new LayerMetadata(), prop);
+  }
+
   public static getPyCSWMappings(): IPropPYCSWMapping[] {
     const ret = [];
     const layer = new LayerMetadata();
@@ -329,6 +337,22 @@ export class LayerMetadata {
         ret.push({
           prop: prop,
           ...pycswMap,
+        });
+      }
+    }
+    return ret;
+  }
+
+  public static getCatalogDBMappings(): IPropCatalogDBMapping[] {
+    const ret = [];
+    const layer = new LayerMetadata();
+    for (const prop in layer) {
+      
+      const catalogDbMap = getCatalogDBMapping(layer, prop);
+      if (catalogDbMap) {
+        ret.push({
+          prop: prop,
+          ...catalogDbMap,
         });
       }
     }
