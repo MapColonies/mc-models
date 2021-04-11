@@ -23,6 +23,7 @@ describe('LayerMetadata class static methods', () => {
 
     expect(shpMapping).toHaveProperty('shpFile');
     expect(shpMapping).toHaveProperty('valuePath');
+    expect(shpMapping).toHaveProperty('mappingType');
   });
 
   it('getShpMapping(): NOT mapped to SHAPE prop', () => {
@@ -49,6 +50,7 @@ describe('LayerMetadata class static methods', () => {
     expect(shpMappings[0]).toHaveProperty('prop');
     expect(shpMappings[0]).toHaveProperty('shpFile');
     expect(shpMappings[0]).toHaveProperty('valuePath');
+    expect(shpMappings[0]).toHaveProperty('mappingType');
   });
 
   it('getCatalogDbMapping(): mapped to DATABASE prop', () => {
