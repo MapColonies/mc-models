@@ -83,7 +83,5 @@ describe('LayerMetadata class static methods', () => {
     expect(columnProps).toHaveProperty('name');
     expect(columnProps).toHaveProperty('type');
     expect(columnProps).toHaveProperty('nullable');
-    expect(columnProps).toHaveProperty('isPrimary');
-    expect(columnProps).toHaveProperty('isIndexed');
   });
 });
