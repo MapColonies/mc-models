@@ -10,7 +10,7 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel{
       type: 'text',
     }
   })
-  public typeName?: string;
+  public typeName?: string = undefined;
 
   @catalogDB({
     table: 'records',
@@ -19,7 +19,7 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel{
       type: 'text',
     }
   })
-  public schema?: string;
+  public schema?: string = undefined;
 
   @catalogDB({
     table: 'records',
@@ -28,7 +28,7 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel{
       type: 'text',
     }
   })
-  public mdSource?: string;
+  public mdSource?: string = undefined;
 
   @catalogDB({
     table: 'records',
@@ -37,7 +37,7 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel{
       type: 'text',
     }
   })
-  public xml?: string;
+  public xml?: string = undefined;
 
   @catalogDB({
     table: 'records',
@@ -46,7 +46,7 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel{
       type: 'text',
     }
   })
-  public anyText?: string;
+  public anyText?: string = undefined;
 
   @catalogDB({
     table: 'records',
@@ -55,7 +55,7 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel{
       type: 'timestamp without time zone',
     }
   })
-  public insertDate?: Date;
+  public insertDate?: Date = undefined;
  
   @catalogDB({
     table: 'records',
@@ -65,7 +65,7 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel{
       nullable: true,
     }
   })
-  public wktGeometry?: string;
+  public wktGeometry?: string = undefined;
 
   @catalogDB({
     table: 'records',
@@ -75,7 +75,7 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel{
       nullable: true,
     }
   }) 
-  public links?: string;
+  public links?: string = undefined;
 
   @catalogDB({
     table: 'records',
@@ -85,7 +85,7 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel{
       nullable: true,
     }
   })   
-  public anyTextTsvector?: string;
+  public anyTextTsvector?: string = undefined;
 
   @catalogDB({
     table: 'records',
@@ -97,7 +97,7 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel{
       nullable: true,
     }
   })
-  public wkbGeometry?: string;
+  public wkbGeometry?: string = undefined;
 
   @catalogDB({
     table: 'records',
@@ -107,7 +107,7 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel{
       nullable: true,
     }
   })
-  public title?: string;
+  public title?: string = undefined;
 
   @catalogDB({
     table: 'records',
@@ -117,7 +117,7 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel{
       nullable: true,
     }
   })
-  public type?: string;
+  public type?: string = undefined;
 
   @catalogDB({
     table: 'records',
@@ -127,7 +127,7 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel{
       nullable: true,
     }
   })
-  public srs?: string;
+  public srs?: string = undefined;
 
   @catalogDB({
     table: 'records',
@@ -138,7 +138,7 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel{
       nullable: true,
     }
   })
-  public producerName?: string;
+  public producerName?: string  = undefined;
 
   @catalogDB({
     table: 'records',
@@ -148,5 +148,5 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel{
       nullable: true,
     }
   })
-  public projectName?: string;
+  public projectName?: string = undefined;
 }

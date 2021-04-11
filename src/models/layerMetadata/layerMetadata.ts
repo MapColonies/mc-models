@@ -58,7 +58,7 @@ export class LayerMetadata implements ILayerMetadata {
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Source',
   })
-  public source?: string;
+  public source?: string = undefined;
 
   /**
    * Layer's source name
@@ -80,7 +80,7 @@ export class LayerMetadata implements ILayerMetadata {
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.SourceName',
   })
-  public sourceName?: string;
+  public sourceName?: string = undefined;;
 
   /**
    * Layer creation time
@@ -102,7 +102,7 @@ export class LayerMetadata implements ILayerMetadata {
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.UpdateDate',
   })
-  public updateDate?: Date;
+  public updateDate?: Date = undefined;;
 
   /**
    * Layer resolution
@@ -124,7 +124,7 @@ export class LayerMetadata implements ILayerMetadata {
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Resolution',
   })
-  public resolution?: number;
+  public resolution?: number = undefined;;
 
   /**
    * accuracy
@@ -147,7 +147,7 @@ export class LayerMetadata implements ILayerMetadata {
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Ep90',
   })
-  public ep90?: number;
+  public ep90?: number = undefined;;
 
   /**
    * Layer sensor type
@@ -169,7 +169,7 @@ export class LayerMetadata implements ILayerMetadata {
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.SensorType',
   })
-  public sensorType?: SensorType;
+  public sensorType?: SensorType = undefined;;
 
   /**
    * RMS
@@ -192,7 +192,7 @@ export class LayerMetadata implements ILayerMetadata {
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Rms',
   })
-  public rms?: number;
+  public rms?: number = undefined;;
 
   /**
    * Scale of layer
@@ -215,7 +215,7 @@ export class LayerMetadata implements ILayerMetadata {
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Scale',
   })
-  public scale?: string;
+  public scale?: string = undefined;;
 
   /**
    * Layer description
@@ -238,7 +238,7 @@ export class LayerMetadata implements ILayerMetadata {
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Dsc',
   })
-  public dsc?: string;
+  public dsc?: string = undefined;;
 
   /**
    * General geometry
@@ -261,7 +261,7 @@ export class LayerMetadata implements ILayerMetadata {
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].geometry',
   })
-  public geometry?: GeoJSON;
+  public geometry?: GeoJSON = undefined;;
 
   /**
    * layer id
@@ -280,7 +280,7 @@ export class LayerMetadata implements ILayerMetadata {
       nullable: true,
     },
   })
-  public id?: string;
+  public id?: string = undefined;;
 
   /**
    * layer version
@@ -299,7 +299,7 @@ export class LayerMetadata implements ILayerMetadata {
       nullable: true,
     },
   })
-  public version?: string;
+  public version?: string = undefined;;
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
     return getPyCSWMapping(new LayerMetadata(), prop);
@@ -345,7 +345,7 @@ export class LayerMetadata implements ILayerMetadata {
 
   public static getShpMappings(): IPropSHPMapping[] {
     const ret = [];
-    const layer = new LayerMetadata();
+    const layer = new LayerMetadata();  
     for (const prop in layer) {
       const shpMap = getShpMapping(layer, prop);
       if (shpMap) {
