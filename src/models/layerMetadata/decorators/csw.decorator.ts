@@ -4,6 +4,7 @@ import { LayerMetadata } from '../index';
 const pycswMappingMetadataKey = Symbol('pycswmapping');
 
 export interface IPYCSWMapping {
+  profile: string; // pycsw profile name
   xmlElement: string; // pycsw XML element
   queryableField: string; // pycsw ProfileRepository Queryable field
   pycswField?: string; // pycsw core field
