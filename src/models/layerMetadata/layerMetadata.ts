@@ -1,6 +1,6 @@
 import { GeoJSON } from 'geojson';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/csw.decorator';
-import { getShpMapping, IShpMapping, ShapeFileType, shpMapping } from './decorators/shp.decorator';
+import { getShpMapping, IShpMapping, ShapeFileType, shpMapping, TsTypes } from './decorators/shp.decorator';
 
 export interface IPropSHPMapping extends IShpMapping {
   prop: string;
@@ -30,6 +30,7 @@ export class LayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Source',
+    mappingType: TsTypes.STRING,
   })
   public source?: string = undefined;
 
@@ -39,6 +40,7 @@ export class LayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.SourceName',
+    mappingType: TsTypes.STRING,
   })
   public sourceName?: string = undefined;
 
@@ -48,6 +50,7 @@ export class LayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.UpdateDate',
+    mappingType: TsTypes.DATE,
   })
   public updateDate?: Date = undefined;
 
@@ -57,6 +60,7 @@ export class LayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Resolution',
+    mappingType: TsTypes.NUMBER,
   })
   public resolution?: number = undefined;
 
@@ -66,6 +70,7 @@ export class LayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Ep90',
+    mappingType: TsTypes.NUMBER,
   })
   public ep90?: number = undefined;
 
@@ -75,6 +80,7 @@ export class LayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.SensorType',
+    mappingType: TsTypes.STRING,
   })
   public sensorType?: SensorType = undefined;
 
@@ -84,6 +90,7 @@ export class LayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Rms',
+    mappingType: TsTypes.NUMBER,
   })
   public rms?: number = undefined;
 
@@ -93,6 +100,7 @@ export class LayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Scale',
+    mappingType: TsTypes.STRING,
   })
   public scale?: string = undefined;
 
@@ -107,6 +115,7 @@ export class LayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Dsc',
+    mappingType: TsTypes.STRING,
   })
   public dsc?: string = undefined;
 
@@ -121,6 +130,7 @@ export class LayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].geometry',
+    mappingType: TsTypes.OBJECT,
   })
   public geometry?: GeoJSON = undefined;
 
