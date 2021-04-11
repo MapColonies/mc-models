@@ -3,6 +3,20 @@ import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/csw.decorato
 import { getShpMapping, IShpMapping, ShapeFileType, shpMapping } from './decorators/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from './decorators/catalogDB.decorator';
 
+export interface ILayerMetadata {
+  source?: string;
+  sourceName?: string;
+  updateDate?: Date;
+  resolution?: number;
+  ep90?: number;
+  sensorType?: string;
+  rms?: number;
+  scale?: string;
+  dsc?: string;
+  geometry?: GeoJSON;
+  id?: string;
+  version?: string;
+}
 export interface IPropSHPMapping extends IShpMapping {
   prop: string;
 }
@@ -23,7 +37,7 @@ export enum SensorType {
   OTHER = 'OTHER',
 }
 
-export class LayerMetadata {
+export class LayerMetadata implements ILayerMetadata {
   /**
    * Layer's unique identifier
    */
@@ -38,14 +52,13 @@ export class LayerMetadata {
     column: {
       name: 'source',
       type: 'text',
-      nullable: false,
     },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Source',
   })
-  public source?: string = undefined;
+  public source?: string;
 
   /**
    * Layer's source name
@@ -61,14 +74,13 @@ export class LayerMetadata {
     column: {
       name: 'sourceName',
       type: 'text',
-      nullable: false,
     },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.SourceName',
   })
-  public sourceName?: string = undefined;
+  public sourceName?: string;
 
   /**
    * Layer creation time
@@ -84,14 +96,13 @@ export class LayerMetadata {
     column: {
       name: 'updateDate',
       type: 'timestamp without time zone',
-      nullable: false,
     },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.UpdateDate',
   })
-  public updateDate?: Date = undefined;
+  public updateDate?: Date;
 
   /**
    * Layer resolution
@@ -107,14 +118,13 @@ export class LayerMetadata {
     column: {
       name: 'resolution',
       type: 'real', // check if 'decimal' type is needed
-      nullable: false,
     },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Resolution',
   })
-  public resolution?: number = undefined;
+  public resolution?: number;
 
   /**
    * accuracy
@@ -137,7 +147,7 @@ export class LayerMetadata {
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Ep90',
   })
-  public ep90?: number = undefined;
+  public ep90?: number;
 
   /**
    * Layer sensor type
@@ -153,14 +163,13 @@ export class LayerMetadata {
     column: {
       name: 'sensorType',
       type: 'text',
-      nullable: false,
     },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.SensorType',
   })
-  public sensorType?: SensorType = undefined;
+  public sensorType?: SensorType;
 
   /**
    * RMS
@@ -183,7 +192,7 @@ export class LayerMetadata {
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Rms',
   })
-  public rms?: number = undefined;
+  public rms?: number;
 
   /**
    * Scale of layer
@@ -206,7 +215,7 @@ export class LayerMetadata {
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Scale',
   })
-  public scale?: string = undefined;
+  public scale?: string;
 
   /**
    * Layer description
@@ -229,7 +238,7 @@ export class LayerMetadata {
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Dsc',
   })
-  public dsc?: string = undefined;
+  public dsc?: string;
 
   /**
    * General geometry
@@ -252,7 +261,7 @@ export class LayerMetadata {
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].geometry',
   })
-  public geometry?: GeoJSON = undefined;
+  public geometry?: GeoJSON;
 
   /**
    * layer id
@@ -271,7 +280,7 @@ export class LayerMetadata {
       nullable: true,
     },
   })
-  public id?: string = undefined;
+  public id?: string;
 
   /**
    * layer version
@@ -290,7 +299,7 @@ export class LayerMetadata {
       nullable: true,
     },
   })
-  public version?: string = undefined;
+  public version?: string;
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
     return getPyCSWMapping(new LayerMetadata(), prop);
