@@ -149,4 +149,8 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
     },
   })
   public projectName?: string = undefined;
+
+  public constructor() {
+    super();
+  }
 }
