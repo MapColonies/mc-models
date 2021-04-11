@@ -39,8 +39,6 @@ export class LayerMetadata {
       name: 'source',
       type: 'text',
       nullable: false,
-      isPrimary: false,
-      isIndexed: false,
     },
   })
   @shpMapping({
@@ -64,8 +62,6 @@ export class LayerMetadata {
       name: 'sourceName',
       type: 'text',
       nullable: false,
-      isPrimary: false,
-      isIndexed: false,
     },
   })
   @shpMapping({
@@ -89,8 +85,6 @@ export class LayerMetadata {
       name: 'updateDate',
       type: 'timestamp without time zone',
       nullable: false,
-      isPrimary: false,
-      isIndexed: false,
     },
   })
   @shpMapping({
@@ -114,8 +108,6 @@ export class LayerMetadata {
       name: 'resolution',
       type: 'real', // check if 'decimal' type is needed
       nullable: false,
-      isPrimary: false,
-      isIndexed: false,
     },
   })
   @shpMapping({
@@ -139,8 +131,6 @@ export class LayerMetadata {
       name: 'ep90',
       type: 'real', // check if 'decimal' type is needed
       nullable: true,
-      isPrimary: false,
-      isIndexed: false,
     },
   })
   @shpMapping({
@@ -164,8 +154,6 @@ export class LayerMetadata {
       name: 'sensorType',
       type: 'text',
       nullable: false,
-      isPrimary: false,
-      isIndexed: false,
     },
   })
   @shpMapping({
@@ -189,8 +177,6 @@ export class LayerMetadata {
       name: 'rms',
       type: 'real', // check if 'decimal' type is needed
       nullable: true,
-      isPrimary: false,
-      isIndexed: false,
     },
   })
   @shpMapping({
@@ -214,8 +200,6 @@ export class LayerMetadata {
       name: 'scale',
       type: 'text',
       nullable: true,
-      isPrimary: false,
-      isIndexed: false,
     },
   })
   @shpMapping({
@@ -239,8 +223,6 @@ export class LayerMetadata {
       name: 'description',
       type: 'text',
       nullable: true,
-      isPrimary: false,
-      isIndexed: false,
     },
   })
   @shpMapping({
@@ -264,8 +246,6 @@ export class LayerMetadata {
       name: 'wkt_geometry',
       type: 'text',
       nullable: true,
-      isPrimary: false,
-      isIndexed: false,
     },
   })
   @shpMapping({
@@ -289,8 +269,6 @@ export class LayerMetadata {
       name: 'identifier',
       type: 'text',
       nullable: true,
-      isPrimary: false,
-      isIndexed: false,
     },
   })
   public id?: string = undefined;
@@ -310,8 +288,6 @@ export class LayerMetadata {
       name: 'version',
       type: 'text',
       nullable: true,
-      isPrimary: false,
-      isIndexed: false,
     },
   })
   public version?: string = undefined;
