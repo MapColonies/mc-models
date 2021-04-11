@@ -3,9 +3,18 @@ import { LayerMetadata } from '../index';
 
 const shpMappingMetadataKey = Symbol('shpmapping');
 
+export enum TsTypes {
+  STRING = 'string',
+  BOOLEAN = 'boolean',
+  DATE = 'Date',
+  NUMBER = 'number',
+  OBJECT = 'object',
+}
+
 export interface IShpMapping {
   shpFile: ShapeFileType;
   valuePath: string;
+  mappingType: TsTypes;
 }
 
 export enum ShapeFileType {
