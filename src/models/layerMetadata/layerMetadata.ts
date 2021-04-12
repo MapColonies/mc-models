@@ -274,13 +274,13 @@ export class LayerMetadata implements ILayerMetadata {
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:geometry',
-    queryableField: 'mc:boundingBox',
-    pycswField: 'pycsw:BoundingBox',
+    queryableField: 'mc:geometry',
+    pycswField: 'pycsw:Geometry',
   })
   @catalogDB({
     table: 'records',
     column: {
-      name: 'wkt_geometry',
+      name: 'geometry',
       type: 'text',
       nullable: true,
     },
@@ -290,7 +290,7 @@ export class LayerMetadata implements ILayerMetadata {
     valuePath: 'features[0].geometry',
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.OBJECT,
   })
   public geometry?: GeoJSON = undefined;
 
