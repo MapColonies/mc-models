@@ -23,6 +23,6 @@ export function catalogDB(catalogdbmapping: ICatalogDBMapping): PropertyDecorato
   return Reflect.metadata(catalogDbMetadataKey, catalogdbmapping);
 }
 
-export function getCatalogDBMapping(target: LayerMetadata, propertyKey: string): ICatalogDBMapping | undefined {
+export function getCatalogDBMapping<T>(target: T, propertyKey: string): ICatalogDBMapping | undefined {
   return Reflect.getMetadata(catalogDbMetadataKey, target, propertyKey) as ICatalogDBMapping;
 }
