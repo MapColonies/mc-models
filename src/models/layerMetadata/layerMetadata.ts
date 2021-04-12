@@ -375,7 +375,7 @@ export class LayerMetadata implements ILayerMetadata {
         ret.push({
           prop: prop,
           ...catalogDbMap,
-          ...tsTypesMap
+          ...tsTypesMap,
         });
       }
     }
@@ -387,12 +387,12 @@ export class LayerMetadata implements ILayerMetadata {
     const layer = new LayerMetadata();
     for (const prop in layer) {
       const shpMap = getShpMapping<LayerMetadata>(layer, prop);
-      const tsTypesMap = getTsTypesMapping<LayerMetadata>(layer, prop)
+      const tsTypesMap = getTsTypesMapping<LayerMetadata>(layer, prop);
       if (shpMap && tsTypesMap) {
         ret.push({
           prop: prop,
           ...shpMap,
-          ...tsTypesMap
+          ...tsTypesMap,
         });
       }
     }

@@ -90,7 +90,7 @@ describe('LayerMetadata class static methods', () => {
 
   it('getORMCatalogDbMappings(): HAS props mapped to DATABASE with ORM props', () => {
     const ormCatalogDBMappings: ICatalogDBMapping[] = LayerMetadataORM.getORMCatalogDBMappings();
-    
+
     expect(ormCatalogDBMappings.length).toBeGreaterThan(0);
     expect(ormCatalogDBMappings[0]).toHaveProperty('prop');
     expect(ormCatalogDBMappings[0]).toHaveProperty('table');

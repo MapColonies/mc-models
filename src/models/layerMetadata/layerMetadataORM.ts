@@ -210,7 +210,7 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
         ret.push({
           prop: prop,
           ...catalogDbMap,
-          ...tsTypesMap
+          ...tsTypesMap,
         });
       }
     }

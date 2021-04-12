@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-import { LayerMetadata } from '../index';
 
 const pycswMappingMetadataKey = Symbol('pycswmapping');
 
