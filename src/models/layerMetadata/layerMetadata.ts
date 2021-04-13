@@ -280,7 +280,7 @@ export class LayerMetadata implements ILayerMetadata {
   @catalogDB({
     table: 'records',
     column: {
-      name: 'geometry',
+      name: 'geojson',
       type: 'text',
       nullable: true,
     },
