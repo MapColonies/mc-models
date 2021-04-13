@@ -1,7 +1,8 @@
 import { GeoJSON } from 'geojson';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/csw.decorator';
-import { getShpMapping, IShpMapping, ShapeFileType, shpMapping, TsTypes } from './decorators/shp.decorator';
+import { getShpMapping, IShpMapping, ShapeFileType, shpMapping } from './decorators/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from './decorators/catalogDB.decorator';
+import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorators/tsTypes.decorator';
 
 export interface ILayerMetadata {
   source?: string;
@@ -9,7 +10,7 @@ export interface ILayerMetadata {
   updateDate?: Date;
   resolution?: number;
   ep90?: number;
-  sensorType?: string;
+  sensorType?: SensorType;
   rms?: number;
   scale?: string;
   dsc?: string;
@@ -17,7 +18,7 @@ export interface ILayerMetadata {
   id?: string;
   version?: string;
 }
-export interface IPropSHPMapping extends IShpMapping {
+export interface IPropSHPMapping extends IShpMapping, ITsTypesMapping {
   prop: string;
 }
 
@@ -25,7 +26,7 @@ export interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
 }
 
-export interface IPropCatalogDBMapping extends ICatalogDBMapping {
+export interface IPropCatalogDBMapping extends ICatalogDBMapping, ITsTypesMapping {
   prop: string;
 }
 
@@ -57,6 +58,8 @@ export class LayerMetadata implements ILayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Source',
+  })
+  @tsTypes({
     mappingType: TsTypes.STRING,
   })
   public source?: string = undefined;
@@ -80,6 +83,8 @@ export class LayerMetadata implements ILayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.SourceName',
+  })
+  @tsTypes({
     mappingType: TsTypes.STRING,
   })
   public sourceName?: string = undefined;
@@ -103,6 +108,8 @@ export class LayerMetadata implements ILayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.UpdateDate',
+  })
+  @tsTypes({
     mappingType: TsTypes.DATE,
   })
   public updateDate?: Date = undefined;
@@ -126,6 +133,8 @@ export class LayerMetadata implements ILayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Resolution',
+  })
+  @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
   public resolution?: number = undefined;
@@ -150,6 +159,8 @@ export class LayerMetadata implements ILayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Ep90',
+  })
+  @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
   public ep90?: number = undefined;
@@ -173,6 +184,8 @@ export class LayerMetadata implements ILayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.SensorType',
+  })
+  @tsTypes({
     mappingType: TsTypes.STRING,
   })
   public sensorType?: SensorType = undefined;
@@ -197,6 +210,8 @@ export class LayerMetadata implements ILayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Rms',
+  })
+  @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
   public rms?: number = undefined;
@@ -221,6 +236,8 @@ export class LayerMetadata implements ILayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Scale',
+  })
+  @tsTypes({
     mappingType: TsTypes.STRING,
   })
   public scale?: string = undefined;
@@ -245,6 +262,8 @@ export class LayerMetadata implements ILayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Dsc',
+  })
+  @tsTypes({
     mappingType: TsTypes.STRING,
   })
   public dsc?: string = undefined;
@@ -255,13 +274,13 @@ export class LayerMetadata implements ILayerMetadata {
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:geometry',
-    queryableField: 'mc:boundingBox',
-    pycswField: 'pycsw:BoundingBox',
+    queryableField: 'mc:geometry',
+    pycswField: 'pycsw:Geometry',
   })
   @catalogDB({
     table: 'records',
     column: {
-      name: 'wkt_geometry',
+      name: 'geojson',
       type: 'text',
       nullable: true,
     },
@@ -269,6 +288,8 @@ export class LayerMetadata implements ILayerMetadata {
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].geometry',
+  })
+  @tsTypes({
     mappingType: TsTypes.OBJECT,
   })
   public geometry?: GeoJSON = undefined;
@@ -290,6 +311,9 @@ export class LayerMetadata implements ILayerMetadata {
       nullable: true,
     },
   })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
   public id?: string = undefined;
 
   /**
@@ -309,25 +333,28 @@ export class LayerMetadata implements ILayerMetadata {
       nullable: true,
     },
   })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
   public version?: string = undefined;
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
-    return getPyCSWMapping(new LayerMetadata(), prop);
+    return getPyCSWMapping<LayerMetadata>(new LayerMetadata(), prop);
   }
 
   public static getShpMapping(prop: string): IShpMapping | undefined {
-    return getShpMapping(new LayerMetadata(), prop);
+    return getShpMapping<LayerMetadata>(new LayerMetadata(), prop);
   }
 
   public static getCatalogDBMapping(prop: string): ICatalogDBMapping | undefined {
-    return getCatalogDBMapping(new LayerMetadata(), prop);
+    return getCatalogDBMapping<LayerMetadata>(new LayerMetadata(), prop);
   }
 
   public static getPyCSWMappings(): IPropPYCSWMapping[] {
     const ret = [];
     const layer = new LayerMetadata();
     for (const prop in layer) {
-      const pycswMap = getPyCSWMapping(layer, prop);
+      const pycswMap = getPyCSWMapping<LayerMetadata>(layer, prop);
       if (pycswMap) {
         ret.push({
           prop: prop,
@@ -342,11 +369,13 @@ export class LayerMetadata implements ILayerMetadata {
     const ret = [];
     const layer = new LayerMetadata();
     for (const prop in layer) {
-      const catalogDbMap = getCatalogDBMapping(layer, prop);
-      if (catalogDbMap) {
+      const catalogDbMap = getCatalogDBMapping<LayerMetadata>(layer, prop);
+      const tsTypesMap = getTsTypesMapping<LayerMetadata>(layer, prop);
+      if (catalogDbMap && tsTypesMap) {
         ret.push({
           prop: prop,
           ...catalogDbMap,
+          ...tsTypesMap,
         });
       }
     }
@@ -357,11 +386,13 @@ export class LayerMetadata implements ILayerMetadata {
     const ret = [];
     const layer = new LayerMetadata();
     for (const prop in layer) {
-      const shpMap = getShpMapping(layer, prop);
-      if (shpMap) {
+      const shpMap = getShpMapping<LayerMetadata>(layer, prop);
+      const tsTypesMap = getTsTypesMapping<LayerMetadata>(layer, prop);
+      if (shpMap && tsTypesMap) {
         ret.push({
           prop: prop,
           ...shpMap,
+          ...tsTypesMap,
         });
       }
     }

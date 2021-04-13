@@ -1,5 +1,6 @@
 import { LayerMetadata, IPYCSWMapping, IShpMapping, IPropPYCSWMapping, IPropSHPMapping } from '../../src/models';
 import { ICatalogDBMapping } from '../../src/models/layerMetadata/decorators/catalogDB.decorator';
+import { LayerMetadataORM } from '../../src/models/layerMetadata/layerMetadataORM';
 
 describe('LayerMetadata class static methods', () => {
   it('getPyCSWMapping(): mapped to PYCSW prop', () => {
@@ -23,7 +24,6 @@ describe('LayerMetadata class static methods', () => {
 
     expect(shpMapping).toHaveProperty('shpFile');
     expect(shpMapping).toHaveProperty('valuePath');
-    expect(shpMapping).toHaveProperty('mappingType');
   });
 
   it('getShpMapping(): NOT mapped to SHAPE prop', () => {
@@ -68,6 +68,7 @@ describe('LayerMetadata class static methods', () => {
     expect(catalogDBMappings[0]).toHaveProperty('prop');
     expect(catalogDBMappings[0]).toHaveProperty('table');
     expect(catalogDBMappings[0]).toHaveProperty('column');
+    expect(catalogDBMappings[0]).toHaveProperty('mappingType');
   });
 
   it('getCatalogDbMapping(): NOT mapped to DATABASE prop', () => {
@@ -85,5 +86,15 @@ describe('LayerMetadata class static methods', () => {
     expect(columnProps).toHaveProperty('name');
     expect(columnProps).toHaveProperty('type');
     expect(columnProps).toHaveProperty('nullable');
+  });
+
+  it('getORMCatalogDbMappings(): HAS props mapped to DATABASE with ORM props', () => {
+    const ormCatalogDBMappings: ICatalogDBMapping[] = LayerMetadataORM.getORMCatalogDBMappings();
+
+    expect(ormCatalogDBMappings.length).toBeGreaterThan(0);
+    expect(ormCatalogDBMappings[0]).toHaveProperty('prop');
+    expect(ormCatalogDBMappings[0]).toHaveProperty('table');
+    expect(ormCatalogDBMappings[0]).toHaveProperty('column');
+    expect(ormCatalogDBMappings[0]).toHaveProperty('mappingType');
   });
 });

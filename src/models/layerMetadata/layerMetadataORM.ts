@@ -1,6 +1,7 @@
 import { IPycswModel } from '../pycsw/interfaces/pycswModel';
-import { catalogDB } from './decorators/catalogDB.decorator';
-import { LayerMetadata } from './layerMetadata';
+import { catalogDB, getCatalogDBMapping } from './decorators/catalogDB.decorator';
+import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/tsTypes.decorator';
+import { IPropCatalogDBMapping, LayerMetadata } from './layerMetadata';
 
 export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
   @catalogDB({
@@ -9,6 +10,9 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
       name: 'typename',
       type: 'text',
     },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
   })
   public typeName?: string = undefined;
 
@@ -19,6 +23,9 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
       type: 'text',
     },
   })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
   public schema?: string = undefined;
 
   @catalogDB({
@@ -27,6 +34,9 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
       name: 'mdsource',
       type: 'text',
     },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
   })
   public mdSource?: string = undefined;
 
@@ -37,6 +47,9 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
       type: 'text',
     },
   })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
   public xml?: string = undefined;
 
   @catalogDB({
@@ -46,6 +59,9 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
       type: 'text',
     },
   })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
   public anyText?: string = undefined;
 
   @catalogDB({
@@ -54,6 +70,9 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
       name: 'insert_date',
       type: 'timestamp without time zone',
     },
+  })
+  @tsTypes({
+    mappingType: TsTypes.DATE,
   })
   public insertDate?: Date = undefined;
 
@@ -65,6 +84,9 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
       nullable: true,
     },
   })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
   public wktGeometry?: string = undefined;
 
   @catalogDB({
@@ -75,6 +97,9 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
       nullable: true,
     },
   })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
   public links?: string = undefined;
 
   @catalogDB({
@@ -84,6 +109,9 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
       type: 'tsvector',
       nullable: true,
     },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
   })
   public anyTextTsvector?: string = undefined;
 
@@ -97,6 +125,9 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
       nullable: true,
     },
   })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
   public wkbGeometry?: string = undefined;
 
   @catalogDB({
@@ -106,6 +137,9 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
       type: 'text',
       nullable: true,
     },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
   })
   public title?: string = undefined;
 
@@ -117,6 +151,9 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
       nullable: true,
     },
   })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
   public type?: string = undefined;
 
   @catalogDB({
@@ -126,6 +163,9 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
       type: 'text',
       nullable: true,
     },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
   })
   public srs?: string = undefined;
 
@@ -138,6 +178,9 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
       nullable: true,
     },
   })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
   public producerName?: string = undefined;
 
   @catalogDB({
@@ -148,9 +191,29 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
       nullable: true,
     },
   })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
   public projectName?: string = undefined;
 
   public constructor() {
     super();
+  }
+
+  public static getORMCatalogDBMappings(): IPropCatalogDBMapping[] {
+    const ret = [];
+    const layer = new LayerMetadataORM();
+    for (const prop in layer) {
+      const catalogDbMap = getCatalogDBMapping<LayerMetadataORM>(layer, prop);
+      const tsTypesMap = getTsTypesMapping<LayerMetadataORM>(layer, prop);
+      if (catalogDbMap && tsTypesMap) {
+        ret.push({
+          prop: prop,
+          ...catalogDbMap,
+          ...tsTypesMap,
+        });
+      }
+    }
+    return ret;
   }
 }
