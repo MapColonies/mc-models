@@ -1,4 +1,5 @@
 import { GeoJSON } from 'geojson';
+import { IPropCatalogDBMapping } from '../common/interfaces/IPropCatalogDBMapping';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { getShpMapping, IShpMapping, ShapeFileType, shpMapping } from './decorators/property/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from './decorators/property/catalogDB.decorator';
@@ -23,10 +24,6 @@ export interface IPropSHPMapping extends IShpMapping, ITsTypesMapping {
 }
 
 export interface IPropPYCSWMapping extends IPYCSWMapping {
-  prop: string;
-}
-
-export interface IPropCatalogDBMapping extends ICatalogDBMapping, ITsTypesMapping {
   prop: string;
 }
 

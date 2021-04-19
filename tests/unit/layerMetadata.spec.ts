@@ -88,7 +88,8 @@ describe('LayerMetadata class static methods', () => {
   });
 
   it('getORMCatalogDbMappings(): HAS props mapped to DATABASE with ORM props', () => {
-    const ormCatalogDBMappings: ICatalogDBMapping[] = LayerMetadataORM.getORMCatalogDBMappings();
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const ormCatalogDBMappings: ICatalogDBMapping[] = LayerMetadataORM.prototype.getORMCatalogMappings();
 
     expect(ormCatalogDBMappings.length).toBeGreaterThan(0);
     expect(ormCatalogDBMappings[0]).toHaveProperty('prop');

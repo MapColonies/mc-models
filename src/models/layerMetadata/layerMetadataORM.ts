@@ -1,13 +1,15 @@
 import { IPycswModel } from '../pycsw/interfaces/pycswModel';
+import { IPropCatalogDBMapping } from '../common/interfaces/IPropCatalogDBMapping';
+import { IOrmCatalog } from '../common/interfaces/IOrmCatalog';
 import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
-import { IPropCatalogDBMapping, LayerMetadata } from './layerMetadata';
-import { catalogDBEntity, getCatalogDBEntityMapping, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
+import { LayerMetadata } from './layerMetadata';
+import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
 
 @catalogDBEntity({
-  table: 'records'
+  table: 'records',
 })
-export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
+export class LayerMetadataORM extends LayerMetadata implements IPycswModel, IOrmCatalog {
   @catalogDB({
     column: {
       name: 'typename',
@@ -189,10 +191,10 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
     super();
   }
 
-  public static getORMCatalogDBMappings(): IPropCatalogDBMapping[] {
+  public getORMCatalogMappings(): IPropCatalogDBMapping[] {
     const ret = [];
     const layer = new LayerMetadataORM();
-    
+
     for (const prop in layer) {
       const catalogDbMap = getCatalogDBMapping<LayerMetadataORM>(layer, prop);
       const tsTypesMap = getTsTypesMapping<LayerMetadataORM>(layer, prop);
@@ -207,7 +209,7 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
     return ret;
   }
 
-  public static getORMCatalogDBEntityMappings(): ICatalogDBEntityMapping {
+  public getORMCatalogEntityMappings(): ICatalogDBEntityMapping {
     return getCatalogDBEntityMapping(LayerMetadataORM);
   }
 }
