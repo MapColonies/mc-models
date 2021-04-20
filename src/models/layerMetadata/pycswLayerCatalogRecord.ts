@@ -100,7 +100,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     },
   })
   @tsTypes({
-    mappingType: TsTypes.LINK,
+    mappingType: TsTypes.LINKS,
   })
   public links?: ILink[] = undefined;
 

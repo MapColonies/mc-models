@@ -8,7 +8,7 @@ export interface IPycswCoreModel {
   anyText?: string;
   insertDate?: Date;
   wktGeometry?: string;
-  links?: string | ILink[];
+  links?: ILink[];
   anyTextTsvector?: string;
   description?: string;
   wkbGeometry?: string;

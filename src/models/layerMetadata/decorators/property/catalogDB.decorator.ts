@@ -20,7 +20,7 @@ export interface IFieldProps {
 
 export interface ICatalogDBMapping {
   column: IColumnProps; // column properties
-  field?: IFieldProps;
+  field?: IFieldProps; // field properties
 }
 
 export function catalogDB(catalogdbmapping: ICatalogDBMapping): PropertyDecorator {
