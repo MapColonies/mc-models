@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import { TsTypes } from './tsTypes.decorator';
 
 const catalogDbMetadataKey = Symbol('catalogdbmapping');
 
@@ -13,8 +14,13 @@ export interface IColumnProps {
   srid?: number;
 }
 
+export interface IFieldProp {
+  overrideType?: TsTypes;
+}
+
 export interface ICatalogDBMapping {
   column: IColumnProps; // column properties
+  field?: IFieldProp; // field properties
 }
 
 export function catalogDB(catalogdbmapping: ICatalogDBMapping): PropertyDecorator {

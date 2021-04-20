@@ -1,5 +1,6 @@
 import { IPycswCoreModel } from '../pycsw/interfaces/pycswCoreModel';
 import { IPropCatalogDBMapping } from '../common/interfaces/IPropCatalogDBMapping';
+import { ILink } from '../common/interfaces/ILink';
 import { IOrmCatalog } from '../common/interfaces/IOrmCatalog';
 import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
@@ -94,11 +95,14 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
       type: 'text',
       nullable: true,
     },
+    field: {
+      overrideType: TsTypes.STRING,
+    },
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.ILINK,
   })
-  public links?: string = undefined;
+  public links?: ILink[] = undefined;
 
   @catalogDB({
     column: {
