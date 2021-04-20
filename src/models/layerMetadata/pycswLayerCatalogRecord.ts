@@ -1,4 +1,4 @@
-import { IPycswModel } from '../pycsw/interfaces/pycswModel';
+import { IPycswCoreModel } from '../pycsw/interfaces/pycswCoreModel';
 import { IPropCatalogDBMapping } from '../common/interfaces/IPropCatalogDBMapping';
 import { IOrmCatalog } from '../common/interfaces/IOrmCatalog';
 import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
@@ -9,7 +9,7 @@ import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } f
 @catalogDBEntity({
   table: 'records',
 })
-export class LayerMetadataORM extends LayerMetadata implements IPycswModel, IOrmCatalog {
+export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCoreModel, IOrmCatalog {
   @catalogDB({
     column: {
       name: 'typename',
@@ -209,6 +209,6 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel, IOrm
   }
 
   public getORMCatalogEntityMappings(): ICatalogDBEntityMapping {
-    return getCatalogDBEntityMapping(LayerMetadataORM);
+    return getCatalogDBEntityMapping(PycswLayerCatalogRecord);
   }
 }

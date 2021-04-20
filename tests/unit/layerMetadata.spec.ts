@@ -1,6 +1,6 @@
 import { LayerMetadata, IPYCSWMapping, IShpMapping, IPropPYCSWMapping, IPropSHPMapping } from '../../src/models';
 import { ICatalogDBMapping } from '../../src/models/layerMetadata/decorators/property/catalogDB.decorator';
-import { LayerMetadataORM } from '../../src/models/layerMetadata/layerMetadataORM';
+import { PycswLayerCatalogRecord } from '../../src/models/layerMetadata/pycswLayerCatalogRecord';
 
 describe('LayerMetadata class static methods', () => {
   it('getPyCSWMapping(): mapped to PYCSW prop', () => {
@@ -89,7 +89,7 @@ describe('LayerMetadata class static methods', () => {
 
   it('getORMCatalogDbMappings(): HAS props mapped to DATABASE with ORM props', () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const ormCatalogDBMappings: ICatalogDBMapping[] = new LayerMetadataORM().getORMCatalogMappings();
+    const ormCatalogDBMappings: ICatalogDBMapping[] = new PycswLayerCatalogRecord().getORMCatalogMappings();
 
     expect(ormCatalogDBMappings.length).toBeGreaterThan(0);
     expect(ormCatalogDBMappings[0]).toHaveProperty('prop');

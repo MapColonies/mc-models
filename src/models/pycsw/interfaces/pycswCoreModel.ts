@@ -1,4 +1,4 @@
-export interface IPycswModel {
+export interface IPycswCoreModel {
   typeName?: string;
   schema?: string;
   mdSource?: string;

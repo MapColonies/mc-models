@@ -1,3 +1,3 @@
 export * from './layerMetadata/index';
 export * from './discreteIngestion/index';
-export * from './layerMetadata/layerMetadataORM';
+export * from './layerMetadata/pycswLayerCatalogRecord';
