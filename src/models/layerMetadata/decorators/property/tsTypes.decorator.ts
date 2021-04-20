@@ -9,7 +9,7 @@ export enum TsTypes {
   NUMBER = 'number',
   OBJECT = 'object',
   LINK = 'ILink',
-  LINKS = 'ILink[]'
+  LINKS = 'ILink[]',
 }
 
 export interface ITsTypesMapping {
