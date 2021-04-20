@@ -1,8 +1,9 @@
 import { GeoJSON } from 'geojson';
-import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/csw.decorator';
-import { getShpMapping, IShpMapping, ShapeFileType, shpMapping } from './decorators/shp.decorator';
-import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from './decorators/catalogDB.decorator';
-import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorators/tsTypes.decorator';
+import { IPropCatalogDBMapping } from '../common/interfaces/IPropCatalogDBMapping';
+import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
+import { getShpMapping, IShpMapping, ShapeFileType, shpMapping } from './decorators/property/shp.decorator';
+import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from './decorators/property/catalogDB.decorator';
+import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 
 export interface ILayerMetadata {
   source?: string;
@@ -26,10 +27,6 @@ export interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
 }
 
-export interface IPropCatalogDBMapping extends ICatalogDBMapping, ITsTypesMapping {
-  prop: string;
-}
-
 export enum SensorType {
   VIS = 'VIS',
   RGB = 'RGB',
@@ -49,7 +46,6 @@ export class LayerMetadata implements ILayerMetadata {
     pycswField: 'pycsw:Source',
   })
   @catalogDB({
-    table: 'records',
     column: {
       name: 'source',
       type: 'text',
@@ -74,7 +70,6 @@ export class LayerMetadata implements ILayerMetadata {
     pycswField: 'pycsw:SourceName',
   })
   @catalogDB({
-    table: 'records',
     column: {
       name: 'sourceName',
       type: 'text',
@@ -99,7 +94,6 @@ export class LayerMetadata implements ILayerMetadata {
     pycswField: 'pycsw:UpdateDate',
   })
   @catalogDB({
-    table: 'records',
     column: {
       name: 'updateDate',
       type: 'timestamp without time zone',
@@ -124,7 +118,6 @@ export class LayerMetadata implements ILayerMetadata {
     pycswField: 'pycsw:Resolution',
   })
   @catalogDB({
-    table: 'records',
     column: {
       name: 'resolution',
       type: 'real', // check if 'decimal' type is needed
@@ -149,7 +142,6 @@ export class LayerMetadata implements ILayerMetadata {
     pycswField: 'pycsw:Ep90',
   })
   @catalogDB({
-    table: 'records',
     column: {
       name: 'ep90',
       type: 'real', // check if 'decimal' type is needed
@@ -175,7 +167,6 @@ export class LayerMetadata implements ILayerMetadata {
     pycswField: 'pycsw:sensorType',
   })
   @catalogDB({
-    table: 'records',
     column: {
       name: 'sensorType',
       type: 'text',
@@ -200,7 +191,6 @@ export class LayerMetadata implements ILayerMetadata {
     pycswField: 'pycsw:Rms',
   })
   @catalogDB({
-    table: 'records',
     column: {
       name: 'rms',
       type: 'real', // check if 'decimal' type is needed
@@ -226,7 +216,6 @@ export class LayerMetadata implements ILayerMetadata {
     pycswField: 'pycsw:Scale',
   })
   @catalogDB({
-    table: 'records',
     column: {
       name: 'scale',
       type: 'text',
@@ -252,7 +241,6 @@ export class LayerMetadata implements ILayerMetadata {
     pycswField: 'pycsw:Abstract',
   })
   @catalogDB({
-    table: 'records',
     column: {
       name: 'description',
       type: 'text',
@@ -278,7 +266,6 @@ export class LayerMetadata implements ILayerMetadata {
     pycswField: 'pycsw:Geometry',
   })
   @catalogDB({
-    table: 'records',
     column: {
       name: 'geojson',
       type: 'text',
@@ -304,7 +291,6 @@ export class LayerMetadata implements ILayerMetadata {
     pycswField: 'pycsw:Identifier',
   })
   @catalogDB({
-    table: 'records',
     column: {
       name: 'identifier',
       type: 'text',
@@ -326,7 +312,6 @@ export class LayerMetadata implements ILayerMetadata {
     pycswField: 'pycsw:version',
   })
   @catalogDB({
-    table: 'records',
     column: {
       name: 'version',
       type: 'text',

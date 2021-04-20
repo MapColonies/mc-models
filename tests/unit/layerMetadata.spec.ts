@@ -1,6 +1,6 @@
 import { LayerMetadata, IPYCSWMapping, IShpMapping, IPropPYCSWMapping, IPropSHPMapping } from '../../src/models';
-import { ICatalogDBMapping } from '../../src/models/layerMetadata/decorators/catalogDB.decorator';
-import { LayerMetadataORM } from '../../src/models/layerMetadata/layerMetadataORM';
+import { ICatalogDBMapping } from '../../src/models/layerMetadata/decorators/property/catalogDB.decorator';
+import { PycswLayerCatalogRecord } from '../../src/models/layerMetadata/pycswLayerCatalogRecord';
 
 describe('LayerMetadata class static methods', () => {
   it('getPyCSWMapping(): mapped to PYCSW prop', () => {
@@ -57,7 +57,6 @@ describe('LayerMetadata class static methods', () => {
     const PROPERTY_NAME = 'geometry';
     const catalogDBMapping: ICatalogDBMapping | undefined = LayerMetadata.getCatalogDBMapping(PROPERTY_NAME);
 
-    expect(catalogDBMapping).toHaveProperty('table');
     expect(catalogDBMapping).toHaveProperty('column');
   });
 
@@ -66,7 +65,6 @@ describe('LayerMetadata class static methods', () => {
 
     expect(catalogDBMappings.length).toBeGreaterThan(0);
     expect(catalogDBMappings[0]).toHaveProperty('prop');
-    expect(catalogDBMappings[0]).toHaveProperty('table');
     expect(catalogDBMappings[0]).toHaveProperty('column');
     expect(catalogDBMappings[0]).toHaveProperty('mappingType');
   });
@@ -82,6 +80,7 @@ describe('LayerMetadata class static methods', () => {
     const PROPERTY_NAME = 'geometry';
     const catalogDBMapping: ICatalogDBMapping | undefined = LayerMetadata.getCatalogDBMapping(PROPERTY_NAME);
     const columnProps = catalogDBMapping?.column;
+
     expect(catalogDBMapping).toHaveProperty('column');
     expect(columnProps).toHaveProperty('name');
     expect(columnProps).toHaveProperty('type');
@@ -89,11 +88,11 @@ describe('LayerMetadata class static methods', () => {
   });
 
   it('getORMCatalogDbMappings(): HAS props mapped to DATABASE with ORM props', () => {
-    const ormCatalogDBMappings: ICatalogDBMapping[] = LayerMetadataORM.getORMCatalogDBMappings();
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const ormCatalogDBMappings: ICatalogDBMapping[] = new PycswLayerCatalogRecord().getORMCatalogMappings();
 
     expect(ormCatalogDBMappings.length).toBeGreaterThan(0);
     expect(ormCatalogDBMappings[0]).toHaveProperty('prop');
-    expect(ormCatalogDBMappings[0]).toHaveProperty('table');
     expect(ormCatalogDBMappings[0]).toHaveProperty('column');
     expect(ormCatalogDBMappings[0]).toHaveProperty('mappingType');
   });

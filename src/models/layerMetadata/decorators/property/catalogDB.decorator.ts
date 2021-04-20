@@ -14,7 +14,6 @@ export interface IColumnProps {
 }
 
 export interface ICatalogDBMapping {
-  table: string; // table name
   column: IColumnProps; // column properties
 }
 

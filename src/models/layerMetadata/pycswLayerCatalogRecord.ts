@@ -1,11 +1,16 @@
-import { IPycswModel } from '../pycsw/interfaces/pycswModel';
-import { catalogDB, getCatalogDBMapping } from './decorators/catalogDB.decorator';
-import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/tsTypes.decorator';
-import { IPropCatalogDBMapping, LayerMetadata } from './layerMetadata';
+import { IPycswCoreModel } from '../pycsw/interfaces/pycswCoreModel';
+import { IPropCatalogDBMapping } from '../common/interfaces/IPropCatalogDBMapping';
+import { IOrmCatalog } from '../common/interfaces/IOrmCatalog';
+import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
+import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
+import { LayerMetadata } from './layerMetadata';
+import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
 
-export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
+@catalogDBEntity({
+  table: 'records',
+})
+export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCoreModel, IOrmCatalog {
   @catalogDB({
-    table: 'records',
     column: {
       name: 'typename',
       type: 'text',
@@ -17,7 +22,6 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
   public typeName?: string = undefined;
 
   @catalogDB({
-    table: 'records',
     column: {
       name: 'schema',
       type: 'text',
@@ -29,7 +33,6 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
   public schema?: string = undefined;
 
   @catalogDB({
-    table: 'records',
     column: {
       name: 'mdsource',
       type: 'text',
@@ -41,7 +44,6 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
   public mdSource?: string = undefined;
 
   @catalogDB({
-    table: 'records',
     column: {
       name: 'xml',
       type: 'text',
@@ -53,7 +55,6 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
   public xml?: string = undefined;
 
   @catalogDB({
-    table: 'records',
     column: {
       name: 'anytext',
       type: 'text',
@@ -65,7 +66,6 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
   public anyText?: string = undefined;
 
   @catalogDB({
-    table: 'records',
     column: {
       name: 'insert_date',
       type: 'timestamp without time zone',
@@ -77,7 +77,6 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
   public insertDate?: Date = undefined;
 
   @catalogDB({
-    table: 'records',
     column: {
       name: 'wkt_geometry',
       type: 'text',
@@ -90,7 +89,6 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
   public wktGeometry?: string = undefined;
 
   @catalogDB({
-    table: 'records',
     column: {
       name: 'links',
       type: 'text',
@@ -103,7 +101,6 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
   public links?: string = undefined;
 
   @catalogDB({
-    table: 'records',
     column: {
       name: 'anytext_tsvector',
       type: 'tsvector',
@@ -116,7 +113,6 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
   public anyTextTsvector?: string = undefined;
 
   @catalogDB({
-    table: 'records',
     column: {
       name: 'wkb_geometry',
       type: 'geometry',
@@ -131,7 +127,6 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
   public wkbGeometry?: string = undefined;
 
   @catalogDB({
-    table: 'records',
     column: {
       name: 'title',
       type: 'text',
@@ -144,7 +139,6 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
   public title?: string = undefined;
 
   @catalogDB({
-    table: 'records',
     column: {
       name: 'type',
       type: 'text',
@@ -157,7 +151,6 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
   public type?: string = undefined;
 
   @catalogDB({
-    table: 'records',
     column: {
       name: 'srs',
       type: 'text',
@@ -170,7 +163,6 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
   public srs?: string = undefined;
 
   @catalogDB({
-    table: 'records',
     column: {
       name: 'producer_name',
       type: 'text',
@@ -184,7 +176,6 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
   public producerName?: string = undefined;
 
   @catalogDB({
-    table: 'records',
     column: {
       name: 'project_name',
       type: 'text',
@@ -200,12 +191,12 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
     super();
   }
 
-  public static getORMCatalogDBMappings(): IPropCatalogDBMapping[] {
+  public getORMCatalogMappings(): IPropCatalogDBMapping[] {
     const ret = [];
-    const layer = new LayerMetadataORM();
-    for (const prop in layer) {
-      const catalogDbMap = getCatalogDBMapping<LayerMetadataORM>(layer, prop);
-      const tsTypesMap = getTsTypesMapping<LayerMetadataORM>(layer, prop);
+
+    for (const prop in this) {
+      const catalogDbMap = getCatalogDBMapping(this, prop);
+      const tsTypesMap = getTsTypesMapping(this, prop);
       if (catalogDbMap && tsTypesMap) {
         ret.push({
           prop: prop,
@@ -215,5 +206,9 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel {
       }
     }
     return ret;
+  }
+
+  public getORMCatalogEntityMappings(): ICatalogDBEntityMapping {
+    return getCatalogDBEntityMapping(PycswLayerCatalogRecord);
   }
 }
