@@ -193,11 +193,10 @@ export class LayerMetadataORM extends LayerMetadata implements IPycswModel, IOrm
 
   public getORMCatalogMappings(): IPropCatalogDBMapping[] {
     const ret = [];
-    const layer = new LayerMetadataORM();
 
-    for (const prop in layer) {
-      const catalogDbMap = getCatalogDBMapping<LayerMetadataORM>(layer, prop);
-      const tsTypesMap = getTsTypesMapping<LayerMetadataORM>(layer, prop);
+    for (const prop in this) {
+      const catalogDbMap = getCatalogDBMapping(this, prop);
+      const tsTypesMap = getTsTypesMapping(this, prop);
       if (catalogDbMap && tsTypesMap) {
         ret.push({
           prop: prop,
