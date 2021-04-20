@@ -8,6 +8,7 @@ export enum TsTypes {
   DATE = 'Date',
   NUMBER = 'number',
   OBJECT = 'object',
+  LINK = 'ILink[]',
 }
 
 export interface ITsTypesMapping {
