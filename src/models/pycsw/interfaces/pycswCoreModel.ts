@@ -1,4 +1,4 @@
-import { ILink } from '../../common/interfaces/ILink';
+import { Link } from '../../common/interfaces/link.interface';
 
 export interface IPycswCoreModel {
   typeName?: string;
@@ -8,7 +8,7 @@ export interface IPycswCoreModel {
   anyText?: string;
   insertDate?: Date;
   wktGeometry?: string;
-  links?: ILink[];
+  links?: Link[];
   anyTextTsvector?: string;
   description?: string;
   wkbGeometry?: string;

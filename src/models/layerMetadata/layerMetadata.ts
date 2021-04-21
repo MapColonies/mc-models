@@ -1,5 +1,5 @@
 import { GeoJSON } from 'geojson';
-import { IPropCatalogDBMapping } from '../common/interfaces/IPropCatalogDBMapping';
+import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { getShpMapping, IShpMapping, ShapeFileType, shpMapping } from './decorators/property/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from './decorators/property/catalogDB.decorator';
