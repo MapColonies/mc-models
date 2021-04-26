@@ -4,6 +4,7 @@ import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw
 import { getShpMapping, IShpMapping, ShapeFileType, shpMapping } from './decorators/property/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
+import { graphql } from '../common/decorators/property/graphql.decorator';
 
 export interface ILayerMetadata {
   source?: string;
@@ -58,6 +59,9 @@ export class LayerMetadata implements ILayerMetadata {
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
+  @graphql({
+    nullable: true,
+  })
   public source?: string = undefined;
 
   /**
@@ -81,6 +85,9 @@ export class LayerMetadata implements ILayerMetadata {
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
   })
   public sourceName?: string = undefined;
 
@@ -106,6 +113,9 @@ export class LayerMetadata implements ILayerMetadata {
   @tsTypes({
     mappingType: TsTypes.DATE,
   })
+  @graphql({
+    nullable: true,
+  })
   public updateDate?: Date = undefined;
 
   /**
@@ -129,6 +139,9 @@ export class LayerMetadata implements ILayerMetadata {
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
+  })
+  @graphql({
+    nullable: true,
   })
   public resolution?: number = undefined;
 
@@ -155,6 +168,9 @@ export class LayerMetadata implements ILayerMetadata {
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
+  @graphql({
+    nullable: true,
+  })
   public ep90?: number = undefined;
 
   /**
@@ -178,6 +194,9 @@ export class LayerMetadata implements ILayerMetadata {
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
   })
   public sensorType?: SensorType = undefined;
 
@@ -204,6 +223,9 @@ export class LayerMetadata implements ILayerMetadata {
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
+  @graphql({
+    nullable: true,
+  })
   public rms?: number = undefined;
 
   /**
@@ -228,6 +250,9 @@ export class LayerMetadata implements ILayerMetadata {
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
   })
   public scale?: string = undefined;
 
@@ -254,6 +279,9 @@ export class LayerMetadata implements ILayerMetadata {
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
+  @graphql({
+    nullable: true,
+  })
   public dsc?: string = undefined;
 
   /**
@@ -279,6 +307,9 @@ export class LayerMetadata implements ILayerMetadata {
   @tsTypes({
     mappingType: TsTypes.OBJECT,
   })
+  @graphql({
+    nullable: true,
+  })
   public geometry?: GeoJSON = undefined;
 
   /**
@@ -300,6 +331,9 @@ export class LayerMetadata implements ILayerMetadata {
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
+  @graphql({
+    nullable: true,
+  })
   public id?: string = undefined;
 
   /**
@@ -320,6 +354,9 @@ export class LayerMetadata implements ILayerMetadata {
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
   })
   public version?: string = undefined;
 

@@ -6,10 +6,13 @@ import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
 import { LayerMetadata } from './layerMetadata';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
+import { graphql } from '../common/decorators/property/graphql.decorator';
+import { graphqlClass } from '../common/decorators/property/classGraphql.decorator';
 
 @catalogDBEntity({
   table: 'records',
 })
+@graphqlClass()
 export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCoreModel, IOrmCatalog {
   @catalogDB({
     column: {
@@ -19,6 +22,9 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
   })
   public typeName?: string = undefined;
 
@@ -31,6 +37,9 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
+  @graphql({
+    nullable: true,
+  })
   public schema?: string = undefined;
 
   @catalogDB({
@@ -41,6 +50,9 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
   })
   public mdSource?: string = undefined;
 
@@ -53,6 +65,9 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
+  @graphql({
+    nullable: true,
+  })
   public xml?: string = undefined;
 
   @catalogDB({
@@ -63,6 +78,9 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
   })
   public anyText?: string = undefined;
 
@@ -75,6 +93,9 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   @tsTypes({
     mappingType: TsTypes.DATE,
   })
+  @graphql({
+    nullable: true,
+  })
   public insertDate?: Date = undefined;
 
   @catalogDB({
@@ -86,6 +107,9 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
   })
   public wktGeometry?: string = undefined;
 
@@ -102,6 +126,9 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   @tsTypes({
     mappingType: TsTypes.LINKS,
   })
+  @graphql({
+    nullable: true,
+  })
   public links?: Link[] = undefined;
 
   @catalogDB({
@@ -113,6 +140,9 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
   })
   public anyTextTsvector?: string = undefined;
 
@@ -128,6 +158,9 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
+  @graphql({
+    nullable: true,
+  })
   public wkbGeometry?: string = undefined;
 
   @catalogDB({
@@ -139,6 +172,9 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
   })
   public title?: string = undefined;
 
@@ -152,6 +188,9 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
+  @graphql({
+    nullable: true,
+  })
   public type?: string = undefined;
 
   @catalogDB({
@@ -163,6 +202,9 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
   })
   public srs?: string = undefined;
 
@@ -177,6 +219,9 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
+  @graphql({
+    nullable: true,
+  })
   public producerName?: string = undefined;
 
   @catalogDB({
@@ -188,6 +233,9 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
   })
   public projectName?: string = undefined;
 
