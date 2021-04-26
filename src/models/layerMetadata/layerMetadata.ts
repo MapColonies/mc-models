@@ -193,10 +193,11 @@ export class LayerMetadata implements ILayerMetadata {
     valuePath: 'features[0].properties.SensorType',
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.SENSORTYPE,
   })
   @graphql({
     nullable: true,
+    enumImport: true
   })
   public sensorType?: SensorType = undefined;
 

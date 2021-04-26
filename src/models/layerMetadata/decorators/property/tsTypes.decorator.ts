@@ -10,6 +10,7 @@ export enum TsTypes {
   OBJECT = 'object',
   LINK = 'Link',
   LINKS = 'Link[]',
+  SENSORTYPE = 'SensorType'
 }
 
 export interface ITsTypesMapping {
