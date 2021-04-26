@@ -1,13 +1,13 @@
 import { IPycswCoreModel } from '../pycsw/interfaces/pycswCoreModel';
 import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
 import { IOrmCatalog } from '../common/interfaces/ormCatalog.interface';
-import { Link } from '../common/interfaces/link.interface';
+import { graphql } from '../common/decorators/property/graphql.decorator';
+import { graphqlClass } from '../common/decorators/property/classGraphql.decorator';
+import { Link } from './link';
 import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
 import { LayerMetadata } from './layerMetadata';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
-import { graphql } from '../common/decorators/property/graphql.decorator';
-import { graphqlClass } from '../common/decorators/property/classGraphql.decorator';
 
 @catalogDBEntity({
   table: 'records',

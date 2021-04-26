@@ -13,7 +13,9 @@ export interface IGraphQLClassMapping {
 }
 
 export function graphqlClass(): ClassDecorator {
+  // eslint-disable-next-line @typescript-eslint/ban-types
   return <TFunction extends Function>(graphqlmapping: TFunction) => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
     const classInstance = new (graphqlmapping as any)();
     const classData: IGraphQLClassMapping = {
       fields: getGraphQLMappings(classInstance),

@@ -1,10 +1,10 @@
 import { GeoJSON } from 'geojson';
 import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
+import { graphql } from '../common/decorators/property/graphql.decorator';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { getShpMapping, IShpMapping, ShapeFileType, shpMapping } from './decorators/property/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
-import { graphql } from '../common/decorators/property/graphql.decorator';
 
 export interface ILayerMetadata {
   source?: string;
