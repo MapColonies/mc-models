@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@3.2.2...mc-model-types@4.0.0) (2021-04-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* add graphql class decorators (#58)
+
+### Features
+
+* add graphql class decorators ([#58](https://github.com/MapColonies/mc-models/issues/58)) ([24429af](https://github.com/MapColonies/mc-models/commit/24429afb9f44ba3bf22eb606ea7e4363359a7f59))
+
 ### [3.2.2](https://github.com/MapColonies/mc-models/compare/mc-model-types@3.2.0...mc-model-types@3.2.2) (2021-04-25)
 
 ### [3.2.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@3.2.0...mc-model-types@3.2.1) (2021-04-13)
