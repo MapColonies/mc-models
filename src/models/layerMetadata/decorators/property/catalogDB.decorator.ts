@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { TsTypes } from './tsTypes.decorator';
+import { IDescribeTsType } from './tsTypes.decorator';
 
 const catalogDbMetadataKey = Symbol('catalogdbmapping');
 
@@ -15,7 +15,7 @@ export interface IColumnProps {
 }
 
 export interface IFieldProps {
-  overrideType?: TsTypes;
+  overrideType?: IDescribeTsType;
 }
 
 export interface ICatalogDBMapping {

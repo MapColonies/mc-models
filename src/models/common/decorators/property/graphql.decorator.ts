@@ -4,7 +4,6 @@ const graphQLMetadataKey = Symbol('graphqlmapping');
 
 export interface IGraphQLMapping {
   nullable?: boolean;
-  enumImport?: boolean | string;
 }
 
 export function graphql(graphqlmapping?: IGraphQLMapping): PropertyDecorator {
