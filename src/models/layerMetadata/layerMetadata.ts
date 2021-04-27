@@ -197,7 +197,7 @@ export class LayerMetadata implements ILayerMetadata {
   })
   @graphql({
     nullable: true,
-    enumImport: true
+    enumImport: true,
   })
   public sensorType?: SensorType = undefined;
 
