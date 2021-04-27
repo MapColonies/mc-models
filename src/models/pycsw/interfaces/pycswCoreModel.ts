@@ -1,4 +1,4 @@
-import { Link } from '../../common/interfaces/link.interface';
+import { Link } from '../../layerMetadata/link';
 
 export interface IPycswCoreModel {
   typeName?: string;

@@ -2,18 +2,58 @@ import 'reflect-metadata';
 
 const tsTypesMetadataKey = Symbol('catalogdbmapping');
 
-export enum TsTypes {
-  STRING = 'string',
-  BOOLEAN = 'boolean',
-  DATE = 'Date',
-  NUMBER = 'number',
+export enum PropertiesTypes {
+  PRIMITIVE = 'primitive',
+  ENUM = 'enum',
+  CLASS = 'class',
+  ARRAY = 'array',
   OBJECT = 'object',
-  LINK = 'Link',
-  LINKS = 'Link[]',
+}
+export interface IDescribeTsType {
+  value: string;
+  type: PropertiesTypes;
+  importFromPackage?: string;
 }
 
+/* eslint-disable @typescript-eslint/naming-convention */
+export const TsTypes: Record<string, IDescribeTsType> = {
+  STRING: {
+    value: 'string',
+    type: PropertiesTypes.PRIMITIVE,
+  },
+  BOOLEAN: {
+    value: 'boolean',
+    type: PropertiesTypes.PRIMITIVE,
+  },
+  DATE: {
+    value: 'Date',
+    type: PropertiesTypes.PRIMITIVE,
+  },
+  NUMBER: {
+    value: 'number',
+    type: PropertiesTypes.PRIMITIVE,
+  },
+  OBJECT: {
+    value: 'object',
+    type: PropertiesTypes.OBJECT,
+  },
+  LINK: {
+    value: 'Link',
+    type: PropertiesTypes.CLASS,
+  },
+  LINKS: {
+    value: 'Link',
+    type: PropertiesTypes.ARRAY,
+  },
+  SENSORTYPE: {
+    value: 'SensorType',
+    type: PropertiesTypes.ENUM,
+    importFromPackage: '@map-colonies/mc-model-types',
+  },
+};
+/* eslint-enable @typescript-eslint/naming-convention */
 export interface ITsTypesMapping {
-  mappingType: TsTypes;
+  mappingType: IDescribeTsType;
 }
 
 export function tsTypes(tsTypesMapping: ITsTypesMapping): PropertyDecorator {
