@@ -15,6 +15,7 @@ export interface IDescribeTsType {
   importFromPackage?: string;
 }
 
+/* eslint-disable @typescript-eslint/naming-convention */
 export const TsTypes: Record<string, IDescribeTsType> = {
   STRING: {
     value: 'string',
@@ -50,7 +51,7 @@ export const TsTypes: Record<string, IDescribeTsType> = {
     importFromPackage: '@map-colonies/mc-model-types',
   },
 };
-
+/* eslint-enable @typescript-eslint/naming-convention */
 export interface ITsTypesMapping {
   mappingType: IDescribeTsType;
 }
