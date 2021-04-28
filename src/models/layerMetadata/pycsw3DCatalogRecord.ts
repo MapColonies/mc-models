@@ -12,8 +12,9 @@ import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } f
 @catalogDBEntity({
   table: 'records',
 })
-@graphqlClass({ alias: 'LayerRasterRecord' })
-export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCoreModel, IOrmCatalog {
+@graphqlClass({ alias: 'Layer3DRecord' })
+// TODO: Replace LayerMetadata with Layter3DMetadata when implemented
+export class Pycsw3DCatalogRecord extends LayerMetadata implements IPycswCoreModel, IOrmCatalog {
   @catalogDB({
     column: {
       name: 'typename',
@@ -239,6 +240,22 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   })
   public projectName?: string = undefined;
 
+  // TODO: remove field shoud be removed
+  @catalogDB({
+    column: {
+      name: 'project_name',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  public accuracyLE90?: string = undefined;
+
   public constructor() {
     super();
   }
@@ -261,6 +278,6 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   }
 
   public getORMCatalogEntityMappings(): ICatalogDBEntityMapping {
-    return getCatalogDBEntityMapping(PycswLayerCatalogRecord);
+    return getCatalogDBEntityMapping(Pycsw3DCatalogRecord);
   }
 }
