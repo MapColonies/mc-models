@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@4.0.0...mc-model-types@4.2.0) (2021-05-13)
+
+
+### Features
+
+* **record-type:** record type enum in models ([#61](https://github.com/MapColonies/mc-models/issues/61)) ([b2fad6d](https://github.com/MapColonies/mc-models/commit/b2fad6dd58094ab1f3282728f871eed56dd83f8f))
+* naming for classes and add 3d support ([#59](https://github.com/MapColonies/mc-models/issues/59)) ([259f688](https://github.com/MapColonies/mc-models/commit/259f688f9b232ca70f0f61da44ca757418f11d88))
+
 ## [4.1.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@4.0.0...mc-model-types@4.1.0) (2021-04-28)
 
 
