@@ -1,5 +1,5 @@
 export enum RecordType {
-  RECORD_RASTER = 'raster',
-  RECORD_3D = '3d',
-  RECORD_ALL = 'all',
+  RECORD_RASTER = 'RECORD_RASTER',
+  RECORD_3D = 'RECORD_3D',
+  RECORD_ALL = 'RECORD_ALL',
 }
