@@ -102,6 +102,20 @@ export class Pycsw3DCatalogRecord extends LayerMetadata implements IPycswCoreMod
 
   @catalogDB({
     column: {
+      name: 'creation_date',
+      type: 'timestamp without time zone',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.DATE,
+  })
+  @graphql({
+    nullable: true,
+  })
+  public creationDate?: Date = undefined;
+
+  @catalogDB({
+    column: {
       name: 'wkt_geometry',
       type: 'text',
       nullable: true,
@@ -240,6 +254,34 @@ export class Pycsw3DCatalogRecord extends LayerMetadata implements IPycswCoreMod
     nullable: true,
   })
   public projectName?: string = undefined;
+
+  @catalogDB({
+    column: {
+      name: 'classification',
+      type: 'text',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  public classification?: string = undefined;
+
+  @catalogDB({
+    column: {
+      name: 'keywords',
+      type: 'text',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  public keywords?: string = undefined;
 
   // TODO: remove field shoud be removed
   @catalogDB({
