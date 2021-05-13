@@ -3,6 +3,7 @@ import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping
 import { IOrmCatalog } from '../common/interfaces/ormCatalog.interface';
 import { graphql } from '../common/decorators/property/graphql.decorator';
 import { graphqlClass } from '../common/decorators/property/classGraphql.decorator';
+import { RecordType } from '../pycsw/coreEnums';
 import { Link } from './link';
 import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
@@ -186,12 +187,12 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     },
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.RECORDTYPE,
   })
   @graphql({
     nullable: true,
   })
-  public type?: string = undefined;
+  public type?: RecordType = RecordType.RECORD_RASTER;
 
   @catalogDB({
     column: {
