@@ -101,6 +101,20 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
 
   @catalogDB({
     column: {
+      name: 'creation_date',
+      type: 'timestamp without time zone',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.DATE,
+  })
+  @graphql({
+    nullable: true,
+  })
+  public creationDate?: Date = undefined;
+
+  @catalogDB({
+    column: {
       name: 'wkt_geometry',
       type: 'text',
       nullable: true,
@@ -239,6 +253,34 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     nullable: true,
   })
   public projectName?: string = undefined;
+
+  @catalogDB({
+    column: {
+      name: 'classification',
+      type: 'text',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  public classification?: string = undefined;
+
+  @catalogDB({
+    column: {
+      name: 'keywords',
+      type: 'text',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  public keywords?: string = undefined;
 
   public constructor() {
     super();
