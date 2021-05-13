@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.2.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@4.2.0...mc-model-types@4.2.1) (2021-05-13)
+
+
+### Bug Fixes
+
+* **record-type-enum-values:** values same as keys ([#62](https://github.com/MapColonies/mc-models/issues/62)) ([23c145d](https://github.com/MapColonies/mc-models/commit/23c145dfb659e557a20aa30ad7385f8b9a7e066b))
+
 ## [4.2.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@4.0.0...mc-model-types@4.2.0) (2021-05-13)
 
 
