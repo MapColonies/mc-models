@@ -56,9 +56,7 @@ export class LayerMetadata implements ILayerMetadata {
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
-  @graphql({
-    nullable: false,
-  })
+  @graphql()
   public id = 'UNKNOWN';
 
   /**
