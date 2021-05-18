@@ -7,8 +7,9 @@ import { RecordType } from '../pycsw/coreEnums';
 import { Link } from './link';
 import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
-import { LayerMetadata } from './layerMetadata';
+import { IPropPYCSWMapping, LayerMetadata } from './layerMetadata';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
+import { getPyCSWMapping } from './decorators/property/csw.decorator';
 
 @catalogDBEntity({
   table: 'records',
@@ -284,6 +285,21 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
 
   public constructor() {
     super();
+  }
+
+  public static getPyCSWMappings(): IPropPYCSWMapping[] {
+    const ret = [];
+    const layer = new PycswLayerCatalogRecord();
+    for (const prop in layer) {
+      const pycswMap = getPyCSWMapping<PycswLayerCatalogRecord>(layer, prop);
+      if (pycswMap) {
+        ret.push({
+          prop: prop,
+          ...pycswMap,
+        });
+      }
+    }
+    return ret;
   }
 
   public getORMCatalogMappings(): IPropCatalogDBMapping[] {
