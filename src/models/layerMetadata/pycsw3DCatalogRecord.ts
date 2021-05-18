@@ -9,6 +9,7 @@ import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
 import { LayerMetadata } from './layerMetadata';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
+import { pycsw } from './decorators/property/csw.decorator';
 
 @catalogDBEntity({
   table: 'records',
@@ -284,9 +285,15 @@ export class Pycsw3DCatalogRecord extends LayerMetadata implements IPycswCoreMod
   public keywords?: string = undefined;
 
   // TODO: remove field shoud be removed
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:accuracyLE90',
+    queryableField: 'mc:accuracyLE90',
+    pycswField: 'pycsw:accuracyLE90',
+  })
   @catalogDB({
     column: {
-      name: 'project_name',
+      name: 'accuracy_le_90',
       type: 'text',
       nullable: true,
     },
