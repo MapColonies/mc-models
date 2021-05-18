@@ -7,6 +7,7 @@ import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from './decorators/
 import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 
 export interface ILayerMetadata {
+  id: string;
   source?: string;
   sourceName?: string;
   updateDate?: Date;
@@ -17,7 +18,6 @@ export interface ILayerMetadata {
   scale?: string;
   dsc?: string;
   geometry?: GeoJSON;
-  id?: string;
   version?: string;
 }
 export interface IPropSHPMapping extends IShpMapping, ITsTypesMapping {
@@ -37,6 +37,30 @@ export enum SensorType {
 }
 
 export class LayerMetadata implements ILayerMetadata {
+  /**
+   * layer id
+   */
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:id',
+    queryableField: 'mc:id',
+    pycswField: 'pycsw:Identifier',
+  })
+  @catalogDB({
+    column: {
+      name: 'identifier',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  public id = 'UNKNOWN';
+
   /**
    * Layer's unique identifier
    */
@@ -311,30 +335,6 @@ export class LayerMetadata implements ILayerMetadata {
     nullable: true,
   })
   public geometry?: GeoJSON = undefined;
-
-  /**
-   * layer id
-   */
-  @pycsw({
-    profile: 'mc_raster',
-    xmlElement: 'mc:id',
-    queryableField: 'mc:id',
-    pycswField: 'pycsw:Identifier',
-  })
-  @catalogDB({
-    column: {
-      name: 'identifier',
-      type: 'text',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public id?: string = undefined;
 
   /**
    * layer version
