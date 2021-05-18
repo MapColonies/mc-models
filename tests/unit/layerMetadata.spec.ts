@@ -1,4 +1,4 @@
-import { LayerMetadata, IPYCSWMapping, IShpMapping, IPropPYCSWMapping, IPropSHPMapping } from '../../src/models';
+import { LayerMetadata, IPYCSWMapping, IShpMapping, IPropPYCSWMapping, IPropSHPMapping, Pycsw3DCatalogRecord } from '../../src/models';
 import { ICatalogDBMapping } from '../../src/models/layerMetadata/decorators/property/catalogDB.decorator';
 import { PycswLayerCatalogRecord } from '../../src/models/layerMetadata/pycswLayerCatalogRecord';
 
@@ -86,6 +86,16 @@ describe('LayerMetadata class static methods', () => {
     expect(columnProps).toHaveProperty('type');
     expect(columnProps).toHaveProperty('nullable');
   });
+});
+
+describe('PycswLayerCatalogRecord class methods', () => {
+  it('getPyCSWMappings(): mapped to PYCSW props', () => {
+    const pycswMapping = PycswLayerCatalogRecord.getPyCSWMappings();
+
+    expect(pycswMapping.length).toBeGreaterThan(0);
+    expect(pycswMapping[0]).toHaveProperty('prop');
+    expect(pycswMapping[0]).toHaveProperty('xmlElement');
+  });
 
   it('getORMCatalogDbMappings(): HAS props mapped to DATABASE with ORM props', () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -95,5 +105,15 @@ describe('LayerMetadata class static methods', () => {
     expect(ormCatalogDBMappings[0]).toHaveProperty('prop');
     expect(ormCatalogDBMappings[0]).toHaveProperty('column');
     expect(ormCatalogDBMappings[0]).toHaveProperty('mappingType');
+  });
+});
+
+describe('Pycsw3DCatalogRecord class methods', () => {
+  it('getPyCSWMappings(): mapped to PYCSW props', () => {
+    const pycswMapping = Pycsw3DCatalogRecord.getPyCSWMappings();
+
+    expect(pycswMapping.length).toBeGreaterThan(0);
+    expect(pycswMapping[0]).toHaveProperty('prop');
+    expect(pycswMapping[0]).toHaveProperty('xmlElement');
   });
 });
