@@ -7,16 +7,16 @@ import { RecordType } from '../pycsw/coreEnums';
 import { Link } from './link';
 import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
-import { IPropPYCSWMapping, LayerMetadata } from './layerMetadata';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
 import { getPyCSWMapping, pycsw } from './decorators/property/csw.decorator';
+import { Layer3DMetadata, IPropPYCSWMapping } from './layer3DMetadata';
 
 @catalogDBEntity({
   table: 'records',
 })
 @graphqlClass({ alias: 'Layer3DRecord' })
 // TODO: Replace LayerMetadata with Layter3DMetadata when implemented
-export class Pycsw3DCatalogRecord extends LayerMetadata implements IPycswCoreModel, IOrmCatalog {
+export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreModel, IOrmCatalog {
   @catalogDB({
     column: {
       name: 'typename',
@@ -195,6 +195,12 @@ export class Pycsw3DCatalogRecord extends LayerMetadata implements IPycswCoreMod
   })
   public title?: string = undefined;
 
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:type',
+    queryableField: 'mc:type',
+    pycswField: 'pycsw:Type',
+  })
   @catalogDB({
     column: {
       name: 'type',
@@ -283,28 +289,6 @@ export class Pycsw3DCatalogRecord extends LayerMetadata implements IPycswCoreMod
     nullable: true,
   })
   public keywords?: string = undefined;
-
-  // TODO: remove field shoud be removed
-  @pycsw({
-    profile: 'mc_3d',
-    xmlElement: 'mc:accuracyLE90',
-    queryableField: 'mc:accuracyLE90',
-    pycswField: 'pycsw:accuracyLE90',
-  })
-  @catalogDB({
-    column: {
-      name: 'accuracy_le_90',
-      type: 'text',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public accuracyLE90?: string = undefined;
 
   public constructor() {
     super();

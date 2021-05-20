@@ -5,6 +5,7 @@ import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw
 import { getShpMapping, IShpMapping, ShapeFileType, shpMapping } from './decorators/property/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
+import { SensorType } from './enums';
 
 export interface ILayerMetadata {
   id: string;
@@ -26,14 +27,6 @@ export interface IPropSHPMapping extends IShpMapping, ITsTypesMapping {
 
 export interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
-}
-
-export enum SensorType {
-  VIS = 'VIS',
-  RGB = 'RGB',
-  // eslint-disable-next-line
-  Pan_Sharpen = 'Pan_Sharpen',
-  OTHER = 'OTHER',
 }
 
 export class LayerMetadata implements ILayerMetadata {
@@ -340,7 +333,7 @@ export class LayerMetadata implements ILayerMetadata {
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:version',
-    queryableField: 'mc:vserion',
+    queryableField: 'mc:version',
     pycswField: 'pycsw:version',
   })
   @catalogDB({
