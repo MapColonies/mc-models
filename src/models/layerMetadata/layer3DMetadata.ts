@@ -1,8 +1,7 @@
 import { GeoJSON } from 'geojson';
-import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
 import { graphql } from '../common/decorators/property/graphql.decorator';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
-import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
+import { tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 import { SensorType } from './enums';
 import { catalogDB } from './decorators/property/catalogDB.decorator';
 
