@@ -9,7 +9,7 @@ import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
 import { IPropPYCSWMapping, LayerMetadata } from './layerMetadata';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
-import { getPyCSWMapping } from './decorators/property/csw.decorator';
+import { getPyCSWMapping, pycsw } from './decorators/property/csw.decorator';
 
 @catalogDBEntity({
   table: 'records',
@@ -194,6 +194,12 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   })
   public title?: string = undefined;
 
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:type',
+    queryableField: 'mc:type',
+    pycswField: 'pycsw:Type',
+  })
   @catalogDB({
     column: {
       name: 'type',
