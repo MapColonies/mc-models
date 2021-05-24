@@ -1,48 +1,92 @@
 openapi: "3.0.1"
 info:
   title: Layer metadata definitions
-  version: 1.0.0
+  version: 2.0.0
 components:
   schemas:
     LayerMetadata:
       type: object
       description: layer meta data
       required:
-        - source
-        - sourceName
-        - id
-        - version
+        - type
+        - productId
+        - productName
+        - productVersion
+        - productType
+        - srsId
+        - srsName
+        - producerName
+        - creationDate
+        - ingestionDate
         - updateDate
-        - resolution
-        - ep90
+        - sourceDateStart
+        - sourceDateEnd
+        - accuracyCE90
         - sensorType
+        - region
         - rms
         - scale
-        - dsc
-        - geometry
+        - footprint
       properties:
-        source:
+        type:
           type: string
-          description: Layer's unique identifier
-        id:
+          description: Layer type raster / 3d / dem
+          enum:
+            - RECORD_RASTER
+            - RECORD_3D
+        classification:
           type: string
-          description: Layer's id
-        version:
+          description: Permitted roles 
+        productId:
+          type: string
+          description: Layer's external identifier
+        productName: 
+          type: string
+          description: Layer's external name
+        productVersion:
           type: string
           description: layer's version
-        sourceName:
+        productType:
           type: string
-          description: Name of source
+          description: layer's type might be derived from the first letter
+        description: 
+          type: string
+          description: layer's deascription
+        srsId:
+          type: string
+          description: geo system id
+        srsName:
+          type: string
+          description: geo system name
+        producerName:
+          type: string
+          description: creator name default IDFMU
+        creationDate:
+          type: string
+          description: Creation date
+          format: date-time
+        ingestionDate:
+          type: string
+          description: Ingestion date
+          format: date-time
         updateDate:
           type: string
           description: Update date
           format: date-time
+        sourceDateStart:
+          type: string
+          description: Oldest imaging date
+          format: date-time
+        sourceDateEnd:
+          type: string
+          description: Latest imaging date
+          format: date-time
         resolution:
           type: number
           description: Resolution of tiff files
-        ep90:
+        accuracyCE90:
           type: number
-          description: Accuracy
+          description: Horizontal Accuracy
         sensorType:
           type: string
           enum:
@@ -51,13 +95,14 @@ components:
             - Pan_Sharpen
             - OTHER
           description: The sensor type
+        region:
+          type: string
+          description: Resolution of tiff files
         rms:
           type: number
         scale:
           type: string
-        dsc:
-          type: string
-        geometry:
+        footprint:
           $ref: geojson.yaml#/components/schemas/Geometry
     StatusLayerMetadata:
       type: object
