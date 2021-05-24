@@ -4,7 +4,7 @@ import { PycswLayerCatalogRecord } from '../../src/models/layerMetadata/pycswLay
 
 describe('LayerMetadata class static methods', () => {
   it('getPyCSWMapping(): mapped to PYCSW prop', () => {
-    const PROPERTY_NAME = 'geometry';
+    const PROPERTY_NAME = 'type';
     const pycswMapping: IPYCSWMapping | undefined = LayerMetadata.getPyCSWMapping(PROPERTY_NAME);
 
     expect(pycswMapping).toHaveProperty('xmlElement');
@@ -19,7 +19,7 @@ describe('LayerMetadata class static methods', () => {
   });
 
   it('getShpMapping(): mapped to SHAPE prop', () => {
-    const PROPERTY_NAME = 'geometry';
+    const PROPERTY_NAME = 'footprint';
     const shpMapping: IShpMapping | undefined = LayerMetadata.getShpMapping(PROPERTY_NAME);
 
     expect(shpMapping).toHaveProperty('shpFile');
@@ -27,7 +27,7 @@ describe('LayerMetadata class static methods', () => {
   });
 
   it('getShpMapping(): NOT mapped to SHAPE prop', () => {
-    const PROPERTY_NAME = 'dummy_geometry';
+    const PROPERTY_NAME = 'dummy_footprint';
     const shpMapping: IShpMapping | undefined = LayerMetadata.getShpMapping(PROPERTY_NAME);
 
     expect(shpMapping).toBeUndefined();
@@ -54,7 +54,7 @@ describe('LayerMetadata class static methods', () => {
   });
 
   it('getCatalogDbMapping(): mapped to DATABASE prop', () => {
-    const PROPERTY_NAME = 'geometry';
+    const PROPERTY_NAME = 'footprint';
     const catalogDBMapping: ICatalogDBMapping | undefined = LayerMetadata.getCatalogDBMapping(PROPERTY_NAME);
 
     expect(catalogDBMapping).toHaveProperty('column');
@@ -70,14 +70,14 @@ describe('LayerMetadata class static methods', () => {
   });
 
   it('getCatalogDbMapping(): NOT mapped to DATABASE prop', () => {
-    const PROPERTY_NAME = 'dummy_geometry';
+    const PROPERTY_NAME = 'dummy_footprint';
     const catalogDBMapping: ICatalogDBMapping | undefined = LayerMetadata.getCatalogDBMapping(PROPERTY_NAME);
 
     expect(catalogDBMapping).toBeUndefined();
   });
 
   it('getCatalogDbMapping(): mapped to DATABASE column props', () => {
-    const PROPERTY_NAME = 'geometry';
+    const PROPERTY_NAME = 'footprint';
     const catalogDBMapping: ICatalogDBMapping | undefined = LayerMetadata.getCatalogDBMapping(PROPERTY_NAME);
     const columnProps = catalogDBMapping?.column;
 
