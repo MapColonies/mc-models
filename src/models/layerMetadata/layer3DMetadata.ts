@@ -1,55 +1,84 @@
 import { GeoJSON } from 'geojson';
 import { graphql } from '../common/decorators/property/graphql.decorator';
+import { RecordType } from '../pycsw/coreEnums';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 import { SensorType } from './enums';
 import { catalogDB } from './decorators/property/catalogDB.decorator';
+import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 
 export interface ILayer3DMetadata {
-  id: string;
-  // project_name?: string;
-  // title?: string;
-  version?: string; // TODO: Might be refactored as COMMON
-  centroid?: string;
-  // footprint?: string;
-  geometry?: GeoJSON; // TODO: Might be refactored as COMMON
-  // classification?: string;
-  imagingBeginDate?: Date;
-  imagingEndDate?: Date;
-  sensorType?: SensorType; // TODO: Might be refactored as COMMON
-  region?: string; // TODO: Might be refactored as COMMON
-  nominalResolution?: string;
-  accuracyLE90?: string;
-  horizontalAccuracyCE90?: string;
-  relativeAccuracyLE90?: string;
-  // creation_date?: Date;
-  // producer_name?: string;
-  // srs?: string;
-  validationDate?: Date;
-  estimatedPrecision?: string;
-  measuredPrecision?: string;
-  // description?: string;
-  // links:;
-  // type:;
+  projectName: string | undefined;
+  nominalResolution: number | undefined;
+  accuracyLE90: number | undefined;
+  accuracySE90: number | undefined;
+  visualAccuracy: number | undefined;
+  heightRange: number | undefined;
+  srsOrigin: string | undefined;
+  flightAlt: number | undefined;
 }
 
 export interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
 }
 
-export class Layer3DMetadata implements ILayer3DMetadata {
-  /**
-   * layer id
-   */
+export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
+  //#region COMMON FIELDS
+  //#region COMMON: type
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:id',
-    queryableField: 'mc:id',
-    pycswField: 'pycsw:Identifier',
+    xmlElement: 'mc:type',
+    queryableField: 'mc:type',
+    pycswField: 'pycsw:Type',
   })
   @catalogDB({
     column: {
-      name: 'identifier',
+      name: 'type',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.RECORDTYPE,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public type: RecordType | undefined = RecordType.RECORD_3D;
+
+  //#region COMMON: classification
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:classification',
+    queryableField: 'mc:classification',
+    pycswField: 'pycsw:Classification',
+  })
+  @catalogDB({
+    column: {
+      name: 'classification',
+      type: 'text',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public classification: string | undefined = undefined;
+
+  //#region COMMON: productId
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:productId',
+    queryableField: 'mc:productId',
+    pycswField: 'pycsw:ProductId',
+  })
+  @catalogDB({
+    column: {
+      name: 'product_id',
       type: 'text',
       nullable: false,
     },
@@ -58,20 +87,40 @@ export class Layer3DMetadata implements ILayer3DMetadata {
     mappingType: TsTypes.STRING,
   })
   @graphql()
-  public id = 'UNKNOWN';
+  //#endregion
+  public productId: string | undefined = 'UNKNOWN';
 
-  /**
-   * layer version
-   */
+  //#region COMMON: productName
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:version',
-    queryableField: 'mc:vserion',
-    pycswField: 'pycsw:version',
+    xmlElement: 'mc:productName',
+    queryableField: 'mc:productName',
+    pycswField: 'pycsw:Title',
   })
   @catalogDB({
     column: {
-      name: 'version',
+      name: 'product_name',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql()
+  //#endregion
+  public productName: string | undefined = undefined;
+
+  //#region COMMON: productVersion
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:productVersion',
+    queryableField: 'mc:productVersion',
+    pycswField: 'pycsw:ProductVersion',
+  })
+  @catalogDB({
+    column: {
+      name: 'product_version',
       type: 'text',
       nullable: true,
     },
@@ -82,20 +131,40 @@ export class Layer3DMetadata implements ILayer3DMetadata {
   @graphql({
     nullable: true,
   })
-  public version?: string = undefined;
+  //#endregion
+  public productVersion: string | undefined = undefined;
 
-  /**
-   * layer centroid
-   */
+  //#region COMMON: productType
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:centroid',
-    queryableField: 'mc:centroid',
-    pycswField: 'pycsw:centroid',
+    xmlElement: 'mc:productType',
+    queryableField: 'mc:productType',
+    pycswField: 'pycsw:ProductType',
   })
   @catalogDB({
     column: {
-      name: 'centroid',
+      name: 'product_type',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql()
+  //#endregion
+  public productType: string | undefined = undefined;
+
+  //#region COMMON: description
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:description',
+    queryableField: 'mc:description',
+    pycswField: 'pycsw:Abstract',
+  })
+  @catalogDB({
+    column: {
+      name: 'description',
       type: 'text',
       nullable: true,
     },
@@ -106,35 +175,146 @@ export class Layer3DMetadata implements ILayer3DMetadata {
   @graphql({
     nullable: true,
   })
-  public centroid?: string = undefined;
+  //#endregion
+  public description: string | undefined = undefined;
 
-  /**
-   * General geometry
-   */
+  //#region COMMON: srsId
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:footprint',
-    queryableField: 'mc:footprint',
-    pycswField: 'pycsw:footprint',
+    xmlElement: 'mc:SRS',
+    queryableField: 'mc:SRS',
+    pycswField: 'pycsw:CRS',
   })
   @catalogDB({
     column: {
-      name: 'footprint',
+      name: 'srs',
       type: 'text',
       nullable: true,
     },
   })
   @tsTypes({
-    mappingType: TsTypes.OBJECT,
+    mappingType: TsTypes.STRING,
   })
   @graphql({
     nullable: true,
   })
-  public geometry?: GeoJSON = undefined;
+  //#endregion
+  public srsId: string | undefined = undefined;
 
-  /**
-   * Layer imaging time begin
-   */
+  //#region COMMON: srsName
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:SRSName',
+    queryableField: 'mc:SRSName',
+    pycswField: 'pycsw:CRSName',
+  })
+  @catalogDB({
+    column: {
+      name: 'srs_name',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public srsName: string | undefined = undefined;
+
+  //#region COMMON: producerName
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:producerName',
+    queryableField: 'mc:producerName',
+    pycswField: 'pycsw:Creator',
+  })
+  @catalogDB({
+    column: {
+      name: 'producer_name',
+      type: 'text',
+      defaultValue: 'IDFMU',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public producerName: string | undefined = undefined;
+
+  //#region COMMON: creationDate
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:creationDate',
+    queryableField: 'mc:creationDate',
+    pycswField: 'pycsw:CreationDate',
+  })
+  @catalogDB({
+    column: {
+      name: 'creation_date',
+      type: 'timestamp without time zone',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.DATE,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public creationDate: Date | undefined = undefined;
+
+  //#region COMMON: ingestionDate
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:ingestionDate',
+    queryableField: 'mc:ingestionDate',
+    pycswField: 'pycsw:IngestionDate',
+  })
+  @catalogDB({
+    column: {
+      name: 'ingestion_date',
+      type: 'timestamp without time zone',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.DATE,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public ingestionDate: Date | undefined = undefined;
+
+  //#region COMMON: updateDate
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:updateDate',
+    queryableField: 'mc:updateDate',
+    pycswField: 'pycsw:UpdateDate',
+  })
+  @catalogDB({
+    column: {
+      name: 'update_date',
+      type: 'timestamp without time zone',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.DATE,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public updateDate: Date | undefined = undefined;
+
+  //#region COMMON: sourceDateStart
   @pycsw({
     profile: 'mc_3d',
     xmlElement: 'mc:imagingTime_begin',
@@ -143,7 +323,7 @@ export class Layer3DMetadata implements ILayer3DMetadata {
   })
   @catalogDB({
     column: {
-      name: 'time_begin',
+      name: 'source_start_date',
       type: 'timestamp without time zone',
     },
   })
@@ -153,20 +333,19 @@ export class Layer3DMetadata implements ILayer3DMetadata {
   @graphql({
     nullable: true,
   })
-  public imagingBeginDate?: Date = undefined;
+  //#endregion
+  public sourceDateStart: Date | undefined = undefined;
 
-  /**
-   * Layer imaging time end
-   */
+  //#region COMMON: sourceDateEnd
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:imagingTime_end',
+    xmlElement: 'mc:mc:imagingTime_end',
     queryableField: 'mc:imagingTime_end',
     pycswField: 'pycsw:TempExtent_end',
   })
   @catalogDB({
     column: {
-      name: 'time_end',
+      name: 'source_end_date',
       type: 'timestamp without time zone',
     },
   })
@@ -176,13 +355,56 @@ export class Layer3DMetadata implements ILayer3DMetadata {
   @graphql({
     nullable: true,
   })
-  public imagingEndDate?: Date = undefined;
+  //#endregion
+  public sourceDateEnd: Date | undefined = undefined;
 
-  /**
-   * Layer sensor type
-   */
+  //#region COMMON: resolution
   @pycsw({
-    profile: 'mc_rd',
+    profile: 'mc_3d',
+    xmlElement: 'mc:resolution',
+    queryableField: 'mc:resolution',
+    pycswField: 'pycsw:Resolution',
+  })
+  @catalogDB({
+    column: {
+      name: 'resolution',
+      type: 'real', // check if 'decimal' type is needed
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.NUMBER,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public resolution: number | undefined = undefined;
+
+  //#region COMMON: accuracyCE90
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:horizontalAccuracyCE90',
+    queryableField: 'mc:horizontalAccuracyCE90',
+    pycswField: 'pycsw:horizontalAccuracyCE90',
+  })
+  @catalogDB({
+    column: {
+      name: 'horizontal_accuracy_ce_90',
+      type: 'real',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.NUMBER,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public accuracyCE90: number | undefined = undefined;
+
+  //#region COMMON: sensorType    //sensors
+  @pycsw({
+    profile: 'mc_3d',
     xmlElement: 'mc:sensorType',
     queryableField: 'mc:sensorType',
     pycswField: 'pycsw:sensorType',
@@ -199,16 +421,15 @@ export class Layer3DMetadata implements ILayer3DMetadata {
   @graphql({
     nullable: true,
   })
-  public sensorType?: SensorType = undefined;
+  //#endregion
+  public sensorType: SensorType | undefined = undefined;
 
-  /**
-   * layer region
-   */
+  //#region COMMON: region
   @pycsw({
     profile: 'mc_3d',
     xmlElement: 'mc:region',
     queryableField: 'mc:region',
-    pycswField: 'pycsw:region',
+    pycswField: 'pycsw:Region',
   })
   @catalogDB({
     column: {
@@ -223,11 +444,45 @@ export class Layer3DMetadata implements ILayer3DMetadata {
   @graphql({
     nullable: true,
   })
-  public region?: string = undefined;
+  //#endregion
+  public region: string | undefined = undefined;
+  //#endregion
 
-  /**
-   * layer nominal Resolution
-   */
+  //#region 3D SPECIFIC FIELDS
+  //#region 3D: projectName
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:projectName',
+    queryableField: 'mc:projectName',
+    pycswField: 'pycsw:projectName',
+  })
+  @catalogDB({
+    column: {
+      name: 'project_name',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public projectName: string | undefined = undefined;
+
+  //#region 3D: footprint
+  @tsTypes({
+    mappingType: TsTypes.OBJECT,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public footprint: GeoJSON | undefined = undefined;
+
+  //#region 3D: nominalResolution
   @pycsw({
     profile: 'mc_3d',
     xmlElement: 'mc:nominalResolution',
@@ -242,16 +497,15 @@ export class Layer3DMetadata implements ILayer3DMetadata {
     },
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.NUMBER,
   })
   @graphql({
     nullable: true,
   })
-  public nominalResolution?: string = undefined;
+  //#endregion
+  public nominalResolution: number | undefined = undefined;
 
-  /**
-   * layer accuracy_LE_90
-   */
+  //#region 3D: accuracyLE90
   @pycsw({
     profile: 'mc_3d',
     xmlElement: 'mc:accuracyLE90',
@@ -266,25 +520,93 @@ export class Layer3DMetadata implements ILayer3DMetadata {
     },
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.NUMBER,
   })
   @graphql({
     nullable: true,
   })
-  public accuracyLE90?: string = undefined;
+  //#endregion
+  public accuracyLE90: number | undefined = undefined;
 
-  /**
-   * layer horizontal_accuracy_CE_90
-   */
+  //#region 3D: accuracySE90
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:horizontalAccuracyCE90',
-    queryableField: 'mc:horizontalAccuracyCE90',
-    pycswField: 'pycsw:horizontalAccuracyCE90',
+    xmlElement: 'mc:accuracySE90',
+    queryableField: 'mc:accuracySE90',
+    pycswField: 'pycsw:accuracySE90',
   })
   @catalogDB({
     column: {
-      name: 'horizontal_accuracy_ce_90',
+      name: 'accuracy_se_90',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.NUMBER,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public accuracySE90: number | undefined = undefined;
+
+  //#region 3D: visualAccuracy
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:visualAccuracy',
+    queryableField: 'mc:visualAccuracy',
+    pycswField: 'pycsw:visualAccuracy',
+  })
+  @catalogDB({
+    column: {
+      name: 'visual_accuracy',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.NUMBER,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public visualAccuracy: number | undefined = undefined;
+
+  //#region 3D: heightRange
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:heightRange',
+    queryableField: 'mc:heightRange',
+    pycswField: 'pycsw:heightRange',
+  })
+  @catalogDB({
+    column: {
+      name: 'height_range',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.NUMBER,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public heightRange: number | undefined = undefined;
+
+  //#region COMMON: srsOrigin
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:SRSOrigin',
+    queryableField: 'mc:SRSOrigin',
+    pycswField: 'pycsw:CRSOrigin',
+  })
+  @catalogDB({
+    column: {
+      name: 'srs_origin',
       type: 'text',
       nullable: true,
     },
@@ -295,102 +617,32 @@ export class Layer3DMetadata implements ILayer3DMetadata {
   @graphql({
     nullable: true,
   })
-  public horizontalAccuracyCE90?: string = undefined;
+  //#endregion
+  public srsOrigin: string | undefined = undefined;
 
-  /**
-   * layer accuracy_LE_90
-   */
+  //#region 3D: flightAlt
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:relativeAccuracyLE90',
-    queryableField: 'mc:relativeAccuracyLE90',
-    pycswField: 'pycsw:relativeAccuracyLE90',
+    xmlElement: 'mc:flightAlt',
+    queryableField: 'mc:flightAlt',
+    pycswField: 'pycsw:flightAlt',
   })
   @catalogDB({
     column: {
-      name: 'relative_accuracy_le_90',
+      name: 'flight_alt',
       type: 'text',
       nullable: true,
     },
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.NUMBER,
   })
   @graphql({
     nullable: true,
   })
-  public relativeAccuracyLE90?: string = undefined;
-
-  /**
-   * Layer validation date
-   */
-  @pycsw({
-    profile: 'mc_3d',
-    xmlElement: 'mc:validationDate',
-    queryableField: 'mc:validationDate',
-    pycswField: 'pycsw:validationDate',
-  })
-  @catalogDB({
-    column: {
-      name: 'validation_date',
-      type: 'timestamp without time zone',
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.DATE,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public validationDate?: Date = undefined;
-
-  /**
-   * layer estimated_precision
-   */
-  @pycsw({
-    profile: 'mc_3d',
-    xmlElement: 'mc:estimatedPrecision',
-    queryableField: 'mc:estimatedPrecision',
-    pycswField: 'pycsw:estimatedPrecision',
-  })
-  @catalogDB({
-    column: {
-      name: 'estimated_precision',
-      type: 'text',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public estimatedPrecision?: string = undefined;
-
-  /**
-   * layer measured_precision
-   */
-  @pycsw({
-    profile: 'mc_3d',
-    xmlElement: 'mc:measuredPrecision',
-    queryableField: 'mc:measuredPrecision',
-    pycswField: 'pycsw:measuredPrecision',
-  })
-  @catalogDB({
-    column: {
-      name: 'measured_precision',
-      type: 'text',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public measuredPrecision?: string = undefined;
+  //#endregion
+  public flightAlt: number | undefined = undefined;
+  //#endregion
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
     return getPyCSWMapping<Layer3DMetadata>(new Layer3DMetadata(), prop);

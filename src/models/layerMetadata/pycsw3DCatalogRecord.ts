@@ -3,7 +3,6 @@ import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping
 import { IOrmCatalog } from '../common/interfaces/ormCatalog.interface';
 import { graphql } from '../common/decorators/property/graphql.decorator';
 import { graphqlClass } from '../common/decorators/property/classGraphql.decorator';
-import { RecordType } from '../pycsw/coreEnums';
 import { Link } from './link';
 import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
@@ -15,8 +14,29 @@ import { Layer3DMetadata, IPropPYCSWMapping } from './layer3DMetadata';
   table: 'records',
 })
 @graphqlClass({ alias: 'Layer3DRecord' })
-// TODO: Replace LayerMetadata with Layter3DMetadata when implemented
 export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreModel, IOrmCatalog {
+  //#region CORE: id
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:id',
+    queryableField: 'mc:id',
+    pycswField: 'pycsw:Identifier',
+  })
+  @catalogDB({
+    column: {
+      name: 'identifier',
+      type: 'text',
+      nullable: false,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql()
+  //#endregion
+  public id: string | undefined = 'UNKNOWN';
+
+  //#region CORE: typename
   @catalogDB({
     column: {
       name: 'typename',
@@ -26,11 +46,10 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
-  @graphql({
-    nullable: true,
-  })
-  public typeName?: string = undefined;
+  //#endregion
+  public typeName: string | undefined = undefined;
 
+  //#region CORE: schema
   @catalogDB({
     column: {
       name: 'schema',
@@ -40,11 +59,10 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
-  @graphql({
-    nullable: true,
-  })
-  public schema?: string = undefined;
+  //#endregion
+  public schema: string | undefined = undefined;
 
+  //#region CORE: mdsource
   @catalogDB({
     column: {
       name: 'mdsource',
@@ -54,11 +72,10 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
-  @graphql({
-    nullable: true,
-  })
-  public mdSource?: string = undefined;
+  //#endregion
+  public mdSource: string | undefined = undefined;
 
+  //#region CORE: xml
   @catalogDB({
     column: {
       name: 'xml',
@@ -68,11 +85,10 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
-  @graphql({
-    nullable: true,
-  })
-  public xml?: string = undefined;
+  //#endregion
+  public xml: string | undefined = undefined;
 
+  //#region CORE: anytext
   @catalogDB({
     column: {
       name: 'anytext',
@@ -82,11 +98,10 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
-  @graphql({
-    nullable: true,
-  })
-  public anyText?: string = undefined;
+  //#endregion
+  public anyText: string | undefined = undefined;
 
+  //#region CORE: insertDate
   @catalogDB({
     column: {
       name: 'insert_date',
@@ -99,22 +114,10 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   @graphql({
     nullable: true,
   })
-  public insertDate?: Date = undefined;
+  //#endregion
+  public insertDate: Date | undefined = undefined;
 
-  @catalogDB({
-    column: {
-      name: 'creation_date',
-      type: 'timestamp without time zone',
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.DATE,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public creationDate?: Date = undefined;
-
+  //#region CORE: wktGeometry
   @catalogDB({
     column: {
       name: 'wkt_geometry',
@@ -125,11 +128,68 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
+  //#endregion
+  public wktGeometry: string | undefined = undefined;
+
+  //#region CORE: wkbGeometry (DD trigger populated)
+  @catalogDB({
+    column: {
+      name: 'wkb_geometry',
+      type: 'geometry',
+      spatialFeatureType: 'Geometry',
+      srid: 4326,
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  //#endregion
+  public wkbGeometry: string | undefined = undefined;
+
+  //#region CORE: keywords
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:keywords',
+    queryableField: 'mc:keywords',
+    pycswField: 'pycsw:Keywords',
+  })
+  @catalogDB({
+    column: {
+      name: 'keywords',
+      type: 'text',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
   @graphql({
     nullable: true,
   })
-  public wktGeometry?: string = undefined;
+  //#endregion
+  public keywords: string | undefined = undefined;
 
+  //#region CORE: anyTextTsvector
+  @catalogDB({
+    column: {
+      name: 'anytext_tsvector',
+      type: 'tsvector',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  //#endregion
+  public anyTextTsvector: string | undefined = undefined;
+
+  //#region CORE: links
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:links',
+    queryableField: 'mc:links',
+    pycswField: 'pycsw:Links',
+  })
   @catalogDB({
     column: {
       name: 'links',
@@ -146,149 +206,8 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   @graphql({
     nullable: true,
   })
-  public links?: Link[] = undefined;
-
-  @catalogDB({
-    column: {
-      name: 'anytext_tsvector',
-      type: 'tsvector',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public anyTextTsvector?: string = undefined;
-
-  @catalogDB({
-    column: {
-      name: 'wkb_geometry',
-      type: 'geometry',
-      spatialFeatureType: 'Geometry',
-      srid: 4326,
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public wkbGeometry?: string = undefined;
-
-  @catalogDB({
-    column: {
-      name: 'title',
-      type: 'text',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public title?: string = undefined;
-
-  @pycsw({
-    profile: 'mc_3d',
-    xmlElement: 'mc:type',
-    queryableField: 'mc:type',
-    pycswField: 'pycsw:Type',
-  })
-  @catalogDB({
-    column: {
-      name: 'type',
-      type: 'text',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.RECORDTYPE,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public type?: RecordType = RecordType.RECORD_3D;
-
-  @catalogDB({
-    column: {
-      name: 'srs',
-      type: 'text',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public srs?: string = undefined;
-
-  @catalogDB({
-    column: {
-      name: 'producer_name',
-      type: 'text',
-      defaultValue: 'IDFMU',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public producerName?: string = undefined;
-
-  @catalogDB({
-    column: {
-      name: 'project_name',
-      type: 'text',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public projectName?: string = undefined;
-
-  @catalogDB({
-    column: {
-      name: 'classification',
-      type: 'text',
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public classification?: string = undefined;
-
-  @catalogDB({
-    column: {
-      name: 'keywords',
-      type: 'text',
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public keywords?: string = undefined;
+  //#endregion
+  public links: Link[] | undefined = undefined;
 
   public constructor() {
     super();

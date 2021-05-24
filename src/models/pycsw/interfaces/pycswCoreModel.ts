@@ -1,24 +1,17 @@
 import { Link } from '../../layerMetadata/link';
 
 export interface IPycswCoreModel {
-  typeName?: string;
-  schema?: string;
-  mdSource?: string;
-  xml?: string;
-  anyText?: string;
-  insertDate?: Date;
-  wktGeometry?: string;
-  links?: Link[];
-  anyTextTsvector?: string;
-  description?: string;
-  wkbGeometry?: string;
-  identifier?: string;
-  title?: string;
-  type?: string;
-  srs?: string;
-  producerName?: string;
-  projectName?: string;
-  creationDate?: Date;
-  classification?: string;
-  keywords?: string;
+  // PYSCW CORE FIELDS
+  id: string | undefined;
+  typeName: string | undefined;
+  schema: string | undefined;
+  mdSource: string | undefined;
+  xml: string | undefined;
+  anyText: string | undefined;
+  insertDate: Date | undefined;
+  wktGeometry: string | undefined;
+  wkbGeometry: string | undefined;
+  keywords: string | undefined;
+  anyTextTsvector: string | undefined;
+  links: Link[] | undefined;
 }

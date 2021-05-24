@@ -1,6 +1,8 @@
 import { GeoJSON } from 'geojson';
 import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
 import { graphql } from '../common/decorators/property/graphql.decorator';
+import { RecordType } from '../pycsw/coreEnums';
+import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { getShpMapping, IShpMapping, ShapeFileType, shpMapping } from './decorators/property/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from './decorators/property/catalogDB.decorator';
@@ -8,18 +10,8 @@ import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorato
 import { SensorType } from './enums';
 
 export interface ILayerMetadata {
-  id: string;
-  source?: string;
-  sourceName?: string;
-  updateDate?: Date;
-  resolution?: number;
-  ep90?: number;
-  sensorType?: SensorType;
-  rms?: number;
-  scale?: string;
-  dsc?: string;
-  geometry?: GeoJSON;
-  version?: string;
+  rms: number | undefined;
+  scale: string | undefined;
 }
 export interface IPropSHPMapping extends IShpMapping, ITsTypesMapping {
   prop: string;
@@ -29,19 +21,63 @@ export interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
 }
 
-export class LayerMetadata implements ILayerMetadata {
-  /**
-   * layer id
-   */
+export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
+  //#region COMMON FIELDS
+  //#region COMMON: type
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:id',
-    queryableField: 'mc:id',
-    pycswField: 'pycsw:Identifier',
+    xmlElement: 'mc:type',
+    queryableField: 'mc:type',
+    pycswField: 'pycsw:Type',
   })
   @catalogDB({
     column: {
-      name: 'identifier',
+      name: 'type',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.RECORDTYPE,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public type: RecordType | undefined = RecordType.RECORD_RASTER;
+
+  //#region COMMON: classification
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:classification',
+    queryableField: 'mc:classification',
+    pycswField: 'pycsw:Classification',
+  })
+  @catalogDB({
+    column: {
+      name: 'classification',
+      type: 'text',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public classification: string | undefined = undefined;
+
+  //#region COMMON: productId
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:productId',
+    queryableField: 'mc:productId',
+    pycswField: 'pycsw:ProductId',
+  })
+  @catalogDB({
+    column: {
+      name: 'product_id',
       type: 'text',
       nullable: false,
     },
@@ -50,26 +86,43 @@ export class LayerMetadata implements ILayerMetadata {
     mappingType: TsTypes.STRING,
   })
   @graphql()
-  public id = 'UNKNOWN';
+  //#endregion
+  public productId: string | undefined = 'UNKNOWN';
 
-  /**
-   * Layer's unique identifier
-   */
+  //#region COMMON: productName
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:source',
-    queryableField: 'mc:source',
-    pycswField: 'pycsw:Source',
+    xmlElement: 'mc:productName',
+    queryableField: 'mc:productName',
+    pycswField: 'pycsw:Title',
   })
   @catalogDB({
     column: {
-      name: 'source',
+      name: 'product_name',
       type: 'text',
+      nullable: true,
     },
   })
-  @shpMapping({
-    shpFile: ShapeFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Source',
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql()
+  //#endregion
+  public productName: string | undefined = undefined;
+
+  //#region COMMON: productVersion
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:productVersion',
+    queryableField: 'mc:productVersion',
+    pycswField: 'pycsw:ProductVersion',
+  })
+  @catalogDB({
+    column: {
+      name: 'product_version',
+      type: 'text',
+      nullable: true,
+    },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -77,26 +130,47 @@ export class LayerMetadata implements ILayerMetadata {
   @graphql({
     nullable: true,
   })
-  public source?: string = undefined;
+  //#endregion
+  public productVersion: string | undefined = undefined;
 
-  /**
-   * Layer's source name
-   */
+  //#region COMMON: productType
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:sourceName',
-    queryableField: 'mc:sourceName',
-    pycswField: 'pycsw:SourceName',
+    xmlElement: 'mc:productType',
+    queryableField: 'mc:productType',
+    pycswField: 'pycsw:ProductType',
   })
   @catalogDB({
     column: {
-      name: 'sourceName',
+      name: 'product_type',
       type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql()
+  //#endregion
+  public productType: string | undefined = undefined;
+
+  //#region COMMON: description
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:description',
+    queryableField: 'mc:description',
+    pycswField: 'pycsw:Abstract',
+  })
+  @catalogDB({
+    column: {
+      name: 'description',
+      type: 'text',
+      nullable: true,
     },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.SourceName',
+    valuePath: 'features[0].properties.Dsc',
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -104,11 +178,124 @@ export class LayerMetadata implements ILayerMetadata {
   @graphql({
     nullable: true,
   })
-  public sourceName?: string = undefined;
+  //#endregion
+  public description: string | undefined = undefined;
 
-  /**
-   * Layer creation time
-   */
+  //#region COMMON: srsId
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:SRS',
+    queryableField: 'mc:SRS',
+    pycswField: 'pycsw:CRS',
+  })
+  @catalogDB({
+    column: {
+      name: 'srs',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public srsId: string | undefined = undefined;
+
+  //#region COMMON: srsName
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:SRSName',
+    queryableField: 'mc:SRSName',
+    pycswField: 'pycsw:CRSName',
+  })
+  @catalogDB({
+    column: {
+      name: 'srs_name',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public srsName: string | undefined = undefined;
+
+  //#region COMMON: producerName
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:producerName',
+    queryableField: 'mc:producerName',
+    pycswField: 'pycsw:Creator',
+  })
+  @catalogDB({
+    column: {
+      name: 'producer_name',
+      type: 'text',
+      defaultValue: 'IDFMU',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public producerName: string | undefined = undefined;
+
+  //#region COMMON: creationDate
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:creationDate',
+    queryableField: 'mc:creationDate',
+    pycswField: 'pycsw:CreationDate',
+  })
+  @catalogDB({
+    column: {
+      name: 'creation_date',
+      type: 'timestamp without time zone',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.DATE,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public creationDate: Date | undefined = undefined;
+
+  //#region COMMON: ingestionDate
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:ingestionDate',
+    queryableField: 'mc:ingestionDate',
+    pycswField: 'pycsw:IngestionDate',
+  })
+  @catalogDB({
+    column: {
+      name: 'ingestion_date',
+      type: 'timestamp without time zone',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.DATE,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public ingestionDate: Date | undefined = undefined;
+
+  //#region COMMON: updateDate
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:updateDate',
@@ -117,7 +304,7 @@ export class LayerMetadata implements ILayerMetadata {
   })
   @catalogDB({
     column: {
-      name: 'updateDate',
+      name: 'update_date',
       type: 'timestamp without time zone',
     },
   })
@@ -131,11 +318,54 @@ export class LayerMetadata implements ILayerMetadata {
   @graphql({
     nullable: true,
   })
-  public updateDate?: Date = undefined;
+  //#endregion
+  public updateDate: Date | undefined = undefined;
 
-  /**
-   * Layer resolution
-   */
+  //#region COMMON: sourceDateStart
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:imagingTime_begin',
+    queryableField: 'mc:imagingTime_begin',
+    pycswField: 'pycsw:TempExtent_begin',
+  })
+  @catalogDB({
+    column: {
+      name: 'source_start_date',
+      type: 'timestamp without time zone',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.DATE,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public sourceDateStart: Date | undefined = undefined;
+
+  //#region COMMON: sourceDateEnd
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:mc:imagingTime_end',
+    queryableField: 'mc:imagingTime_end',
+    pycswField: 'pycsw:TempExtent_end',
+  })
+  @catalogDB({
+    column: {
+      name: 'source_end_date',
+      type: 'timestamp without time zone',
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.DATE,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public sourceDateEnd: Date | undefined = undefined;
+
+  //#region COMMON: resolution
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:resolution',
@@ -158,22 +388,20 @@ export class LayerMetadata implements ILayerMetadata {
   @graphql({
     nullable: true,
   })
-  public resolution?: number = undefined;
+  //#endregion
+  public resolution: number | undefined = undefined;
 
-  /**
-   * accuracy
-   */
+  //#region COMMON: accuracyCE90
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:ep90',
-    queryableField: 'mc:ep90',
-    pycswField: 'pycsw:Ep90',
+    xmlElement: 'mc:horizontalAccuracyCE90',
+    queryableField: 'mc:horizontalAccuracyCE90',
+    pycswField: 'pycsw:horizontalAccuracyCE90',
   })
   @catalogDB({
     column: {
-      name: 'ep90',
-      type: 'real', // check if 'decimal' type is needed
-      nullable: true,
+      name: 'horizontal_accuracy_ce_90',
+      type: 'real',
     },
   })
   @shpMapping({
@@ -186,11 +414,10 @@ export class LayerMetadata implements ILayerMetadata {
   @graphql({
     nullable: true,
   })
-  public ep90?: number = undefined;
+  //#endregion
+  public accuracyCE90: number | undefined = undefined;
 
-  /**
-   * Layer sensor type
-   */
+  //#region COMMON: sensorType    //sensors
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:sensorType',
@@ -199,7 +426,7 @@ export class LayerMetadata implements ILayerMetadata {
   })
   @catalogDB({
     column: {
-      name: 'sensorType',
+      name: 'sensor_type',
       type: 'text',
     },
   })
@@ -213,11 +440,35 @@ export class LayerMetadata implements ILayerMetadata {
   @graphql({
     nullable: true,
   })
-  public sensorType?: SensorType = undefined;
+  //#endregion
+  public sensorType: SensorType | undefined = undefined;
 
-  /**
-   * RMS
-   */
+  //#region COMMON: region
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:region',
+    queryableField: 'mc:region',
+    pycswField: 'pycsw:Region',
+  })
+  @catalogDB({
+    column: {
+      name: 'region',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public region: string | undefined = undefined;
+  //#endregion
+
+  //#region RASTER SPECIFIC FIELDS
+  //#region RASTER: rms
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:rms',
@@ -227,7 +478,7 @@ export class LayerMetadata implements ILayerMetadata {
   @catalogDB({
     column: {
       name: 'rms',
-      type: 'real', // check if 'decimal' type is needed
+      type: 'real',
       nullable: true,
     },
   })
@@ -241,11 +492,10 @@ export class LayerMetadata implements ILayerMetadata {
   @graphql({
     nullable: true,
   })
-  public rms?: number = undefined;
+  //#endregion
+  public rms: number | undefined = undefined;
 
-  /**
-   * Scale of layer
-   */
+  //#region RASTER: scale
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:scale',
@@ -269,48 +519,19 @@ export class LayerMetadata implements ILayerMetadata {
   @graphql({
     nullable: true,
   })
-  public scale?: string = undefined;
+  //#endregion
+  public scale: string | undefined = undefined;
 
-  /**
-   * Layer description
-   */
+  //#region RASTER: footprint
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:dsc',
-    queryableField: 'mc:dsc',
-    pycswField: 'pycsw:Abstract',
+    xmlElement: 'mc:footprint',
+    queryableField: 'mc:footprint',
+    pycswField: 'pycsw:footprint',
   })
   @catalogDB({
     column: {
-      name: 'description',
-      type: 'text',
-      nullable: true,
-    },
-  })
-  @shpMapping({
-    shpFile: ShapeFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Dsc',
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public dsc?: string = undefined;
-
-  /**
-   * General geometry
-   */
-  @pycsw({
-    profile: 'mc_raster',
-    xmlElement: 'mc:geometry',
-    queryableField: 'mc:geometry',
-    pycswField: 'pycsw:Geometry',
-  })
-  @catalogDB({
-    column: {
-      name: 'geojson',
+      name: 'footprint_geojson',
       type: 'text',
       nullable: true,
     },
@@ -325,31 +546,9 @@ export class LayerMetadata implements ILayerMetadata {
   @graphql({
     nullable: true,
   })
-  public geometry?: GeoJSON = undefined;
-
-  /**
-   * layer version
-   */
-  @pycsw({
-    profile: 'mc_raster',
-    xmlElement: 'mc:version',
-    queryableField: 'mc:version',
-    pycswField: 'pycsw:version',
-  })
-  @catalogDB({
-    column: {
-      name: 'version',
-      type: 'text',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  public version?: string = undefined;
+  //#endregion
+  public footprint: GeoJSON | undefined = undefined;
+  //#endregion
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
     return getPyCSWMapping<LayerMetadata>(new LayerMetadata(), prop);
