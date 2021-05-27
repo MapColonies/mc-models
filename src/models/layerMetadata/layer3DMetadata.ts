@@ -339,7 +339,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   //#region COMMON: sourceDateEnd
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:mc:imagingTime_end',
+    xmlElement: 'mc:imagingTime_end',
     queryableField: 'mc:imagingTime_end',
     pycswField: 'pycsw:TempExtent_end',
   })

@@ -346,7 +346,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#region COMMON: sourceDateEnd
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:mc:imagingTime_end',
+    xmlElement: 'mc:imagingTime_end',
     queryableField: 'mc:imagingTime_end',
     pycswField: 'pycsw:TempExtent_end',
   })
