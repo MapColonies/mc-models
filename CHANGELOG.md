@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.1.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@6.0.0...mc-model-types@6.1.0) (2021-06-08)
+
+
+### Features
+
+* improved orm code generator compitability ([#73](https://github.com/MapColonies/mc-models/issues/73)) ([6f16283](https://github.com/MapColonies/mc-models/commit/6f16283f51e3565a29e2e791efdaae5565b61436))
+
 ## [6.0.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@5.1.1...mc-model-types@6.0.0) (2021-06-07)
 
 
