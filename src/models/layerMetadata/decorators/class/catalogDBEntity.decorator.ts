@@ -4,6 +4,7 @@ const catalogDbEntityMetadataKey = Symbol('catalogdbentitymapping');
 
 export interface ICatalogDBEntityMapping {
   table: string; // database table name
+  className: string;
 }
 
 export function catalogDBEntity(catalogdbentitymapping: ICatalogDBEntityMapping): ClassDecorator {

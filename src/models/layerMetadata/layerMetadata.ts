@@ -238,7 +238,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     column: {
       name: 'producer_name',
       type: 'text',
-      defaultValue: 'IDFMU',
+      default: 'IDFMU',
       nullable: true,
     },
   })

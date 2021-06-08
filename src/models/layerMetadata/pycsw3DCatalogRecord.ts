@@ -12,6 +12,7 @@ import { Layer3DMetadata, IPropPYCSWMapping } from './layer3DMetadata';
 
 @catalogDBEntity({
   table: 'records',
+  className: 'Metadata',
 })
 @graphqlClass({ alias: 'Layer3DRecord' })
 export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreModel, IOrmCatalog {

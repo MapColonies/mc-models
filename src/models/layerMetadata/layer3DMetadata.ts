@@ -235,7 +235,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'producer_name',
       type: 'text',
-      defaultValue: 'IDFMU',
+      default: 'IDFMU',
       nullable: true,
     },
   })
