@@ -12,6 +12,7 @@ import { getPyCSWMapping, pycsw } from './decorators/property/csw.decorator';
 
 @catalogDBEntity({
   table: 'records',
+  className: 'RecordEntity',
 })
 @graphqlClass({ alias: 'LayerRasterRecord' })
 export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCoreModel, IOrmCatalog {
@@ -27,6 +28,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
       name: 'identifier',
       type: 'text',
       nullable: false,
+      primary: true,
     },
   })
   @tsTypes({
