@@ -49,7 +49,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public typeName: string | undefined = undefined;
+  public typeName = 'mc:MCRasterRecord';
 
   //#region CORE: schema
   @catalogDB({

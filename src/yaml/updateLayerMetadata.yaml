@@ -68,12 +68,14 @@ components:
           type: number
           description: Horizontal Accuracy
         sensorType:
-          type: string
-          enum:
-            - VIS
-            - RGB
-            - Pan_Sharpen
-            - OTHER
+          type: array
+          items:
+            type: string
+            enum:
+              - VIS
+              - RGB
+              - Pan_Sharpen
+              - OTHER
           description: The sensor type
         region:
           type: string
@@ -84,21 +86,22 @@ components:
           type: string
         footprint:
           $ref: geojson.yaml#/components/schemas/Geometry
+        layerPolygonParts:
+          $ref: geojson.yaml#/components/schemas/FeatureCollection
     updateStatusLayerMetadata:
       type: object
       description: Metadata for layer status
-      properties:
-        allOf:
-          - $ref: "#/components/schemas/LayerMetadata"
-          - properties:
-              ingestionStartDate:
-                type: string
-                format: date-time
-                description: Ingestion start time date
-              ingestionEndDate:
-                type: string
-                format: date-time
-                description: Ingestion end time date
-              layerTileLocation:
-                type: string
-                description: Url of tile location
+      allOf:
+        - $ref: "#/components/schemas/updateLayerMetadata"
+        - properties:
+            ingestionStartDate:
+              type: string
+              format: date-time
+              description: Ingestion start time date
+            ingestionEndDate:
+              type: string
+              format: date-time
+              description: Ingestion end time date
+            layerTileLocation:
+              type: string
+              description: Url of tile location

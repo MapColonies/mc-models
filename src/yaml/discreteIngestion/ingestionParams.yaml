@@ -13,7 +13,7 @@ components:
         - fileNames
       properties:
         metadata:
-          $ref: '../layerMetadata.yaml#/components/schemas/LayerMetadata'
+          $ref: '../insertLayerMetadata.yaml#/components/schemas/insertLayerMetadata'
         originDirectory:
           type: string
           description: layer source directory
