@@ -34,3 +34,8 @@ added schemas should be written according to the fallowing rule:
 template property type can be overridden in generated ts type by adding "tsType" attribute (for typescript types that are not valid in json schema)
 
 for template example see Schema/LayerMetadata.
+
+## testing the yaml schemas
+all the yaml schemas can be validated by running ```npm run lint:openapi```
+
+**note that due to the limitions of the linter configuration the lint will result in ```The field `paths` must be present on this level``` error for every schema file, any other error should be fixed**
