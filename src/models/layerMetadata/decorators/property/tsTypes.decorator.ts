@@ -8,6 +8,7 @@ export enum PropertiesTypes {
   CLASS = 'class',
   ARRAY = 'array',
   OBJECT = 'object',
+  ENUM_ARRAY = 'enumArray',
 }
 export interface IDescribeTsType {
   value: string;
@@ -48,6 +49,11 @@ export const TsTypes: Record<string, IDescribeTsType> = {
   SENSORTYPE: {
     value: 'SensorType',
     type: PropertiesTypes.ENUM,
+    importFromPackage: '@map-colonies/mc-model-types',
+  },
+  SENSORTYPE_ARRAY: {
+    value: 'SensorType',
+    type: PropertiesTypes.ENUM_ARRAY,
     importFromPackage: '@map-colonies/mc-model-types',
   },
   RECORDTYPE: {

@@ -414,15 +414,18 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
       name: 'sensor_type',
       type: 'text',
     },
+    field: {
+      overrideType: TsTypes.STRING,
+    },
   })
   @tsTypes({
-    mappingType: TsTypes.SENSORTYPE,
+    mappingType: TsTypes.SENSORTYPE_ARRAY,
   })
   @graphql({
     nullable: true,
   })
   //#endregion
-  public sensorType: SensorType | undefined = undefined;
+  public sensorType: SensorType[] | undefined = undefined;
 
   //#region COMMON: region
   @pycsw({

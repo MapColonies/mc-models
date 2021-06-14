@@ -21,7 +21,7 @@ export interface IMetadataCommonModel {
   sourceDateEnd: Date | undefined;
   resolution: number | undefined;
   accuracyCE90: number | undefined;
-  sensorType: SensorType | undefined; //sensors
+  sensorType: SensorType[] | undefined; //sensors
   region: string | undefined;
   footprint: GeoJSON | undefined;
 }

@@ -7,25 +7,16 @@ components:
     insertLayerMetadata:
       type: object
       required:
-        - type
         - productId
         - productName
         - productVersion
         - productType
-        - srsId
-        - srsName
-        - producerName
-        - creationDate
-        - ingestionDate
         - updateDate
-        - sourceDateStart
-        - sourceDateEnd
+        - resolution
         - accuracyCE90
         - sensorType
-        - region
-        - rms
-        - scale
         - footprint
+        - type
       allOf:
         - $ref: ./updateLayerMetadata.yaml#/components/schemas/updateLayerMetadata
 
@@ -36,4 +27,4 @@ components:
         - ingestionEndDate
         - layerTileLocation
       allOf:
-        - $ref: ./updateLayerMetadata.yaml#/components/schemas/StatusLayerMetadata
+        - $ref: ./updateLayerMetadata.yaml#/components/schemas/updateStatusLayerMetadata

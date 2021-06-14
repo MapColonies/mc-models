@@ -429,19 +429,22 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       name: 'sensor_type',
       type: 'text',
     },
+    field: {
+      overrideType: TsTypes.STRING,
+    },
   })
   @shpMapping({
     shpFile: ShapeFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.SensorType',
   })
   @tsTypes({
-    mappingType: TsTypes.SENSORTYPE,
+    mappingType: TsTypes.SENSORTYPE_ARRAY,
   })
   @graphql({
     nullable: true,
   })
   //#endregion
-  public sensorType: SensorType | undefined = undefined;
+  public sensorType: SensorType[] | undefined = undefined;
 
   //#region COMMON: region
   @pycsw({
@@ -548,6 +551,29 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   //#endregion
   public footprint: GeoJSON | undefined = undefined;
+
+  //#region RASTER: layerPolygonParts
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:layerPolygonParts',
+    queryableField: 'mc:layerPolygonParts',
+    pycswField: 'pycsw:layerPolygonParts',
+  })
+  @catalogDB({
+    column: {
+      name: 'layer_polygon_parts',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.OBJECT,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public layerPolygonParts: GeoJSON | undefined = undefined;
   //#endregion
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
