@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@6.1.0...mc-model-types@7.0.0) (2021-06-15)
+
+
+### Features
+
+* updated models ([#74](https://github.com/MapColonies/mc-models/issues/74)) ([7e76232](https://github.com/MapColonies/mc-models/commit/7e762329ff0db95809f03b28b9f12a9860a1bd62))
+
+
+### Bug Fixes
+
+* updated pycsw core fields defult values ([#75](https://github.com/MapColonies/mc-models/issues/75)) ([818826c](https://github.com/MapColonies/mc-models/commit/818826c9d41ec8ab6c9f3f9baea8c05a832b1e3b))
+
 ## [6.1.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@6.0.0...mc-model-types@6.1.0) (2021-06-08)
 
 
