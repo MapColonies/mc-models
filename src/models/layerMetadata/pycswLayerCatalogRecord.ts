@@ -36,7 +36,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   })
   @graphql()
   //#endregion
-  public id: string | undefined = 'UNKNOWN';
+  public id: string | undefined = undefined;
 
   //#region CORE: typename
   @catalogDB({
@@ -62,8 +62,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public schema: string | undefined = undefined;
-
+  public schema: string | undefined = 'mc_raster';
   //#region CORE: mdsource
   @catalogDB({
     column: {
@@ -75,7 +74,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public mdSource: string | undefined = undefined;
+  public mdSource: string | undefined = '';
 
   //#region CORE: xml
   @catalogDB({
@@ -88,7 +87,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public xml: string | undefined = undefined;
+  public xml: string | undefined = '';
 
   //#region CORE: anytext
   @catalogDB({
@@ -108,6 +107,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     column: {
       name: 'insert_date',
       type: 'timestamp without time zone',
+      default: 'CURRENT_TIMESTAMP',
     },
   })
   @tsTypes({
