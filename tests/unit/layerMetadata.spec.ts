@@ -106,6 +106,14 @@ describe('PycswLayerCatalogRecord class methods', () => {
     expect(ormCatalogDBMappings[0]).toHaveProperty('column');
     expect(ormCatalogDBMappings[0]).toHaveProperty('mappingType');
   });
+
+  it('getFieldConfigs(): field configs are defined', () => {
+    const fieldConfigs = PycswLayerCatalogRecord.getFieldConfigs();
+
+    expect(fieldConfigs.length).toBeGreaterThan(0);
+    expect(fieldConfigs[0]).toHaveProperty('prop');
+    expect(fieldConfigs[0]).toHaveProperty('category');
+  });
 });
 
 describe('Pycsw3DCatalogRecord class methods', () => {
@@ -115,5 +123,13 @@ describe('Pycsw3DCatalogRecord class methods', () => {
     expect(pycswMapping.length).toBeGreaterThan(0);
     expect(pycswMapping[0]).toHaveProperty('prop');
     expect(pycswMapping[0]).toHaveProperty('xmlElement');
+  });
+
+  it('getFieldConfigs(): field configs are defined', () => {
+    const fieldConfigs = Pycsw3DCatalogRecord.getFieldConfigs();
+
+    expect(fieldConfigs.length).toBeGreaterThan(0);
+    expect(fieldConfigs[0]).toHaveProperty('prop');
+    expect(fieldConfigs[0]).toHaveProperty('category');
   });
 });

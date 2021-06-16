@@ -1,6 +1,13 @@
 import { GeoJSON } from 'geojson';
 import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
-import { graphql } from '../common/decorators/property/graphql.decorator';
+import { graphql } from '../common/decorators/graphQL/graphql.decorator';
+import {
+  FieldCategory,
+  fieldConfig,
+  getFieldConfig,
+  IFieldConfigInfo,
+  IPropFieldConfigInfo,
+} from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { RecordType } from '../pycsw/coreEnums';
 import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
@@ -43,6 +50,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+  })
   //#endregion
   public type: RecordType | undefined = RecordType.RECORD_RASTER;
 
@@ -65,6 +75,10 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
+  @fieldConfig({
+    category: FieldCategory.GENERAL,
+    isManuallyEditable: true,
+  })
   //#endregion
   public classification: string | undefined = undefined;
 
@@ -86,6 +100,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.STRING,
   })
   @graphql()
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+  })
   //#endregion
   public productId: string | undefined = 'UNKNOWN';
 
@@ -107,6 +124,10 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.STRING,
   })
   @graphql()
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+    isManuallyEditable: true,
+  })
   //#endregion
   public productName: string | undefined = undefined;
 
@@ -130,6 +151,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+  })
   //#endregion
   public productVersion: string | undefined = undefined;
 
@@ -151,6 +175,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.STRING,
   })
   @graphql()
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+  })
   //#endregion
   public productType: string | undefined = undefined;
 
@@ -178,6 +205,10 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
+  @fieldConfig({
+    category: FieldCategory.GENERAL,
+    isManuallyEditable: true,
+  })
   //#endregion
   public description: string | undefined = undefined;
 
@@ -201,6 +232,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
+  @fieldConfig({
+    category: FieldCategory.GEO_INFO,
+  })
   //#endregion
   public srsId: string | undefined = undefined;
 
@@ -223,6 +257,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @graphql({
     nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.GEO_INFO,
   })
   //#endregion
   public srsName: string | undefined = undefined;
@@ -270,6 +307,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
+  @fieldConfig({
+    category: FieldCategory.GENERAL,
+  })
   //#endregion
   public creationDate: Date | undefined = undefined;
 
@@ -291,6 +331,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @graphql({
     nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.GENERAL,
   })
   //#endregion
   public ingestionDate: Date | undefined = undefined;
@@ -318,6 +361,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+  })
   //#endregion
   public updateDate: Date | undefined = undefined;
 
@@ -340,6 +386,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
+  @fieldConfig({
+    category: FieldCategory.GENERAL,
+  })
   //#endregion
   public sourceDateStart: Date | undefined = undefined;
 
@@ -361,6 +410,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @graphql({
     nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.GENERAL,
   })
   //#endregion
   public sourceDateEnd: Date | undefined = undefined;
@@ -388,6 +440,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+  })
   //#endregion
   public resolution: number | undefined = undefined;
 
@@ -413,6 +468,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @graphql({
     nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.GEO_INFO,
   })
   //#endregion
   public accuracyCE90: number | undefined = undefined;
@@ -443,6 +501,10 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
+  @fieldConfig({
+    category: FieldCategory.GENERAL,
+    isManuallyEditable: true,
+  })
   //#endregion
   public sensorType: SensorType[] | undefined = undefined;
 
@@ -465,6 +527,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @graphql({
     nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.GENERAL,
   })
   //#endregion
   public region: string | undefined = undefined;
@@ -588,6 +653,10 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     return getCatalogDBMapping<LayerMetadata>(new LayerMetadata(), prop);
   }
 
+  public static getFieldConfig(prop: string): IFieldConfigInfo | undefined {
+    return getFieldConfig<LayerMetadata>(new LayerMetadata(), prop);
+  }
+
   public static getPyCSWMappings(): IPropPYCSWMapping[] {
     const ret = [];
     const layer = new LayerMetadata();
@@ -631,6 +700,21 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
           prop: prop,
           ...shpMap,
           ...tsTypesMap,
+        });
+      }
+    }
+    return ret;
+  }
+
+  public static getFieldConfigs(): IPropFieldConfigInfo[] {
+    const ret = [];
+    const layer = new LayerMetadata();
+    for (const prop in layer) {
+      const fieldConfigMap = getFieldConfig<LayerMetadata>(layer, prop);
+      if (fieldConfigMap) {
+        ret.push({
+          prop: prop,
+          ...fieldConfigMap,
         });
       }
     }

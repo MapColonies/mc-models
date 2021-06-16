@@ -1,8 +1,9 @@
 import { IPycswCoreModel } from '../pycsw/interfaces/pycswCoreModel';
 import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
 import { IOrmCatalog } from '../common/interfaces/ormCatalog.interface';
-import { graphql } from '../common/decorators/property/graphql.decorator';
-import { graphqlClass } from '../common/decorators/property/classGraphql.decorator';
+import { graphql } from '../common/decorators/graphQL/graphql.decorator';
+import { graphqlClass } from '../common/decorators/graphQL/classGraphql.decorator';
+import { FieldCategory, fieldConfig, getFieldConfig, IPropFieldConfigInfo } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { Link } from './link';
 import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
@@ -34,6 +35,9 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     mappingType: TsTypes.STRING,
   })
   @graphql()
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+  })
   //#endregion
   public id: string | undefined = 'UNKNOWN';
 
@@ -167,6 +171,10 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   @graphql({
     nullable: true,
   })
+  @fieldConfig({
+    category: FieldCategory.GENERAL,
+    isManuallyEditable: true,
+  })
   //#endregion
   public keywords: string | undefined = undefined;
 
@@ -223,6 +231,21 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
         ret.push({
           prop: prop,
           ...pycswMap,
+        });
+      }
+    }
+    return ret;
+  }
+
+  public static getFieldConfigs(): IPropFieldConfigInfo[] {
+    const ret = [];
+    const layer = new Pycsw3DCatalogRecord();
+    for (const prop in layer) {
+      const fieldConfigMap = getFieldConfig<Pycsw3DCatalogRecord>(layer, prop);
+      if (fieldConfigMap) {
+        ret.push({
+          prop: prop,
+          ...fieldConfigMap,
         });
       }
     }
