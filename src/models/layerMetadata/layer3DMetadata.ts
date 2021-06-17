@@ -1,5 +1,12 @@
 import { GeoJSON } from 'geojson';
-import { graphql } from '../common/decorators/property/graphql.decorator';
+import { graphql } from '../common/decorators/graphQL/graphql.decorator';
+import {
+  FieldCategory,
+  fieldConfig,
+  getFieldConfig,
+  IFieldConfigInfo,
+  IPropFieldConfigInfo,
+} from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { RecordType } from '../pycsw/coreEnums';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
@@ -43,6 +50,9 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @graphql({
     nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.MAIN,
   })
   //#endregion
   public type: RecordType | undefined = RecordType.RECORD_3D;
@@ -651,6 +661,10 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     return getPyCSWMapping<Layer3DMetadata>(new Layer3DMetadata(), prop);
   }
 
+  public static getFieldConfig(prop: string): IFieldConfigInfo | undefined {
+    return getFieldConfig<Layer3DMetadata>(new Layer3DMetadata(), prop);
+  }
+
   public static getPyCSWMappings(): IPropPYCSWMapping[] {
     const ret = [];
     const layer = new Layer3DMetadata();
@@ -660,6 +674,21 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
         ret.push({
           prop: prop,
           ...pycswMap,
+        });
+      }
+    }
+    return ret;
+  }
+
+  public static getFieldConfigs(): IPropFieldConfigInfo[] {
+    const ret = [];
+    const layer = new Layer3DMetadata();
+    for (const prop in layer) {
+      const fieldConfigMap = getFieldConfig<Layer3DMetadata>(layer, prop);
+      if (fieldConfigMap) {
+        ret.push({
+          prop: prop,
+          ...fieldConfigMap,
         });
       }
     }

@@ -61,6 +61,11 @@ export const TsTypes: Record<string, IDescribeTsType> = {
     type: PropertiesTypes.ENUM,
     importFromPackage: '@map-colonies/mc-model-types',
   },
+  FIELDCATEGORY: {
+    value: 'FieldCategory',
+    type: PropertiesTypes.ENUM,
+    importFromPackage: '@map-colonies/mc-model-types',
+  },
 };
 /* eslint-enable @typescript-eslint/naming-convention */
 export interface ITsTypesMapping {

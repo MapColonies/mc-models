@@ -1,8 +1,10 @@
 import { IPycswCoreModel } from '../pycsw/interfaces/pycswCoreModel';
 import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
 import { IOrmCatalog } from '../common/interfaces/ormCatalog.interface';
-import { graphql } from '../common/decorators/property/graphql.decorator';
-import { graphqlClass } from '../common/decorators/property/classGraphql.decorator';
+import { graphql } from '../common/decorators/graphQL/graphql.decorator';
+import { graphqlClass } from '../common/decorators/graphQL/classGraphql.decorator';
+import { FieldCategory, fieldConfig, getFieldConfig, IPropFieldConfigInfo } from '../common/decorators/fieldConfig/fieldConfig.decorator';
+import { getFieldConfigClassInfo } from '../common/decorators/fieldConfig/classFieldConfig.decorator';
 import { Link } from './link';
 import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
@@ -35,6 +37,9 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     mappingType: TsTypes.STRING,
   })
   @graphql()
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+  })
   //#endregion
   public id: string | undefined = undefined;
 
@@ -168,6 +173,10 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   @graphql({
     nullable: true,
   })
+  @fieldConfig({
+    category: FieldCategory.GENERAL,
+    isManuallyEditable: true,
+  })
   //#endregion
   public keywords: string | undefined = undefined;
 
@@ -208,6 +217,10 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   @graphql({
     nullable: true,
   })
+  @fieldConfig({
+    category: FieldCategory.GENERAL,
+    complexType: TsTypes.LINKS,
+  })
   //#endregion
   public links: Link[] | undefined = undefined;
 
@@ -228,6 +241,22 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
       }
     }
     return ret;
+  }
+
+  public static getFieldConfigs(): IPropFieldConfigInfo[] {
+    const ret = [];
+    const layer = new PycswLayerCatalogRecord();
+    for (const prop in layer) {
+      const fieldConfigMap = getFieldConfig<PycswLayerCatalogRecord>(layer, prop);
+      if (fieldConfigMap) {
+        const fieldConfig = { prop: prop, ...fieldConfigMap };
+        if (fieldConfigMap.complexType) {
+          fieldConfig.subFields = getFieldConfigClassInfo(fieldConfigMap.complexType.value);
+        }
+        ret.push(fieldConfig);
+      }
+    }
+    return ret as IPropFieldConfigInfo[];
   }
 
   public getORMCatalogMappings(): IPropCatalogDBMapping[] {
