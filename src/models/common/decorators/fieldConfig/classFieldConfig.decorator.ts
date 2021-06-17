@@ -1,9 +1,7 @@
-import 'reflect-metadata';
 import { getFieldConfig, IPropFieldConfigInfo } from './fieldConfig.decorator';
 
-const fieldConfigMetadataKey = Symbol('fieldconfigclass');
 type KeyValueDict = Record<string, unknown>;
-const target = {};
+const target: IFieldConfigClassInfo[] = [];
 
 function getFieldConfigs(object: KeyValueDict): IPropFieldConfigInfo[] {
   const ret = [];
@@ -19,8 +17,8 @@ function getFieldConfigs(object: KeyValueDict): IPropFieldConfigInfo[] {
   return ret;
 }
 
-function getFieldConfigClassesInfo(): IFieldConfigClassInfo[] | undefined {
-  return Reflect.getMetadata(fieldConfigMetadataKey, target) as IFieldConfigClassInfo[];
+function getFieldConfigClassesInfo(): IFieldConfigClassInfo[] {
+  return target;
 }
 
 export interface IFieldConfigClassInfo {
@@ -31,21 +29,20 @@ export interface IFieldConfigClassInfo {
 export function fieldConfigClass(): ClassDecorator {
   // eslint-disable-next-line @typescript-eslint/ban-types
   return <TFunction extends Function>(classCtr: TFunction): TFunction => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-explicit-any
     const classInstance = new (classCtr as any)();
     const classData: IFieldConfigClassInfo = {
       fields: getFieldConfigs(classInstance),
       name: classCtr.name,
     };
 
-    const classDataList = getFieldConfigClassesInfo() ?? [];
+    const classDataList = getFieldConfigClassesInfo();
     classDataList.push(classData);
-    Reflect.defineMetadata(fieldConfigMetadataKey, classDataList, target);
+    target.concat(classDataList);
     return classCtr;
   };
 }
 
 export function getFieldConfigClassInfo(className: string): IFieldConfigClassInfo {
-  const classInfos = Reflect.getMetadata(fieldConfigMetadataKey, target) as IFieldConfigClassInfo[];
-  return classInfos.find((classInfo) => classInfo.name === className) as IFieldConfigClassInfo;
+  return target.find((classInfo) => classInfo.name === className) as IFieldConfigClassInfo;
 }

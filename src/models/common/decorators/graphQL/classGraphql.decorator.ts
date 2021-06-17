@@ -1,11 +1,9 @@
-import 'reflect-metadata';
 import { getTsTypesMapping } from '../../../layerMetadata/decorators/property/tsTypes.decorator';
 import { IPropGraphQLMapping } from '../../interfaces/propGraphQLMapping.interface';
 import { getGraphQLMapping } from './graphql.decorator';
 
-const graphQLMetadataKey = Symbol('graphqlclassmapping');
 type KeyValueDict = Record<string, unknown>;
-const target = {};
+const target: IGraphQLClassMapping[] = [];
 
 export interface IGraphQLClass {
   alias?: string;
@@ -19,22 +17,22 @@ export interface IGraphQLClassMapping {
 export function graphqlClass(args?: IGraphQLClass): ClassDecorator {
   // eslint-disable-next-line @typescript-eslint/ban-types
   return <TFunction extends Function>(classCtr: TFunction): TFunction => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-explicit-any
     const classInstance = new (classCtr as any)();
     const classData: IGraphQLClassMapping = {
       fields: getGraphQLMappings(classInstance),
       name: args?.alias ?? classCtr.name,
     };
 
-    const classDataList = getGraphQLClassMapping() ?? [];
+    const classDataList = getGraphQLClassMapping();
     classDataList.push(classData);
-    Reflect.defineMetadata(graphQLMetadataKey, classDataList, target);
+    target.concat(classDataList);
     return classCtr;
   };
 }
 
-export function getGraphQLClassMapping(): IGraphQLClassMapping[] | undefined {
-  return Reflect.getMetadata(graphQLMetadataKey, target) as IGraphQLClassMapping[];
+export function getGraphQLClassMapping(): IGraphQLClassMapping[] {
+  return target;
 }
 
 export function getGraphQLMappings(object: KeyValueDict): IPropGraphQLMapping[] {

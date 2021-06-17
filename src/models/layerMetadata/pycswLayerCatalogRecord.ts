@@ -253,17 +253,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
         if (fieldConfigMap.complexType) {
           fieldConfig.subFields = getFieldConfigClassInfo(fieldConfigMap.complexType.value);
         }
-
         ret.push(fieldConfig);
-        // ret.push({
-        //   prop: prop,
-        //   ...fieldConfigMap,
-        //   subFields: fieldConfigMap.complexType ? getFieldConfigClassInfo(fieldConfigMap.complexType.value) : undefined
-        // });
-
-        // if(fieldConfigMap.complexType){
-        //   console.log('prop-->', JSON.stringify(getFieldConfigClassInfo(fieldConfigMap.complexType.value)))
-        // }
       }
     }
     return ret as IPropFieldConfigInfo[];
