@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@7.0.0...mc-model-types@7.1.0) (2021-06-17)
+
+
+### Features
+
+* **fieldconfig:** decorator is added ([#76](https://github.com/MapColonies/mc-models/issues/76)) ([cf66c1c](https://github.com/MapColonies/mc-models/commit/cf66c1cf902a58ef72f7e6cc06b2b35f68a11eac))
+
 ## [7.0.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@6.1.0...mc-model-types@7.0.0) (2021-06-15)
 
 
