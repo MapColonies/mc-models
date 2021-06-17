@@ -17,10 +17,6 @@ function getFieldConfigs(object: KeyValueDict): IPropFieldConfigInfo[] {
   return ret;
 }
 
-function getFieldConfigClassesInfo(): IFieldConfigClassInfo[] {
-  return target;
-}
-
 export interface IFieldConfigClassInfo {
   name: string;
   fields: IPropFieldConfigInfo[];
@@ -36,9 +32,7 @@ export function fieldConfigClass(): ClassDecorator {
       name: classCtr.name,
     };
 
-    const classDataList = getFieldConfigClassesInfo();
-    classDataList.push(classData);
-    target.concat(classDataList);
+    target.push(classData);
     return classCtr;
   };
 }

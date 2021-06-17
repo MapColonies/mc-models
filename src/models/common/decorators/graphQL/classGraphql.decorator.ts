@@ -24,9 +24,7 @@ export function graphqlClass(args?: IGraphQLClass): ClassDecorator {
       name: args?.alias ?? classCtr.name,
     };
 
-    const classDataList = getGraphQLClassMapping();
-    classDataList.push(classData);
-    target.concat(classDataList);
+    target.push(classData);
     return classCtr;
   };
 }
