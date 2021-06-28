@@ -133,6 +133,12 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
+  @fieldConfig({
+    category: FieldCategory.GENERAL,
+  })
+  @graphql({
+    nullable: true,
+  })
   //#endregion
   public wktGeometry: string | undefined = undefined;
 
