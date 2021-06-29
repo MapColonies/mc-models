@@ -527,9 +527,6 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
-  @fieldConfig({
-    category: FieldCategory.GEO_INFO,
-  })
   //#endregion
   public footprint: GeoJSON | undefined = undefined;
 
