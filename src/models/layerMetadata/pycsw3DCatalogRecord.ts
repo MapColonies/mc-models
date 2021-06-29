@@ -123,6 +123,12 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   public insertDate: Date | undefined = undefined;
 
   //#region CORE: wktGeometry
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:boundingBox',
+    queryableField: 'mc:boundingBox',
+    pycswField: 'pycsw:BoundingBox',
+  })
   @catalogDB({
     column: {
       name: 'wkt_geometry',
@@ -132,6 +138,12 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
+  })
+  @fieldConfig({
+    category: FieldCategory.GEO_INFO,
+  })
+  @graphql({
+    nullable: true,
   })
   //#endregion
   public wktGeometry: string | undefined = undefined;
