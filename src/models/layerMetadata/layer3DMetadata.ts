@@ -16,7 +16,6 @@ import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 
 export interface ILayer3DMetadata {
   validationDate: Date | undefined;
-  title: string | undefined;
   version: string | undefined;
   centroid: string | undefined;
   relativeAccuracyCE90: number | undefined;
@@ -91,6 +90,31 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   //#endregion
   public classification: string | undefined = undefined;
+
+  //#region COMMON: productName
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:name',
+    queryableField: 'mc:name',
+    pycswField: 'pycsw:Title',
+  })
+  @catalogDB({
+    column: {
+      name: 'title',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql()
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+    isManuallyEditable: true,
+  })
+  //#endregion
+  public productName: string | undefined = undefined;
 
   //#region COMMON: description
   @pycsw({
@@ -430,31 +454,6 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   //#endregion
   public validationDate: Date | undefined = undefined;
-
-  //#region 3D: title
-  @pycsw({
-    profile: 'mc_3d',
-    xmlElement: 'mc:name',
-    queryableField: 'mc:name',
-    pycswField: 'pycsw:Title',
-  })
-  @catalogDB({
-    column: {
-      name: 'title',
-      type: 'text',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql()
-  @fieldConfig({
-    category: FieldCategory.MAIN,
-    isManuallyEditable: true,
-  })
-  //#endregion
-  public title: string | undefined = undefined;
 
   //#region 3D: version
   @pycsw({

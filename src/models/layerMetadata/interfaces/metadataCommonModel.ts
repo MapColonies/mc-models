@@ -6,6 +6,7 @@ export interface IMetadataCommonModel {
   // PROFILES COMMON FIELDS
   type: RecordType | undefined;
   classification: string | undefined;
+  productName: string | undefined; //title
   description: string | undefined;
   srsId: string | undefined;
   producerName: string | undefined; //not in spec but present in profile (probably 3D only)
