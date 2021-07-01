@@ -1,22 +1,24 @@
 import 'reflect-metadata';
 
-const shpMappingMetadataKey = Symbol('shpmapping');
+const inputDataMappingMetadataKey = Symbol('inputDataMapping');
 
-export interface IShpMapping {
-  shpFile: ShapeFileType;
+export interface IDataMapping {
+  dataFile: DataFileType;
   valuePath: string;
+  isCustomLogic?: boolean;
 }
 
-export enum ShapeFileType {
+export enum DataFileType {
   FILES = 'Files',
   PRODUCT = 'Product',
   SHAPE_METADATA = 'ShapeMetadata',
+  TFW = 'TFW',
 }
 
-export function shpMapping(shpmapping: IShpMapping): PropertyDecorator {
-  return Reflect.metadata(shpMappingMetadataKey, shpmapping);
+export function inputDataMapping(dataMapping: IDataMapping): PropertyDecorator {
+  return Reflect.metadata(inputDataMappingMetadataKey, dataMapping);
 }
 
-export function getShpMapping<T>(target: T, propertyKey: string): IShpMapping | undefined {
-  return Reflect.getMetadata(shpMappingMetadataKey, target, propertyKey) as IShpMapping;
+export function getInputDataMapping<T>(target: T, propertyKey: string): IDataMapping | undefined {
+  return Reflect.getMetadata(inputDataMappingMetadataKey, target, propertyKey) as IDataMapping;
 }
