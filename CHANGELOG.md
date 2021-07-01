@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.3.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@7.2.0...mc-model-types@7.3.0) (2021-07-01)
+
+
+### Features
+
+* updated shp maping ([#79](https://github.com/MapColonies/mc-models/issues/79)) ([cef3882](https://github.com/MapColonies/mc-models/commit/cef3882c3b48e0865b49ed1a01cd858de7ef829a))
+
+
+### Bug Fixes
+
+* remove category footprint from 3d ([#78](https://github.com/MapColonies/mc-models/issues/78)) ([e277573](https://github.com/MapColonies/mc-models/commit/e2775736a4fdfeb68b2a3cd1ccc927a3449c274a))
+
 ## [7.1.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@7.0.0...mc-model-types@7.1.0) (2021-06-17)
 
 
