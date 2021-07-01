@@ -11,7 +11,7 @@ import {
 import { RecordType } from '../pycsw/coreEnums';
 import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
-import { getShpMapping, IShpMapping, ShapeFileType, shpMapping } from './decorators/property/shp.decorator';
+import { getInputDataMapping, IDataMapping, DataFileType, inputDataMapping } from './decorators/property/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 import { SensorType } from './enums';
@@ -25,7 +25,7 @@ export interface ILayerMetadata {
   rms: number | undefined;
   scale: string | undefined;
 }
-export interface IPropSHPMapping extends IShpMapping, ITsTypesMapping {
+export interface IPropSHPMapping extends IDataMapping, ITsTypesMapping {
   prop: string;
 }
 
@@ -101,6 +101,10 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       nullable: true,
     },
   })
+  @inputDataMapping({
+    dataFile: DataFileType.SHAPE_METADATA,
+    valuePath: 'features[0].properties.SourceName',
+  })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
@@ -126,8 +130,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       nullable: true,
     },
   })
-  @shpMapping({
-    shpFile: ShapeFileType.SHAPE_METADATA,
+  @inputDataMapping({
+    dataFile: DataFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Dsc',
   })
   @tsTypes({
@@ -256,9 +260,10 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'timestamp without time zone',
     },
   })
-  @shpMapping({
-    shpFile: ShapeFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.UpdateDate',
+  @inputDataMapping({
+    isCustomLogic: true,
+    dataFile: DataFileType.SHAPE_METADATA,
+    valuePath: '***max(features[].properties.UpdateDate)***',
   })
   @tsTypes({
     mappingType: TsTypes.DATE,
@@ -285,6 +290,11 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'timestamp without time zone',
     },
   })
+  @inputDataMapping({
+    isCustomLogic: true,
+    dataFile: DataFileType.SHAPE_METADATA,
+    valuePath: '***min(features[].properties.UpdateDate)***',
+  })
   @tsTypes({
     mappingType: TsTypes.DATE,
   })
@@ -309,6 +319,11 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       name: 'source_end_date',
       type: 'timestamp without time zone',
     },
+  })
+  @inputDataMapping({
+    isCustomLogic: true,
+    dataFile: DataFileType.SHAPE_METADATA,
+    valuePath: '***max(features[].properties.UpdateDate)***',
   })
   @tsTypes({
     mappingType: TsTypes.DATE,
@@ -335,8 +350,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'real',
     },
   })
-  @shpMapping({
-    shpFile: ShapeFileType.SHAPE_METADATA,
+  @inputDataMapping({
+    dataFile: DataFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Ep90',
   })
   @tsTypes({
@@ -367,9 +382,10 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       overrideType: TsTypes.STRING,
     },
   })
-  @shpMapping({
-    shpFile: ShapeFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.SensorType',
+  @inputDataMapping({
+    isCustomLogic: true,
+    dataFile: DataFileType.SHAPE_METADATA,
+    valuePath: '***features[].properties.SensorType***',
   })
   @tsTypes({
     mappingType: TsTypes.SENSORTYPE_ARRAY,
@@ -426,6 +442,11 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       nullable: false,
     },
   })
+  @inputDataMapping({
+    isCustomLogic: true,
+    dataFile: DataFileType.SHAPE_METADATA,
+    valuePath: '***features[0].properties.Source.Split(-)[0]***',
+  })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
@@ -449,6 +470,11 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'text',
       nullable: true,
     },
+  })
+  @inputDataMapping({
+    isCustomLogic: true,
+    dataFile: DataFileType.SHAPE_METADATA,
+    valuePath: '***features[0].properties.Source.Split(-)[1]***',
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -475,6 +501,10 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'text',
       nullable: true,
     },
+  })
+  @inputDataMapping({
+    dataFile: DataFileType.PRODUCT,
+    valuePath: 'features[0].properties.Type',
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -525,9 +555,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'real', // check if 'decimal' type is needed
     },
   })
-  @shpMapping({
-    shpFile: ShapeFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Resolution',
+  @inputDataMapping({
+    dataFile: DataFileType.TFW,
+    valuePath: '[0]',
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
@@ -555,8 +585,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       nullable: true,
     },
   })
-  @shpMapping({
-    shpFile: ShapeFileType.SHAPE_METADATA,
+  @inputDataMapping({
+    dataFile: DataFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Rms',
   })
   @tsTypes({
@@ -582,8 +612,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       nullable: true,
     },
   })
-  @shpMapping({
-    shpFile: ShapeFileType.SHAPE_METADATA,
+  @inputDataMapping({
+    dataFile: DataFileType.SHAPE_METADATA,
     valuePath: 'features[0].properties.Scale',
   })
   @tsTypes({
@@ -609,8 +639,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       nullable: true,
     },
   })
-  @shpMapping({
-    shpFile: ShapeFileType.SHAPE_METADATA,
+  @inputDataMapping({
+    dataFile: DataFileType.SHAPE_METADATA,
     valuePath: 'features[0].geometry',
   })
   @tsTypes({
@@ -636,6 +666,11 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       nullable: true,
     },
   })
+  @inputDataMapping({
+    isCustomLogic: true,
+    dataFile: DataFileType.SHAPE_METADATA,
+    valuePath: '***entire geo json feature collection***',
+  })
   @tsTypes({
     mappingType: TsTypes.OBJECT,
   })
@@ -650,8 +685,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     return getPyCSWMapping<LayerMetadata>(new LayerMetadata(), prop);
   }
 
-  public static getShpMapping(prop: string): IShpMapping | undefined {
-    return getShpMapping<LayerMetadata>(new LayerMetadata(), prop);
+  public static getShpMapping(prop: string): IDataMapping | undefined {
+    return getInputDataMapping<LayerMetadata>(new LayerMetadata(), prop);
   }
 
   public static getCatalogDBMapping(prop: string): ICatalogDBMapping | undefined {
@@ -694,13 +729,13 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     return ret;
   }
 
-  public static getShpMappings(): IPropSHPMapping[] {
+  public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
     const ret = [];
     const layer = new LayerMetadata();
     for (const prop in layer) {
-      const shpMap = getShpMapping<LayerMetadata>(layer, prop);
+      const shpMap = getInputDataMapping<LayerMetadata>(layer, prop);
       const tsTypesMap = getTsTypesMapping<LayerMetadata>(layer, prop);
-      if (shpMap && tsTypesMap) {
+      if (shpMap && tsTypesMap && (includeCustomLogic || shpMap.isCustomLogic === undefined || !shpMap.isCustomLogic)) {
         ret.push({
           prop: prop,
           ...shpMap,
