@@ -1,4 +1,4 @@
-import { LayerMetadata, IPYCSWMapping, IShpMapping, IPropPYCSWMapping, IPropSHPMapping, Pycsw3DCatalogRecord } from '../../src/models';
+import { LayerMetadata, IPYCSWMapping, IDataMapping, IPropPYCSWMapping, IPropSHPMapping, Pycsw3DCatalogRecord } from '../../src/models';
 import { ICatalogDBMapping } from '../../src/models/layerMetadata/decorators/property/catalogDB.decorator';
 import { PycswLayerCatalogRecord } from '../../src/models/layerMetadata/pycswLayerCatalogRecord';
 
@@ -20,15 +20,15 @@ describe('LayerMetadata class static methods', () => {
 
   it('getShpMapping(): mapped to SHAPE prop', () => {
     const PROPERTY_NAME = 'footprint';
-    const shpMapping: IShpMapping | undefined = LayerMetadata.getShpMapping(PROPERTY_NAME);
+    const shpMapping: IDataMapping | undefined = LayerMetadata.getShpMapping(PROPERTY_NAME);
 
-    expect(shpMapping).toHaveProperty('shpFile');
+    expect(shpMapping).toHaveProperty('dataFile');
     expect(shpMapping).toHaveProperty('valuePath');
   });
 
   it('getShpMapping(): NOT mapped to SHAPE prop', () => {
     const PROPERTY_NAME = 'dummy_footprint';
-    const shpMapping: IShpMapping | undefined = LayerMetadata.getShpMapping(PROPERTY_NAME);
+    const shpMapping: IDataMapping | undefined = LayerMetadata.getShpMapping(PROPERTY_NAME);
 
     expect(shpMapping).toBeUndefined();
   });
@@ -48,7 +48,7 @@ describe('LayerMetadata class static methods', () => {
 
     expect(shpMappings.length).toBeGreaterThan(0);
     expect(shpMappings[0]).toHaveProperty('prop');
-    expect(shpMappings[0]).toHaveProperty('shpFile');
+    expect(shpMappings[0]).toHaveProperty('dataFile');
     expect(shpMappings[0]).toHaveProperty('valuePath');
     expect(shpMappings[0]).toHaveProperty('mappingType');
   });
