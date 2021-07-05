@@ -171,7 +171,7 @@ components:
             - $ref: "#/components/schemas/GeometryCollection"
             - $ref: "#/components/schemas/Geometry"
         bbox:
-          $ref: "#/components/schemas/GeometryBase"
+          $ref: "#/components/schemas/BBox"
 
     FeatureCollection:
       type: object
@@ -189,4 +189,4 @@ components:
           items:
             $ref: "#/components/schemas/Feature"
         bbox:
-          $ref: "#/components/schemas/GeometryBase"
+          $ref: "#/components/schemas/BBox"
