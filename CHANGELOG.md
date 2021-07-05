@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.3.2](https://github.com/MapColonies/mc-models/compare/mc-model-types@7.3.1...mc-model-types@7.3.2) (2021-07-05)
+
+
+### Bug Fixes
+
+* added support to linkes with ports ([#81](https://github.com/MapColonies/mc-models/issues/81)) ([04908d3](https://github.com/MapColonies/mc-models/commit/04908d3387a27a5dabb59950cc9f19601dfa51cf))
+
 ### [7.3.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@7.3.0...mc-model-types@7.3.1) (2021-07-05)
 
 
