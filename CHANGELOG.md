@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.3.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@7.3.0...mc-model-types@7.3.1) (2021-07-05)
+
+
+### Bug Fixes
+
+* geojson openapi bbox ([#80](https://github.com/MapColonies/mc-models/issues/80)) ([c94194a](https://github.com/MapColonies/mc-models/commit/c94194a1a62630294ef709ed349d4a8039b2ccec))
+
 ## [7.3.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@7.2.0...mc-model-types@7.3.0) (2021-07-01)
 
 
