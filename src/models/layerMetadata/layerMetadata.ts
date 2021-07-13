@@ -112,6 +112,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.MAIN,
     isManuallyEditable: true,
+    isRequired: true,
   })
   //#endregion
   public productName: string | undefined = undefined;
@@ -422,6 +423,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
+    isRequired: true,
   })
   //#endregion
   public region: string | undefined = undefined;

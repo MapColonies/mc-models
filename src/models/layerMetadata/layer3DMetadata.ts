@@ -112,6 +112,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.MAIN,
     isManuallyEditable: true,
+    isRequired: true,
   })
   //#endregion
   public productName: string | undefined = undefined;
@@ -397,6 +398,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
+    isRequired: true,
   })
   //#endregion
   public region: string | undefined = undefined;
@@ -653,6 +655,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
+    isRequired: true,
   })
   //#endregion
   public accuracyLE90: number | undefined = undefined;
