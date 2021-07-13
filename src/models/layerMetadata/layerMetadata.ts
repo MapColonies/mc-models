@@ -423,7 +423,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
-    isRequired: true,
   })
   //#endregion
   public region: string | undefined = undefined;
