@@ -21,6 +21,6 @@ components:
         url:
           type: string
           description: link url template
-          pattern: '^https?:\/\/[\w.]*(:\d+)?(\/[\w\-.\/{}]*(\.\w*)?)?(\?[\w]+=[\w{}]+(&\w+=[\w{}]+)*)?$'
+          pattern: '^https?:\/\/.*$'
       additionalProperties: false
 
