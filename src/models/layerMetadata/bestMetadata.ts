@@ -17,7 +17,6 @@ import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorato
 import { ProductType, SensorType } from './enums';
 
 export interface ILayerMetadata {
-  productId: string | undefined;
   productVersion: string | undefined;
   productType: ProductType | undefined;
   resolution: number | undefined;
@@ -37,7 +36,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#region COMMON FIELDS
   //#region COMMON: type
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:type',
     queryableField: 'mc:type',
     pycswField: 'pycsw:Type',
@@ -63,7 +62,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region COMMON: classification
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:classification',
     queryableField: 'mc:classification',
     pycswField: 'pycsw:Classification',
@@ -89,7 +88,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region COMMON: productName
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:productName',
     queryableField: 'mc:productName',
     pycswField: 'pycsw:Title',
@@ -118,7 +117,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region COMMON: description
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:description',
     queryableField: 'mc:description',
     pycswField: 'pycsw:Abstract',
@@ -149,7 +148,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region COMMON: srsId
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:SRS',
     queryableField: 'mc:SRS',
     pycswField: 'pycsw:CRS',
@@ -175,7 +174,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region COMMON: producerName
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:producerName',
     queryableField: 'mc:producerName',
     pycswField: 'pycsw:Creator',
@@ -199,7 +198,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region COMMON: creationDate
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:creationDate',
     queryableField: 'mc:creationDate',
     pycswField: 'pycsw:CreationDate',
@@ -224,7 +223,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region COMMON: ingestionDate
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:ingestionDate',
     queryableField: 'mc:ingestionDate',
     pycswField: 'pycsw:IngestionDate',
@@ -249,7 +248,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region COMMON: updateDate
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:updateDate',
     queryableField: 'mc:updateDate',
     pycswField: 'pycsw:UpdateDate',
@@ -279,7 +278,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region COMMON: sourceDateStart
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:imagingTime_begin',
     queryableField: 'mc:imagingTime_begin',
     pycswField: 'pycsw:TempExtent_begin',
@@ -309,7 +308,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region COMMON: sourceDateEnd
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:imagingTime_end',
     queryableField: 'mc:imagingTime_end',
     pycswField: 'pycsw:TempExtent_end',
@@ -339,7 +338,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region COMMON: accuracyCE90
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:horizontalAccuracyCE90',
     queryableField: 'mc:horizontalAccuracyCE90',
     pycswField: 'pycsw:horizontalAccuracyCE90',
@@ -368,7 +367,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region COMMON: sensorType    //sensors
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:sensorType',
     queryableField: 'mc:sensorType',
     pycswField: 'pycsw:sensorType',
@@ -402,7 +401,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region COMMON: region
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:region',
     queryableField: 'mc:region',
     pycswField: 'pycsw:Region',
@@ -428,38 +427,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
 
   //#region RASTER SPECIFIC FIELDS
-  //#region RASTER: productId
-  @pycsw({
-    profile: 'mc_raster',
-    xmlElement: 'mc:productId',
-    queryableField: 'mc:productId',
-    pycswField: 'pycsw:ProductId',
-  })
-  @catalogDB({
-    column: {
-      name: 'product_id',
-      type: 'text',
-      nullable: false,
-    },
-  })
-  @inputDataMapping({
-    isCustomLogic: true,
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***features[0].properties.Source.Split(-)[0]***',
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql()
-  @fieldConfig({
-    category: FieldCategory.MAIN,
-  })
-  //#endregion
-  public productId: string | undefined = 'UNKNOWN';
-
   //#region RASTER: productVersion
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:productVersion',
     queryableField: 'mc:productVersion',
     pycswField: 'pycsw:ProductVersion',
@@ -490,7 +460,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region RASTER: productType
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:productType',
     queryableField: 'mc:productType',
     pycswField: 'pycsw:ProductType',
@@ -518,7 +488,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region RASTER: srsName
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:SRSName',
     queryableField: 'mc:SRSName',
     pycswField: 'pycsw:CRSName',
@@ -544,7 +514,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region RASTER: resolution
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:resolution',
     queryableField: 'mc:resolution',
     pycswField: 'pycsw:Resolution',
@@ -573,7 +543,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region RASTER: rms
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:rms',
     queryableField: 'mc:rms',
     pycswField: 'pycsw:Rms',
@@ -600,7 +570,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region RASTER: scale
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:scale',
     queryableField: 'mc:scale',
     pycswField: 'pycsw:Scale',
@@ -627,7 +597,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region RASTER: footprint
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:footprint',
     queryableField: 'mc:footprint',
     pycswField: 'pycsw:footprint',
@@ -654,7 +624,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   //#region RASTER: layerPolygonParts
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:layerPolygonParts',
     queryableField: 'mc:layerPolygonParts',
     pycswField: 'pycsw:layerPolygonParts',
