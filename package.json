@@ -1,6 +1,6 @@
 {
   "name": "@map-colonies/mc-model-types",
-  "version": "7.3.2",
+  "version": "7.3.5",
   "description": "json schemas for validations and generated ts models",
   "author": "",
   "license": "MIT",
@@ -17,7 +17,7 @@
   "scripts": {
     "clean": "rimraf *.tgz Schema",
     "release": "standard-version -t mc-model-types@",
-    "build": "tsc  --project tsconfig.build.json",
+    "build": "tsc --project tsconfig.build.json",
     "copy:yaml": "copyfiles -u 1 \"./src/yaml/**/*.yaml\" ./Schema",
     "copy": "npm run copy:yaml",
     "prepack": "npm run build && npm run copy",

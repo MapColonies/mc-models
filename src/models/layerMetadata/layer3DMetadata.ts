@@ -87,6 +87,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.GENERAL,
     isManuallyEditable: true,
+    isRequired: true,
   })
   //#endregion
   public classification: string | undefined = undefined;
@@ -112,6 +113,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.MAIN,
     isManuallyEditable: true,
+    isRequired: true,
   })
   //#endregion
   public productName: string | undefined = undefined;
@@ -165,6 +167,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
+    isRequired: true,
   })
   //#endregion
   public srsId: string | undefined = undefined;
@@ -192,6 +195,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
+    isRequired: true,
   })
   //#endregion
   public producerName: string | undefined = undefined;
@@ -292,6 +296,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
+    isRequired: true,
   })
   //#endregion
   public sourceDateStart: Date | undefined = undefined;
@@ -317,6 +322,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
+    isRequired: true,
   })
   //#endregion
   public sourceDateEnd: Date | undefined = undefined;
@@ -342,6 +348,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
+    isRequired: true,
   })
   //#endregion
   public accuracyCE90: number | undefined = undefined;
@@ -371,6 +378,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.GENERAL,
     isManuallyEditable: true,
+    isRequired: true,
   })
   //#endregion
   public sensorType: SensorType[] | undefined = undefined;
@@ -397,6 +405,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
+    isRequired: true,
   })
   //#endregion
   public region: string | undefined = undefined;
@@ -477,6 +486,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.MAIN,
+    isRequired: true,
   })
   //#endregion
   public version: string | undefined = undefined;
@@ -653,9 +663,11 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
+    isRequired: true,
   })
   //#endregion
   public accuracyLE90: number | undefined = undefined;
+  //#endregion
 
   // //#region 3D: accuracySE90
   // @pycsw({
