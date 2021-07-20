@@ -28,6 +28,17 @@ components:
           description: layer's version
         productType:
           type: string
+          enum:
+            - Orthophoto
+            - RasterMap
+            - VectorMap
+            - Vector
+            - DEM
+            - 3DModel
+            - PhotoBlock
+            - Photosphera
+            - "Best Orthophoto"
+            - "Best RasterMap"
           description: layer's type might be derived from the first letter
         description: 
           type: string

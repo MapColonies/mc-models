@@ -24,6 +24,7 @@ export interface ILayerMetadata {
   srsName: string | undefined;
   rms: number | undefined;
   scale: string | undefined;
+  includedInBests: string | undefined;
 }
 export interface IPropSHPMapping extends IDataMapping, ITsTypesMapping {
   prop: string;
@@ -680,6 +681,30 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   //#endregion
   public layerPolygonParts: GeoJSON | undefined = undefined;
+  //#endregion
+
+  //#region RASTER: includedInBests
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:includedInBests',
+    queryableField: 'mc:includedInBests',
+    pycswField: 'pycsw:includedInBests',
+  })
+  @catalogDB({
+    column: {
+      name: 'included_in_bests',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public includedInBests: string | undefined = undefined;
   //#endregion
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
