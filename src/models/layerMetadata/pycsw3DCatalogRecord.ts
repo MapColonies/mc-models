@@ -208,8 +208,8 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   //#region CORE: links
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:links',
-    queryableField: 'mc:links',
+    xmlElement: 'mc:URI',
+    queryableField: 'mc:URI',
     pycswField: 'pycsw:Links',
   })
   @catalogDB({
