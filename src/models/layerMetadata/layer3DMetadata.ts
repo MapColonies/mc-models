@@ -18,7 +18,7 @@ export interface ILayer3DMetadata {
   validationDate: Date | undefined;
   version: string | undefined;
   centroid: string | undefined;
-  relativeAccuracyCE90: number | undefined;
+  relativeAccuracyLE90: number | undefined;
   estimatedPrecision: number | undefined;
   measuredPrecision: number | undefined;
 
@@ -541,7 +541,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   //#endregion
   public footprint: GeoJSON | undefined = undefined;
 
-  //#region 3D: relativeAccuracyCE90
+  //#region 3D: relativeAccuracyLE90
   @pycsw({
     profile: 'mc_3d',
     xmlElement: 'mc:relativeAccuracyLE90',
@@ -564,7 +564,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     category: FieldCategory.GEO_INFO,
   })
   //#endregion
-  public relativeAccuracyCE90: number | undefined = undefined;
+  public relativeAccuracyLE90: number | undefined = undefined;
 
   //#region 3D: estimatedPrecision
   @pycsw({
