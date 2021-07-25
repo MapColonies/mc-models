@@ -564,7 +564,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     category: FieldCategory.GEO_INFO,
   })
   //#endregion
-  public relativeAccuracyCE90: number | undefined = undefined;
+  public relativeAccuracyLE90: number | undefined = undefined;
 
   //#region 3D: estimatedPrecision
   @pycsw({
