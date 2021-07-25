@@ -3,6 +3,7 @@ import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping
 import { IOrmCatalog } from '../common/interfaces/ormCatalog.interface';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import { graphqlClass } from '../common/decorators/graphQL/classGraphql.decorator';
+import { getFieldConfigClassInfo } from '../common/decorators/fieldConfig/classFieldConfig.decorator';
 import { FieldCategory, fieldConfig, getFieldConfig, IPropFieldConfigInfo } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
@@ -261,10 +262,11 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     for (const prop in layer) {
       const fieldConfigMap = getFieldConfig<Pycsw3DCatalogRecord>(layer, prop);
       if (fieldConfigMap) {
-        ret.push({
-          prop: prop,
-          ...fieldConfigMap,
-        });
+        const fieldConfig = { prop: prop, ...fieldConfigMap };
+        if (fieldConfigMap.complexType) {
+          fieldConfig.subFields = getFieldConfigClassInfo(fieldConfigMap.complexType.value);
+        }
+        ret.push(fieldConfig);
       }
     }
     return ret;
