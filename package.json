@@ -36,7 +36,7 @@
     "test:integration": "jest --config=./tests/configurations/integration/jest.config.js"
   },
   "dependencies": {
-    "@types/geojson": "^7946.0.7",
+    "@types/geojson": "^7946.0.8",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
