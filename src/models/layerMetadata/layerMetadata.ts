@@ -24,7 +24,7 @@ export interface ILayerMetadata {
   srsName: string | undefined;
   rms: number | undefined;
   scale: string | undefined;
-  includedInBests: string | undefined;
+  includedInBests: string[] | undefined;
 }
 export interface IPropSHPMapping extends IDataMapping, ITsTypesMapping {
   prop: string;
@@ -698,13 +698,13 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     },
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.STRING_ARRAY,
   })
   @graphql({
     nullable: true,
   })
   //#endregion
-  public includedInBests: string | undefined = undefined;
+  public includedInBests: string[] | undefined = undefined;
   //#endregion
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
