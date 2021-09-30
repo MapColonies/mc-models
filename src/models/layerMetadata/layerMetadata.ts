@@ -416,6 +416,11 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       nullable: true,
     },
   })
+  @inputDataMapping({
+    isCustomLogic: true,
+    dataFile: DataFileType.SHAPE_METADATA,
+    valuePath: '***features[].properties.Countries***',
+  })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
