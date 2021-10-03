@@ -30,6 +30,7 @@ components:
           type: string
           enum:
             - Orthophoto
+            - OrthophotoHistory
             - RasterMap
             - VectorMap
             - Vector
@@ -75,6 +76,9 @@ components:
         resolution:
           type: number
           description: Resolution of tiff files
+        maxResolutionMeter:
+          type: number
+          description: max (rounded) resolution of layer in meters/pixel
         accuracyCE90:
           type: number
           description: Horizontal Accuracy
@@ -87,6 +91,7 @@ components:
               - RGB
               - Pan_Sharpen
               - OTHER
+              - UNDEFINED
           description: The sensor type
         region:
           type: string
@@ -98,6 +103,8 @@ components:
         footprint:
           $ref: geojson.yaml#/components/schemas/Geometry
         layerPolygonParts:
+          $ref: geojson.yaml#/components/schemas/FeatureCollection
+        rawProductData:
           $ref: geojson.yaml#/components/schemas/FeatureCollection
     updateStatusLayerMetadata:
       type: object
