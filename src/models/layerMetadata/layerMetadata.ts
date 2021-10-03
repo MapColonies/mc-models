@@ -583,7 +583,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @catalogDB({
     column: {
       name: 'max_resolution_meter',
-      type: 'numeric(6,2)',
+      type: 'numeric', // numeric(6,2)
     },
   })
   @inputDataMapping({
