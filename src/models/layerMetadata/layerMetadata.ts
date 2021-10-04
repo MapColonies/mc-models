@@ -725,6 +725,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'text',
       nullable: true,
     },
+    field: {
+      overrideType: TsTypes.STRING,
+    },
   })
   @tsTypes({
     mappingType: TsTypes.STRING_ARRAY,
