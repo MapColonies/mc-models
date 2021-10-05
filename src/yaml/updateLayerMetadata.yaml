@@ -106,6 +106,9 @@ components:
           $ref: geojson.yaml#/components/schemas/FeatureCollection
         rawProductData:
           $ref: geojson.yaml#/components/schemas/FeatureCollection
+        productBoundingBox:
+          type: string
+          
     updateStatusLayerMetadata:
       type: object
       description: Metadata for layer status

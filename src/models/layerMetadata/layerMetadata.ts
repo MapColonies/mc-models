@@ -756,6 +756,29 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
   public rawProductData: GeoJSON | undefined = undefined;
 
+  //#region RASTER: productBoundingBox
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:productBBox',
+    queryableField: 'mc:productBBox',
+    pycswField: 'pycsw:productBBox',
+  })
+  @catalogDB({
+    column: {
+      name: 'product_bbox',
+      type: 'varchar', // VARCHAR(255)
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public productBoundingBox: string | undefined = undefined;
+
   //#endregion
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
