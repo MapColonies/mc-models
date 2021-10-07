@@ -554,7 +554,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @catalogDB({
     column: {
       name: 'resolution',
-      type: 'real', // check if 'decimal' type is needed
+      type: 'text',
     },
   })
   @inputDataMapping({
@@ -583,7 +583,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @catalogDB({
     column: {
       name: 'max_resolution_meter',
-      type: 'numeric', // numeric(6,2)
+      type: 'varchar', // varchar(10) as pycsw only support unicode/binary values
     },
   })
   @inputDataMapping({
