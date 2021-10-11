@@ -533,7 +533,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @catalogDB({
     column: {
       name: 'product_sub_type',
-      type: 'varchar', //varchar(100)
+      type: 'text',
       nullable: true,
     },
   })
@@ -614,7 +614,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @catalogDB({
     column: {
       name: 'max_resolution_meter',
-      type: 'varchar', // varchar(10) as pycsw only support unicode/binary values
+      type: 'text', //pycsw only support unicode/binary values
     },
   })
   @inputDataMapping({
@@ -797,7 +797,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @catalogDB({
     column: {
       name: 'product_bbox',
-      type: 'varchar', // VARCHAR(255)
+      type: 'text',
       nullable: true,
     },
   })
