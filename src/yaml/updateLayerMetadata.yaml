@@ -31,15 +31,18 @@ components:
           enum:
             - Orthophoto
             - OrthophotoHistory
+            - OrthophotoBest
             - RasterMap
-            - VectorMap
-            - Vector
-            - DEM
-            - 3DModel
-            - PhotoBlock
-            - Photosphera
-            - "Best Orthophoto"
-            - "Best RasterMap"
+            - RasterMapBest
+            - RasterAid
+            - RasterAidBest
+            - RasterVector
+            - RasterVectorBest
+            - VectorBest
+            - DTM
+            - DSM
+            - QuantizedMesh
+            - 3DPhotoRealistic
           description: layer's type might be derived from the first letter
         description: 
           type: string
