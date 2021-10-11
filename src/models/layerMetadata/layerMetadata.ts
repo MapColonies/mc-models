@@ -523,6 +523,32 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
   public productType: ProductType | undefined = undefined;
 
+  //#region RASTER: productSubType
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:productSubType',
+    queryableField: 'mc:productSubType',
+    pycswField: 'pycsw:productSubType',
+  })
+  @catalogDB({
+    column: {
+      name: 'product_sub_type',
+      type: 'varchar', //varchar(100)
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+  })
+  //#endregion
+  public productSubType: string | undefined = undefined;
+
   //#region RASTER: srsName
   @pycsw({
     profile: 'mc_raster',
