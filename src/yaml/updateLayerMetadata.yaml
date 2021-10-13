@@ -25,7 +25,7 @@ components:
           description: Layer's external name
         productVersion:
           type: string
-          pattern: ^[1-9]\d{0,2}(\.[1-9]\d?)?$
+          pattern: ^[1-9]\d{0,2}(\.(0|[1-9]\d?))?$
           description: layer's version
         productType:
           type: string
