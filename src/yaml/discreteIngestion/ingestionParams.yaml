@@ -22,4 +22,4 @@ components:
           description: layer sources
           items:
             type: string
-            pattern: "^.+(\\.([Tt][Ii][Ff][Ff]|[Tt][Ii][Ff]))$"
+            pattern: "^.+(\\.([Tt][Ii][Ff][Ff]|[Tt][Ii][Ff]|[Gg][Pp][Kk][Gg]|[Jj][Pp][2]))$"
