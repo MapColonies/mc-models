@@ -523,6 +523,32 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
   public productType: ProductType | undefined = undefined;
 
+  //#region RASTER: productSubType
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:productSubType',
+    queryableField: 'mc:productSubType',
+    pycswField: 'pycsw:productSubType',
+  })
+  @catalogDB({
+    column: {
+      name: 'product_sub_type',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+  })
+  //#endregion
+  public productSubType: string | undefined = undefined;
+
   //#region RASTER: srsName
   @pycsw({
     profile: 'mc_raster',
@@ -588,7 +614,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @catalogDB({
     column: {
       name: 'max_resolution_meter',
-      type: 'varchar', // varchar(10) as pycsw only support unicode/binary values
+      type: 'text', //pycsw only support unicode/binary values
     },
   })
   @inputDataMapping({
@@ -771,7 +797,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @catalogDB({
     column: {
       name: 'product_bbox',
-      type: 'varchar', // VARCHAR(255)
+      type: 'text',
       nullable: true,
     },
   })
