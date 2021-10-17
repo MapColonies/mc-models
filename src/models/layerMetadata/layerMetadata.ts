@@ -24,7 +24,7 @@ export interface ILayerMetadata {
   srsName: string | undefined;
   rms: number | undefined;
   scale: string | undefined;
-  includedInBests: string | undefined;
+  includedInBests: string[] | undefined;
 }
 export interface IPropSHPMapping extends IDataMapping, ITsTypesMapping {
   prop: string;
@@ -202,8 +202,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#region COMMON: creationDate
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:creationDate',
-    queryableField: 'mc:creationDate',
+    xmlElement: 'mc:creationDateUTC',
+    queryableField: 'mc:creationDateUTC',
     pycswField: 'pycsw:CreationDate',
   })
   @catalogDB({
@@ -252,8 +252,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#region COMMON: updateDate
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:updateDate',
-    queryableField: 'mc:updateDate',
+    xmlElement: 'mc:updateDateUTC',
+    queryableField: 'mc:updateDateUTC',
     pycswField: 'pycsw:UpdateDate',
   })
   @catalogDB({
@@ -282,8 +282,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#region COMMON: sourceDateStart
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:imagingTime_begin',
-    queryableField: 'mc:imagingTime_begin',
+    xmlElement: 'mc:imagingTime_beginUTC',
+    queryableField: 'mc:imagingTime_beginUTC',
     pycswField: 'pycsw:TempExtent_begin',
   })
   @catalogDB({
@@ -312,8 +312,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#region COMMON: sourceDateEnd
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:imagingTime_end',
-    queryableField: 'mc:imagingTime_end',
+    xmlElement: 'mc:imagingTime_endUTC',
+    queryableField: 'mc:imagingTime_endUTC',
     pycswField: 'pycsw:TempExtent_end',
   })
   @catalogDB({
@@ -342,8 +342,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#region COMMON: accuracyCE90
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:horizontalAccuracyCE90',
-    queryableField: 'mc:horizontalAccuracyCE90',
+    xmlElement: 'mc:minHorizontalAccuracyCE90',
+    queryableField: 'mc:minHorizontalAccuracyCE90',
     pycswField: 'pycsw:horizontalAccuracyCE90',
   })
   @catalogDB({
@@ -371,8 +371,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#region COMMON: sensorType    //sensors
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:sensorType',
-    queryableField: 'mc:sensorType',
+    xmlElement: 'mc:sensors',
+    queryableField: 'mc:sensors',
     pycswField: 'pycsw:sensorType',
   })
   @catalogDB({
@@ -415,6 +415,11 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'text',
       nullable: true,
     },
+  })
+  @inputDataMapping({
+    isCustomLogic: true,
+    dataFile: DataFileType.SHAPE_METADATA,
+    valuePath: '***features[].properties.Countries***',
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -518,6 +523,32 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
   public productType: ProductType | undefined = undefined;
 
+  //#region RASTER: productSubType
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:productSubType',
+    queryableField: 'mc:productSubType',
+    pycswField: 'pycsw:productSubType',
+  })
+  @catalogDB({
+    column: {
+      name: 'product_sub_type',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+  })
+  //#endregion
+  public productSubType: string | undefined = undefined;
+
   //#region RASTER: srsName
   @pycsw({
     profile: 'mc_raster',
@@ -547,14 +578,14 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#region RASTER: resolution
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:resolution',
-    queryableField: 'mc:resolution',
+    xmlElement: 'mc:maxResolutionDeg',
+    queryableField: 'mc:maxResolutionDeg',
     pycswField: 'pycsw:Resolution',
   })
   @catalogDB({
     column: {
       name: 'resolution',
-      type: 'real', // check if 'decimal' type is needed
+      type: 'text',
     },
   })
   @inputDataMapping({
@@ -572,6 +603,35 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   //#endregion
   public resolution: number | undefined = undefined;
+
+  //#region RASTER: maxResolutionMeter
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:maxResolutionMeter',
+    queryableField: 'mc:maxResolutionMeter',
+    pycswField: 'pycsw:maxResolutionMeter',
+  })
+  @catalogDB({
+    column: {
+      name: 'max_resolution_meter',
+      type: 'text', //pycsw only support unicode/binary values
+    },
+  })
+  @inputDataMapping({
+    dataFile: DataFileType.SHAPE_METADATA,
+    valuePath: 'features[0].properties.Resolution',
+  })
+  @tsTypes({
+    mappingType: TsTypes.NUMBER,
+  })
+  @graphql({
+    nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+  })
+  //#endregion
+  public maxResolutionMeter: number | undefined = undefined;
 
   //#region RASTER: rms
   @pycsw({
@@ -696,6 +756,50 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'text',
       nullable: true,
     },
+    field: {
+      overrideType: TsTypes.STRING,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING_ARRAY,
+  })
+  @graphql({
+    nullable: true,
+  })
+  //#endregion
+  public includedInBests: string[] | undefined = undefined;
+
+  //#region RASTER: rawProductData
+  @catalogDB({
+    column: {
+      name: 'raw_product_data',
+      type: 'jsonb',
+    },
+  })
+  @inputDataMapping({
+    isCustomLogic: true,
+    dataFile: DataFileType.PRODUCT,
+    valuePath: '*** entire product shape file geo json ***',
+  })
+  @tsTypes({
+    mappingType: TsTypes.OBJECT,
+  })
+  //#endregion
+  public rawProductData: GeoJSON | undefined = undefined;
+
+  //#region RASTER: productBoundingBox
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:productBBox',
+    queryableField: 'mc:productBBox',
+    pycswField: 'pycsw:productBBox',
+  })
+  @catalogDB({
+    column: {
+      name: 'product_bbox',
+      type: 'text',
+      nullable: true,
+    },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -704,7 +808,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     nullable: true,
   })
   //#endregion
-  public includedInBests: string | undefined = undefined;
+  public productBoundingBox: string | undefined = undefined;
+
   //#endregion
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {

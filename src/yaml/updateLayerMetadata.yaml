@@ -25,20 +25,25 @@ components:
           description: Layer's external name
         productVersion:
           type: string
+          pattern: ^[1-9]\d{0,2}(\.(0|[1-9]\d?))?$
           description: layer's version
         productType:
           type: string
           enum:
             - Orthophoto
+            - OrthophotoHistory
+            - OrthophotoBest
             - RasterMap
-            - VectorMap
-            - Vector
-            - DEM
-            - 3DModel
-            - PhotoBlock
-            - Photosphera
-            - "Best Orthophoto"
-            - "Best RasterMap"
+            - RasterMapBest
+            - RasterAid
+            - RasterAidBest
+            - RasterVector
+            - RasterVectorBest
+            - VectorBest
+            - DTM
+            - DSM
+            - QuantizedMesh
+            - 3DPhotoRealistic
           description: layer's type might be derived from the first letter
         description: 
           type: string
@@ -74,7 +79,16 @@ components:
           format: date-time
         resolution:
           type: number
-          description: Resolution of tiff files
+          minimum: 0.00000009
+          maximum: 0.072
+          format: double
+          description:  max resolution of layer in degrees/pixel
+        maxResolutionMeter:
+          type: number
+          minimum: 0.01
+          maximum: 8000
+          format: double
+          description: max (rounded) resolution of layer in meters/pixel
         accuracyCE90:
           type: number
           description: Horizontal Accuracy
@@ -87,6 +101,7 @@ components:
               - RGB
               - Pan_Sharpen
               - OTHER
+              - UNDEFINED
           description: The sensor type
         region:
           type: string
@@ -95,10 +110,17 @@ components:
           type: number
         scale:
           type: string
+          pattern: "^(0|[1-9]\\d{0,8})$"
         footprint:
           $ref: geojson.yaml#/components/schemas/Geometry
         layerPolygonParts:
           $ref: geojson.yaml#/components/schemas/FeatureCollection
+        rawProductData:
+          $ref: geojson.yaml#/components/schemas/FeatureCollection
+        productBoundingBox:
+          type: string
+          pattern: "^(0|[1-9]\\d*)(\\.\\d*)?,(0|[1-9]\\d*)(\\.\\d*)?,(0|[1-9]\\d*)(\\.\\d*)?,(0|[1-9]\\d*)(\\.\\d*)?$"
+          
     updateStatusLayerMetadata:
       type: object
       description: Metadata for layer status

@@ -22,6 +22,10 @@ export const TsTypes: Record<string, IDescribeTsType> = {
     value: 'string',
     type: PropertiesTypes.PRIMITIVE,
   },
+  STRING_ARRAY: {
+    value: 'string',
+    type: PropertiesTypes.ARRAY,
+  },
   BOOLEAN: {
     value: 'boolean',
     type: PropertiesTypes.PRIMITIVE,
@@ -70,6 +74,14 @@ export const TsTypes: Record<string, IDescribeTsType> = {
     value: 'ProductType',
     type: PropertiesTypes.ENUM,
     importFromPackage: '@map-colonies/mc-model-types',
+  },
+  DISCRETE_ORDER: {
+    value: 'DiscreteOrder',
+    type: PropertiesTypes.CLASS,
+  },
+  DISCRETE_ORDERS: {
+    value: 'DiscreteOrder',
+    type: PropertiesTypes.ARRAY,
   },
 };
 /* eslint-enable @typescript-eslint/naming-convention */
