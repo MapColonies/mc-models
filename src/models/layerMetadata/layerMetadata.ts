@@ -113,7 +113,14 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.MAIN,
     isManuallyEditable: true,
-    isRequired: true,
+    //isRequired: true,
+    infoMsgCode: ['info-general-tooltip.required'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        type: 'required',
+      },
+    ],
   })
   //#endregion
   public productName: string | undefined = undefined;
@@ -220,6 +227,13 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
+    infoMsgCode: ['info-general-tooltip.required'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        type: 'required',
+      },
+    ],
   })
   //#endregion
   public creationDate: Date | undefined = undefined;
@@ -305,6 +319,14 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
+    infoMsgCode: ['info-field-tooltip.sourceDateStart.max'],
+    validation: [
+      {
+        errorMsgCode: 'validation-field.sourceDateStart.max',
+        type: 'field',
+        max: 'sourceDateEnd',
+      },
+    ],
   })
   //#endregion
   public sourceDateStart: Date | undefined = undefined;
@@ -335,6 +357,14 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
+    infoMsgCode: ['info-field-tooltip.sourceDateEnd.min'],
+    validation: [
+      {
+        errorMsgCode: 'validation-field.sourceDateEnd.min',
+        type: 'field',
+        min: 'sourceDateStart',
+      },
+    ],
   })
   //#endregion
   public sourceDateEnd: Date | undefined = undefined;
@@ -398,6 +428,13 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.GENERAL,
     isManuallyEditable: true,
+    infoMsgCode: ['info-general-tooltip.required'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        type: 'required',
+      },
+    ],
   })
   //#endregion
   public sensorType: SensorType[] | undefined = undefined;
@@ -429,6 +466,13 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
+    infoMsgCode: ['info-general-tooltip.required'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        type: 'required',
+      },
+    ],
   })
   //#endregion
   public region: string | undefined = undefined;
@@ -460,6 +504,13 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql()
   @fieldConfig({
     category: FieldCategory.MAIN,
+    infoMsgCode: ['info-general-tooltip.required'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        type: 'required',
+      },
+    ],
   })
   //#endregion
   public productId: string | undefined = 'UNKNOWN';
@@ -491,6 +542,18 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.MAIN,
+    infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.productVersion.pattern'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        type: 'required',
+      },
+      {
+        errorMsgCode: 'validation-field.productVersion.pattern',
+        type: 'value',
+        pattern: '^[1-9]\\d{0,2}(\\.(0|[1-9]\\d?))?$',
+      },
+    ],
   })
   //#endregion
   public productVersion: string | undefined = undefined;
@@ -519,6 +582,13 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql()
   @fieldConfig({
     category: FieldCategory.MAIN,
+    infoMsgCode: ['info-general-tooltip.required'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        type: 'required',
+      },
+    ],
   })
   //#endregion
   public productType: ProductType | undefined = undefined;
@@ -545,6 +615,11 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.MAIN,
+    isManuallyEditable: true,
+    autocomplete: {
+      type: 'domain',
+      value: 'mc:productSubType',
+    },
   })
   //#endregion
   public productSubType: string | undefined = undefined;
@@ -600,6 +675,23 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.MAIN,
+    infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.resolution.min', 'info-field-tooltip.resolution.max'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        type: 'required',
+      },
+      {
+        errorMsgCode: 'validation-field.resolution.min',
+        type: 'value',
+        min: 0.00000009,
+      },
+      {
+        errorMsgCode: 'validation-field.resolution.max',
+        type: 'value',
+        max: 0.072,
+      },
+    ],
   })
   //#endregion
   public resolution: number | undefined = undefined;
@@ -629,6 +721,23 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.MAIN,
+    infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.maxResolutionMeter.min', 'info-field-tooltip.maxResolutionMeter.max'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        type: 'required',
+      },
+      {
+        errorMsgCode: 'validation-field.maxResolutionMeter.min',
+        type: 'value',
+        min: 0.01,
+      },
+      {
+        errorMsgCode: 'validation-field.maxResolutionMeter.max',
+        type: 'value',
+        max: 8000,
+      },
+    ],
   })
   //#endregion
   public maxResolutionMeter: number | undefined = undefined;
@@ -684,6 +793,17 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
+  @fieldConfig({
+    category: FieldCategory.GEO_INFO,
+    infoMsgCode: ['info-field-tooltip.scale.pattern'],
+    validation: [
+      {
+        errorMsgCode: 'validation-field.scale.pattern',
+        type: 'value',
+        pattern: '^(0|[1-9]\\d{0,8})$',
+      },
+    ],
+  })
   //#endregion
   public scale: string | undefined = undefined;
 
@@ -710,6 +830,16 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @graphql({
     nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.GEO_INFO,
+    infoMsgCode: ['info-general-tooltip.required'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        type: 'required',
+      },
+    ],
   })
   //#endregion
   public footprint: GeoJSON | undefined = undefined;
