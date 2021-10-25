@@ -203,6 +203,10 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
+  @fieldConfig({
+    category: FieldCategory.GENERAL,
+    isManuallyEditable: true,
+  })
   //#endregion
   public producerName: string | undefined = undefined;
 
@@ -296,8 +300,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#region COMMON: sourceDateStart
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:imagingTime_beginUTC',
-    queryableField: 'mc:imagingTime_beginUTC',
+    xmlElement: 'mc:imagingTimeBeginUTC',
+    queryableField: 'mc:imagingTimeBeginUTC',
     pycswField: 'pycsw:TempExtent_begin',
   })
   @catalogDB({
@@ -334,8 +338,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#region COMMON: sourceDateEnd
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:imagingTime_endUTC',
-    queryableField: 'mc:imagingTime_endUTC',
+    xmlElement: 'mc:imagingTimeEndUTC',
+    queryableField: 'mc:imagingTimeEndUTC',
     pycswField: 'pycsw:TempExtent_end',
   })
   @catalogDB({
@@ -425,17 +429,17 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
-  @fieldConfig({
-    category: FieldCategory.GENERAL,
-    isManuallyEditable: true,
-    infoMsgCode: ['info-general-tooltip.required'],
-    validation: [
-      {
-        errorMsgCode: 'validation-general.required',
-        type: 'required',
-      },
-    ],
-  })
+  // @fieldConfig({
+  //   category: FieldCategory.GENERAL,
+  //   isManuallyEditable: true,
+  //   infoMsgCode: ['info-general-tooltip.required'],
+  //   validation: [
+  //     {
+  //       errorMsgCode: 'validation-general.required',
+  //       type: 'required',
+  //     },
+  //   ],
+  // })
   //#endregion
   public sensorType: SensorType[] | undefined = undefined;
 
