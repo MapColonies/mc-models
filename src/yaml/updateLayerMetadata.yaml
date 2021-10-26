@@ -45,6 +45,9 @@ components:
             - QuantizedMesh
             - 3DPhotoRealistic
           description: layer's type might be derived from the first letter
+        productSubType:
+          type: string
+          description: Layer's sub type
         description: 
           type: string
           description: layer's description
