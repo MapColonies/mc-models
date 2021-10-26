@@ -113,7 +113,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.MAIN,
     isManuallyEditable: true,
-    //isRequired: true,
     infoMsgCode: ['info-general-tooltip.required'],
     validation: [
       {
@@ -835,16 +834,16 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
-  @fieldConfig({
-    category: FieldCategory.GEO_INFO,
-    infoMsgCode: ['info-general-tooltip.required'],
-    validation: [
-      {
-        errorMsgCode: 'validation-general.required',
-        type: 'required',
-      },
-    ],
-  })
+  // @fieldConfig({
+  //   category: FieldCategory.GEO_INFO,
+  //   infoMsgCode: ['info-general-tooltip.required'],
+  //   validation: [
+  //     {
+  //       errorMsgCode: 'validation-general.required',
+  //       type: 'required',
+  //     },
+  //   ],
+  // })
   //#endregion
   public footprint: GeoJSON | undefined = undefined;
 
