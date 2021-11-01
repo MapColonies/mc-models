@@ -796,17 +796,17 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
-  @fieldConfig({
-    category: FieldCategory.GEO_INFO,
-    infoMsgCode: ['info-field-tooltip.scale.pattern'],
-    validation: [
-      {
-        errorMsgCode: 'validation-field.scale.pattern',
-        type: 'value',
-        pattern: '^(0|[1-9]\\d{0,8})$',
-      },
-    ],
-  })
+  // @fieldConfig({
+  //   category: FieldCategory.GEO_INFO,
+  //   infoMsgCode: ['info-field-tooltip.scale.pattern'],
+  //   validation: [
+  //     {
+  //       errorMsgCode: 'validation-field.scale.pattern',
+  //       type: 'value',
+  //       pattern: '^(0|[1-9]\\d{0,8})$',
+  //     },
+  //   ],
+  // })
   //#endregion
   public scale: string | undefined = undefined;
 
