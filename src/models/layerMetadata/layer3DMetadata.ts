@@ -59,9 +59,6 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
-  @fieldConfig({
-    category: FieldCategory.MAIN,
-  })
   //#endregion
   public type: RecordType | undefined = RecordType.RECORD_3D;
 
