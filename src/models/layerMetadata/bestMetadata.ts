@@ -56,9 +56,6 @@ export class BestMetadata implements IBestMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
-  @fieldConfig({
-    category: FieldCategory.MAIN,
-  })
   //#endregion
   public type: RecordType | undefined = RecordType.RECORD_RASTER;
 

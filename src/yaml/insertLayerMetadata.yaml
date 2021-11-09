@@ -17,6 +17,8 @@ components:
         - sensorType
         - footprint
         - type
+        - sourceDateStart
+        - sourceDateEnd
       allOf:
         - $ref: ./updateLayerMetadata.yaml#/components/schemas/updateLayerMetadata
 
