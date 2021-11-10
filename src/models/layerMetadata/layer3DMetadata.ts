@@ -12,9 +12,24 @@ import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw
 import { tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 import { SensorType } from './enums';
 import { catalogDB } from './decorators/property/catalogDB.decorator';
-import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 
 export interface ILayer3DMetadata {
+  type: RecordType | undefined;
+  classification: string | undefined;
+  productName: string | undefined;
+  description: string | undefined;
+  srsId: string | undefined;
+  producerName: string | undefined;
+  creationDate: Date | undefined;
+  ingestionDate: Date | undefined;
+  updateDate: Date | undefined;
+  sourceDateStart: Date | undefined;
+  sourceDateEnd: Date | undefined;
+  accuracyCE90: number | undefined;
+  sensorType: SensorType[] | undefined;
+  region: string | undefined;
+  footprint: GeoJSON | undefined;
+
   validationDate: Date | undefined;
   version: string | undefined;
   centroid: string | undefined;
@@ -37,7 +52,7 @@ export interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
 }
 
-export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
+export class Layer3DMetadata implements ILayer3DMetadata {
   //#region COMMON FIELDS
   //#region COMMON: type
   @pycsw({
