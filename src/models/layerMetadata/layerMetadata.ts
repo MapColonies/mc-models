@@ -114,7 +114,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     validation: [
       {
         errorMsgCode: 'validation-general.required',
-        type: 'required',
+        required: true,
       },
     ],
   })
@@ -319,11 +319,11 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     validation: [
       {
         errorMsgCode: 'validation-general.required',
-        type: 'required',
+        required: true,
       },
       {
         errorMsgCode: 'validation-field.sourceDateStart.max',
-        type: 'field',
+        valueType: 'field',
         max: 'sourceDateEnd',
       },
     ],
@@ -361,12 +361,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     validation: [
       {
         errorMsgCode: 'validation-general.required',
-        type: 'required',
-      },
-      {
-        errorMsgCode: 'validation-field.sourceDateEnd.min',
-        type: 'field',
-        min: 'sourceDateStart',
+        required: true,
       },
     ],
   })
@@ -402,7 +397,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     validation: [
       {
         errorMsgCode: 'validation-general.required',
-        type: 'required',
+        required: true,
       },
     ],
   })
@@ -474,7 +469,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     validation: [
       {
         errorMsgCode: 'validation-general.required',
-        type: 'required',
+        required: true,
       },
     ],
   })
@@ -512,7 +507,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     validation: [
       {
         errorMsgCode: 'validation-general.required',
-        type: 'required',
+        required: true,
       },
     ],
   })
@@ -550,11 +545,11 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     validation: [
       {
         errorMsgCode: 'validation-general.required',
-        type: 'required',
+        required: true,
       },
       {
         errorMsgCode: 'validation-field.productVersion.pattern',
-        type: 'value',
+        valueType: 'value',
         pattern: '^[1-9]\\d{0,2}(\\.(0|[1-9]\\d?))?$',
       },
     ],
@@ -590,7 +585,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     validation: [
       {
         errorMsgCode: 'validation-general.required',
-        type: 'required',
+        required: true,
       },
     ],
   })
@@ -683,16 +678,16 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     validation: [
       {
         errorMsgCode: 'validation-general.required',
-        type: 'required',
+        required: true,
       },
       {
         errorMsgCode: 'validation-field.resolution.min',
-        type: 'value',
+        valueType: 'value',
         min: 0.00000009,
       },
       {
         errorMsgCode: 'validation-field.resolution.max',
-        type: 'value',
+        valueType: 'value',
         max: 0.072,
       },
     ],
@@ -729,16 +724,16 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     validation: [
       {
         errorMsgCode: 'validation-general.required',
-        type: 'required',
+        required: true,
       },
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.min',
-        type: 'value',
+        valueType: 'value',
         min: 0.01,
       },
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.max',
-        type: 'value',
+        valueType: 'value',
         max: 8000,
       },
     ],
@@ -842,7 +837,11 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     validation: [
       {
         errorMsgCode: 'validation-general.required',
-        type: 'required',
+        required: true,
+      },
+      {
+        errorMsgCode: 'validation-field.footprint.json',
+        json: true,
       },
     ],
   })
