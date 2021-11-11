@@ -11,12 +11,14 @@ export enum FieldCategory {
 }
 export interface IValidationConfigInfo {
   errorMsgCode: string;
-  type: 'value' | 'field' | 'required';
+  valueType?: 'value' | 'field';
   min?: number | string | '$NOW';
   max?: number | string;
   minLength?: number;
   maxLength?: number;
   pattern?: string;
+  required?: boolean;
+  json?: boolean;
 }
 
 export interface IFieldConfigInfo {
