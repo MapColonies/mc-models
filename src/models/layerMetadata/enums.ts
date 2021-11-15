@@ -22,4 +22,5 @@ export enum ProductType {
   DSM = 'DSM',
   QUANTIZED_MESH = 'QuantizedMesh',
   PHOTO_REALISTIC_3D = '3DPhotoRealistic',
+  POINT_CLOUD = 'PointCloud',
 }
