@@ -873,9 +873,18 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
+  @fieldConfig({
+    category: FieldCategory.GEO_INFO,
+    isCreationEssential: true,
+    validation: [
+      {
+        errorMsgCode: 'validation-field.layerPolygonParts.json',
+        json: true,
+      },
+    ],
+  })
   //#endregion
   public layerPolygonParts: GeoJSON | undefined = undefined;
-  //#endregion
 
   //#region RASTER: includedInBests
   @pycsw({
