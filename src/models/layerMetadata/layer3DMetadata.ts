@@ -70,9 +70,6 @@ export class Layer3DMetadata implements ILayer3DMetadata {
   @graphql({
     nullable: true,
   })
-  @fieldConfig({
-    category: FieldCategory.MAIN,
-  })
   //#endregion
   public type: RecordType | undefined = RecordType.RECORD_3D;
 
