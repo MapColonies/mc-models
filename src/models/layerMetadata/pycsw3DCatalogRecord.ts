@@ -95,7 +95,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   //#endregion
   public xml: string | undefined = undefined;
 
-  //#region CORE: anytext
+  //#region CORE: anyText
   @catalogDB({
     column: {
       name: 'anytext',
@@ -124,12 +124,12 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   //#endregion
   public insertDate: Date | undefined = undefined;
 
-  //#region CORE: wktGeometry
+  //#region CORE: boundingBox
   @pycsw({
     profile: 'mc3d',
     xmlElement: 'mc:boundingBox',
     queryableField: 'mc:boundingBox',
-    pycswField: 'pycsw:BoundingBox',
+    pycswField: 'pycsw:boundingBox',
   })
   @catalogDB({
     column: {
@@ -148,7 +148,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     nullable: true,
   })
   //#endregion
-  public wktGeometry: string | undefined = undefined;
+  public boundingBox: string | undefined = undefined;
 
   //#region CORE: wkbGeometry (DD trigger populated)
   @catalogDB({
@@ -171,7 +171,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     profile: 'mc3d',
     xmlElement: 'mc:keywords',
     queryableField: 'mc:keywords',
-    pycswField: 'pycsw:Keywords',
+    pycswField: 'pycsw:keywords',
   })
   @catalogDB({
     column: {
