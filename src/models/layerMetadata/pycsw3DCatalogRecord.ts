@@ -124,7 +124,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   //#endregion
   public insertDate: Date | undefined = undefined;
 
-  //#region CORE: boundingBox
+  //#region CORE: wktGeometry
   @pycsw({
     profile: 'mc3d',
     xmlElement: 'mc:boundingBox',
@@ -148,7 +148,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     nullable: true,
   })
   //#endregion
-  public boundingBox: string | undefined = undefined;
+  public wktGeometry: string | undefined = undefined;
 
   //#region CORE: wkbGeometry (DD trigger populated)
   @catalogDB({
