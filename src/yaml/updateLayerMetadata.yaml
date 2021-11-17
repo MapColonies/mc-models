@@ -44,6 +44,7 @@ components:
             - DSM
             - QuantizedMesh
             - 3DPhotoRealistic
+            - PointCloud
           description: layer's type might be derived from the first letter
         productSubType:
           type: string
