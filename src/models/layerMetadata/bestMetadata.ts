@@ -19,9 +19,7 @@ import { DiscreteOrder } from './discreteOrder';
 
 export interface IBestMetadata {
   productVersion: string | undefined;
-  productType: ProductType | undefined;
   resolution: number | undefined;
-  srsName: string | undefined;
   rms: number | undefined;
   scale: string | undefined;
   discretes: DiscreteOrder[] | undefined;
@@ -241,9 +239,6 @@ export class BestMetadata implements IBestMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
-  @fieldConfig({
-    category: FieldCategory.GENERAL,
-  })
   //#endregion
   public ingestionDate: Date | undefined = undefined;
 
@@ -431,6 +426,37 @@ export class BestMetadata implements IBestMetadata, IMetadataCommonModel {
   })
   //#endregion
   public region: string | undefined = undefined;
+
+  //#region COMMON: productId
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:productId',
+    queryableField: 'mc:productId',
+    pycswField: 'pycsw:ProductId',
+  })
+  @catalogDB({
+    column: {
+      name: 'product_id',
+      type: 'text',
+      nullable: false,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql()
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+    infoMsgCode: ['info-general-tooltip.required'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        required: true,
+      },
+    ],
+  })
+  //#endregion
+  public productId: string | undefined = 'UNKNOWN';
   //#endregion
 
   //#region BEST SPECIFIC FIELDS
