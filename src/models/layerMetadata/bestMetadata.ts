@@ -239,9 +239,6 @@ export class BestMetadata implements IBestMetadata, IMetadataCommonModel {
   @graphql({
     nullable: true,
   })
-  @fieldConfig({
-    category: FieldCategory.GENERAL,
-  })
   //#endregion
   public ingestionDate: Date | undefined = undefined;
 
