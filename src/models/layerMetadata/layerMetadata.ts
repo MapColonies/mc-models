@@ -353,7 +353,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
-    infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.sourceDateEnd.min'],
+    infoMsgCode: ['info-general-tooltip.required'],
     validation: [
       {
         errorMsgCode: 'validation-general.required',
