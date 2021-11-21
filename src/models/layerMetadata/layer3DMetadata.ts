@@ -623,15 +623,15 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
-    infoMsgCode: ['info-field-tooltip.relativeAccuracyLEP90.min', 'info-field-tooltip.relativeAccuracyLEP90.max'],
+    infoMsgCode: ['info-field-tooltip.visualAccuracy.min', 'info-field-tooltip.visualAccuracy.max'],
     validation: [
       {
-        errorMsgCode: 'validation-field.relativeAccuracyLEP90.min',
+        errorMsgCode: 'validation-field.visualAccuracy.min',
         valueType: 'value',
         min: 0,
       },
       {
-        errorMsgCode: 'validation-field.relativeAccuracyLEP90.max',
+        errorMsgCode: 'validation-field.visualAccuracy.max',
         valueType: 'value',
         max: 100,
       },
