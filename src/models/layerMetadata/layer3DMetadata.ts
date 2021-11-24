@@ -782,6 +782,13 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
+    infoMsgCode: ['info-general-tooltip.required'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        required: true,
+      },
+    ],
   })
   //#endregion
   public srsId: string | undefined = undefined;
