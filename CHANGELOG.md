@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.0.2](https://github.com/MapColonies/mc-models/compare/mc-model-types@9.3.0...mc-model-types@10.0.2) (2021-12-01)
+
+
+### Bug Fixes
+
+* 3d ([#106](https://github.com/MapColonies/mc-models/issues/106)) ([1684a37](https://github.com/MapColonies/mc-models/commit/1684a379ffa99178829af56cd7fe33d191a9e910))
+* added support for negative bbox coords ([#107](https://github.com/MapColonies/mc-models/issues/107)) ([8624738](https://github.com/MapColonies/mc-models/commit/86247387a96d1b1c2262613540752aefa5632c9b))
+* common profile sync ([#103](https://github.com/MapColonies/mc-models/issues/103)) ([5159300](https://github.com/MapColonies/mc-models/commit/51593009fcacf2da87535a326cdc9d3eccd0a859))
+* layer polygon parts part of ingested data ([#102](https://github.com/MapColonies/mc-models/issues/102)) ([bca3289](https://github.com/MapColonies/mc-models/commit/bca3289ef3e9e04126574bc9c685d085c8f66565))
+* source date end ([#105](https://github.com/MapColonies/mc-models/issues/105)) ([0687041](https://github.com/MapColonies/mc-models/commit/0687041b5a231c9a33dfbe53146744a50e871a13))
+* sync with new 3d profile ([#100](https://github.com/MapColonies/mc-models/issues/100)) ([9a45bbf](https://github.com/MapColonies/mc-models/commit/9a45bbfda55d5c293b080dcaea94aa0297d2c328))
+* validation props change ([#101](https://github.com/MapColonies/mc-models/issues/101)) ([21b7eaf](https://github.com/MapColonies/mc-models/commit/21b7eaf15afa5170de436df46f129357478a0409))
+* visual accuracy ([#104](https://github.com/MapColonies/mc-models/issues/104)) ([f0140df](https://github.com/MapColonies/mc-models/commit/f0140df05e2a11a0a9908f00af421c1a9553d36b))
+
 ## [9.1.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@9.0.0...mc-model-types@9.1.0) (2021-10-14)
 
 
