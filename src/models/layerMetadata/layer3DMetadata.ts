@@ -144,7 +144,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     },
   })
   @tsTypes({
-    mappingType: TsTypes.NUMBER,
+    mappingType: TsTypes.STRING,
   })
   @graphql({
     nullable: true,
@@ -775,7 +775,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     },
   })
   @tsTypes({
-    mappingType: TsTypes.NUMBER,
+    mappingType: TsTypes.STRING,
   })
   @graphql({
     nullable: true,
