@@ -9,7 +9,7 @@ import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
 import { getPyCSWMapping, pycsw } from './decorators/property/csw.decorator';
-import { LayerDEMMetadata, IPropPYCSWMapping } from './LayerDEMMetadata';
+import { LayerDEMMetadata, IPropPYCSWMapping } from './layerDEMMetadata';
 import { Link } from './link';
 
 @catalogDBEntity({
