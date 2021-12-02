@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.1.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.1.0...mc-model-types@10.1.1) (2021-12-02)
+
+
+### Bug Fixes
+
+* expose dem pycsw record ([#109](https://github.com/MapColonies/mc-models/issues/109)) ([abd777a](https://github.com/MapColonies/mc-models/commit/abd777a323301a9c01dbfe68ee58bca562155f0f))
+
 ## [10.1.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.0.2...mc-model-types@10.1.0) (2021-12-02)
 
 
