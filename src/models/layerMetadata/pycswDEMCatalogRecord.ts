@@ -248,6 +248,7 @@ export class PycswDEMCatalogRecord extends LayerDEMMetadata implements IPycswCor
   public links: Link[] | undefined = undefined;
 
   public constructor() {
+    // eslint-disable-next-line
     super();
   }
 
