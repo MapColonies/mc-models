@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.1.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.0.2...mc-model-types@10.1.0) (2021-12-02)
+
+
+### Features
+
+* dem full entity defs ([#108](https://github.com/MapColonies/mc-models/issues/108)) ([bcc8592](https://github.com/MapColonies/mc-models/commit/bcc85923023c851f8019cbff8d67baccc7f07bd4))
+
 ### [10.0.2](https://github.com/MapColonies/mc-models/compare/mc-model-types@9.3.0...mc-model-types@10.0.2) (2021-12-01)
 
 
