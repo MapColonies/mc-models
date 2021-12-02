@@ -11,5 +11,6 @@ export { IOrmCatalog } from '../common/interfaces/ormCatalog.interface';
 export * from './pycswLayerCatalogRecord';
 export * from './pycsw3DCatalogRecord';
 export * from './pycswBestCatalogRecord';
+export * from './pycswDEMCatalogRecord';
 
 export * from './enums';
