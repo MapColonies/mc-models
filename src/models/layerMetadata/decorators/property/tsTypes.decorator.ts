@@ -65,6 +65,31 @@ export const TsTypes: Record<string, IDescribeTsType> = {
     type: PropertiesTypes.ENUM,
     importFromPackage: '@map-colonies/mc-model-types',
   },
+  VERTICAL_DATUM: {
+    value: 'VerticalDatum',
+    type: PropertiesTypes.ENUM,
+    importFromPackage: '@map-colonies/mc-model-types',
+  },
+  UNITS: {
+    value: 'Units',
+    type: PropertiesTypes.ENUM,
+    importFromPackage: '@map-colonies/mc-model-types',
+  },
+  UNDULATION_MODEL: {
+    value: 'UndulationModel',
+    type: PropertiesTypes.ENUM,
+    importFromPackage: '@map-colonies/mc-model-types',
+  },
+  DATATYPE: {
+    value: 'DataType',
+    type: PropertiesTypes.ENUM,
+    importFromPackage: '@map-colonies/mc-model-types',
+  },
+  NO_DATA_VALUE: {
+    value: 'NoDataValue',
+    type: PropertiesTypes.ENUM,
+    importFromPackage: '@map-colonies/mc-model-types',
+  },
   FIELDCATEGORY: {
     value: 'FieldCategory',
     type: PropertiesTypes.ENUM,
