@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.1.2](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.1.1...mc-model-types@10.1.2) (2021-12-05)
+
+
+### Bug Fixes
+
+* 3d prod ver and srsid ts types ([#110](https://github.com/MapColonies/mc-models/issues/110)) ([a5787d5](https://github.com/MapColonies/mc-models/commit/a5787d50c0275823576d46b04fe9e195be130687))
+* dem props must be init with ubdefined ([#111](https://github.com/MapColonies/mc-models/issues/111)) ([d861a05](https://github.com/MapColonies/mc-models/commit/d861a05176bd10504c15f46f80c454f28c07603b))
+
 ### [10.1.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.1.0...mc-model-types@10.1.1) (2021-12-02)
 
 
