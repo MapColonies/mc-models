@@ -823,7 +823,7 @@ export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
     ],
   })
   //#endregion
-  public verticalDatum: VerticalDatum | undefined;
+  public verticalDatum: VerticalDatum | undefined = undefined;
 
   //#region DEM: units
   @pycsw({
@@ -849,7 +849,7 @@ export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
     category: FieldCategory.GEO_INFO,
   })
   //#endregion
-  public units: Units | undefined;
+  public units: Units | undefined = undefined;
 
   //#region DEM: geographicArea
   @pycsw({
@@ -898,7 +898,7 @@ export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
     category: FieldCategory.GEO_INFO,
   })
   //#endregion
-  public undulationModel: UndulationModel | undefined;
+  public undulationModel: UndulationModel | undefined = undefined;
 
   //#region DEM: dataType
   @pycsw({
@@ -924,7 +924,7 @@ export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
     category: FieldCategory.GENERAL,
   })
   //#endregion
-  public dataType: DataType | undefined;
+  public dataType: DataType | undefined = undefined;
 
   //#region DEM: noDataValue
   @pycsw({
@@ -950,7 +950,7 @@ export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
     category: FieldCategory.GENERAL,
   })
   //#endregion
-  public noDataValue: NoDataValue | undefined;
+  public noDataValue: NoDataValue | undefined = undefined;
   //#endregion
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
