@@ -277,13 +277,14 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'source_start_date',
       type: 'timestamp without time zone',
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.DATE,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -314,13 +315,14 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'source_end_date',
       type: 'timestamp without time zone',
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.DATE,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -492,14 +494,14 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'accuracy_le_90',
       type: 'real',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
@@ -574,6 +576,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'relative_accuracy_le_90',
       type: 'real',
+      nullable: true,
     },
   })
   @tsTypes({
@@ -686,14 +689,14 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'footprint',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.OBJECT,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
@@ -771,18 +774,20 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'srs',
       type: 'text',
-      nullable: true,
+      nullable: false,
+      default: '4326',
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
     infoMsgCode: ['info-general-tooltip.required'],
+    default: '4326',
     validation: [
       {
         errorMsgCode: 'validation-general.required',
@@ -804,18 +809,20 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'srs_name',
       type: 'text',
-      nullable: true,
+      nullable: false,
+      default: 'WGS84GEO',
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
     infoMsgCode: ['info-general-tooltip.required'],
+    default: 'WGS84GEO',
     validation: [
       {
         errorMsgCode: 'validation-general.required',
@@ -896,13 +903,14 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'classification',
       type: 'text',
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,

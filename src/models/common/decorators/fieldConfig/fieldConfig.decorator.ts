@@ -37,6 +37,7 @@ export interface IFieldConfigInfo {
   };
   infoMsgCode?: string[];
   validation?: IValidationConfigInfo[];
+  default?: string | number;
 }
 
 export interface IPropFieldConfigInfo extends IFieldConfigInfo {

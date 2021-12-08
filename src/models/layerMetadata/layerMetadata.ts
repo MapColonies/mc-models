@@ -70,17 +70,25 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     column: {
       name: 'classification',
       type: 'text',
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
     isManuallyEditable: true,
+    infoMsgCode: ['info-general-tooltip.required'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        required: true,
+      },
+    ],
   })
   //#endregion
   public classification: string | undefined = undefined;
@@ -163,17 +171,26 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     column: {
       name: 'srs',
       type: 'text',
-      nullable: true,
+      nullable: false,
+      default: '4326',
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
+    infoMsgCode: ['info-general-tooltip.required'],
+    default: '4326',
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        required: true,
+      },
+    ],
   })
   //#endregion
   public srsId: string | undefined = undefined;
@@ -296,6 +313,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     column: {
       name: 'source_start_date',
       type: 'timestamp without time zone',
+      nullable: false,
     },
   })
   @inputDataMapping({
@@ -307,7 +325,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.DATE,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -338,6 +356,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     column: {
       name: 'source_end_date',
       type: 'timestamp without time zone',
+      nullable: false,
     },
   })
   @inputDataMapping({
@@ -349,7 +368,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.DATE,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -630,17 +649,26 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     column: {
       name: 'srs_name',
       type: 'text',
-      nullable: true,
+      nullable: false,
+      default: 'WGS84GEO',
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
+    infoMsgCode: ['info-general-tooltip.required'],
+    default: 'WGS84GEO',
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        required: true,
+      },
+    ],
   })
   //#endregion
   public srsName: string | undefined = undefined;
@@ -813,7 +841,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     column: {
       name: 'footprint_geojson',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @inputDataMapping({
@@ -824,7 +852,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.OBJECT,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
