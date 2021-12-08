@@ -19,6 +19,7 @@ components:
         - type
         - sourceDateStart
         - sourceDateEnd
+        - classification
       allOf:
         - $ref: ./updateLayerMetadata.yaml#/components/schemas/updateLayerMetadata
 

@@ -161,17 +161,26 @@ export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
     column: {
       name: 'srs',
       type: 'text',
-      nullable: true,
+      nullable: false,
+      default: '4326',
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
+    infoMsgCode: ['info-general-tooltip.required'],
+    default: '4326',
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        required: true,
+      },
+    ],
   })
   //#endregion
   public srsId: string | undefined = undefined;
@@ -188,6 +197,7 @@ export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
       name: 'srs_name',
       type: 'text',
       nullable: false,
+      default: 'WGS84GEO',
     },
   })
   @tsTypes({
@@ -199,6 +209,7 @@ export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
     infoMsgCode: ['info-general-tooltip.required'],
+    default: 'WGS84GEO',
     validation: [
       {
         errorMsgCode: 'validation-general.required',
@@ -279,7 +290,9 @@ export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
   @tsTypes({
     mappingType: TsTypes.DATE,
   })
-  @graphql()
+  @graphql({
+    nullable: false,
+  })
   @fieldConfig({
     category: FieldCategory.GENERAL,
     infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.sourceDateStart.max'],
@@ -315,7 +328,9 @@ export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
   @tsTypes({
     mappingType: TsTypes.DATE,
   })
-  @graphql()
+  @graphql({
+    nullable: false,
+  })
   @fieldConfig({
     category: FieldCategory.GENERAL,
     infoMsgCode: ['info-general-tooltip.required'],
@@ -544,7 +559,7 @@ export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: false,
+    nullable: true,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
@@ -719,7 +734,7 @@ export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: false,
+    nullable: true,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
@@ -767,7 +782,7 @@ export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: false,
+    nullable: true,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
