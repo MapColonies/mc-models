@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.1.4](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.1.3...mc-model-types@10.1.4) (2021-12-09)
+
+
+### Bug Fixes
+
+* best entity overlapping fields ([#113](https://github.com/MapColonies/mc-models/issues/113)) ([a4f891c](https://github.com/MapColonies/mc-models/commit/a4f891c31887bfbd4c8f4336a141df8c8b80f2d2))
+
 ### [10.1.3](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.1.2...mc-model-types@10.1.3) (2021-12-08)
 
 
