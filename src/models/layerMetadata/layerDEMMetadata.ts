@@ -35,7 +35,7 @@ export interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
 }
 
-export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
+export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#region COMMON FIELDS
   //#region COMMON: type
   @pycsw({
@@ -969,22 +969,22 @@ export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
-    return getPyCSWMapping<LayerDEMMetadata>(new LayerDEMMetadata(), prop);
+    return getPyCSWMapping<LayerDemMetadata>(new LayerDemMetadata(), prop);
   }
 
   public static getCatalogDBMapping(prop: string): ICatalogDBMapping | undefined {
-    return getCatalogDBMapping<LayerDEMMetadata>(new LayerDEMMetadata(), prop);
+    return getCatalogDBMapping<LayerDemMetadata>(new LayerDemMetadata(), prop);
   }
 
   public static getFieldConfig(prop: string): IFieldConfigInfo | undefined {
-    return getFieldConfig<LayerDEMMetadata>(new LayerDEMMetadata(), prop);
+    return getFieldConfig<LayerDemMetadata>(new LayerDemMetadata(), prop);
   }
 
   public static getPyCSWMappings(): IPropPYCSWMapping[] {
     const ret = [];
-    const layer = new LayerDEMMetadata();
+    const layer = new LayerDemMetadata();
     for (const prop in layer) {
-      const pycswMap = getPyCSWMapping<LayerDEMMetadata>(layer, prop);
+      const pycswMap = getPyCSWMapping<LayerDemMetadata>(layer, prop);
       if (pycswMap) {
         ret.push({
           prop: prop,
@@ -997,10 +997,10 @@ export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   public static getCatalogDBMappings(): IPropCatalogDBMapping[] {
     const ret = [];
-    const layer = new LayerDEMMetadata();
+    const layer = new LayerDemMetadata();
     for (const prop in layer) {
-      const catalogDbMap = getCatalogDBMapping<LayerDEMMetadata>(layer, prop);
-      const tsTypesMap = getTsTypesMapping<LayerDEMMetadata>(layer, prop);
+      const catalogDbMap = getCatalogDBMapping<LayerDemMetadata>(layer, prop);
+      const tsTypesMap = getTsTypesMapping<LayerDemMetadata>(layer, prop);
       if (catalogDbMap && tsTypesMap) {
         ret.push({
           prop: prop,
@@ -1014,9 +1014,9 @@ export class LayerDEMMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   public static getFieldConfigs(): IPropFieldConfigInfo[] {
     const ret = [];
-    const layer = new LayerDEMMetadata();
+    const layer = new LayerDemMetadata();
     for (const prop in layer) {
-      const fieldConfigMap = getFieldConfig<LayerDEMMetadata>(layer, prop);
+      const fieldConfigMap = getFieldConfig<LayerDemMetadata>(layer, prop);
       if (fieldConfigMap) {
         ret.push({
           prop: prop,

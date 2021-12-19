@@ -9,15 +9,15 @@ import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
 import { getPyCSWMapping, pycsw } from './decorators/property/csw.decorator';
-import { LayerDEMMetadata, IPropPYCSWMapping } from './layerDEMMetadata';
+import { LayerDemMetadata, IPropPYCSWMapping } from './layerDEMMetadata';
 import { Link } from './link';
 
 @catalogDBEntity({
   table: 'records',
   className: 'Metadata',
 })
-@graphqlClass({ alias: 'LayerDEMRecord' })
-export class PycswDEMCatalogRecord extends LayerDEMMetadata implements IPycswCoreModel, IOrmCatalog {
+@graphqlClass({ alias: 'LayerDemRecord' })
+export class PycswDemCatalogRecord extends LayerDemMetadata implements IPycswCoreModel, IOrmCatalog {
   //#region CORE: id
   @pycsw({
     profile: 'mc_dem',
@@ -254,9 +254,9 @@ export class PycswDEMCatalogRecord extends LayerDEMMetadata implements IPycswCor
 
   public static getPyCSWMappings(): IPropPYCSWMapping[] {
     const ret = [];
-    const layer = new PycswDEMCatalogRecord();
+    const layer = new PycswDemCatalogRecord();
     for (const prop in layer) {
-      const pycswMap = getPyCSWMapping<PycswDEMCatalogRecord>(layer, prop);
+      const pycswMap = getPyCSWMapping<PycswDemCatalogRecord>(layer, prop);
       if (pycswMap) {
         ret.push({
           prop: prop,
@@ -269,9 +269,9 @@ export class PycswDEMCatalogRecord extends LayerDEMMetadata implements IPycswCor
 
   public static getFieldConfigs(): IPropFieldConfigInfo[] {
     const ret = [];
-    const layer = new PycswDEMCatalogRecord();
+    const layer = new PycswDemCatalogRecord();
     for (const prop in layer) {
-      const fieldConfigMap = getFieldConfig<PycswDEMCatalogRecord>(layer, prop);
+      const fieldConfigMap = getFieldConfig<PycswDemCatalogRecord>(layer, prop);
       if (fieldConfigMap) {
         const fieldConfig = { prop: prop, ...fieldConfigMap };
         if (fieldConfigMap.complexType) {
@@ -301,6 +301,6 @@ export class PycswDEMCatalogRecord extends LayerDEMMetadata implements IPycswCor
   }
 
   public getORMCatalogEntityMappings(): ICatalogDBEntityMapping {
-    return getCatalogDBEntityMapping(PycswDEMCatalogRecord);
+    return getCatalogDBEntityMapping(PycswDemCatalogRecord);
   }
 }
