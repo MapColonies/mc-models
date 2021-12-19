@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.1.5](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.1.4...mc-model-types@10.1.5) (2021-12-19)
+
+
+### Bug Fixes
+
+* rename dem classes to camel case format ([#114](https://github.com/MapColonies/mc-models/issues/114)) ([c5e285c](https://github.com/MapColonies/mc-models/commit/c5e285c0ef70a2cdc8ca19b21b0bdf374fdd8ea1))
+
 ### [10.1.4](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.1.3...mc-model-types@10.1.4) (2021-12-09)
 
 
