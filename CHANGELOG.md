@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.1.6](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.1.5...mc-model-types@10.1.6) (2021-12-20)
+
+
+### Bug Fixes
+
+* missing client required validations ([#115](https://github.com/MapColonies/mc-models/issues/115)) ([bdc5c96](https://github.com/MapColonies/mc-models/commit/bdc5c966408442b5b615b36a24f95901f7227961))
+
 ### [10.1.5](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.1.4...mc-model-types@10.1.5) (2021-12-19)
 
 
