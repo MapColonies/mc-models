@@ -104,13 +104,15 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
     column: {
       name: 'product_name',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
-  @graphql()
+  @graphql({
+    nullable: false,
+  })
   @fieldConfig({
     category: FieldCategory.MAIN,
     infoMsgCode: ['info-general-tooltip.required'],
@@ -384,14 +386,14 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
     column: {
       name: 'region',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -423,7 +425,9 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
-  @graphql()
+  @graphql({
+    nullable: false,
+  })
   @fieldConfig({
     category: FieldCategory.MAIN,
     infoMsgCode: ['info-general-tooltip.required'],
@@ -454,7 +458,9 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
   @tsTypes({
     mappingType: TsTypes.PRODUCTTYPE,
   })
-  @graphql()
+  @graphql({
+    nullable: false,
+  })
   @fieldConfig({
     category: FieldCategory.MAIN,
     infoMsgCode: ['info-general-tooltip.required'],
@@ -559,7 +565,7 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
@@ -734,7 +740,7 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
@@ -782,7 +788,7 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
