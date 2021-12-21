@@ -738,16 +738,11 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
-    infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.heightRangeFrom.max', 'info-field-tooltip.heightRangeFrom.min'],
+    infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.heightRangeFrom.min', 'info-field-tooltip.heightRangeFrom.max'],
     validation: [
       {
         errorMsgCode: 'validation-general.required',
         required: true,
-      },
-      {
-        errorMsgCode: 'validation-field.heightRangeFrom.max',
-        valueType: 'field',
-        max: 'heightRangeTo',
       },
       {
         errorMsgCode: 'validation-field.heightRangeFrom.min',
@@ -758,6 +753,11 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
         errorMsgCode: 'validation-field.heightRangeFrom.max',
         valueType: 'value',
         max: 9000,
+      },
+      {
+        errorMsgCode: 'validation-field.heightRangeFrom.max',
+        valueType: 'field',
+        max: 'heightRangeTo',
       },
     ],
   })
@@ -786,7 +786,7 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
-    infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.heightRangeTo.max', 'info-field-tooltip.heightRangeTo.min'],
+    infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.heightRangeTo.min', 'info-field-tooltip.heightRangeTo.max'],
     validation: [
       {
         errorMsgCode: 'validation-general.required',
