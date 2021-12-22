@@ -701,7 +701,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.MAIN,
-    infoMsgCode: ['info-field-tooltip.resolution.tooltip', 'info-general-tooltip.required', 'info-field-tooltip.resolution.min', 'info-field-tooltip.resolution.max'],
+    infoMsgCode: [
+      'info-field-tooltip.resolution.tooltip',
+      'info-general-tooltip.required',
+      'info-field-tooltip.resolution.min',
+      'info-field-tooltip.resolution.max',
+    ],
     validation: [
       {
         errorMsgCode: 'validation-general.required',
