@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.2.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.2.0...mc-model-types@10.2.1) (2022-01-09)
+
+
+### Bug Fixes
+
+* made included in best ts type nullable ([#118](https://github.com/MapColonies/mc-models/issues/118)) ([168aaec](https://github.com/MapColonies/mc-models/commit/168aaecdd8bd5e5bc6e0cd14036f137967edcead))
+
 ## [10.2.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.1.7...mc-model-types@10.2.0) (2022-01-06)
 
 
