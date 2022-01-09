@@ -932,7 +932,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       nullable: true,
     },
     field: {
-      overrideType: TsTypes.STRING,
+      overrideType: TsTypes.NULLABLE_STRING,
     },
   })
   @tsTypes({
