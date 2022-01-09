@@ -26,6 +26,10 @@ export const TsTypes: Record<string, IDescribeTsType> = {
     value: 'string',
     type: PropertiesTypes.ARRAY,
   },
+  NULLABLE_STRING: {
+    value: 'string | null',
+    type: PropertiesTypes.PRIMITIVE,
+  },
   BOOLEAN: {
     value: 'boolean',
     type: PropertiesTypes.PRIMITIVE,

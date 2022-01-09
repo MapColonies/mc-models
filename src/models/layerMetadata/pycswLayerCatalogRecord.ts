@@ -34,7 +34,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     },
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.NULLABLE_STRING,
   })
   @graphql()
   @fieldConfig({
