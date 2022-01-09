@@ -18,7 +18,7 @@ export interface IVectorBestMetadata {
   productVersion: string | undefined;
   // resolution: number | undefined;
   // rms: number | undefined;
-  scale: number | undefined;
+  scale: string | undefined;
 
   // PROFILES COMMON FIELDS
   type: RecordType | undefined;
@@ -210,7 +210,7 @@ export class VectorBestMetadata implements IVectorBestMetadata {
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: false,
+    nullable: true,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -471,7 +471,7 @@ export class VectorBestMetadata implements IVectorBestMetadata {
     ],
   })
   //#endregion
-  public scale: number | undefined = undefined;
+  public scale: string | undefined = undefined;
 
   //#region VECTOR_BEST: footprint
   @pycsw({
