@@ -361,7 +361,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.MAIN,
-    infoMsgCode: ['info-field-tooltip.minResolutionMeter.min', 'info-field-tooltip.minResolutionMeter.max'],
+    infoMsgCode: ['info-field-tooltip.meter.tooltip', 'info-field-tooltip.minResolutionMeter.min', 'info-field-tooltip.minResolutionMeter.max'],
     validation: [
       {
         errorMsgCode: 'validation-field.minResolutionMeter.min',
@@ -400,7 +400,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.MAIN,
-    infoMsgCode: ['info-field-tooltip.maxResolutionMeter.min', 'info-field-tooltip.maxResolutionMeter.max'],
+    infoMsgCode: ['info-field-tooltip.meter.tooltip', 'info-field-tooltip.maxResolutionMeter.min', 'info-field-tooltip.maxResolutionMeter.max'],
     validation: [
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.min',
@@ -735,6 +735,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
+    infoMsgCode: ['info-field-tooltip.meter.tooltip'],
   })
   //#endregion
   public heightRangeFrom: number | undefined = undefined;
@@ -761,6 +762,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
+    infoMsgCode: ['info-field-tooltip.meter.tooltip'],
   })
   //#endregion
   public heightRangeTo: number | undefined = undefined;
@@ -1079,6 +1081,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
+    infoMsgCode: ['info-field-tooltip.meter.tooltip'],
   })
   //#endregion
   public minFlightAlt: number | undefined = undefined;
@@ -1105,6 +1108,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
+    infoMsgCode: ['info-field-tooltip.meter.tooltip'],
   })
   //#endregion
   public maxFlightAlt: number | undefined = undefined;
