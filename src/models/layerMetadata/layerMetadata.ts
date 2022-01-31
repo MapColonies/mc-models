@@ -26,6 +26,7 @@ export interface ILayerMetadata {
   ingestionDate: Date | undefined;
   minHorizontalAccuracyCE90: number | undefined;
   region: string[] | undefined;
+  sensors: string[] | undefined;
 }
 export interface IPropSHPMapping extends IDataMapping, ITsTypesMapping {
   prop: string;
