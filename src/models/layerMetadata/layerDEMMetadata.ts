@@ -29,6 +29,8 @@ export interface ILayerMetadata {
   undulationModel: UndulationModel | undefined;
   dataType: DataType | undefined;
   noDataValue: NoDataValue | undefined;
+  sensorType: SensorType[] | undefined; //sensors
+  region: string | undefined;
 }
 
 export interface IPropPYCSWMapping extends IPYCSWMapping {

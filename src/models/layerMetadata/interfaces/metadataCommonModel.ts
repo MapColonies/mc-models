@@ -1,5 +1,5 @@
 import { GeoJSON } from 'geojson';
-import { ProductType, SensorType } from '../enums';
+import { ProductType } from '../enums';
 import { RecordType } from '../../pycsw/coreEnums';
 
 export interface IMetadataCommonModel {
@@ -14,8 +14,9 @@ export interface IMetadataCommonModel {
   updateDate: Date | undefined;
   sourceDateStart: Date | undefined;
   sourceDateEnd: Date | undefined;
-  sensorType: SensorType[] | undefined; //sensors
-  region: string | undefined;
+  //TODO: delete
+  //sensorType: SensorType[] | undefined; //sensors
+  //region: string | undefined;
   footprint: GeoJSON | undefined;
   productId: string | undefined;
   productType: ProductType | undefined;

@@ -35,6 +35,8 @@ export interface ILayer3DMetadata {
   maxFlightAlt: number | undefined;
   geographicArea: string | undefined;
   productBoundingBox: string | undefined;
+  sensorType: SensorType[] | undefined; //sensors
+  region: string | undefined;
 }
 
 export interface IPropPYCSWMapping extends IPYCSWMapping {

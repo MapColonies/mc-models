@@ -23,6 +23,8 @@ export interface IBestMetadata {
   rms: number | undefined;
   scale: string | undefined;
   discretes: DiscreteOrder[] | undefined;
+  sensorType: SensorType[] | undefined; //sensors
+  region: string | undefined;
 }
 export interface IPropSHPMapping extends IDataMapping, ITsTypesMapping {
   prop: string;

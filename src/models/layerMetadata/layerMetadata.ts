@@ -14,17 +14,18 @@ import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw
 import { getInputDataMapping, IDataMapping, DataFileType, inputDataMapping } from './decorators/property/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
-import { ProductType, SensorType } from './enums';
+import { ProductType } from './enums';
 
 export interface ILayerMetadata {
   productVersion: string | undefined;
-  resolution: number | undefined;
+  maxResolutionDeg: number | undefined;
   rms: number | undefined;
-  scale: string | undefined;
+  scale: number | undefined;
   includedInBests: string[] | undefined;
   creationDate: Date | undefined;
   ingestionDate: Date | undefined;
-  accuracyCE90: number | undefined;
+  minHorizontalAccuracyCE90: number | undefined;
+  region: string[] | undefined;
 }
 export interface IPropSHPMapping extends IDataMapping, ITsTypesMapping {
   prop: string;
@@ -385,7 +386,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
   public sourceDateEnd: Date | undefined = undefined;
 
-  //#region COMMON: accuracyCE90
+  //#region COMMON: minHorizontalAccuracyCE90
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:minHorizontalAccuracyCE90',
@@ -394,7 +395,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @catalogDB({
     column: {
-      name: 'horizontal_accuracy_ce_90',
+      name: 'min_horizontal_accuracy_ce_90',
       type: 'real',
     },
   })
@@ -419,9 +420,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     ],
   })
   //#endregion
-  public accuracyCE90: number | undefined = undefined;
+  public minHorizontalAccuracyCE90: number | undefined = undefined;
 
-  //#region COMMON: sensorType    //sensors
+  //#region COMMON: sensors
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:sensors',
@@ -430,7 +431,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @catalogDB({
     column: {
-      name: 'sensor_type',
+      name: 'sensors',
       type: 'text',
     },
     field: {
@@ -443,7 +444,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     valuePath: '***features[].properties.SensorType***',
   })
   @tsTypes({
-    mappingType: TsTypes.SENSORTYPE_ARRAY,
+    mappingType: TsTypes.STRING_ARRAY,
   })
   @graphql({
     nullable: true,
@@ -454,7 +455,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     infoMsgCode: ['info-field-tooltip.sensorType.tooltip'],
   })
   //#endregion
-  public sensorType: SensorType[] | undefined = undefined;
+  public sensors: string[] | undefined = undefined;
 
   //#region COMMON: region
   @pycsw({
@@ -476,7 +477,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     valuePath: '***features[].properties.Countries***',
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.STRING_ARRAY,
   })
   @graphql({
     nullable: true,
@@ -492,7 +493,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     ],
   })
   //#endregion
-  public region: string | undefined = undefined;
+  public region: string[] | undefined = undefined;
   //#endregion
 
   //#region RASTER SPECIFIC FIELDS
@@ -676,7 +677,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
   public srsName: string | undefined = undefined;
 
-  //#region RASTER: resolution
+  //#region RASTER: max_resolution_deg
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:maxResolutionDeg',
@@ -685,8 +686,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @catalogDB({
     column: {
-      name: 'resolution',
-      type: 'text',
+      name: 'max_resolution_deg',
+      type: 'numeric',
     },
   })
   @inputDataMapping({
@@ -725,7 +726,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     ],
   })
   //#endregion
-  public resolution: number | undefined = undefined;
+  public maxResolutionDeg: number | undefined = undefined;
 
   //#region RASTER: maxResolutionMeter
   @pycsw({
@@ -737,7 +738,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @catalogDB({
     column: {
       name: 'max_resolution_meter',
-      type: 'text', //pycsw only support unicode/binary values
+      type: 'numeric',
     },
   })
   @inputDataMapping({
@@ -810,7 +811,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @catalogDB({
     column: {
       name: 'scale',
-      type: 'text',
+      type: 'integer',
       nullable: true,
     },
   })
@@ -819,7 +820,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     valuePath: 'features[0].properties.Scale',
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.NUMBER,
   })
   @graphql({
     nullable: true,
@@ -836,7 +837,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //   ],
   // })
   //#endregion
-  public scale: string | undefined = undefined;
+  public scale: number | undefined = undefined;
 
   //#region RASTER: footprint
   @pycsw({
