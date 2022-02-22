@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.2.5](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.2.4...mc-model-types@10.2.5) (2022-02-17)
+
+
+### Bug Fixes
+
+* footprint mapping ([#123](https://github.com/MapColonies/mc-models/issues/123)) ([7b5bfe9](https://github.com/MapColonies/mc-models/commit/7b5bfe92b6c01928173e9b3852e88c8e56e582e1))
+
+### [10.2.4](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.2.3...mc-model-types@10.2.4) (2022-01-13)
+
+
+### Bug Fixes
+
+* sync field names and tooltips ([#121](https://github.com/MapColonies/mc-models/issues/121)) ([f938d62](https://github.com/MapColonies/mc-models/commit/f938d62bb56d3e0ce9c37f504d4f6dc78d07f9ea))
+
+### [10.2.3](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.2.2...mc-model-types@10.2.3) (2022-01-09)
+
+
+### Bug Fixes
+
+* props fixes ([#120](https://github.com/MapColonies/mc-models/issues/120)) ([38803bc](https://github.com/MapColonies/mc-models/commit/38803bc2deded5b5b4c5904c4e3e6199848d5afd))
+
 ### [10.2.2](https://github.com/MapColonies/mc-models/compare/mc-model-types@10.2.1...mc-model-types@10.2.2) (2022-01-09)
 
 

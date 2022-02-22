@@ -855,7 +855,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     },
   })
   @inputDataMapping({
-    dataFile: DataFileType.SHAPE_METADATA,
+    dataFile: DataFileType.PRODUCT,
     valuePath: 'features[0].geometry',
   })
   @tsTypes({
