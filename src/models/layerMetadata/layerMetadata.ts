@@ -469,7 +469,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     column: {
       name: 'region',
       type: 'text',
-      nullable: true,
+    },
+    field: {
+      overrideType: TsTypes.STRING,
     },
   })
   @inputDataMapping({
