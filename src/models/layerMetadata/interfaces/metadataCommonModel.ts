@@ -14,9 +14,6 @@ export interface IMetadataCommonModel {
   updateDate: Date | undefined;
   sourceDateStart: Date | undefined;
   sourceDateEnd: Date | undefined;
-  //TODO: delete
-  //sensorType: SensorType[] | undefined; //sensors
-  //region: string | undefined;
   footprint: GeoJSON | undefined;
   productId: string | undefined;
   productType: ProductType | undefined;
