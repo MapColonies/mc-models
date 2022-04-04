@@ -13,7 +13,7 @@ import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
-import { ProductType, SensorType } from './enums';
+import { ProductType } from './enums';
 
 export interface ILayerMetadata {
   resolutionDegree: number | undefined;
@@ -29,8 +29,6 @@ export interface ILayerMetadata {
   undulationModel: UndulationModel | undefined;
   dataType: DataType | undefined;
   noDataValue: NoDataValue | undefined;
-  sensorType: SensorType[] | undefined; //sensors
-  region: string | undefined;
 }
 
 export interface IPropPYCSWMapping extends IPYCSWMapping {
@@ -346,7 +344,7 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
   public sourceDateEnd: Date | undefined = undefined;
 
-  //#region COMMON: sensorType    //sensors
+  //#region COMMON: sensors
   @pycsw({
     profile: 'mc_dem',
     xmlElement: 'mc:sensors',
@@ -357,14 +355,13 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
     column: {
       name: 'sensor_type',
       type: 'text',
-      nullable: true,
     },
     field: {
       overrideType: TsTypes.STRING,
     },
   })
   @tsTypes({
-    mappingType: TsTypes.SENSORTYPE_ARRAY,
+    mappingType: TsTypes.STRING_ARRAY,
   })
   @graphql({
     nullable: true,
@@ -374,7 +371,7 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
     infoMsgCode: ['info-field-tooltip.sensorType.tooltip'],
   })
   //#endregion
-  public sensorType: SensorType[] | undefined = undefined;
+  public sensors: string[] | undefined = undefined;
 
   //#region COMMON: region
   @pycsw({
@@ -387,11 +384,13 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
     column: {
       name: 'region',
       type: 'text',
-      nullable: true,
+    },
+    field: {
+      overrideType: TsTypes.STRING,
     },
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.STRING_ARRAY,
   })
   @graphql({
     nullable: true,
@@ -407,7 +406,7 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
     ],
   })
   //#endregion
-  public region: string | undefined = undefined;
+  public region: string[] | undefined = undefined;
 
   //#region COMMON: productId
   @pycsw({

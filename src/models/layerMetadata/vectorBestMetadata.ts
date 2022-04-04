@@ -32,7 +32,7 @@ export interface IVectorBestMetadata {
   //  sourceDateStart: Date | undefined;
   //  sourceDateEnd: Date | undefined;
   //  sensorType: SensorType[] | undefined; //sensors
-  region: string | undefined;
+  region: string[] | undefined;
   footprint: GeoJSON | undefined;
   //  productId: string | undefined;
   productType: ProductType | undefined;
@@ -315,18 +315,20 @@ export class VectorBestMetadata implements IVectorBestMetadata {
     column: {
       name: 'region',
       type: 'text',
-      nullable: true,
+    },
+    field: {
+      overrideType: TsTypes.STRING,
     },
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.STRING_ARRAY,
   })
   @graphql({
     nullable: true,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
-    infoMsgCode: ['info-general-tooltip.required'],
+    infoMsgCode: ['info-field-tooltip.region.tooltip', 'info-general-tooltip.required'],
     validation: [
       {
         errorMsgCode: 'validation-general.required',
@@ -335,7 +337,7 @@ export class VectorBestMetadata implements IVectorBestMetadata {
     ],
   })
   //#endregion
-  public region: string | undefined = undefined;
+  public region: string[] | undefined = undefined;
   //#endregion
 
   //#region VECTOR_BEST SPECIFIC FIELDS

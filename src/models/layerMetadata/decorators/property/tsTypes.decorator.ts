@@ -54,16 +54,6 @@ export const TsTypes: Record<string, IDescribeTsType> = {
     value: 'Link',
     type: PropertiesTypes.ARRAY,
   },
-  SENSORTYPE: {
-    value: 'SensorType',
-    type: PropertiesTypes.ENUM,
-    importFromPackage: '@map-colonies/mc-model-types',
-  },
-  SENSORTYPE_ARRAY: {
-    value: 'SensorType',
-    type: PropertiesTypes.ENUM_ARRAY,
-    importFromPackage: '@map-colonies/mc-model-types',
-  },
   RECORDTYPE: {
     value: 'RecordType',
     type: PropertiesTypes.ENUM,

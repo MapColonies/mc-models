@@ -1,12 +1,3 @@
-export enum SensorType {
-  VIS = 'VIS',
-  RGB = 'RGB',
-  // eslint-disable-next-line
-  Pan_Sharpen = 'Pan_Sharpen',
-  OTHER = 'OTHER',
-  UNDEFINED = 'UNDEFINED',
-}
-
 export enum ProductType {
   ORTHOPHOTO = 'Orthophoto',
   ORTHOPHOTO_HISTORY = 'OrthophotoHistory',
