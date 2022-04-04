@@ -378,14 +378,14 @@ export class BestMetadata implements IBestMetadata, IMetadataCommonModel {
 
   //#region COMMON: sensors
   @pycsw({
-    profile: 'mc_raster',
-    xmlElement: 'mc:sensors',
-    queryableField: 'mc:sensors',
+    profile: 'mc_best',
+    xmlElement: 'mc:sensorType',
+    queryableField: 'mc:sensorType',
     pycswField: 'pycsw:sensorType',
   })
   @catalogDB({
     column: {
-      name: 'sensors',
+      name: 'sensor_type',
       type: 'text',
     },
     field: {
@@ -413,7 +413,7 @@ export class BestMetadata implements IBestMetadata, IMetadataCommonModel {
 
   //#region COMMON: region
   @pycsw({
-    profile: 'mc_raster',
+    profile: 'mc_best',
     xmlElement: 'mc:region',
     queryableField: 'mc:region',
     pycswField: 'pycsw:Region',
@@ -426,11 +426,6 @@ export class BestMetadata implements IBestMetadata, IMetadataCommonModel {
     field: {
       overrideType: TsTypes.STRING,
     },
-  })
-  @inputDataMapping({
-    isCustomLogic: true,
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***features[].properties.Countries***',
   })
   @tsTypes({
     mappingType: TsTypes.STRING_ARRAY,
