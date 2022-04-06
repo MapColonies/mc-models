@@ -12,9 +12,9 @@ components:
         - productVersion
         - productType
         - updateDate
-        - resolution
-        - accuracyCE90
-        - sensorType
+        - maxResolutionDeg
+        - minHorizontalAccuracyCE90
+        - sensors
         - footprint
         - type
         - sourceDateStart

@@ -10,7 +10,7 @@ import {
 import { RecordType } from '../pycsw/coreEnums';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
-import { ProductType, SensorType } from './enums';
+import { ProductType } from './enums';
 import { catalogDB } from './decorators/property/catalogDB.decorator';
 import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 
@@ -641,7 +641,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   //#endregion
   public visualAccuracy: number | undefined = undefined;
 
-  //#region 3D: sensorsType
+  //#region 3D: sensors
   @pycsw({
     profile: 'mc3d',
     xmlElement: 'mc:sensors',
@@ -658,7 +658,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     },
   })
   @tsTypes({
-    mappingType: TsTypes.SENSORTYPE_ARRAY,
+    mappingType: TsTypes.STRING_ARRAY,
   })
   @graphql({
     nullable: true,
@@ -674,7 +674,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     ],
   })
   //#endregion
-  public sensorType: SensorType[] | undefined = undefined;
+  public sensors: string[] | undefined = undefined;
 
   //#region 3D: footprint
   @pycsw({
@@ -872,9 +872,12 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
       type: 'text',
       nullable: true,
     },
+    field: {
+      overrideType: TsTypes.STRING,
+    },
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.STRING_ARRAY,
   })
   @graphql({
     nullable: true,
@@ -890,7 +893,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     ],
   })
   //#endregion
-  public region: string | undefined = 'UNKNOWN';
+  public region: string[] | undefined = ['UNKNOWN'];
 
   //#region 3D: classification
   @pycsw({
