@@ -665,7 +665,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
-    infoMsgCode: ['info-field-tooltip.sensorType.tooltip', 'info-general-tooltip.required'],
+    infoMsgCode: ['info-field-tooltip.sensors.tooltip', 'info-general-tooltip.required'],
     validation: [
       {
         errorMsgCode: 'validation-general.required',
