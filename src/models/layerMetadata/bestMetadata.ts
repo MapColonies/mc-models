@@ -638,7 +638,7 @@ export class BestMetadata implements IBestMetadata, IMetadataCommonModel {
     valuePath: 'features[0].properties.Scale',
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.NUMBER,
   })
   @graphql({
     nullable: true,
