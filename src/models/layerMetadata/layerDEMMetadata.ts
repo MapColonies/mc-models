@@ -368,7 +368,7 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
-    infoMsgCode: ['info-field-tooltip.sensorType.tooltip'],
+    infoMsgCode: ['info-field-tooltip.sensors.tooltip'],
   })
   //#endregion
   public sensors: string[] | undefined = undefined;
