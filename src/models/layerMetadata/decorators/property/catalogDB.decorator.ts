@@ -18,8 +18,21 @@ export interface IFieldProps {
   overrideType?: IDescribeTsType;
 }
 
+export enum SpecialORMColumnType {
+  Column = 'Column',
+  CreateDateColumn = 'CreateDateColumn',
+  DeleteDateColumn = 'DeleteDateColumn',
+  ObjectIdColumn = 'ObjectIdColumn',
+  PrimaryColumn = 'PrimaryColumn',
+  PrimaryGeneratedColumn = 'PrimaryGeneratedColumn',
+  UpdateDateColumn = 'UpdateDateColumn',
+  VersionColumn = 'VersionColumn',
+  ViewColumn = 'ViewColumn',
+}
+
 export interface ICatalogDBMapping {
   column: IColumnProps; // column properties
+  columnType?: SpecialORMColumnType; // deafult is 'Column'
   field?: IFieldProps; // field properties
 }
 

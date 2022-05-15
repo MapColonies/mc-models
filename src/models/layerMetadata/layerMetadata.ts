@@ -12,7 +12,7 @@ import { RecordType } from '../pycsw/coreEnums';
 import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { getInputDataMapping, IDataMapping, DataFileType, inputDataMapping } from './decorators/property/shp.decorator';
-import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from './decorators/property/catalogDB.decorator';
+import { getCatalogDBMapping, ICatalogDBMapping, catalogDB, SpecialORMColumnType } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 import { ProductType } from './enums';
 
@@ -282,6 +282,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     pycswField: 'pycsw:UpdateDate',
   })
   @catalogDB({
+    columnType: SpecialORMColumnType.UpdateDateColumn,
     column: {
       name: 'update_date',
       type: 'timestamp without time zone',
