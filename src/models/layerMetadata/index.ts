@@ -13,5 +13,6 @@ export * from './pycsw3DCatalogRecord';
 export * from './pycswBestCatalogRecord';
 export * from './pycswDEMCatalogRecord';
 export * from './pycswVectorBestCatalogRecord';
+export * from './pycswQuantizedMeshBestCatalogRecord';
 
 export * from './enums';
