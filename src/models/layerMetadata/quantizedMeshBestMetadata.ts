@@ -16,26 +16,33 @@ import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 import { ProductType } from './enums';
 
 export interface IQuantizedMeshBestMetadata {
+  // Based on 3D Entity fields
   productVersion: string | undefined;
   creationDate: Date | undefined;
   minResolutionMeter: number | undefined;
   maxResolutionMeter: number | undefined;
-  nominalResolution: number | undefined;
+  // nominalResolution: number | undefined;
   maxAccuracyCE90: number | undefined;
-  absoluteAccuracyLEP90: number | undefined;
-  accuracySE90: number | undefined;
-  relativeAccuracyLEP90: number | undefined;
-  visualAccuracy: number | undefined;
+  // absoluteAccuracyLEP90: number | undefined;
+  // accuracySE90: number | undefined;
+  // relativeAccuracyLEP90: number | undefined;
+  // visualAccuracy: number | undefined;
   heightRangeFrom: number | undefined;
   heightRangeTo: number | undefined;
-  srsOrigin: string | undefined;
+  // srsOrigin: string | undefined;
   productionSystem: string | undefined;
   productionSystemVer: string | undefined;
   productionMethod: string | undefined;
-  minFlightAlt: number | undefined;
-  maxFlightAlt: number | undefined;
+  // minFlightAlt: number | undefined;
+  // maxFlightAlt: number | undefined;
   geographicArea: string | undefined;
   productBoundingBox: string | undefined;
+
+  // Description field must include info:
+  // undulationModel: UndulationModel | undefined;
+  // noDataValue: NoDataValue | undefined;
+  // verticalDatum: VerticalDatum | undefined;
+  // layerPolygonParts: GeoJSON | undefined;
 }
 
 export interface IPropPYCSWMapping extends IPYCSWMapping {
@@ -412,32 +419,6 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
   //#endregion
   public maxResolutionMeter: number | undefined = undefined;
 
-  //#region QUANTIZED_MESH_BEST: nominalResolution
-  @pycsw({
-    profile: 'mc_quantized_mesh_best',
-    xmlElement: 'mc:nominalResolution',
-    queryableField: 'mc:nominalResolution',
-    pycswField: 'pycsw:nominalResolution',
-  })
-  @catalogDB({
-    column: {
-      name: 'nominal_resolution',
-      type: 'real',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.NUMBER,
-  })
-  @graphql({
-    nullable: true,
-  })
-  @fieldConfig({
-    category: FieldCategory.GEO_INFO,
-  })
-  //#endregion
-  public nominalResolution: number | undefined = undefined;
-
   //#region QUANTIZED_MESH_BEST: maxAccuracyCE90
   @pycsw({
     profile: 'mc_quantized_mesh_best',
@@ -479,166 +460,6 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
   })
   //#endregion
   public maxAccuracyCE90: number | undefined = undefined;
-
-  //#region QUANTIZED_MESH_BEST: absoluteAccuracyLEP90
-  @pycsw({
-    profile: 'mc_quantized_mesh_best',
-    xmlElement: 'mc:accuracyLEP90',
-    queryableField: 'mc:accuracyLEP90',
-    pycswField: 'pycsw:accuracyLE90',
-  })
-  @catalogDB({
-    column: {
-      name: 'accuracy_le_90',
-      type: 'real',
-      nullable: false,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.NUMBER,
-  })
-  @graphql({
-    nullable: false,
-  })
-  @fieldConfig({
-    category: FieldCategory.GEO_INFO,
-    infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.absoluteAccuracyLEP90.min', 'info-field-tooltip.absoluteAccuracyLEP90.max'],
-    validation: [
-      {
-        errorMsgCode: 'validation-general.required',
-        required: true,
-      },
-      {
-        errorMsgCode: 'validation-field.absoluteAccuracyLEP90.min',
-        valueType: 'value',
-        min: 0,
-      },
-      {
-        errorMsgCode: 'validation-field.absoluteAccuracyLEP90.max',
-        valueType: 'value',
-        max: 999,
-      },
-    ],
-  })
-  //#endregion
-  public absoluteAccuracyLEP90: number | undefined = undefined;
-
-  //#region QUANTIZED_MESH_BEST: accuracySE90
-  @pycsw({
-    profile: 'mc_quantized_mesh_best',
-    xmlElement: 'mc:accuracySE90',
-    queryableField: 'mc:accuracySE90',
-    pycswField: 'pycsw:accuracySE90',
-  })
-  @catalogDB({
-    column: {
-      name: 'accuracy_se_90',
-      type: 'real',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.NUMBER,
-  })
-  @graphql({
-    nullable: true,
-  })
-  @fieldConfig({
-    category: FieldCategory.GEO_INFO,
-    infoMsgCode: ['info-field-tooltip.accuracySE90.min', 'info-field-tooltip.accuracySE90.max'],
-    validation: [
-      {
-        errorMsgCode: 'validation-field.accuracySE90.min',
-        valueType: 'value',
-        min: 0,
-      },
-      {
-        errorMsgCode: 'validation-field.accuracySE90.max',
-        valueType: 'value',
-        max: 250,
-      },
-    ],
-  })
-  //#endregion
-  public accuracySE90: number | undefined = undefined;
-
-  //#region QUANTIZED_MESH_BEST: relativeAccuracyLEP90
-  @pycsw({
-    profile: 'mc_quantized_mesh_best',
-    xmlElement: 'mc:relativeAccuracyLE90',
-    queryableField: 'mc:relativeAccuracyLE90',
-    pycswField: 'pycsw:relativeAccuracyLE90',
-  })
-  @catalogDB({
-    column: {
-      name: 'relative_accuracy_le_90',
-      type: 'real',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.NUMBER,
-  })
-  @graphql({
-    nullable: true,
-  })
-  @fieldConfig({
-    category: FieldCategory.GEO_INFO,
-    infoMsgCode: ['info-field-tooltip.relativeAccuracyLEP90.min', 'info-field-tooltip.relativeAccuracyLEP90.max'],
-    validation: [
-      {
-        errorMsgCode: 'validation-field.relativeAccuracyLEP90.min',
-        valueType: 'value',
-        min: 0,
-      },
-      {
-        errorMsgCode: 'validation-field.relativeAccuracyLEP90.max',
-        valueType: 'value',
-        max: 100,
-      },
-    ],
-  })
-  //#endregion
-  public relativeAccuracyLEP90: number | undefined = undefined;
-
-  //#region QUANTIZED_MESH_BEST: visualAccuracy
-  @pycsw({
-    profile: 'mc_quantized_mesh_best',
-    xmlElement: 'mc:visualAccuracy',
-    queryableField: 'mc:visualAccuracy',
-    pycswField: 'pycsw:visualAccuracy',
-  })
-  @catalogDB({
-    column: {
-      name: 'visual_accuracy',
-      type: 'real',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.NUMBER,
-  })
-  @graphql({
-    nullable: true,
-  })
-  @fieldConfig({
-    category: FieldCategory.GEO_INFO,
-    infoMsgCode: ['info-field-tooltip.visualAccuracy.min', 'info-field-tooltip.visualAccuracy.max'],
-    validation: [
-      {
-        errorMsgCode: 'validation-field.visualAccuracy.min',
-        valueType: 'value',
-        min: 0,
-      },
-      {
-        errorMsgCode: 'validation-field.visualAccuracy.max',
-        valueType: 'value',
-        max: 100,
-      },
-    ],
-  })
-  //#endregion
-  public visualAccuracy: number | undefined = undefined;
 
   //#region QUANTIZED_MESH_BEST: sensors
   @pycsw({
@@ -831,32 +652,6 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
   })
   //#endregion
   public srsName: string | undefined = undefined;
-
-  //#region QUANTIZED_MESH_BEST: srsOrigin
-  @pycsw({
-    profile: 'mc_quantized_mesh_best',
-    xmlElement: 'mc:SRSOrigin',
-    queryableField: 'mc:SRSOrigin',
-    pycswField: 'pycsw:CRSOrigin',
-  })
-  @catalogDB({
-    column: {
-      name: 'srs_origin',
-      type: 'text',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  @fieldConfig({
-    category: FieldCategory.GEO_INFO,
-  })
-  //#endregion
-  public srsOrigin: string | undefined = undefined;
 
   //#region QUANTIZED_MESH_BEST: region
   @pycsw({
@@ -1056,60 +851,6 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
   })
   //#endregion
   public productionMethod: string | undefined = undefined;
-
-  //#region QUANTIZED_MESH_BEST: minFlightAlt
-  @pycsw({
-    profile: 'mc_quantized_mesh_best',
-    xmlElement: 'mc:minFlightAlt',
-    queryableField: 'mc:minFlightAlt',
-    pycswField: 'pycsw:minFlightAlt',
-  })
-  @catalogDB({
-    column: {
-      name: 'min_flight_alt',
-      type: 'real',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.NUMBER,
-  })
-  @graphql({
-    nullable: true,
-  })
-  @fieldConfig({
-    category: FieldCategory.GEO_INFO,
-    infoMsgCode: ['info-field-tooltip.meter.tooltip'],
-  })
-  //#endregion
-  public minFlightAlt: number | undefined = undefined;
-
-  //#region QUANTIZED_MESH_BEST: maxFlightAlt
-  @pycsw({
-    profile: 'mc_quantized_mesh_best',
-    xmlElement: 'mc:maxFlightAlt',
-    queryableField: 'mc:maxFlightAlt',
-    pycswField: 'pycsw:maxFlightAlt',
-  })
-  @catalogDB({
-    column: {
-      name: 'max_flight_alt',
-      type: 'real',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.NUMBER,
-  })
-  @graphql({
-    nullable: true,
-  })
-  @fieldConfig({
-    category: FieldCategory.GEO_INFO,
-    infoMsgCode: ['info-field-tooltip.meter.tooltip'],
-  })
-  //#endregion
-  public maxFlightAlt: number | undefined = undefined;
 
   //#region QUANTIZED_MESH_BEST: geographicArea
   @pycsw({
