@@ -42,7 +42,10 @@ components:
             - VectorBest
             - DTM
             - DSM
-            - QuantizedMesh
+            - QuantizedMeshDTM
+            - QuantizedMeshDSM
+            - QuantizedMeshDTMBest
+            - QuantizedMeshDSMBest
             - 3DPhotoRealistic
             - PointCloud
           description: layer's type might be derived from the first letter
