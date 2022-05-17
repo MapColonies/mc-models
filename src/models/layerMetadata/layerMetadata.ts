@@ -27,6 +27,7 @@ export interface ILayerMetadata {
   minHorizontalAccuracyCE90: number | undefined;
   region: string[] | undefined;
   sensors: string[] | undefined;
+  srsId: string | undefined;
 }
 export interface IPropSHPMapping extends IDataMapping, ITsTypesMapping {
   prop: string;

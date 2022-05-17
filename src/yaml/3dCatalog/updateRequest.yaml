@@ -1,0 +1,17 @@
+openapi: "3.0.1"
+info:
+  title: 3d catalog update request
+  version: 1.0.0
+components:
+  schemas:
+    UpdateRequest:
+      type: object
+      description: 3d catalog update request
+      properties:
+        metadata:
+          $ref: ../updateLayerMetadata.yaml#/components/schemas/updateLayerMetadata
+        links:
+          type: array
+          items:
+            $ref: ../link.yaml#/components/schemas/Link
+      additionalProperties: false
