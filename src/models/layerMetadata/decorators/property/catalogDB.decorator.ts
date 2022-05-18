@@ -19,15 +19,15 @@ export interface IFieldProps {
 }
 
 export enum SpecialORMColumnType {
-  Column = 'Column',
-  CreateDateColumn = 'CreateDateColumn',
-  DeleteDateColumn = 'DeleteDateColumn',
-  ObjectIdColumn = 'ObjectIdColumn',
-  PrimaryColumn = 'PrimaryColumn',
-  PrimaryGeneratedColumn = 'PrimaryGeneratedColumn',
-  UpdateDateColumn = 'UpdateDateColumn',
-  VersionColumn = 'VersionColumn',
-  ViewColumn = 'ViewColumn',
+  COLUMN = 'Column',
+  CREATE_DATE_COLUMN = 'CreateDateColumn',
+  DELETE_DATE_COLUMN = 'DeleteDateColumn',
+  OBJECT_ID_COLUMN = 'ObjectIdColumn',
+  PRIMARY_COLUMN = 'PrimaryColumn',
+  PRIMARY_GENERATED_COLUMN = 'PrimaryGeneratedColumn',
+  UPDATE_DATE_COLUMN = 'UpdateDateColumn',
+  VERSION_COLUMN = 'VersionColumn',
+  VIEW_COLUMN = 'ViewColumn',
 }
 
 export interface ICatalogDBMapping {

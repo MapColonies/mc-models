@@ -282,7 +282,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     pycswField: 'pycsw:UpdateDate',
   })
   @catalogDB({
-    columnType: SpecialORMColumnType.UpdateDateColumn,
+    columnType: SpecialORMColumnType.UPDATE_DATE_COLUMN,
     column: {
       name: 'update_date',
       type: 'timestamp without time zone',
