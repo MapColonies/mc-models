@@ -18,7 +18,7 @@ export interface IFieldProps {
   overrideType?: IDescribeTsType;
 }
 
-export enum SpecialORMColumnType {
+export enum ORMColumnType {
   COLUMN = 'Column',
   CREATE_DATE_COLUMN = 'CreateDateColumn',
   DELETE_DATE_COLUMN = 'DeleteDateColumn',
@@ -32,7 +32,7 @@ export enum SpecialORMColumnType {
 
 export interface ICatalogDBMapping {
   column: IColumnProps; // column properties
-  columnType?: SpecialORMColumnType; // deafult is 'Column'
+  columnType?: ORMColumnType; // deafult is 'Column'
   field?: IFieldProps; // field properties
 }
 
