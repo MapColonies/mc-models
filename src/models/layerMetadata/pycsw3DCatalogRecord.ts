@@ -48,6 +48,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     column: {
       name: 'typename',
       type: 'text',
+      nullable: true,
     },
   })
   @tsTypes({
@@ -61,6 +62,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     column: {
       name: 'schema',
       type: 'text',
+      nullable: true,
     },
   })
   @tsTypes({
@@ -74,6 +76,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     column: {
       name: 'mdsource',
       type: 'text',
+      nullable: true,
     },
   })
   @tsTypes({
@@ -87,6 +90,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     column: {
       name: 'xml',
       type: 'text',
+      nullable: true,
     },
   })
   @tsTypes({
@@ -100,6 +104,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     column: {
       name: 'anytext',
       type: 'text',
+      nullable: true,
     },
   })
   @tsTypes({
@@ -113,6 +118,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     column: {
       name: 'insert_date',
       type: 'timestamp without time zone',
+      nullable: true,
     },
   })
   @tsTypes({
@@ -177,6 +183,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     column: {
       name: 'keywords',
       type: 'text',
+      nullable: true,
     },
   })
   @tsTypes({
