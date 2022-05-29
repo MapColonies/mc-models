@@ -23,7 +23,6 @@ export interface IBestMetadata {
   rms: number | undefined;
   scale: number | undefined;
   discretes: DiscreteOrder[] | undefined;
-  srsId: string | undefined;
 }
 export interface IPropSHPMapping extends IDataMapping, ITsTypesMapping {
   prop: string;

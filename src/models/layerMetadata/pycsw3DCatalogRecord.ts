@@ -20,7 +20,7 @@ import { Link } from './link';
 export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreModel, IOrmCatalog {
   //#region CORE: id
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:id',
     queryableField: 'mc:id',
     pycswField: 'pycsw:Identifier',
@@ -132,7 +132,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
 
   //#region CORE: wktGeometry
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:boundingBox',
     queryableField: 'mc:boundingBox',
     pycswField: 'pycsw:boundingBox',
@@ -174,7 +174,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
 
   //#region CORE: keywords
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:keywords',
     queryableField: 'mc:keywords',
     pycswField: 'pycsw:keywords',
@@ -215,7 +215,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
 
   //#region CORE: links
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:links',
     queryableField: 'mc:links',
     pycswField: 'pycsw:links',
