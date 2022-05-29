@@ -27,7 +27,6 @@ export interface ILayer3DMetadata {
   visualAccuracy: number | undefined;
   heightRangeFrom: number | undefined;
   heightRangeTo: number | undefined;
-  srsId: number | undefined;
   srsOrigin: string | undefined;
   productionSystem: string | undefined;
   productionSystemVer: string | undefined;
@@ -46,7 +45,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   //#region 3D SPECIFIC FIELDS
   //#region 3D: type
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:type',
     queryableField: 'mc:type',
     pycswField: 'pycsw:Type',
@@ -69,7 +68,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: productId
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:productId',
     queryableField: 'mc:productId',
     pycswField: 'pycsw:productId',
@@ -94,7 +93,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: productName
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:productName',
     queryableField: 'mc:productName',
     pycswField: 'pycsw:title',
@@ -126,7 +125,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: productVersion
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:productVersion',
     queryableField: 'mc:productVersion',
     pycswField: 'pycsw:productVersion',
@@ -153,7 +152,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: productType
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:productType',
     queryableField: 'mc:productType',
     pycswField: 'pycsw:productType',
@@ -184,7 +183,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: description
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:description',
     queryableField: 'mc:description',
     pycswField: 'pycsw:abstract',
@@ -211,7 +210,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: creationDate
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:creationDateUTC',
     queryableField: 'mc:creationDateUTC',
     pycswField: 'pycsw:creationDate',
@@ -239,7 +238,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region COMMON: updateDate
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:updateDateUTC',
     queryableField: 'mc:updateDateUTC',
     pycswField: 'pycsw:UpdateDate',
@@ -267,7 +266,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: sourceDateStart
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:imagingTimeBeginUTC',
     queryableField: 'mc:imagingTimeBeginUTC',
     pycswField: 'pycsw:tempExtentBegin',
@@ -305,7 +304,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: sourceDateEnd
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:imagingTimeEndUTC',
     queryableField: 'mc:imagingTimeEndUTC',
     pycswField: 'pycsw:tempExtentEnd',
@@ -338,7 +337,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: minResolutionMeter
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:minResolutionMeter',
     queryableField: 'mc:minResolutionMeter',
     pycswField: 'pycsw:minResolution',
@@ -377,7 +376,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: maxResolutionMeter
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:maxResolutionMeter',
     queryableField: 'mc:maxResolutionMeter',
     pycswField: 'pycsw:maxResolution',
@@ -416,7 +415,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: nominalResolution
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:nominalResolution',
     queryableField: 'mc:nominalResolution',
     pycswField: 'pycsw:nominalResolution',
@@ -442,7 +441,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: maxAccuracyCE90
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:maxHorizontalAccuracyCE90',
     queryableField: 'mc:maxHorizontalAccuracyCE90',
     pycswField: 'pycsw:horizontalAccuracyCE90',
@@ -485,7 +484,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: absoluteAccuracyLEP90
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:accuracyLEP90',
     queryableField: 'mc:accuracyLEP90',
     pycswField: 'pycsw:accuracyLE90',
@@ -528,7 +527,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: accuracySE90
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:accuracySE90',
     queryableField: 'mc:accuracySE90',
     pycswField: 'pycsw:accuracySE90',
@@ -567,7 +566,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: relativeAccuracyLEP90
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:relativeAccuracyLE90',
     queryableField: 'mc:relativeAccuracyLE90',
     pycswField: 'pycsw:relativeAccuracyLE90',
@@ -606,7 +605,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: visualAccuracy
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:visualAccuracy',
     queryableField: 'mc:visualAccuracy',
     pycswField: 'pycsw:visualAccuracy',
@@ -645,7 +644,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: sensors
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:sensors',
     queryableField: 'mc:sensors',
     pycswField: 'pycsw:sensorType',
@@ -681,7 +680,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: footprint
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:footprint',
     queryableField: 'mc:footprint',
     pycswField: 'pycsw:footprint',
@@ -714,7 +713,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: heightRangeFrom
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:heightRangeFrom',
     queryableField: 'mc:heightRangeFrom',
     pycswField: 'pycsw:heightRangeFrom',
@@ -741,7 +740,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: heightRangeTo
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:heightRangeTo',
     queryableField: 'mc:heightRangeTo',
     pycswField: 'pycsw:heightRangeTo',
@@ -768,7 +767,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: srsId
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:SRS',
     queryableField: 'mc:SRS',
     pycswField: 'pycsw:CRS',
@@ -776,13 +775,13 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   @catalogDB({
     column: {
       name: 'srs',
-      type: 'real',
+      type: 'text',
       nullable: false,
       default: '4326',
     },
   })
   @tsTypes({
-    mappingType: TsTypes.NUMBER,
+    mappingType: TsTypes.STRING,
   })
   @graphql({
     nullable: false,
@@ -799,11 +798,11 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     ],
   })
   //#endregion
-  public srsId: number | undefined = undefined;
+  public srsId: string | undefined = undefined;
 
   //#region 3D: srsName
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:SRSName',
     queryableField: 'mc:SRSName',
     pycswField: 'pycsw:CRSName',
@@ -838,7 +837,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: srsOrigin
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:SRSOrigin',
     queryableField: 'mc:SRSOrigin',
     pycswField: 'pycsw:CRSOrigin',
@@ -864,7 +863,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: region
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:region',
     queryableField: 'mc:region',
     pycswField: 'pycsw:region',
@@ -900,7 +899,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: classification
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:classification',
     queryableField: 'mc:classification',
     pycswField: 'pycsw:classification',
@@ -934,7 +933,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: productionSystem
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:productionSystem',
     queryableField: 'mc:productionSystem',
     pycswField: 'pycsw:productionSystem',
@@ -967,7 +966,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: productionSystemVer
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:productionSystemVersion',
     queryableField: 'mc:productionSystemVersion',
     pycswField: 'pycsw:productionSystemVersion',
@@ -1000,7 +999,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: producerName
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:producerName',
     queryableField: 'mc:producerName',
     pycswField: 'pycsw:creator',
@@ -1035,7 +1034,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: productionMethod
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:productionMethod',
     queryableField: 'mc:productionMethod',
     pycswField: 'pycsw:productionMethod',
@@ -1063,7 +1062,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: minFlightAlt
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:minFlightAlt',
     queryableField: 'mc:minFlightAlt',
     pycswField: 'pycsw:minFlightAlt',
@@ -1090,7 +1089,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: maxFlightAlt
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:maxFlightAlt',
     queryableField: 'mc:maxFlightAlt',
     pycswField: 'pycsw:maxFlightAlt',
@@ -1117,7 +1116,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: geographicArea
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:geographicArea',
     queryableField: 'mc:geographicArea',
     pycswField: 'pycsw:geographicArea',
@@ -1144,7 +1143,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
 
   //#region 3D: productBoundingBox
   @pycsw({
-    profile: 'mc_3d',
+    profile: 'mc3d',
     xmlElement: 'mc:productBBox',
     queryableField: 'mc:productBBox',
     pycswField: 'pycsw:productBBox',
