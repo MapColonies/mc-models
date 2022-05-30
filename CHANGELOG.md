@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [11.2.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@11.0.0...mc-model-types@11.2.0) (2022-05-25)
+
+
+### Features
+
+* add ORM columns types ([#129](https://github.com/MapColonies/mc-models/issues/129)) ([9d1c0f4](https://github.com/MapColonies/mc-models/commit/9d1c0f4e52489f9b57b785b3b2cd7e6a75e61908))
+* quantized mesh best ([#130](https://github.com/MapColonies/mc-models/issues/130)) ([0151d70](https://github.com/MapColonies/mc-models/commit/0151d70baa374f84a1727337dc6e54fe4f926454))
+
+
+### Bug Fixes
+
+* model instead of models ([#128](https://github.com/MapColonies/mc-models/issues/128)) ([2bc0a00](https://github.com/MapColonies/mc-models/commit/2bc0a00d9bfd1192f90ba93a71774474ae800c22))
+* new fields implemetation bugs ([#127](https://github.com/MapColonies/mc-models/issues/127)) ([6a245f5](https://github.com/MapColonies/mc-models/commit/6a245f5a5e1a01ab655f1128575005f1efa5a8c7)), closes [#2](https://github.com/MapColonies/mc-models/issues/2)
+
+## [11.1.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@11.0.1...mc-model-types@11.1.0) (2022-05-17)
+
+
+### Features
+
+* quantized mesh best ([#130](https://github.com/MapColonies/mc-models/issues/130)) ([0151d70](https://github.com/MapColonies/mc-models/commit/0151d70baa374f84a1727337dc6e54fe4f926454))
+
+
+### Bug Fixes
+
+* model instead of models ([#128](https://github.com/MapColonies/mc-models/issues/128)) ([2bc0a00](https://github.com/MapColonies/mc-models/commit/2bc0a00d9bfd1192f90ba93a71774474ae800c22))
+
 ### [11.0.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@11.0.0...mc-model-types@11.0.1) (2022-04-10)
 
 
