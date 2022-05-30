@@ -112,8 +112,10 @@ components:
           maximum: 100
           description: Measure of visual quality
         sensors:
-          type: string
-          description: All sensors that took part as a source to the product
+          type: array
+          items:
+            type: string
+          description: Layer sensors list 
         footprint:
           $ref: ../geojson.yaml#/components/schemas/Geometry
           description: Geographic demarkatetion of the product
@@ -142,8 +144,10 @@ components:
           pattern: ^\(([-]?(0|[1-9]\d*)(\.\d+)?;){2}[-]?(0|[1-9]\d*)(\.\d+)?\)$
           description: First of axes
         region:
-          type: string
-          description: States
+          type: array
+          items:
+            type: string
+          description: regions included in the layer
         classification:
           type: string
           example: '"5"'
@@ -208,6 +212,7 @@ components:
               description: Update date
               format: date-time
               readOnly: true
+              nullable: true
     updatePayload:
       type: object
       description: 3d tiles metadata update payload

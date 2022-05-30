@@ -30,6 +30,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
       name: 'identifier',
       type: 'text',
       nullable: false,
+      primary: true,
     },
   })
   @tsTypes({
