@@ -11,7 +11,10 @@ export enum ProductType {
   VECTOR_BEST = 'VectorBest',
   DTM = 'DTM',
   DSM = 'DSM',
-  QUANTIZED_MESH = 'QuantizedMesh',
+  QUANTIZED_MESH_DTM = 'QuantizedMeshDTM',
+  QUANTIZED_MESH_DSM = 'QuantizedMeshDSM',
+  QUANTIZED_MESH_DTM_BEST = 'QuantizedMeshDTMBest',
+  QUANTIZED_MESH_DSM_BEST = 'QuantizedMeshDSMBest',
   PHOTO_REALISTIC_3D = '3DPhotoRealistic',
   POINT_CLOUD = 'PointCloud',
 }
