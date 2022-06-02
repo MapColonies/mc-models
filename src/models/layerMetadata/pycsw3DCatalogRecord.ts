@@ -55,7 +55,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public typeName = 'mc_MC3DRecord';
+  public typeName: string | undefined = 'mc_MC3DRecord';
 
   //#region CORE: schema
   @catalogDB({
