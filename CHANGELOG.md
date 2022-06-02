@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [12.0.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@11.2.0...mc-model-types@12.0.0) (2022-06-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* feat 3D to mc-models (#131)
+
+### Features
+
+* feat 3D to mc-models ([#131](https://github.com/MapColonies/mc-models/issues/131)) ([a0f30c3](https://github.com/MapColonies/mc-models/commit/a0f30c3a0bc0efe34c3259ea1e09de7e88e27421))
+
 ## [11.2.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@11.0.0...mc-model-types@11.2.0) (2022-05-25)
 
 
