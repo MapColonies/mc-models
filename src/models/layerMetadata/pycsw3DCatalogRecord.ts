@@ -49,77 +49,72 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     column: {
       name: 'typename',
       type: 'text',
-      nullable: true,
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public typeName: string | undefined = undefined;
+  public typeName = 'mc_MC3DRecord';
 
   //#region CORE: schema
   @catalogDB({
     column: {
       name: 'schema',
       type: 'text',
-      nullable: true,
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public schema: string | undefined = undefined;
+  public schema: string | undefined = 'mc3d';
 
   //#region CORE: mdsource
   @catalogDB({
     column: {
       name: 'mdsource',
       type: 'text',
-      nullable: true,
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public mdSource: string | undefined = undefined;
+  public mdSource: string | undefined = '';
 
   //#region CORE: xml
   @catalogDB({
     column: {
       name: 'xml',
       type: 'text',
-      nullable: true,
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public xml: string | undefined = undefined;
+  public xml: string | undefined = '';
 
   //#region CORE: anyText
   @catalogDB({
     column: {
       name: 'anytext',
       type: 'text',
-      nullable: true,
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public anyText: string | undefined = undefined;
+  public anyText: string | undefined = '';
 
   //#region CORE: insertDate
   @catalogDB({
     column: {
       name: 'insert_date',
       type: 'timestamp without time zone',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
@@ -184,7 +179,6 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     column: {
       name: 'keywords',
       type: 'text',
-      nullable: true,
     },
   })
   @tsTypes({
@@ -198,7 +192,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     isManuallyEditable: true,
   })
   //#endregion
-  public keywords: string | undefined = undefined;
+  public keywords: string | undefined = '';
 
   //#region CORE: anyTextTsvector
   @catalogDB({

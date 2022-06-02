@@ -23,7 +23,6 @@ components:
         - productionSystem
         - productionSystemVer
         - producerName
-        - links
       properties:
         productId:
           type: string
@@ -116,9 +115,11 @@ components:
           items:
             type: string
           description: Layer sensors list 
+          example: OTHER
         footprint:
           $ref: ../geojson.yaml#/components/schemas/Geometry
           description: Geographic demarkatetion of the product
+          example: '{"type":"Polygon","coordinates":[[[1,2],[3,4],[5,6],[7,8],[1,2]]]}'
         heightRangeFrom:
           type: number
           format: double
@@ -150,7 +151,7 @@ components:
           description: regions included in the layer
         classification:
           type: string
-          example: '"5"'
+          example: '5'
           pattern: ^[0-9]$
           description: Classification of the product
         productionSystem:
@@ -180,15 +181,23 @@ components:
           type: string
           nullable: true
           description: Area inside the region
-        links:
-          type: array
-          items:
-            $ref: ../link.yaml#/components/schemas/Link
-    metadata:  
+    catalog-payload:
       type: object
-      description: 3d tiles metadata payload
+      description: 3d tiles metadata payload with links
+      required:
+        - "links"
       allOf:
         - $ref: "#/components/schemas/payload"
+        - properties:
+            links:
+              type: array
+              items:
+                $ref: ../link.yaml#/components/schemas/Link      
+    metadata:  
+      type: object
+      description: 3d tiles catalog metadata payload
+      allOf:
+        - $ref: "#/components/schemas/catalog-payload"
         - properties:
             identifier:
               type: string
@@ -229,4 +238,3 @@ components:
         sensorType:
           type: string
           description: The sensor used as the source of the product
-            

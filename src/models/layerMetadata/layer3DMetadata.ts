@@ -247,7 +247,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'update_date',
       type: 'timestamp without time zone',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
