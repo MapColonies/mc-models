@@ -115,7 +115,7 @@ components:
           items:
             type: string
           description: Layer sensors list 
-          example: OTHER
+          example: ["OTHER"]
         footprint:
           $ref: ../geojson.yaml#/components/schemas/Geometry
           description: Geographic demarkatetion of the product

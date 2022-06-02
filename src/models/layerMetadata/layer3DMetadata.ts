@@ -133,7 +133,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   @catalogDB({
     column: {
       name: 'product_version',
-      type: 'real',
+      type: 'int',
       nullable: false,
     },
   })
