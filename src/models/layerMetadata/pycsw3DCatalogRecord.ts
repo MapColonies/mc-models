@@ -30,6 +30,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
       name: 'identifier',
       type: 'text',
       nullable: false,
+      primary: true,
     },
   })
   @tsTypes({
@@ -54,7 +55,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public typeName: string | undefined = undefined;
+  public typeName: string | undefined = 'mc_MC3DRecord';
 
   //#region CORE: schema
   @catalogDB({
@@ -67,7 +68,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public schema: string | undefined = undefined;
+  public schema: string | undefined = 'mc3d';
 
   //#region CORE: mdsource
   @catalogDB({
@@ -80,7 +81,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public mdSource: string | undefined = undefined;
+  public mdSource: string | undefined = '';
 
   //#region CORE: xml
   @catalogDB({
@@ -93,7 +94,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public xml: string | undefined = undefined;
+  public xml: string | undefined = '';
 
   //#region CORE: anyText
   @catalogDB({
@@ -106,13 +107,14 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public anyText: string | undefined = undefined;
+  public anyText: string | undefined = '';
 
   //#region CORE: insertDate
   @catalogDB({
     column: {
       name: 'insert_date',
       type: 'timestamp without time zone',
+      nullable: false,
     },
   })
   @tsTypes({
@@ -190,7 +192,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     isManuallyEditable: true,
   })
   //#endregion
-  public keywords: string | undefined = undefined;
+  public keywords: string | undefined = '';
 
   //#region CORE: anyTextTsvector
   @catalogDB({
