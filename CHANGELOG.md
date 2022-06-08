@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.0.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@12.0.0...mc-model-types@12.0.1) (2022-06-08)
+
+
+### Bug Fixes
+
+* srsId to string ([#132](https://github.com/MapColonies/mc-models/issues/132)) ([c892334](https://github.com/MapColonies/mc-models/commit/c89233475be935b050fdcf8451990c7cd24120df))
+
 ## [12.0.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@11.2.0...mc-model-types@12.0.0) (2022-06-02)
 
 
