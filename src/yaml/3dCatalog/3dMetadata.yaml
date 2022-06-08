@@ -131,7 +131,7 @@ components:
           nullable: true
           description: Maximum height range of ground
         srsId:
-          type: integer
+          type: string
           example: 4326
           nullable: true
           description: ID of srs
