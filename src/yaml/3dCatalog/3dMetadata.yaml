@@ -114,12 +114,13 @@ components:
           type: array
           items:
             type: string
+          minItems: 1
           description: Layer sensors list 
           example: ["OTHER"]
         footprint:
           $ref: ../geojson.yaml#/components/schemas/Geometry
           description: Geographic demarkatetion of the product
-          example: '{"type":"Polygon","coordinates":[[[1,2],[3,4],[5,6],[7,8],[1,2]]]}'
+          examples: '{"type":"Polygon","coordinates":[[[1,2],[3,4],[5,6],[7,8],[1,2]]]}'
         heightRangeFrom:
           type: number
           format: double
@@ -148,6 +149,7 @@ components:
           type: array
           items:
             type: string
+          minItems: 1
           description: regions included in the layer
         classification:
           type: string
