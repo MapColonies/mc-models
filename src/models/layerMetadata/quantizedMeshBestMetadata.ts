@@ -142,7 +142,7 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
     column: {
       name: 'product_version',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
@@ -227,6 +227,7 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
     column: {
       name: 'creation_date',
       type: 'timestamp without time zone',
+      nullable: true,
     },
   })
   @tsTypes({
@@ -430,13 +431,14 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
     column: {
       name: 'horizontal_accuracy_ce_90',
       type: 'real',
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
@@ -734,14 +736,14 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
     column: {
       name: 'production_system',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -767,14 +769,14 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
     column: {
       name: 'production_system_version',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -890,7 +892,7 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
     column: {
       name: 'product_bbox',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
