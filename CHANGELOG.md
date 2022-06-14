@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.0.3](https://github.com/MapColonies/mc-models/compare/mc-model-types@12.0.2...mc-model-types@12.0.3) (2022-06-14)
+
+
+### Bug Fixes
+
+* graphql ([#135](https://github.com/MapColonies/mc-models/issues/135)) ([e668df8](https://github.com/MapColonies/mc-models/commit/e668df86abc117b8f5a172776ec4aee282f70b9c))
+
 ### [12.0.2](https://github.com/MapColonies/mc-models/compare/mc-model-types@12.0.1...mc-model-types@12.0.2) (2022-06-14)
 
 
