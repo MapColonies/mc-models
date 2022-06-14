@@ -102,7 +102,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'product_name',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
@@ -161,7 +161,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'product_type',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
@@ -457,7 +457,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
@@ -663,7 +663,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     mappingType: TsTypes.STRING_ARRAY,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -872,7 +872,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'region',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
     field: {
       overrideType: TsTypes.STRING,
@@ -882,7 +882,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     mappingType: TsTypes.STRING_ARRAY,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -942,14 +942,14 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'production_system',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -975,14 +975,14 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'production_system_version',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -1009,14 +1009,14 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
       name: 'producer_name',
       type: 'text',
       default: 'IDFMU',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
