@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.0.2](https://github.com/MapColonies/mc-models/compare/mc-model-types@12.0.1...mc-model-types@12.0.2) (2022-06-14)
+
+
+### Bug Fixes
+
+* limit arrays to contain a string ([#134](https://github.com/MapColonies/mc-models/issues/134)) ([b629e74](https://github.com/MapColonies/mc-models/commit/b629e7463b5c30602b2a7fc3cf11a844cbf07f0e))
+
 ### [12.0.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@12.0.0...mc-model-types@12.0.1) (2022-06-08)
 
 
