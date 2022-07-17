@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.0.4](https://github.com/MapColonies/mc-models/compare/mc-model-types@12.0.3...mc-model-types@12.0.4) (2022-07-17)
+
+
+### Bug Fixes
+
+* 3d metadata and quantizeMesh model mismatches ([#136](https://github.com/MapColonies/mc-models/issues/136)) ([e318934](https://github.com/MapColonies/mc-models/commit/e3189344ca3f59999348ed45eb360cf3a9f2a4c5))
+
 ### [12.0.3](https://github.com/MapColonies/mc-models/compare/mc-model-types@12.0.2...mc-model-types@12.0.3) (2022-06-14)
 
 
