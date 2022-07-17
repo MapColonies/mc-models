@@ -137,7 +137,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     column: {
       name: 'wkt_geometry',
       type: 'text',
-      nullable: false,
+      nullable: true,
     },
   })
   @tsTypes({
@@ -220,7 +220,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     column: {
       name: 'links',
       type: 'text',
-      nullable: false,
+      nullable: true,
     },
     field: {
       overrideType: TsTypes.STRING,

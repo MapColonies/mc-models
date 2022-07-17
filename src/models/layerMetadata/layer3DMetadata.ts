@@ -1165,7 +1165,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'product_bbox',
       type: 'text',
-      nullable: false,
+      nullable: true,
     },
   })
   @tsTypes({
