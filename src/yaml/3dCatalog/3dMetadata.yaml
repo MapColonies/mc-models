@@ -142,11 +142,11 @@ components:
         srsId:
           type: string
           example: 4326
-          nullable: true
           description: ID of srs
         srsName:
           type: string
           description: Name of the srsID
+          default: 'WGS84GEO'
         srsOrigin:
           type: string
           nullable: true
@@ -174,10 +174,12 @@ components:
         producerName:
           type: string
           description: The name of the producer (product owner)
+          default: 'IDFMU'
         productionMethod:
           type: string
           nullable: true
           description: Method of the production
+          default: 'photogrammetric'
         minFlightAlt:
           type: number
           format: double
@@ -211,7 +213,7 @@ components:
         - productionSystem
         - productionSystemVer
         - producerName
-        - "links"
+        - links
       properties:
         type:
           type: string
@@ -329,11 +331,11 @@ components:
         srsId:
           type: string
           example: 4326
-          nullable: true
           description: ID of srs
         srsName:
           type: string
           description: Name of the srsID
+          default: 'WGS84GEO'
         srsOrigin:
           type: string
           nullable: true
@@ -361,10 +363,12 @@ components:
         producerName:
           type: string
           description: The name of the producer (product owner)
+          default: 'IDFMU'
         productionMethod:
           type: string
           nullable: true
           description: Method of the production
+          default: 'photogrammetric'
         minFlightAlt:
           type: number
           format: double
@@ -501,6 +505,7 @@ components:
         producerName:
           type: string
           description: The name of the producer (product owner)
+          default: 'IDFMU'
         minFlightAlt:
           type: number
           format: double
