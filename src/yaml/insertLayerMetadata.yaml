@@ -11,7 +11,6 @@ components:
         - productName
         - productVersion
         - productType
-        - updateDate
         - maxResolutionDeg
         - minHorizontalAccuracyCE90
         - sensors
