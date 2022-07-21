@@ -22,7 +22,7 @@
     "copy": "npm run copy:yaml",
     "prepack": "npm run build && npm run copy",
     "prebuild": "npm run clean",
-    "start": "npm run build && cd Schema && node ./index.js",
+    "start": "npm run build && cd Schema/models && node ./index.js",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "prelint:fix": "npm run format:fix",
