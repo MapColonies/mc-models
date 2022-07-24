@@ -72,10 +72,6 @@ components:
           type: string
           description: Ingestion date
           format: date-time
-        updateDate:
-          type: string
-          description: Update date
-          format: date-time
         sourceDateStart:
           type: string
           description: Oldest imaging date

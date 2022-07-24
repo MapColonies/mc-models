@@ -22,7 +22,7 @@
     "copy": "npm run copy:yaml",
     "prepack": "npm run build && npm run copy",
     "prebuild": "npm run clean",
-    "start": "npm run build && cd Schema && node ./index.js",
+    "start": "npm run build && cd Schema/models && node ./index.js",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "prelint:fix": "npm run format:fix",
@@ -61,7 +61,7 @@
     "standard-version": "^9.0.0",
     "ts-jest": "^27.0.5",
     "ts-node": "^9.1.1",
-    "typescript": "^3.8.3",
+    "typescript": "^4.7.4",
     "yaml-lint": "^1.2.4"
   },
   "husky": {
