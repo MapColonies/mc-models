@@ -20,7 +20,7 @@ import { Link } from './link';
 export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreModel, IOrmCatalog {
   //#region CORE: id
   @pycsw({
-    profile: 'mc3d',
+    profile: 'mc_3d',
     xmlElement: 'mc:id',
     queryableField: 'mc:id',
     pycswField: 'pycsw:Identifier',
@@ -68,7 +68,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public schema: string | undefined = 'mc3d';
+  public schema: string | undefined = 'mc_3d';
 
   //#region CORE: mdsource
   @catalogDB({
@@ -128,7 +128,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
 
   //#region CORE: wktGeometry
   @pycsw({
-    profile: 'mc3d',
+    profile: 'mc_3d',
     xmlElement: 'mc:boundingBox',
     queryableField: 'mc:boundingBox',
     pycswField: 'pycsw:boundingBox',
@@ -137,7 +137,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     column: {
       name: 'wkt_geometry',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
@@ -171,7 +171,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
 
   //#region CORE: keywords
   @pycsw({
-    profile: 'mc3d',
+    profile: 'mc_3d',
     xmlElement: 'mc:keywords',
     queryableField: 'mc:keywords',
     pycswField: 'pycsw:keywords',
@@ -211,7 +211,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
 
   //#region CORE: links
   @pycsw({
-    profile: 'mc3d',
+    profile: 'mc_3d',
     xmlElement: 'mc:links',
     queryableField: 'mc:links',
     pycswField: 'pycsw:links',
@@ -220,7 +220,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     column: {
       name: 'links',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
     field: {
       overrideType: TsTypes.STRING,
