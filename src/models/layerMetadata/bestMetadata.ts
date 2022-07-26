@@ -198,7 +198,7 @@ export class BestMetadata implements IBestMetadata, IMetadataCommonModel {
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   //#endregion
   public producerName: string | undefined = 'IDFMU';
@@ -401,7 +401,7 @@ export class BestMetadata implements IBestMetadata, IMetadataCommonModel {
     mappingType: TsTypes.STRING_ARRAY,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -432,7 +432,7 @@ export class BestMetadata implements IBestMetadata, IMetadataCommonModel {
     mappingType: TsTypes.STRING_ARRAY,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -457,7 +457,9 @@ export class BestMetadata implements IBestMetadata, IMetadataCommonModel {
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
-  @graphql()
+  @graphql({
+    nullable: true,
+  })
   @fieldConfig({
     category: FieldCategory.MAIN,
     infoMsgCode: ['info-general-tooltip.required'],
