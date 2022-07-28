@@ -178,7 +178,7 @@ components:
         productStatus:
           type: string
           default: 'UNPUBLISHED'
-          description: The path of the model
+          description: The status of the model
         productSource:
           type: string
           readOnly: true
@@ -356,8 +356,8 @@ components:
           description: Area inside the region
         productStatus:
           type: string
-          default: 'UnPublished'
-          description: The path of the model
+          default: 'UNPUBLISHED'
+          description: The status of the model
         productSource:
           type: string
           description: The path of the model   
