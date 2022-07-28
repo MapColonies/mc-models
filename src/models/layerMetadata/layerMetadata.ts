@@ -216,7 +216,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -459,7 +459,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.STRING_ARRAY,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -494,7 +494,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.STRING_ARRAY,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -533,7 +533,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
-  @graphql()
+  @graphql({
+    nullable: true,
+  })
   @fieldConfig({
     category: FieldCategory.MAIN,
     infoMsgCode: ['info-field-tooltip.productId.tooltip', 'info-general-tooltip.required'],
