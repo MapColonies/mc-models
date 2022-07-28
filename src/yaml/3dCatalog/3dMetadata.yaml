@@ -177,7 +177,7 @@ components:
           description: Area inside the region
         productStatus:
           type: string
-          default: 'UnPublished'
+          default: 'UNPUBLISHED'
           description: The path of the model
         productSource:
           type: string
