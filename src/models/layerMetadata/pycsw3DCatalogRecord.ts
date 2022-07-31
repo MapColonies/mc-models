@@ -114,7 +114,8 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     column: {
       name: 'insert_date',
       type: 'timestamp without time zone',
-      nullable: false,
+      default: `() => 'CURRENT_TIMESTAMP'`,
+      nullable: true,
     },
   })
   @tsTypes({

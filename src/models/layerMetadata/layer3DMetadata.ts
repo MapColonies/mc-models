@@ -11,7 +11,7 @@ import { RecordStatus, RecordType } from '../pycsw/coreEnums';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 import { ProductType } from './enums';
-import { catalogDB } from './decorators/property/catalogDB.decorator';
+import { catalogDB, ORMColumnType } from './decorators/property/catalogDB.decorator';
 import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 
 export interface ILayer3DMetadata {
@@ -246,10 +246,11 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     pycswField: 'pycsw:updateDate',
   })
   @catalogDB({
+    columnType: ORMColumnType.UPDATE_DATE_COLUMN,
     column: {
       name: 'update_date',
       type: 'timestamp without time zone',
-      nullable: false,
+      nullable: true,
     },
   })
   @tsTypes({
