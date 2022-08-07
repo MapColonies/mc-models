@@ -210,7 +210,7 @@ export class VectorBestMetadata implements IVectorBestMetadata {
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
@@ -324,7 +324,7 @@ export class VectorBestMetadata implements IVectorBestMetadata {
     mappingType: TsTypes.STRING_ARRAY,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
