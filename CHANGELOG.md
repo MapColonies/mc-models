@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [13.0.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@12.2.0...mc-model-types@13.0.0) (2022-08-07)
+
 ## [12.2.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@12.1.1...mc-model-types@12.2.0) (2022-08-07)
 
 
