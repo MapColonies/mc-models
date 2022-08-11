@@ -5,7 +5,7 @@ import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import { graphqlClass } from '../common/decorators/graphQL/classGraphql.decorator';
 import { getFieldConfigClassInfo } from '../common/decorators/fieldConfig/classFieldConfig.decorator';
 import { FieldCategory, fieldConfig, getFieldConfig, IPropFieldConfigInfo } from '../common/decorators/fieldConfig/fieldConfig.decorator';
-import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
+import { catalogDB, getCatalogDBMapping, ORMColumnType } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
 import { getPyCSWMapping, pycsw } from './decorators/property/csw.decorator';
@@ -111,10 +111,10 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
 
   //#region CORE: insertDate
   @catalogDB({
+    columnType: ORMColumnType.CREATE_DATE_COLUMN,
     column: {
       name: 'insert_date',
       type: 'timestamp without time zone',
-      default: `() => 'CURRENT_TIMESTAMP'`,
       nullable: true,
     },
   })
