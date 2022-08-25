@@ -177,6 +177,7 @@ components:
           description: Area inside the region
         productStatus:
           type: string
+          pattern: '^(UNPUBLISHED|PUBLISHED)$'
           default: 'UNPUBLISHED'
           description: The status of the model
         productSource:
@@ -360,6 +361,7 @@ components:
           description: Area inside the region
         productStatus:
           type: string
+          pattern: '^(UNPUBLISHED|PUBLISHED)$'
           default: 'UNPUBLISHED'
           description: The status of the model
         productSource:
@@ -511,3 +513,16 @@ components:
           nullable: true
           description: The keywords of the product
       additionalProperties: false
+    updateStatus:
+      type: object
+      description: 3d update status of record
+      required:
+        - "productStatus"
+      properties:
+        productStatus:
+          type: string
+          nullable: false
+          pattern: '^(UNPUBLISHED|PUBLISHED)$'
+          description: The status of the model
+      additionalProperties: false
+          
