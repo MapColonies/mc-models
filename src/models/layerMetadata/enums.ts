@@ -18,3 +18,8 @@ export enum ProductType {
   PHOTO_REALISTIC_3D = '3DPhotoRealistic',
   POINT_CLOUD = 'PointCloud',
 }
+
+export enum RecordStatus {
+  PUBLISHED = 'PUBLISHED',
+  UNPUBLISHED = 'UNPUBLISHED',
+}
