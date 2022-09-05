@@ -45,8 +45,3 @@ export enum NoDataValue {
   NO_DATA_326767 = '-326767',
   NO_DATA_999 = '-999',
 }
-
-export enum RecordStatus {
-  PUBLISHED = 'PUBLISHED',
-  UNPUBLISHED = 'UNPUBLISHED',
-}

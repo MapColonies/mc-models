@@ -7,10 +7,10 @@ import {
   IFieldConfigInfo,
   IPropFieldConfigInfo,
 } from '../common/decorators/fieldConfig/fieldConfig.decorator';
-import { RecordStatus, RecordType } from '../pycsw/coreEnums';
+import { RecordType } from '../pycsw/coreEnums';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
-import { ProductType } from './enums';
+import { ProductType, RecordStatus } from './enums';
 import { catalogDB, ORMColumnType } from './decorators/property/catalogDB.decorator';
 import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 
@@ -1143,7 +1143,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
       name: 'product_status',
       type: 'text',
       default: RecordStatus.UNPUBLISHED,
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({

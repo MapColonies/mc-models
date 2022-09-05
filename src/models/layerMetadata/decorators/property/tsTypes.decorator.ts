@@ -94,6 +94,11 @@ export const TsTypes: Record<string, IDescribeTsType> = {
     type: PropertiesTypes.ENUM,
     importFromPackage: '@map-colonies/mc-model-types',
   },
+  RECORD_STATUS: {
+    value: 'RecordStatus',
+    type: PropertiesTypes.ENUM,
+    importFromPackage: '@map-colonies/mc-model-types',
+  },
   DISCRETE_ORDER: {
     value: 'DiscreteOrder',
     type: PropertiesTypes.CLASS,
