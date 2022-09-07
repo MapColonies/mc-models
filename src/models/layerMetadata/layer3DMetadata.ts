@@ -1147,11 +1147,9 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     },
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.RECORD_STATUS,
   })
-  @graphql({
-    nullable: true,
-  })
+  @graphql()
   @fieldConfig({
     category: FieldCategory.GENERAL,
     isManuallyEditable: true,
