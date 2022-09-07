@@ -1142,16 +1142,14 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'product_status',
       type: 'text',
-      default: RecordStatus.UNPUBLISHED,
+      default: 'UNPUBLISHED',
       nullable: false,
     },
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.RECORD_STATUS,
   })
-  @graphql({
-    nullable: true,
-  })
+  @graphql()
   @fieldConfig({
     category: FieldCategory.GENERAL,
     isManuallyEditable: true,
