@@ -1142,7 +1142,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     column: {
       name: 'product_status',
       type: 'text',
-      default: 'UNPUBLISHED',
+      default: RecordStatus.UNPUBLISHED,
       nullable: false,
     },
   })

@@ -930,7 +930,7 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
     column: {
       name: 'product_status',
       type: 'text',
-      default: 'UNPUBLISHED',
+      default: RecordStatus.UNPUBLISHED,
       nullable: false,
     },
   })
