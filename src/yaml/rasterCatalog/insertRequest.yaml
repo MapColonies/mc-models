@@ -10,11 +10,11 @@ components:
       required:
         - metadata
         - links
-        - catalogId
+        - id
       allOf:
         - $ref: "./updateRequest.yaml#/components/schemas/UpdateRequest"
         - properties:
-            catalogId:
+            id:
               type: string
               format: uuid
             metadata:
