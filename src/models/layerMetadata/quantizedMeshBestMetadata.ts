@@ -619,8 +619,8 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
-    infoMsgCode: ['info-general-tooltip.required'],
     default: '4326',
+    infoMsgCode: ['info-general-tooltip.required'],
     validation: [
       {
         errorMsgCode: 'validation-general.required',
@@ -654,8 +654,8 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
-    infoMsgCode: ['info-general-tooltip.required'],
     default: 'WGS84GEO',
+    infoMsgCode: ['info-general-tooltip.required'],
     validation: [
       {
         errorMsgCode: 'validation-general.required',
@@ -825,6 +825,7 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
   @fieldConfig({
     category: FieldCategory.GENERAL,
     isManuallyEditable: true,
+    default: 'IDFMU',
     infoMsgCode: ['info-general-tooltip.required'],
     validation: [
       {
@@ -940,6 +941,7 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
   @graphql()
   @fieldConfig({
     category: FieldCategory.MAIN,
+    default: RecordStatus.UNPUBLISHED,
   })
   //#endregion
   public productStatus: RecordStatus | undefined = RecordStatus.UNPUBLISHED;

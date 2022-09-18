@@ -185,8 +185,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
-    infoMsgCode: ['info-general-tooltip.required'],
     default: '4326',
+    infoMsgCode: ['info-general-tooltip.required'],
     validation: [
       {
         errorMsgCode: 'validation-general.required',
@@ -221,6 +221,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.GENERAL,
     isManuallyEditable: true,
+    default: 'IDFMU',
   })
   //#endregion
   public producerName: string | undefined = undefined;
@@ -681,8 +682,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
-    infoMsgCode: ['info-general-tooltip.required'],
     default: 'WGS84GEO',
+    infoMsgCode: ['info-general-tooltip.required'],
     validation: [
       {
         errorMsgCode: 'validation-general.required',
