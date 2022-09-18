@@ -1007,6 +1007,20 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
   public productBoundingBox: string | undefined = undefined;
 
+  //#region RASTER: dispalyPath
+  @catalogDB({
+    column: {
+      name: 'display_path',
+      type: 'text',
+      nullable: false,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  //#endregion
+  public displayPath: string | undefined = undefined;
+
   //#endregion
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {

@@ -10,11 +10,16 @@ components:
       required:
         - metadata
         - links
+        - catalogId
       allOf:
         - $ref: "./updateRequest.yaml#/components/schemas/UpdateRequest"
         - properties:
+            catalogId:
+              type: string
+              format: uuid
             metadata:
               $ref: ../insertLayerMetadata.yaml#/components/schemas/insertLayerMetadata
+       
       #due to bug in validator additional properties is not compilable with allof
       #https://github.com/cdimascio/express-openapi-validator/issues/239
       #additionalProperties: false
