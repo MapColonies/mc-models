@@ -938,7 +938,9 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
   @tsTypes({
     mappingType: TsTypes.RECORD_STATUS,
   })
-  @graphql()
+  @graphql({
+    nullable: true,
+  })
   @fieldConfig({
     category: FieldCategory.MAIN,
     default: RecordStatus.UNPUBLISHED,
