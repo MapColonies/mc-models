@@ -19,7 +19,6 @@ components:
         - sourceDateStart
         - sourceDateEnd
         - classification
-        - displayPath
       allOf:
         - $ref: ./fullLayerMetadata.yaml#/components/schemas/fullLayerMetadata
 

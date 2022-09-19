@@ -10,13 +10,9 @@ components:
       required:
         - metadata
         - links
-        - id
       allOf:
         - $ref: "./updateRequest.yaml#/components/schemas/UpdateRequest"
         - properties:
-            id:
-              type: string
-              format: uuid
             metadata:
               $ref: ../insertLayerMetadata.yaml#/components/schemas/insertLayerMetadata
        
