@@ -1150,7 +1150,9 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   @tsTypes({
     mappingType: TsTypes.RECORD_STATUS,
   })
-  @graphql()
+  @graphql({
+    nullable: true,
+  })
   @fieldConfig({
     category: FieldCategory.MAIN,
     default: RecordStatus.UNPUBLISHED,
