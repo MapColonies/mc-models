@@ -17,7 +17,6 @@ import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorato
 import { ProductType } from './enums';
 
 export interface ILayerMetadata {
-  id: string | undefined;
   productVersion: string | undefined;
   maxResolutionDeg: number | undefined;
   rms: number | undefined;
