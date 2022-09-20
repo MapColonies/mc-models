@@ -20,7 +20,7 @@ components:
         - sourceDateEnd
         - classification
       allOf:
-        - $ref: ./updateLayerMetadata.yaml#/components/schemas/updateLayerMetadata
+        - $ref: ./fullLayerMetadata.yaml#/components/schemas/fullLayerMetadata
 
     insertStatusLayerMetadata:
       type: object

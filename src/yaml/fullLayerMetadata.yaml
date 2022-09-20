@@ -1,0 +1,16 @@
+openapi: "3.0.1"
+info:
+  title: Full Layer metadata definitions
+  version: 2.0.0
+components:
+  schemas:
+    fullLayerMetadata:
+      type: object
+      allOf:
+        - $ref: ./updateLayerMetadata.yaml#/components/schemas/updateLayerMetadata
+        - properties:
+            id:
+              type: string
+              format: uuid
+            displayPath:
+              type: string
