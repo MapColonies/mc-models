@@ -2,7 +2,6 @@ import { Link } from '../../layerMetadata/link';
 
 export interface IPycswCoreModel {
   // PYSCW CORE FIELDS
-  id: string | undefined;
   typeName: string | undefined;
   schema: string | undefined;
   mdSource: string | undefined;

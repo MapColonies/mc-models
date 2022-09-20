@@ -9,6 +9,8 @@ components:
       allOf:
         - $ref: ./updateLayerMetadata.yaml#/components/schemas/updateLayerMetadata
         - properties:
-            displayPath:
+            id:
               type: string
               format: uuid
+            displayPath:
+              type: string
