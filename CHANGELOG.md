@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [13.2.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@13.1.7...mc-model-types@13.2.0) (2022-09-21)
+
+
+### Features
+
+* added catalogId and displayPath support ([#148](https://github.com/MapColonies/mc-models/issues/148)) ([a3eae14](https://github.com/MapColonies/mc-models/commit/a3eae1446b75bc58c29604527ec1b3081660fbb8))
+
 ### [13.1.7](https://github.com/MapColonies/mc-models/compare/mc-model-types@13.1.6...mc-model-types@13.1.7) (2022-09-19)
 
 ### [13.1.6](https://github.com/MapColonies/mc-models/compare/mc-model-types@13.1.5...mc-model-types@13.1.6) (2022-09-19)
