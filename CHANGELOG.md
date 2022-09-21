@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [13.2.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@13.2.0...mc-model-types@13.2.1) (2022-09-21)
+
+
+### Bug Fixes
+
+* raster sensors field config ([#151](https://github.com/MapColonies/mc-models/issues/151)) ([5d4d256](https://github.com/MapColonies/mc-models/commit/5d4d2563b420c89d9f770cc5e6f354cab1a51e6c))
+
 ## [13.2.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@13.1.7...mc-model-types@13.2.0) (2022-09-21)
 
 
