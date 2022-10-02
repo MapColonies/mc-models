@@ -495,7 +495,6 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
-    isCreationEssential: true,
     infoMsgCode: ['info-general-tooltip.required'],
     validation: [
       {
@@ -692,7 +691,6 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
-    isCreationEssential: true,
     validation: [
       {
         errorMsgCode: 'validation-field.layerPolygonParts.json',
