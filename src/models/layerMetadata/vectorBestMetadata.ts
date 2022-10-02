@@ -500,7 +500,6 @@ export class VectorBestMetadata implements IVectorBestMetadata {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
-    isCreationEssential: true,
     infoMsgCode: ['info-general-tooltip.required'],
     validation: [
       {
