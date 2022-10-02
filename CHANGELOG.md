@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [13.3.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@13.2.1...mc-model-types@13.3.0) (2022-10-02)
+
+
+### Features
+
+* isLifecycleEnvolved flag added and remove redundant flags ([#152](https://github.com/MapColonies/mc-models/issues/152)) ([0ce3aee](https://github.com/MapColonies/mc-models/commit/0ce3aee89abda4d99a4b0770a3e3533602790397))
+
 ### [13.2.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@13.2.0...mc-model-types@13.2.1) (2022-09-21)
 
 
