@@ -492,12 +492,18 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.STRING_ARRAY,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
-    infoMsgCode: ['info-field-tooltip.sensors.tooltip'],
     isLifecycleEnvolved: true,
+    infoMsgCode: ['info-field-tooltip.sensors.tooltip', 'info-general-tooltip.required'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        required: true,
+      },
+    ],
   })
   //#endregion
   public sensors: string[] | undefined = undefined;
