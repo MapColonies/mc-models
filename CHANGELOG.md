@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [13.3.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@13.3.0...mc-model-types@13.3.1) (2022-10-02)
+
+
+### Bug Fixes
+
+* sensors required field ([#153](https://github.com/MapColonies/mc-models/issues/153)) ([03a5066](https://github.com/MapColonies/mc-models/commit/03a506662130138664f189fb53ed7f3b4f27bd44))
+
 ## [13.3.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@13.2.1...mc-model-types@13.3.0) (2022-10-02)
 
 
