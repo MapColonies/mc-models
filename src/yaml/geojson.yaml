@@ -176,6 +176,7 @@ components:
     FeatureCollection:
       type: object
       description: GeoJson Feature collection
+      default: undefined
       required:
         - type
         - features
