@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [13.4.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@12.0.1...mc-model-types@13.4.0) (2022-10-25)
+
+
+### Features
+
+* add status schema ([#142](https://github.com/MapColonies/mc-models/issues/142)) ([7cd4058](https://github.com/MapColonies/mc-models/commit/7cd4058e74febaf81648a2d77eeb7eefc9d32062))
+* added catalogId and displayPath support ([#148](https://github.com/MapColonies/mc-models/issues/148)) ([a3eae14](https://github.com/MapColonies/mc-models/commit/a3eae1446b75bc58c29604527ec1b3081660fbb8))
+* isLifecycleEnvolved flag added and remove redundant flags ([#152](https://github.com/MapColonies/mc-models/issues/152)) ([0ce3aee](https://github.com/MapColonies/mc-models/commit/0ce3aee89abda4d99a4b0770a3e3533602790397))
+* new profile 3d ([#139](https://github.com/MapColonies/mc-models/issues/139)) ([d4542c9](https://github.com/MapColonies/mc-models/commit/d4542c940078b05314decb59ffe73b00e04d7e95))
+* Update date field not requierd ([#138](https://github.com/MapColonies/mc-models/issues/138)) ([0caef35](https://github.com/MapColonies/mc-models/commit/0caef35740db05bc7bc3adbc7e49ebd67da0416e))
+
+
+### Bug Fixes
+
+* 3d metadata and quantizeMesh model mismatches ([#136](https://github.com/MapColonies/mc-models/issues/136)) ([e318934](https://github.com/MapColonies/mc-models/commit/e3189344ca3f59999348ed45eb360cf3a9f2a4c5))
+* graphql ([#135](https://github.com/MapColonies/mc-models/issues/135)) ([e668df8](https://github.com/MapColonies/mc-models/commit/e668df86abc117b8f5a172776ec4aee282f70b9c))
+* insert date ([#141](https://github.com/MapColonies/mc-models/issues/141)) ([81c0630](https://github.com/MapColonies/mc-models/commit/81c0630f7a07c9e0a6ae725ea5dd3f379bdb6b67))
+* integration with 3D - product status ([#149](https://github.com/MapColonies/mc-models/issues/149)) ([15f2bed](https://github.com/MapColonies/mc-models/commit/15f2bedbc85c1f97ec6bf9eb3ce0b30d9d1010dc))
+* integration with 3d ([#140](https://github.com/MapColonies/mc-models/issues/140)) ([6dfb9ec](https://github.com/MapColonies/mc-models/commit/6dfb9ec412aaee34ea7a5fa7fce829da08d16838))
+* limit arrays to contain a string ([#134](https://github.com/MapColonies/mc-models/issues/134)) ([b629e74](https://github.com/MapColonies/mc-models/commit/b629e7463b5c30602b2a7fc3cf11a844cbf07f0e))
+* product status should be auto generated and not manually editable ([#146](https://github.com/MapColonies/mc-models/issues/146)) ([d2e1b88](https://github.com/MapColonies/mc-models/commit/d2e1b88428e8d2d27368da367aaa1f7f918e19fb))
+* raster sensors field config ([#151](https://github.com/MapColonies/mc-models/issues/151)) ([5d4d256](https://github.com/MapColonies/mc-models/commit/5d4d2563b420c89d9f770cc5e6f354cab1a51e6c))
+* sensors required field ([#153](https://github.com/MapColonies/mc-models/issues/153)) ([03a5066](https://github.com/MapColonies/mc-models/commit/03a506662130138664f189fb53ed7f3b4f27bd44))
+* turn undefined id, layerpolygonpart and bbox for overseer req ([#154](https://github.com/MapColonies/mc-models/issues/154)) ([2ba866c](https://github.com/MapColonies/mc-models/commit/2ba866cae928f7c92b12a47ea7dcb97e41329685))
+
 ### [13.3.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@13.3.0...mc-model-types@13.3.1) (2022-10-02)
 
 
