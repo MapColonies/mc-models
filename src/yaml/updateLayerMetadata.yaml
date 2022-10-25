@@ -122,7 +122,6 @@ components:
           $ref: geojson.yaml#/components/schemas/FeatureCollection
         productBoundingBox:
           type: string
-          default: undefined
           pattern: "^-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?$"
           
     updateStatusLayerMetadata:

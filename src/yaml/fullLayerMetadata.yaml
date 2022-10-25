@@ -12,6 +12,5 @@ components:
             id:
               type: string
               format: uuid
-              default: undefined
             displayPath:
               type: string
