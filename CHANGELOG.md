@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [13.4.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@13.4.0...mc-model-types@13.4.1) (2022-10-25)
+
+
+### Bug Fixes
+
+* revert default params raster layers ([#155](https://github.com/MapColonies/mc-models/issues/155)) ([3eddc8a](https://github.com/MapColonies/mc-models/commit/3eddc8ae8cf2484dfb1c23d6966a1aaaaf38ee77))
+
 ## [13.4.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@12.0.1...mc-model-types@13.4.0) (2022-10-25)
 
 
