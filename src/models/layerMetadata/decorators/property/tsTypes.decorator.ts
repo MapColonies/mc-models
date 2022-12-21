@@ -94,6 +94,16 @@ export const TsTypes: Record<string, IDescribeTsType> = {
     type: PropertiesTypes.ENUM,
     importFromPackage: '@map-colonies/mc-model-types',
   },
+  TRANSPARENCY: {
+    value: 'Transparency',
+    type: PropertiesTypes.ENUM,
+    importFromPackage: '@map-colonies/mc-model-types',
+  },
+  TILEOUTPUTFORMAT: {
+    value: 'TileOutputFormat',
+    type: PropertiesTypes.ENUM,
+    importFromPackage: '@map-colonies/mc-model-types',
+  },
   RECORD_STATUS: {
     value: 'RecordStatus',
     type: PropertiesTypes.ENUM,
