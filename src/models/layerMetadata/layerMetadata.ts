@@ -1069,7 +1069,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     profile: 'mc_raster',
     xmlElement: 'mc:transparency',
     queryableField: 'mc:transparency',
-    pycswField: 'pycsw:Transparency',
+    pycswField: 'pycsw:transparency',
   })
   @catalogDB({
     column: {
@@ -1103,9 +1103,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     },
   })
   @tsTypes({
-    mappingType: TsTypes.TILEOUTPUTFORMAT,
+    mappingType: TsTypes.TILE_OUTPUT_FORMAT,
   })
-
   //#endregion
   public tileOutputFormat: TileOutputFormat | undefined = undefined;
 

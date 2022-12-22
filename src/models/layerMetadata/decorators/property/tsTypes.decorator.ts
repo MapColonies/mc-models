@@ -99,7 +99,7 @@ export const TsTypes: Record<string, IDescribeTsType> = {
     type: PropertiesTypes.ENUM,
     importFromPackage: '@map-colonies/mc-model-types',
   },
-  TILEOUTPUTFORMAT: {
+  TILE_OUTPUT_FORMAT: {
     value: 'TileOutputFormat',
     type: PropertiesTypes.ENUM,
     importFromPackage: '@map-colonies/mc-model-types',

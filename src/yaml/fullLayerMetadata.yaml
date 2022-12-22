@@ -25,4 +25,4 @@ components:
               enum:
               - PNG
               - JPEG
-              description: Tile creation can be of type png or jpeg
+              description: Tile format can be of png or jpeg
