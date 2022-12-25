@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [14.0.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@13.4.1...mc-model-types@14.0.0) (2022-12-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* adding records entity for transparency + tileFormatOutput (#159)
+
+### Features
+
+* adding records entity for transparency + tileFormatOutput ([#159](https://github.com/MapColonies/mc-models/issues/159)) ([8e99f5b](https://github.com/MapColonies/mc-models/commit/8e99f5bbfec2413e5004fc2216cdb43bc9ea4bc3))
+
 ### [13.4.3](https://github.com/MapColonies/mc-models/compare/mc-model-types@13.4.2...mc-model-types@13.4.3) (2022-12-19)
 
 ### [13.4.2](https://github.com/MapColonies/mc-models/compare/mc-model-types@13.4.1...mc-model-types@13.4.2) (2022-11-02)
