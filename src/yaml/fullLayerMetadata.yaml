@@ -14,3 +14,15 @@ components:
               format: uuid
             displayPath:
               type: string
+            transparency:
+              type: string
+              enum:
+              - TRANSPARENT
+              - OPAQUE
+              description: layer can be transparent or opaque
+            tileOutputFormat:
+              type: string
+              enum:
+              - PNG
+              - JPEG
+              description: Tile format can be of png or jpeg

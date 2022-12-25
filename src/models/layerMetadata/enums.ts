@@ -23,3 +23,13 @@ export enum RecordStatus {
   PUBLISHED = 'PUBLISHED',
   UNPUBLISHED = 'UNPUBLISHED',
 }
+
+export enum TileOutputFormat {
+  PNG = 'PNG',
+  JPEG = 'JPEG',
+}
+
+export enum Transparency {
+  TRANSPARENT = 'TRANSPARENT',
+  OPAQUE = 'OPAQUE',
+}
