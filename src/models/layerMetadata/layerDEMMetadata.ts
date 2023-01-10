@@ -83,6 +83,7 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.GENERAL,
     infoMsgCode: ['info-general-tooltip.required'],
+    lookupTable: 'classification',
     validation: [
       {
         errorMsgCode: 'validation-general.required',
