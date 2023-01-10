@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [14.0.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@14.0.0...mc-model-types@14.0.1) (2023-01-10)
+
+
+### Bug Fixes
+
+* added lookuptable decoration field ([#160](https://github.com/MapColonies/mc-models/issues/160)) ([8a4f2b5](https://github.com/MapColonies/mc-models/commit/8a4f2b5abae20c3fd9bfebf419d69d381bce5925))
+
 ## [14.0.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@13.4.1...mc-model-types@14.0.0) (2022-12-25)
 
 
