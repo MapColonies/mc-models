@@ -111,6 +111,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     category: FieldCategory.GENERAL,
     isManuallyEditable: true,
     infoMsgCode: ['info-general-tooltip.required'],
+    lookupTable: 'classification',
     validation: [
       {
         errorMsgCode: 'validation-general.required',

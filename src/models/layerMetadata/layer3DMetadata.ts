@@ -882,6 +882,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.GENERAL,
     infoMsgCode: ['info-general-tooltip.required'],
+    lookupTable: 'classification',
     validation: [
       {
         errorMsgCode: 'validation-general.required',
