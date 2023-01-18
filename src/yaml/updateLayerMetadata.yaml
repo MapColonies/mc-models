@@ -4,6 +4,19 @@ info:
   version: 2.0.0
 components:
   schemas:
+    productType:
+      type: string
+      enum:
+        - Orthophoto
+        - OrthophotoHistory
+        - OrthophotoBest
+        - RasterMap
+        - RasterMapBest
+        - RasterAid
+        - RasterAidBest
+        - RasterVector
+        - RasterVectorBest
+      description: layer's type might be derived from the first letter  
     updateLayerMetadata:
       type: object
       description: layer meta data
@@ -29,27 +42,7 @@ components:
           pattern: ^[1-9]\d{0,2}(\.(0|[1-9]\d?))?$
           description: layer's version
         productType:
-          type: string
-          enum:
-            - Orthophoto
-            - OrthophotoHistory
-            - OrthophotoBest
-            - RasterMap
-            - RasterMapBest
-            - RasterAid
-            - RasterAidBest
-            - RasterVector
-            - RasterVectorBest
-            - VectorBest
-            - DTM
-            - DSM
-            - QuantizedMeshDTM
-            - QuantizedMeshDSM
-            - QuantizedMeshDTMBest
-            - QuantizedMeshDSMBest
-            - 3DPhotoRealistic
-            - PointCloud
-          description: layer's type might be derived from the first letter
+          $ref: '#/components/schemas/productType'
         productSubType:
           type: string
           description: Layer's sub type
