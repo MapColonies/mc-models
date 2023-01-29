@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [14.0.3](https://github.com/MapColonies/mc-models/compare/mc-model-types@14.0.2...mc-model-types@14.0.3) (2023-01-29)
+
+
+### Bug Fixes
+
+* rms field uppercase ([#162](https://github.com/MapColonies/mc-models/issues/162)) ([28a5146](https://github.com/MapColonies/mc-models/commit/28a514672f6b343871674e060faa3d5a30226c51))
+
 ### [14.0.2](https://github.com/MapColonies/mc-models/compare/mc-model-types@14.0.1...mc-model-types@14.0.2) (2023-01-18)
 
 ### [14.0.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@14.0.0...mc-model-types@14.0.1) (2023-01-10)
