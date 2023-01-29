@@ -610,8 +610,8 @@ export class BestMetadata implements IBestMetadata, IMetadataCommonModel {
   //#region BEST: rms
   @pycsw({
     profile: 'mc_best',
-    xmlElement: 'mc:rms',
-    queryableField: 'mc:rms',
+    xmlElement: 'mc:RMS',
+    queryableField: 'mc:RMS',
     pycswField: 'pycsw:Rms',
   })
   @catalogDB({

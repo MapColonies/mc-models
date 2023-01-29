@@ -836,8 +836,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#region RASTER: rms
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:rms',
-    queryableField: 'mc:rms',
+    xmlElement: 'mc:RMS',
+    queryableField: 'mc:RMS',
     pycswField: 'pycsw:Rms',
   })
   @catalogDB({
