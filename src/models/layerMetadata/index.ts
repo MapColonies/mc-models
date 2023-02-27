@@ -1,5 +1,6 @@
 export * from './layerMetadata';
 export { Layer3DMetadata } from './layer3DMetadata';
+export { LayerDemMetadata } from './layerDEMMetadata';
 export * from './layerMetadata-StatusFields';
 
 export { IDataMapping, DataFileType } from './decorators/property/shp.decorator';
