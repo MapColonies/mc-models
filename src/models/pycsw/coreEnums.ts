@@ -1,3 +1,4 @@
+/* eslint-disable  @typescript-eslint/prefer-literal-enum-member, @typescript-eslint/no-magic-numbers */
 export enum RecordType {
   RECORD_RASTER = 'RECORD_RASTER',
   RECORD_3D = 'RECORD_3D',
