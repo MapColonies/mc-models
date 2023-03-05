@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [14.1.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@14.0.4...mc-model-types@14.1.0) (2023-03-05)
+
+
+### Features
+
+* dem v2 ([#164](https://github.com/MapColonies/mc-models/issues/164)) ([4c859f6](https://github.com/MapColonies/mc-models/commit/4c859f6a643caced9cfc54a21458a4c36fe455db))
+
 ### [14.0.4](https://github.com/MapColonies/mc-models/compare/mc-model-types@14.0.3...mc-model-types@14.0.4) (2023-02-27)
 
 ### [14.0.3](https://github.com/MapColonies/mc-models/compare/mc-model-types@14.0.2...mc-model-types@14.0.3) (2023-01-29)
