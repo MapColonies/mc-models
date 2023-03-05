@@ -39,6 +39,9 @@
     "@types/geojson": "^7946.0.7",
     "reflect-metadata": "^0.1.13"
   },
+  "peerDependencies": {
+    "@map-colonies/mc-utils": ">=1.8.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",

@@ -59,11 +59,6 @@ export const TsTypes: Record<string, IDescribeTsType> = {
     type: PropertiesTypes.ENUM,
     importFromPackage: '@map-colonies/mc-model-types',
   },
-  VERTICAL_DATUM: {
-    value: 'VerticalDatum',
-    type: PropertiesTypes.ENUM,
-    importFromPackage: '@map-colonies/mc-model-types',
-  },
   UNITS: {
     value: 'Units',
     type: PropertiesTypes.ENUM,
@@ -76,6 +71,11 @@ export const TsTypes: Record<string, IDescribeTsType> = {
   },
   DATATYPE: {
     value: 'DataType',
+    type: PropertiesTypes.ENUM,
+    importFromPackage: '@map-colonies/mc-model-types',
+  },
+  DEM_DATATYPE: {
+    value: 'DEMDataType',
     type: PropertiesTypes.ENUM,
     importFromPackage: '@map-colonies/mc-model-types',
   },
