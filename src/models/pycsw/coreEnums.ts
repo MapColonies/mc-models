@@ -30,7 +30,7 @@ export enum DEMDataType {
 }
 
 export enum NoDataValue {
-  NO_DATA_32768 = -32768,
-  NO_DATA_32767 = -32767,
-  NO_DATA_999 = -999,
+  NO_DATA_32768 = '-32768',
+  NO_DATA_32767 = '-32767',
+  NO_DATA_999 = '-999',
 }
