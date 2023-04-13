@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [14.1.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@14.1.0...mc-model-types@14.1.1) (2023-04-13)
+
+
+### Bug Fixes
+
+* revert nodatavalue to string ([#166](https://github.com/MapColonies/mc-models/issues/166)) ([8fcd49d](https://github.com/MapColonies/mc-models/commit/8fcd49da743cfe824777b3d6fef4b533303c2611))
+
 ## [14.1.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@14.0.4...mc-model-types@14.1.0) (2023-03-05)
 
 
