@@ -857,7 +857,7 @@ export class LayerDemMetadata implements ILayerMetadata, IMetadataCommonModel {
   @catalogDB({
     column: {
       name: 'no_data_value',
-      type: 'real',
+      type: 'text',
       nullable: false,
     },
   })
