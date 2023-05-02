@@ -166,6 +166,7 @@ components:
           type: object
           nullable: true
         geometry:
+          type: object
           nullable: true
           oneOf:
             - $ref: "#/components/schemas/GeometryCollection"
