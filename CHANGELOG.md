@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [14.1.2](https://github.com/MapColonies/mc-models/compare/mc-model-types@14.1.1...mc-model-types@14.1.2) (2023-05-02)
+
+
+### Bug Fixes
+
+* add type to openapi scheme with nullable ([#167](https://github.com/MapColonies/mc-models/issues/167)) ([6ecd830](https://github.com/MapColonies/mc-models/commit/6ecd830ee01c4b5d05faa668433e47df34bc8ef5))
+
 ### [14.1.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@14.1.0...mc-model-types@14.1.1) (2023-04-13)
 
 
