@@ -14,7 +14,7 @@ import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw
 import { getInputDataMapping, IDataMapping, DataFileType, inputDataMapping } from './decorators/property/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB, ORMColumnType } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
-import { ProductType, Transparency, TileOutputFormat } from './enums';
+import { ProductType, Transparency, TileOutputFormat, Format } from './enums';
 
 export interface ILayerMetadata {
   productVersion: string | undefined;
@@ -1095,6 +1095,37 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   //#endregion
   public transparency: Transparency | undefined = undefined;
+
+  //#region RASTER: format
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:format',
+    queryableField: 'mc:format',
+    pycswField: 'pycsw:format',
+  })
+  @catalogDB({
+    column: {
+      name: 'format',
+      type: 'text',
+      nullable: false,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.FORMAT,
+  })
+  @graphql()
+  @fieldConfig({
+    category: FieldCategory.GENERAL,
+    infoMsgCode: ['info-general-tooltip.required'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        required: true,
+      },
+    ],
+  })
+  //#endregion
+  public format: Format | undefined = undefined;
 
   @catalogDB({
     column: {
