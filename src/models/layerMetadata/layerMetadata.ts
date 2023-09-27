@@ -1,4 +1,5 @@
 import { GeoJSON } from 'geojson';
+import { TilesMimeFormat } from '@map-colonies/types';
 import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import {
@@ -14,7 +15,7 @@ import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw
 import { getInputDataMapping, IDataMapping, DataFileType, inputDataMapping } from './decorators/property/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB, ORMColumnType } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
-import { ProductType, Transparency, TileOutputFormat, Format } from './enums';
+import { ProductType, Transparency, TileOutputFormat } from './enums';
 
 export interface ILayerMetadata {
   productVersion: string | undefined;
@@ -1111,21 +1112,10 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     },
   })
   @tsTypes({
-    mappingType: TsTypes.FORMAT,
-  })
-  @graphql()
-  @fieldConfig({
-    category: FieldCategory.GENERAL,
-    infoMsgCode: ['info-general-tooltip.required'],
-    validation: [
-      {
-        errorMsgCode: 'validation-general.required',
-        required: true,
-      },
-    ],
+    mappingType: TsTypes.STRING,
   })
   //#endregion
-  public format: Format | undefined = undefined;
+  public format: TilesMimeFormat | undefined = undefined;
 
   @catalogDB({
     column: {

@@ -33,8 +33,3 @@ export enum Transparency {
   TRANSPARENT = 'TRANSPARENT',
   OPAQUE = 'OPAQUE',
 }
-
-export enum Format {
-  PNG = 'image/png',
-  JPEG = 'image/jpeg',
-}
