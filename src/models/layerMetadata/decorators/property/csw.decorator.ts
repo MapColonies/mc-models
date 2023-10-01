@@ -14,5 +14,7 @@ export function pycsw(pycswmapping: IPYCSWMapping): PropertyDecorator {
 }
 
 export function getPyCSWMapping<T>(target: T, propertyKey: string): IPYCSWMapping | undefined {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
   return Reflect.getMetadata(pycswMappingMetadataKey, target, propertyKey) as IPYCSWMapping;
 }

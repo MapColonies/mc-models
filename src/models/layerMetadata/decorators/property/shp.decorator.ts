@@ -20,5 +20,7 @@ export function inputDataMapping(dataMapping: IDataMapping): PropertyDecorator {
 }
 
 export function getInputDataMapping<T>(target: T, propertyKey: string): IDataMapping | undefined {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
   return Reflect.getMetadata(inputDataMappingMetadataKey, target, propertyKey) as IDataMapping;
 }

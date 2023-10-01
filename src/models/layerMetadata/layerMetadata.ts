@@ -1,4 +1,5 @@
 import { GeoJSON } from 'geojson';
+import { TilesMimeFormat } from '@map-colonies/types';
 import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import {
@@ -1095,6 +1096,26 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   //#endregion
   public transparency: Transparency | undefined = undefined;
+
+  //#region RASTER: format
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:format',
+    queryableField: 'mc:format',
+    pycswField: 'pycsw:format',
+  })
+  @catalogDB({
+    column: {
+      name: 'format',
+      type: 'text',
+      nullable: false,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  //#endregion
+  public format: TilesMimeFormat | undefined = undefined;
 
   @catalogDB({
     column: {

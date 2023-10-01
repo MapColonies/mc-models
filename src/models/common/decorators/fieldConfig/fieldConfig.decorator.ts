@@ -50,5 +50,7 @@ export function fieldConfig(fieldConfigInfo: IFieldConfigInfo): PropertyDecorato
 }
 
 export function getFieldConfig<T>(target: T, propertyKey: string): IFieldConfigInfo | undefined {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
   return Reflect.getMetadata(fieldConfigMetadataKey, target, propertyKey) as IFieldConfigInfo;
 }

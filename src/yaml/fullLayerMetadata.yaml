@@ -26,3 +26,9 @@ components:
               - PNG
               - JPEG
               description: Tile format can be of png or jpeg
+            format:
+              type: string
+              enum:
+              - image/png
+              - image/jpeg
+              description: Image format associated with content type
