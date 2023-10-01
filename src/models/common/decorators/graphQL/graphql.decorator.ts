@@ -12,5 +12,7 @@ export function graphql(graphqlmapping?: IGraphQLMapping): PropertyDecorator {
 }
 
 export function getGraphQLMapping<T>(target: T, propertyKey: string): IGraphQLMapping | undefined {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
   return Reflect.getMetadata(graphQLMetadataKey, target, propertyKey) as IGraphQLMapping;
 }

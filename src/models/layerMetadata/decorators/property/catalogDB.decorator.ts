@@ -41,5 +41,7 @@ export function catalogDB(catalogdbmapping: ICatalogDBMapping): PropertyDecorato
 }
 
 export function getCatalogDBMapping<T>(target: T, propertyKey: string): ICatalogDBMapping | undefined {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
   return Reflect.getMetadata(catalogDbMetadataKey, target, propertyKey) as ICatalogDBMapping;
 }

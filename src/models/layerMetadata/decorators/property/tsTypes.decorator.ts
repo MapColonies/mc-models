@@ -128,5 +128,7 @@ export function tsTypes(tsTypesMapping: ITsTypesMapping): PropertyDecorator {
 }
 
 export function getTsTypesMapping<T>(target: T, propertyKey: string): ITsTypesMapping | undefined {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
   return Reflect.getMetadata(tsTypesMetadataKey, target, propertyKey) as ITsTypesMapping;
 }

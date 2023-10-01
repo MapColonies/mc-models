@@ -12,5 +12,7 @@ export function catalogDBEntity(catalogdbentitymapping: ICatalogDBEntityMapping)
 }
 
 export function getCatalogDBEntityMapping<T>(target: T): ICatalogDBEntityMapping {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
   return Reflect.getMetadata(catalogDbEntityMetadataKey, target) as ICatalogDBEntityMapping;
 }

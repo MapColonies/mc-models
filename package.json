@@ -17,6 +17,7 @@
   "scripts": {
     "clean": "rimraf *.tgz Schema",
     "release": "standard-version -t mc-model-types@",
+    "build:skipLibCheck": "npm run prebuild && tsc --skipLibCheck --project tsconfig.build.json",
     "build": "tsc --project tsconfig.build.json",
     "copy:yaml": "copyfiles -u 1 \"./src/yaml/**/*.yaml\" ./Schema",
     "copy": "npm run copy:yaml",
@@ -41,7 +42,7 @@
   },
   "peerDependencies": {
     "@map-colonies/mc-utils": ">=1.8.0",
-    "@map-colonies/types": "^1.3.0"
+    "@map-colonies/types": ">=1.3.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
