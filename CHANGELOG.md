@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [15.0.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@14.1.2...mc-model-types@15.0.0) (2023-10-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* adding format column (image content type) (#169)
+
+### Features
+
+* adding format column (image content type) ([#169](https://github.com/MapColonies/mc-models/issues/169)) ([95fb611](https://github.com/MapColonies/mc-models/commit/95fb6116705857d149e769f2b861e792e9d8d1c1))
+
+
+### Bug Fixes
+
+* insert request required format ([#170](https://github.com/MapColonies/mc-models/issues/170)) ([ade7de5](https://github.com/MapColonies/mc-models/commit/ade7de56363a6a3c67586084cd9c0c9888c4a141))
+
 ### [14.1.2](https://github.com/MapColonies/mc-models/compare/mc-model-types@14.1.1...mc-model-types@14.1.2) (2023-05-02)
 
 
