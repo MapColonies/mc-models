@@ -1097,16 +1097,16 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
   public transparency: Transparency | undefined = undefined;
 
-  //#region RASTER: format
+  //#region RASTER: tilesMimeFormat
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:format',
-    queryableField: 'mc:format',
-    pycswField: 'pycsw:format',
+    xmlElement: 'mc:tilesMimeFormat',
+    queryableField: 'mc:tilesMimeFormat',
+    pycswField: 'pycsw:tilesMimeFormat',
   })
   @catalogDB({
     column: {
-      name: 'format',
+      name: 'tile_mime_format',
       type: 'text',
       nullable: false,
     },
