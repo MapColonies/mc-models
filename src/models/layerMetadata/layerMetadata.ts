@@ -1115,7 +1115,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.STRING,
   })
   //#endregion
-  public tilesMimeFormat: TilesMimeFormat | undefined = undefined;
+  public tileMimeFormat: TilesMimeFormat | undefined = undefined;
 
   @catalogDB({
     column: {
