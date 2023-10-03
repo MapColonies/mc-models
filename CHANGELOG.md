@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [15.0.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@15.0.0...mc-model-types@15.0.1) (2023-10-03)
+
+
+### Bug Fixes
+
+* change format to tileMImeFormat - naming convention ([#171](https://github.com/MapColonies/mc-models/issues/171)) ([e599d5b](https://github.com/MapColonies/mc-models/commit/e599d5b908a5af199488bc2f95d93f1d7192cdc6))
+* naming - format to tilesMimeFormat (layerMetadata) ([#172](https://github.com/MapColonies/mc-models/issues/172)) ([cb77207](https://github.com/MapColonies/mc-models/commit/cb7720781c6d70dfe7d7bbe3004ca57b71823fe9))
+
 ## [15.0.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@14.1.2...mc-model-types@15.0.0) (2023-10-02)
 
 
