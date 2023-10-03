@@ -26,9 +26,9 @@ components:
               - PNG
               - JPEG
               description: Tile format can be of png or jpeg
-            format:
+            tileMimeFormat:
               type: string
               enum:
               - image/png
               - image/jpeg
-              description: Image format associated with content type
+              description: Image format associated with content type (mime)
