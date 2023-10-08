@@ -5,7 +5,7 @@ info:
   version: 2.0.0
 components:
   schemas:
-    payload:
+    basic-payload:
       type: object
       description: 3d tiles metadata payload
       required:
@@ -180,18 +180,14 @@ components:
           pattern: '^(UNPUBLISHED|PUBLISHED)$'
           default: 'UNPUBLISHED'
           description: The status of the model
-        productSource:
-          type: string
-          readOnly: true
-          description: The path of the model
         keywords:
           type: string
           nullable: true
           description: The keywords of the product
       additionalProperties: false
-    store-sync-payload:
+    ingestion-payload:
       type: object
-      description: 3d tiles metadata payload for store sync
+      description: 3d tiles ingestion payload
       required:
         - productName
         - productType
@@ -375,7 +371,7 @@ components:
       additionalProperties: false
     catalog-payload:
       type: object
-      description: 3d tiles metadata payload with links
+      description: 3d tiles ingestion payload with links
       required:
         - productName
         - productType
@@ -484,6 +480,7 @@ components:
           items:
             type: string
           minItems: 1
+          description: Layer sensors list 
           example: ["OTHER"]
         footprint:
           allOf:
@@ -555,11 +552,13 @@ components:
           type: string
           nullable: true
           description: The keywords of the product
+        identifier:
+          type: string
         links:
           type: array
           minItems: 1
           items:
-            $ref: ../link.yaml#/components/schemas/Link   
+            $ref: ../link.yaml#/components/schemas/Link
       additionalProperties: false
     metadata:  
       type: object
@@ -567,8 +566,6 @@ components:
       allOf:
         - $ref: "#/components/schemas/catalog-payload"
         - properties:
-            identifier:
-              type: string
             productBoundingBox:
               type: string
               readOnly: true
