@@ -389,6 +389,7 @@ components:
         - productionSystemVer
         - producerName
         - links
+        - id
       properties:
         type:
           type: string
@@ -552,8 +553,9 @@ components:
           type: string
           nullable: true
           description: The keywords of the product
-        identifier:
+        id:
           type: string
+          nullable: false
         links:
           type: array
           minItems: 1
