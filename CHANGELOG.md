@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [15.0.5](https://github.com/MapColonies/mc-models/compare/mc-model-types@15.0.4...mc-model-types@15.0.5) (2023-10-17)
+
+
+### Bug Fixes
+
+* set minimum and maximum value to coordinate per point ([#175](https://github.com/MapColonies/mc-models/issues/175)) ([f6cc1b0](https://github.com/MapColonies/mc-models/commit/f6cc1b0ee91cc2440485a6a37e3f80cdc6354d1a))
+
 ### [15.0.4](https://github.com/MapColonies/mc-models/compare/mc-model-types@15.0.3...mc-model-types@15.0.4) (2023-10-10)
 
 
