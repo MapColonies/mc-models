@@ -110,6 +110,12 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   public anyText: string | undefined = '';
 
   //#region CORE: insertDate
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:insertDate',
+    queryableField: 'mc:insertDate',
+    pycswField: 'pycsw:InsertDate',
+  })
   @catalogDB({
     columnType: ORMColumnType.CREATE_DATE_COLUMN,
     column: {
