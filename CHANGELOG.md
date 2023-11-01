@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [15.0.6](https://github.com/MapColonies/mc-models/compare/mc-model-types@15.0.5...mc-model-types@15.0.6) (2023-11-01)
+
+
+### Bug Fixes
+
+* allow classification in update ([#176](https://github.com/MapColonies/mc-models/issues/176)) ([4750ec5](https://github.com/MapColonies/mc-models/commit/4750ec50fd7b5f6d729dddf6ae607447a79bf060))
+* ingestion date 3d classification ([#177](https://github.com/MapColonies/mc-models/issues/177)) ([68ad681](https://github.com/MapColonies/mc-models/commit/68ad6810acb4afda15e5ba449ab8e3cec2c143dd))
+
 ### [15.0.5](https://github.com/MapColonies/mc-models/compare/mc-model-types@15.0.4...mc-model-types@15.0.5) (2023-10-17)
 
 
