@@ -45,7 +45,6 @@ components:
           example: 3DPhotoRealistic
         description:
           type: string
-          maxLength: 250
           nullable: true
           description: description and comments
         creationDate:
@@ -225,7 +224,6 @@ components:
           example: 3DPhotoRealistic
         description:
           type: string
-          maxLength: 250
           nullable: true
           description: description and comments
         creationDate:
@@ -409,7 +407,6 @@ components:
           example: 3DPhotoRealistic
         description:
           type: string
-          maxLength: 250
           nullable: true
           description: description and comments
         creationDate:
@@ -597,7 +594,6 @@ components:
         description:
           type: string
           nullable: true
-          maxLength: 250
           description: description and comments
         creationDate:
           type: string
