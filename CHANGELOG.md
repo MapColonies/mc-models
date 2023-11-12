@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [15.1.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@15.0.6...mc-model-types@15.1.0) (2023-11-12)
+
+
+### Features
+
+* remove limitation on description in 3d ([#178](https://github.com/MapColonies/mc-models/issues/178)) ([0f3366e](https://github.com/MapColonies/mc-models/commit/0f3366ee40388d07b43fd44f45408599aac0aca1))
+
 ### [15.0.6](https://github.com/MapColonies/mc-models/compare/mc-model-types@15.0.5...mc-model-types@15.0.6) (2023-11-01)
 
 
