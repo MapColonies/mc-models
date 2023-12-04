@@ -604,6 +604,19 @@ components:
           format: date-time
           nullable: true
           description: Creation date
+        sourceDateStart:
+          type: string
+          format: date-time
+          description: Oldest date of taken photo
+        sourceDateEnd:
+          type: string
+          format: date-time
+          description: Newest date of taken photo  
+        footprint:
+          allOf:
+            - $ref: ../geojson.yaml#/components/schemas/Geometry
+            - description: Geographic demarcation of the product
+            - example: '{"type":"Polygon","coordinates":[[[1,2],[3,4],[5,6],[7,8],[1,2]]]}'    
         minResolutionMeter:
           type: number
           format: double
