@@ -290,6 +290,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
+    isManuallyEditable: true,
     infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.sourceDateStart.max'],
     validation: [
       {
@@ -328,6 +329,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
+    isManuallyEditable: true,
     infoMsgCode: ['info-general-tooltip.required'],
     validation: [
       {
@@ -686,6 +688,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
+    isManuallyEditable: true,
     infoMsgCode: ['info-general-tooltip.required'],
     validation: [
       {
