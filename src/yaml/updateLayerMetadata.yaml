@@ -29,7 +29,8 @@ components:
             - RECORD_3D
         classification:
           type: string
-          description: Permitted roles 
+          description: Permitted roles
+          pattern: ^[3-6]$
         productId:
           type: string
           description: Layer's external identifier
