@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [15.2.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@15.1.1...mc-model-types@15.2.0) (2024-01-08)
+
+
+### Features
+
+* raster validations ([#181](https://github.com/MapColonies/mc-models/issues/181)) ([668423c](https://github.com/MapColonies/mc-models/commit/668423c4159c4fc6123b0814ef920632d06069d7))
+
 ### [15.1.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@15.1.0...mc-model-types@15.1.1) (2023-12-05)
 
 ## [15.1.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@15.0.6...mc-model-types@15.1.0) (2023-11-12)
