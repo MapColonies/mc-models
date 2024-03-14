@@ -363,7 +363,7 @@ export class PolygonPart implements IPolygonPart {
   //#region METADATA: resolutionMeter
   @catalogDB({
     column: {
-      name: 'resolutionMeter ',
+      name: 'resolutionMeter',
       type: 'numeric',
     },
   })
