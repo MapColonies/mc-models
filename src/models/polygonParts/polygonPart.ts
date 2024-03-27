@@ -8,9 +8,16 @@ import {
   IFieldConfigInfo,
   IPropFieldConfigInfo,
 } from '../common/decorators/fieldConfig/fieldConfig.decorator';
-import { getInputDataMapping, IDataMapping, DataFileType, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
+import {
+  getInputDataMapping,
+  IDataMapping,
+  DataFileType,
+  inputDataMapping,
+  IPropSHPMapping,
+} from '../layerMetadata/decorators/property/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from '../layerMetadata/decorators/property/catalogDB.decorator';
-import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
+import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
+import { IPYCSWMapping } from '../layerMetadata/decorators/property/csw.decorator';
 
 export interface IPolygonPart {
   id: string | undefined;
@@ -27,7 +34,8 @@ export interface IPolygonPart {
   imagingTimeEndUTC: Date | undefined;
   geometry: GeoJSON | undefined;
 }
-export interface IPropSHPMapping extends IDataMapping, ITsTypesMapping {
+
+export interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
 }
 
@@ -440,6 +448,10 @@ export class PolygonPart implements IPolygonPart {
 
   public static getFieldConfig(prop: string): IFieldConfigInfo | undefined {
     return getFieldConfig<PolygonPart>(new PolygonPart(), prop);
+  }
+
+  public static getPyCSWMappings(): IPropPYCSWMapping[] {
+    return [];
   }
 
   public static getCatalogDBMappings(): IPropCatalogDBMapping[] {

@@ -13,6 +13,7 @@ import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 import { ProductType } from './enums';
+import { IPropSHPMapping } from './decorators/property/shp.decorator';
 
 export interface IVectorBestMetadata {
   productVersion: string | undefined;
@@ -574,5 +575,9 @@ export class VectorBestMetadata implements IVectorBestMetadata {
       }
     }
     return ret;
+  }
+
+  public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
+    return [];
   }
 }
