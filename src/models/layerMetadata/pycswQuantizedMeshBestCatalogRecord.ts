@@ -11,6 +11,7 @@ import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } f
 import { getPyCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { QuantizedMeshBestMetadata, IPropPYCSWMapping } from './quantizedMeshBestMetadata';
 import { Link } from './link';
+import { IPropSHPMapping } from './decorators/property/shp.decorator';
 
 @catalogDBEntity({
   table: 'records',
@@ -274,6 +275,10 @@ export class PycswQuantizedMeshBestCatalogRecord extends QuantizedMeshBestMetada
       }
     }
     return ret;
+  }
+
+  public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
+    return [];
   }
 
   public getORMCatalogMappings(): IPropCatalogDBMapping[] {

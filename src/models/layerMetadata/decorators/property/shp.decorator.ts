@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import { ITsTypesMapping } from './tsTypes.decorator';
 
 const inputDataMappingMetadataKey = Symbol('inputDataMapping');
 
@@ -13,6 +14,10 @@ export enum DataFileType {
   PRODUCT = 'Product',
   SHAPE_METADATA = 'ShapeMetadata',
   TFW = 'TFW',
+}
+
+export interface IPropSHPMapping extends IDataMapping, ITsTypesMapping {
+  prop: string;
 }
 
 export function inputDataMapping(dataMapping: IDataMapping): PropertyDecorator {
