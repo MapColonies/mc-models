@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-import { ITsTypesMapping } from './tsTypes.decorator';
 
 const inputDataMappingMetadataKey = Symbol('inputDataMapping');
 
