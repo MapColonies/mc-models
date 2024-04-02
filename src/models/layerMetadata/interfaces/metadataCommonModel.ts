@@ -8,7 +8,6 @@ export interface IMetadataCommonModel {
   classification: string | undefined;
   productName: string | undefined;
   description: string | undefined;
-  srsId: string | undefined;
   srsName: string | undefined;
   producerName: string | undefined;
   updateDate: Date | undefined;

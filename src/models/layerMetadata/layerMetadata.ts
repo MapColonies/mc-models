@@ -18,6 +18,7 @@ import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorato
 import { ProductType, Transparency, TileOutputFormat } from './enums';
 
 export interface ILayerMetadata {
+  srs: string | undefined;
   productVersion: string | undefined;
   maxResolutionDeg: number | undefined;
   rms: number | undefined;
@@ -191,7 +192,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
   public description: string | undefined = undefined;
 
-  //#region COMMON: srsId
+  //#region COMMON: srs
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:SRS',
@@ -224,7 +225,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     ],
   })
   //#endregion
-  public srsId: string | undefined = undefined;
+  public srs: string | undefined = undefined;
 
   //#region COMMON: producerName
   @pycsw({

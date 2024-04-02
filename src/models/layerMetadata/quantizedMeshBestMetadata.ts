@@ -17,6 +17,7 @@ import { ProductType, RecordStatus } from './enums';
 
 export interface IQuantizedMeshBestMetadata {
   // Based on 3D Entity fields
+  srsId: string | undefined;
   productVersion: number | undefined;
   creationDate: Date | undefined;
   minResolutionMeter: number | undefined;

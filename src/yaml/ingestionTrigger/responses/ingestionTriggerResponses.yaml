@@ -1,0 +1,58 @@
+openapi: "3.0.1"
+info:
+  title: Layer metadata definitions
+  version: 1.0.0
+components:
+  schemas:
+    filesInfoResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          crs:
+            type: number
+          fileFormat:
+            type: string
+          pixelSize:
+            type: number
+          footprint:
+            $ref: '../../geojson.yaml#/components/schemas/Geometry'
+        required:
+          - crs
+          - fileFormat
+          - pixelSize
+          - footprint
+        example:
+          crs: 4326
+          fileFormat: gpkg
+          pixelSize: 0.072
+          footprint:
+            type: Polygon
+            coordinates:
+              - - - -180
+                  - -90
+                - - -180
+                  - 90
+                - - 180
+                  - 90
+                - - 180
+                  - -90
+                - - -180
+                  - -90
+    successMessage:
+      type: object
+      properties:
+        status:
+          type: string
+          example: "success"
+      required:
+        - message
+    errorMessage:
+      type: object
+      properties:
+        message:
+          type: string
+        stacktrace:
+          type: string
+      required:
+        - message  
