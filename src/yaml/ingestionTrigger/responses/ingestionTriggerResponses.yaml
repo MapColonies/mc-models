@@ -55,4 +55,5 @@ components:
         stacktrace:
           type: string
       required:
-        - message  
+        - message
+  

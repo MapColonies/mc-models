@@ -69,5 +69,3 @@ components:
         - RasterVector
         - RasterVectorBest
       description: layer's type might be derived from the first letter
-
-

@@ -22,4 +22,3 @@ components:
           $ref: './partData/rasterLayerPartData.yaml#/components/schemas/polygonPartMetadata' 
         inputFiles:
           $ref: './inputFiles/rasterLayerInputFiles.yaml#/components/schemas/InputFiles'                
-        
