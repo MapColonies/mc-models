@@ -145,23 +145,6 @@ export class PolygonPartRecord extends PolygonPart implements IOrmCatalog {
     return ret as IPropFieldConfigInfo[];
   }
 
-  public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
-    const ret = [];
-    const layer = new PolygonPart();
-    for (const prop in layer) {
-      const shpMap = getInputDataMapping<PolygonPart>(layer, prop);
-      const tsTypesMap = getTsTypesMapping<PolygonPart>(layer, prop);
-      if (shpMap && tsTypesMap && (includeCustomLogic || shpMap.isCustomLogic === undefined || !shpMap.isCustomLogic)) {
-        ret.push({
-          prop: prop,
-          ...shpMap,
-          ...tsTypesMap,
-        });
-      }
-    }
-    return ret;
-  }
-
   public getORMCatalogMappings(): IPropCatalogDBMapping[] {
     const ret = [];
 

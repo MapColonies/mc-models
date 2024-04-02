@@ -16,10 +16,6 @@ export enum DataFileType {
   TFW = 'TFW',
 }
 
-export interface IPropSHPMapping extends IDataMapping, ITsTypesMapping {
-  prop: string;
-}
-
 export function inputDataMapping(dataMapping: IDataMapping): PropertyDecorator {
   return Reflect.metadata(inputDataMappingMetadataKey, dataMapping);
 }

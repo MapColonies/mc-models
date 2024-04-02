@@ -56,4 +56,3 @@ components:
           type: string
       required:
         - message
-  
