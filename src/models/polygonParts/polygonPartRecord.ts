@@ -7,8 +7,7 @@ import { getFieldConfigClassInfo } from '../common/decorators/fieldConfig/classF
 import { catalogDB, getCatalogDBMapping } from '../layerMetadata/decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from '../layerMetadata/decorators/class/catalogDBEntity.decorator';
-import { getInputDataMapping, IPropSHPMapping } from '../layerMetadata/decorators/property/shp.decorator';
-import { IPropPYCSWMapping, PolygonPart } from './polygonPart';
+import { PolygonPart } from './polygonPart';
 
 @catalogDBEntity({
   table: 'records',
@@ -123,10 +122,6 @@ export class PolygonPartRecord extends PolygonPart implements IOrmCatalog {
 
   public constructor() {
     super();
-  }
-
-  public static getPyCSWMappings(): IPropPYCSWMapping[] {
-    return [];
   }
 
   public static getFieldConfigs(): IPropFieldConfigInfo[] {

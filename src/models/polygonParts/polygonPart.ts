@@ -8,16 +8,9 @@ import {
   IFieldConfigInfo,
   IPropFieldConfigInfo,
 } from '../common/decorators/fieldConfig/fieldConfig.decorator';
-import {
-  getInputDataMapping,
-  IDataMapping,
-  DataFileType,
-  inputDataMapping,
-  IPropSHPMapping,
-} from '../layerMetadata/decorators/property/shp.decorator';
+import { getInputDataMapping, IDataMapping, DataFileType, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB } from '../layerMetadata/decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
-import { IPYCSWMapping } from '../layerMetadata/decorators/property/csw.decorator';
 
 export interface IPolygonPart {
   id: string | undefined;
@@ -33,10 +26,6 @@ export interface IPolygonPart {
   imagingTimeBeginUTC: Date | undefined;
   imagingTimeEndUTC: Date | undefined;
   geometry: GeoJSON | undefined;
-}
-
-export interface IPropPYCSWMapping extends IPYCSWMapping {
-  prop: string;
 }
 
 export class PolygonPart implements IPolygonPart {
@@ -456,10 +445,6 @@ export class PolygonPart implements IPolygonPart {
     return getFieldConfig<PolygonPart>(new PolygonPart(), prop);
   }
 
-  public static getPyCSWMappings(): IPropPYCSWMapping[] {
-    return [];
-  }
-
   public static getCatalogDBMappings(): IPropCatalogDBMapping[] {
     const ret = [];
     const layer = new PolygonPart();
@@ -470,23 +455,6 @@ export class PolygonPart implements IPolygonPart {
         ret.push({
           prop: prop,
           ...catalogDbMap,
-          ...tsTypesMap,
-        });
-      }
-    }
-    return ret;
-  }
-
-  public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
-    const ret = [];
-    const layer = new PolygonPart();
-    for (const prop in layer) {
-      const shpMap = getInputDataMapping<PolygonPart>(layer, prop);
-      const tsTypesMap = getTsTypesMapping<PolygonPart>(layer, prop);
-      if (shpMap && tsTypesMap && (includeCustomLogic || shpMap.isCustomLogic === undefined || !shpMap.isCustomLogic)) {
-        ret.push({
-          prop: prop,
-          ...shpMap,
           ...tsTypesMap,
         });
       }
