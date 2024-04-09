@@ -35,14 +35,14 @@ components:
               format: date-time
             resolutionDegree:
               type: number
-              minimum: 9.e-8
-              maximum: 0.072
+              minimum: 0.703125
+              maximum: 1.67638e-7
               format: double
               description: min resolution of layer in degrees/pixel
             resolutionMeter:
               type: number
-              minimum: 0.01
-              maximum: 8000
+              minimum: 0.0185
+              maximum: 78273
               format: double
               description: min resolution of layer in meters
             sourceResolutionMeter:
@@ -79,4 +79,4 @@ components:
               type: string
             geometry:
               $ref: '../../geojson.yaml#/components/schemas/Geometry'
-              example: ['example.tif']
+              example: ['example.gpkg']

@@ -18,7 +18,7 @@ components:
             type: string
             pattern: ^.+\.[Gg][Pp][Kk][Gg]$
             description: layer source files
-          example: ['example.tif']
+          example: ['example.gpkg']
       required:
       - originDirectory
       - fileNames    

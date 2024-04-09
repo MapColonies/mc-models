@@ -2,6 +2,7 @@ import { LayerMetadata } from '../../layerMetadata';
 import { PolygonPartRecord } from '../../polygonParts';
 
 export type UpdateRasterLayerMetadata = Pick<LayerMetadata, 'productSubType' | 'description' | 'region' | 'classification' | 'scale'>;
+
 export type NewRasterLayerMetadata = UpdateRasterLayerMetadata &
   Pick<LayerMetadata, 'productId' | 'producerName' | 'productType' | 'srs' | 'srsName' | 'transparency' | 'productName'>;
 

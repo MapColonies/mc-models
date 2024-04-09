@@ -1,1 +1,1 @@
-export * from './ingestionLayer';
+export * from './ingestionTypes';

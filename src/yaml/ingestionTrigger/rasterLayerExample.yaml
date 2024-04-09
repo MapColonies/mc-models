@@ -24,7 +24,7 @@ components:
             name: string
             imagingTimeBeginUTC: "2024-01-28T13:47:43.427Z"
             imagingTimeEndUTC: "2024-01-28T13:47:43.427Z"
-            resolutionDegree: 0.072
+            resolutionDegree: 0.703125
             resolutionMeter: 8000
             sourceResolutionMeter: 8000
             horizontalAccuracyCE90: 10
@@ -51,7 +51,7 @@ components:
         inputFiles:            
           originDirectory: string
           fileNames:
-            - example.tif
+            - 'example.gpkg'
     UpdateRasterLayerExample:
       value:
         metadata:
@@ -65,7 +65,7 @@ components:
             name: string
             imagingTimeBeginUTC: "2024-01-28T13:47:43.427Z"
             imagingTimeEndUTC: "2024-01-28T13:47:43.427Z"
-            resolutionDegree: 0.072
+            resolutionDegree: 0.703125
             resolutionMeter: 8000
             sourceResolutionMeter: 8000
             horizontalAccuracyCE90: 10
@@ -92,4 +92,4 @@ components:
         inputFiles:            
           originDirectory: string
           fileNames:
-            - example.tif
+            - 'example.gpkg'

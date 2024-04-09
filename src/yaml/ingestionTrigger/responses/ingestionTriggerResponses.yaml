@@ -25,7 +25,7 @@ components:
         example:
           crs: 4326
           fileFormat: gpkg
-          pixelSize: 0.072
+          pixelSize: 0.703125
           footprint:
             type: Polygon
             coordinates:
