@@ -779,12 +779,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.maxResolutionDeg.min',
         valueType: 'value',
-        min: 0.703125,
+        min: 1.67638e-7,
       },
       {
         errorMsgCode: 'validation-field.maxResolutionDeg.max',
         valueType: 'value',
-        max: 1.67638e-7,
+        max: 0.703125,
       },
     ],
     isLifecycleEnvolved: true,
@@ -826,12 +826,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.min',
         valueType: 'value',
-        min: 78273,
+        min: 0.0185,
       },
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.max',
         valueType: 'value',
-        max: 0.0185,
+        max: 78273,
       },
     ],
     isLifecycleEnvolved: true,

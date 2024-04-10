@@ -35,20 +35,20 @@ components:
               format: date-time
             resolutionDegree:
               type: number
-              minimum: 0.703125
-              maximum: 1.67638e-7
+              minimum: 1.67638e-7
+              maximum: 0.703125
               format: double
               description: min resolution of layer in degrees/pixel
             resolutionMeter:
               type: number
-              minimum: 78273
-              maximum: 0.0185
+              minimum: 0.0185
+              maximum: 78273
               format: double
               description: min resolution of layer in meters
             sourceResolutionMeter:
               type: number
-              minimum: 78273
-              maximum: 0.0185
+              minimum: 0.0185
+              maximum: 78273
               format: double
               description: min resolution of layer in meters
             horizontalAccuracyCE90:
