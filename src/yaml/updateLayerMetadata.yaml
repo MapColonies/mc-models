@@ -77,14 +77,14 @@ components:
           format: date-time
         maxResolutionDeg:
           type: number
-          minimum: 0.00000009
-          maximum: 0.072
+          minimum: 0.703125
+          maximum: 1.67638e-7
           format: double
           description:  max resolution of layer in degrees/pixel
         maxResolutionMeter:
           type: number
-          minimum: 0.01
-          maximum: 8000
+          minimum: 78273
+          maximum: 0.0185
           format: double
           description: max (rounded) resolution of layer in meters/pixel
         minHorizontalAccuracyCE90:

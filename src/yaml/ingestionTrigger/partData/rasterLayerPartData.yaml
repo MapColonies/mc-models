@@ -41,14 +41,14 @@ components:
               description: min resolution of layer in degrees/pixel
             resolutionMeter:
               type: number
-              minimum: 0.0185
-              maximum: 78273
+              minimum: 78273
+              maximum: 0.0185
               format: double
               description: min resolution of layer in meters
             sourceResolutionMeter:
               type: number
-              minimum: 0.01
-              maximum: 8000
+              minimum: 78273
+              maximum: 0.0185
               format: double
               description: min resolution of layer in meters
             horizontalAccuracyCE90:
