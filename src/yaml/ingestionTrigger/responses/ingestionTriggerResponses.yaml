@@ -4,7 +4,7 @@ info:
   version: 1.0.0
 components:
   schemas:
-    filesInfoResponse:
+    sourcesInfoResponse:
       type: array
       items:
         type: object
@@ -39,6 +39,18 @@ components:
                   - -90
                 - - -180
                   - -90
+    validateSourcesResponse:
+      type: object
+      properties:
+        isValid:
+          type: boolean
+          example: true
+        message:
+          type: string
+          example: "Files are valid"
+      required:
+        - status
+        - message              
     successMessage:
       type: object
       properties:
