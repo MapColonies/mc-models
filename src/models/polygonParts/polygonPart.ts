@@ -50,7 +50,7 @@ export class PolygonPart implements IPolygonPart {
   })
   @inputDataMapping({
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Source',
+    valuePath: 'properties.Source',
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -93,7 +93,7 @@ export class PolygonPart implements IPolygonPart {
   })
   @inputDataMapping({
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.SourceName',
+    valuePath: 'properties.SourceName',
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -115,7 +115,7 @@ export class PolygonPart implements IPolygonPart {
   })
   @inputDataMapping({
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Dsc',
+    valuePath: 'properties.Dsc',
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -138,9 +138,9 @@ export class PolygonPart implements IPolygonPart {
     },
   })
   @inputDataMapping({
-    isCustomLogic: true,
+    isCustomLogic: false,
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***min(features[].properties.UpdateDate)***',
+    valuePath: 'properties.UpdateDate',
   })
   @tsTypes({
     mappingType: TsTypes.DATE,
@@ -174,9 +174,9 @@ export class PolygonPart implements IPolygonPart {
     },
   })
   @inputDataMapping({
-    isCustomLogic: true,
+    isCustomLogic: false,
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***max(features[].properties.UpdateDate)***',
+    valuePath: 'properties.UpdateDate',
   })
   @tsTypes({
     mappingType: TsTypes.DATE,
@@ -205,7 +205,7 @@ export class PolygonPart implements IPolygonPart {
   })
   @inputDataMapping({
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Ep90',
+    valuePath: 'properties.Ep90',
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
@@ -246,9 +246,9 @@ export class PolygonPart implements IPolygonPart {
     },
   })
   @inputDataMapping({
-    isCustomLogic: true,
+    isCustomLogic: false,
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***features[].properties.SensorType***',
+    valuePath: 'properties.SensorType',
   })
   @tsTypes({
     mappingType: TsTypes.STRING_ARRAY,
@@ -280,9 +280,9 @@ export class PolygonPart implements IPolygonPart {
     },
   })
   @inputDataMapping({
-    isCustomLogic: true,
+    isCustomLogic: false,
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***features[].properties.Countries***',
+    valuePath: 'properties.Countries',
   })
   @tsTypes({
     mappingType: TsTypes.STRING_ARRAY,
@@ -309,9 +309,9 @@ export class PolygonPart implements IPolygonPart {
     },
   })
   @inputDataMapping({
-    isCustomLogic: true,
+    isCustomLogic: false,
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***features[].properties.Cities***',
+    valuePath: 'properties.Cities',
   })
   @tsTypes({
     mappingType: TsTypes.STRING_ARRAY,
@@ -331,10 +331,6 @@ export class PolygonPart implements IPolygonPart {
       name: 'resolutionDegree',
       type: 'numeric',
     },
-  })
-  @inputDataMapping({
-    dataFile: DataFileType.TFW,
-    valuePath: '[0]',
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
@@ -377,7 +373,7 @@ export class PolygonPart implements IPolygonPart {
   })
   @inputDataMapping({
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Resolution',
+    valuePath: 'properties.Resolution',
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
@@ -415,7 +411,7 @@ export class PolygonPart implements IPolygonPart {
   })
   @inputDataMapping({
     dataFile: DataFileType.PRODUCT,
-    valuePath: 'features[0].geometry',
+    valuePath: 'geometry',
   })
   @tsTypes({
     mappingType: TsTypes.OBJECT,
