@@ -14,6 +14,7 @@ import { catalogDB, getCatalogDBMapping, ICatalogDBMapping, ORMColumnType } from
 import { getTsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 import { ProductType, RecordStatus } from './enums';
+import { IPropSHPMapping } from './decorators/property/shp.decorator';
 
 export interface IQuantizedMeshBestMetadata {
   // Based on 3D Entity fields
@@ -992,6 +993,10 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
       }
     }
     return ret;
+  }
+
+  public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
+    return [];
   }
 
   public static getFieldConfigs(): IPropFieldConfigInfo[] {

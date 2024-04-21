@@ -11,6 +11,7 @@ import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTyp
 import { IPropPYCSWMapping, LayerMetadata } from './layerMetadata';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
 import { getPyCSWMapping, pycsw } from './decorators/property/csw.decorator';
+import { IPropSHPMapping } from './decorators/property/shp.decorator';
 
 @catalogDBEntity({
   table: 'records',
@@ -243,6 +244,10 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
       }
     }
     return ret as IPropFieldConfigInfo[];
+  }
+
+  public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
+    return [];
   }
 
   public getORMCatalogMappings(): IPropCatalogDBMapping[] {

@@ -1,5 +1,6 @@
-import { LayerMetadata, IPYCSWMapping, IDataMapping, IPropPYCSWMapping, IPropSHPMapping, Pycsw3DCatalogRecord } from '../../src/models';
+import { LayerMetadata, IPYCSWMapping, IDataMapping, IPropPYCSWMapping, Pycsw3DCatalogRecord } from '../../src/models';
 import { ICatalogDBMapping } from '../../src/models/layerMetadata/decorators/property/catalogDB.decorator';
+import { IPropSHPMapping } from '../../src/models/layerMetadata/decorators/property/shp.decorator';
 import { PycswLayerCatalogRecord } from '../../src/models/layerMetadata/pycswLayerCatalogRecord';
 
 describe('LayerMetadata class static methods', () => {
