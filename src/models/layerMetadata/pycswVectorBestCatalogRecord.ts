@@ -11,6 +11,7 @@ import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTyp
 import { IPropPYCSWMapping, VectorBestMetadata } from './vectorBestMetadata';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
 import { getPyCSWMapping, pycsw } from './decorators/property/csw.decorator';
+import { IPropSHPMapping } from './decorators/property/shp.decorator';
 
 @catalogDBEntity({
   table: 'records',
@@ -270,6 +271,10 @@ export class PycswVectorBestCatalogRecord extends VectorBestMetadata implements 
       }
     }
     return ret as IPropFieldConfigInfo[];
+  }
+
+  public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
+    return [];
   }
 
   public getORMCatalogMappings(): IPropCatalogDBMapping[] {

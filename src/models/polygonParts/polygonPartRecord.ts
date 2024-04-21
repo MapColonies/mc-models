@@ -1,10 +1,16 @@
 import { GeoJSON } from 'geojson';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
-import { FieldCategory, fieldConfig } from '../common/decorators/fieldConfig/fieldConfig.decorator';
-import { DataFileType, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
-import { catalogDB } from '../layerMetadata/decorators/property/catalogDB.decorator';
-import { tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
+import { FieldCategory, IPropFieldConfigInfo, fieldConfig, getFieldConfig } from '../common/decorators/fieldConfig/fieldConfig.decorator';
+import { DataFileType, IPropSHPMapping, getInputDataMapping, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
+import { catalogDB, getCatalogDBMapping } from '../layerMetadata/decorators/property/catalogDB.decorator';
+import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
+import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping } from '../layerMetadata';
+import { IPropCatalogDBMapping } from '../common';
+import { getCatalogDBEntityMapping } from '../layerMetadata/decorators/class/catalogDBEntity.decorator';
 
+interface IPropPYCSWMapping extends IPYCSWMapping {
+  prop: string;
+}
 export interface IPolygonPart {
   id: string | undefined;
   name: string | undefined;
@@ -21,7 +27,7 @@ export interface IPolygonPart {
   geometry: GeoJSON | undefined;
 }
 
-export class PolygonPartRecord implements IPolygonPart {
+export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: id
   @catalogDB({
     column: {
@@ -32,7 +38,7 @@ export class PolygonPartRecord implements IPolygonPart {
   })
   @inputDataMapping({
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Source',
+    valuePath: 'properties.Source',
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -54,7 +60,7 @@ export class PolygonPartRecord implements IPolygonPart {
   })
   @inputDataMapping({
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.SourceName',
+    valuePath: 'properties.SourceName',
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -76,7 +82,7 @@ export class PolygonPartRecord implements IPolygonPart {
   })
   @inputDataMapping({
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Dsc',
+    valuePath: 'properties.Dsc',
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -99,9 +105,9 @@ export class PolygonPartRecord implements IPolygonPart {
     },
   })
   @inputDataMapping({
-    isCustomLogic: true,
+    isCustomLogic: false,
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***min(features[].properties.UpdateDate)***',
+    valuePath: 'properties.UpdateDate',
   })
   @tsTypes({
     mappingType: TsTypes.DATE,
@@ -135,9 +141,9 @@ export class PolygonPartRecord implements IPolygonPart {
     },
   })
   @inputDataMapping({
-    isCustomLogic: true,
+    isCustomLogic: false,
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***max(features[].properties.UpdateDate)***',
+    valuePath: 'properties.UpdateDate',
   })
   @tsTypes({
     mappingType: TsTypes.DATE,
@@ -166,7 +172,7 @@ export class PolygonPartRecord implements IPolygonPart {
   })
   @inputDataMapping({
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Ep90',
+    valuePath: 'properties.Ep90',
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
@@ -207,9 +213,9 @@ export class PolygonPartRecord implements IPolygonPart {
     },
   })
   @inputDataMapping({
-    isCustomLogic: true,
+    isCustomLogic: false,
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***features[].properties.SensorType***',
+    valuePath: 'properties.SensorType',
   })
   @tsTypes({
     mappingType: TsTypes.STRING_ARRAY,
@@ -241,9 +247,9 @@ export class PolygonPartRecord implements IPolygonPart {
     },
   })
   @inputDataMapping({
-    isCustomLogic: true,
+    isCustomLogic: false,
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***features[].properties.Countries***',
+    valuePath: 'properties.Countries',
   })
   @tsTypes({
     mappingType: TsTypes.STRING_ARRAY,
@@ -270,9 +276,9 @@ export class PolygonPartRecord implements IPolygonPart {
     },
   })
   @inputDataMapping({
-    isCustomLogic: true,
+    isCustomLogic: false,
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***features[].properties.Cities***',
+    valuePath: 'properties.Cities',
   })
   @tsTypes({
     mappingType: TsTypes.STRING_ARRAY,
@@ -286,16 +292,12 @@ export class PolygonPartRecord implements IPolygonPart {
   //#endregion
   public cities: string[] | undefined = undefined;
 
-  //#region METADATA: resolutionDegree
+  //#region METADATA: resolutionDegree??? [from INGESTION PARAMS]
   @catalogDB({
     column: {
       name: 'resolutionDegree',
       type: 'numeric',
     },
-  })
-  @inputDataMapping({
-    dataFile: DataFileType.TFW,
-    valuePath: '[0]',
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
@@ -329,16 +331,12 @@ export class PolygonPartRecord implements IPolygonPart {
   //#endregion
   public resolutionDegree: number | undefined = undefined;
 
-  //#region METADATA: resolutionMeter
+  //#region METADATA: resolutionMeter [from INGESTION PARAMS]
   @catalogDB({
     column: {
       name: 'resolutionMeter',
       type: 'numeric',
     },
-  })
-  @inputDataMapping({
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Resolution',
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
@@ -367,18 +365,19 @@ export class PolygonPartRecord implements IPolygonPart {
   //#endregion
   public resolutionMeter: number | undefined = undefined;
 
-  //#region METADATA: sourceResolutionMeter
+  //#region METADATA: sourceResolutionMeter [READONLY]
   @catalogDB({
     column: {
       name: 'sourceResolutionMeter',
       type: 'numeric',
     },
   })
-  // @inputDataMapping({
-  // what is the dataMapping for this field?
-  // })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
+  })
+  @inputDataMapping({
+    dataFile: DataFileType.SHAPE_METADATA,
+    valuePath: 'properties.Resolution',
   })
   @graphql()
   @fieldConfig({
@@ -403,7 +402,7 @@ export class PolygonPartRecord implements IPolygonPart {
   })
   @inputDataMapping({
     dataFile: DataFileType.PRODUCT,
-    valuePath: 'features[0].geometry',
+    valuePath: 'geometry',
   })
   @tsTypes({
     mappingType: TsTypes.OBJECT,
@@ -530,4 +529,61 @@ export class PolygonPartRecord implements IPolygonPart {
   })
   //#endregion
   public ingestionDateUTC: Date | undefined = undefined;
+
+  public static getPyCSWMappings(): IPropPYCSWMapping[] {
+    return [];
+  }
+
+  public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
+    const ret = [];
+    const layer = new PolygonPartRecord();
+    for (const prop in layer) {
+      const shpMap = getInputDataMapping<PolygonPartRecord>(layer, prop);
+      const tsTypesMap = getTsTypesMapping<PolygonPartRecord>(layer, prop);
+      if (shpMap && tsTypesMap && (includeCustomLogic || shpMap.isCustomLogic === undefined || !shpMap.isCustomLogic)) {
+        ret.push({
+          prop: prop,
+          ...shpMap,
+          ...tsTypesMap,
+        });
+      }
+    }
+    return ret;
+  }
+
+  public static getFieldConfigs(): IPropFieldConfigInfo[] {
+    const ret = [];
+    const layer = new PolygonPartRecord();
+    for (const prop in layer) {
+      const fieldConfigMap = getFieldConfig<PolygonPartRecord>(layer, prop);
+      if (fieldConfigMap) {
+        ret.push({
+          prop: prop,
+          ...fieldConfigMap,
+        });
+      }
+    }
+    return ret;
+  }
+
+  public getORMCatalogMappings(): IPropCatalogDBMapping[] {
+    const ret = [];
+
+    for (const prop in this) {
+      const catalogDbMap = getCatalogDBMapping(this, prop);
+      const tsTypesMap = getTsTypesMapping(this, prop);
+      if (catalogDbMap && tsTypesMap) {
+        ret.push({
+          prop: prop,
+          ...catalogDbMap,
+          ...tsTypesMap,
+        });
+      }
+    }
+    return ret;
+  }
+
+  public getORMCatalogEntityMappings(): ICatalogDBEntityMapping {
+    return getCatalogDBEntityMapping(PolygonPartRecord);
+  }
 }

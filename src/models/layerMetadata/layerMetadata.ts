@@ -12,9 +12,9 @@ import {
 import { RecordType } from '../pycsw/coreEnums';
 import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
-import { getInputDataMapping, IDataMapping, DataFileType, inputDataMapping } from './decorators/property/shp.decorator';
+import { getInputDataMapping, IDataMapping, DataFileType, inputDataMapping, IPropSHPMapping } from './decorators/property/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB, ORMColumnType } from './decorators/property/catalogDB.decorator';
-import { getTsTypesMapping, ITsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
+import { getTsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 import { ProductType, Transparency, TileOutputFormat } from './enums';
 
 export interface ILayerMetadata {
@@ -29,9 +29,6 @@ export interface ILayerMetadata {
   minHorizontalAccuracyCE90: number | undefined;
   region: string[] | undefined;
   sensors: string[] | undefined;
-}
-export interface IPropSHPMapping extends IDataMapping, ITsTypesMapping {
-  prop: string;
 }
 
 export interface IPropPYCSWMapping extends IPYCSWMapping {

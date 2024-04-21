@@ -11,6 +11,7 @@ import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } f
 import { getPyCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { Layer3DMetadata, IPropPYCSWMapping } from './layer3DMetadata';
 import { Link } from './link';
+import { IPropSHPMapping } from './decorators/property/shp.decorator';
 
 @catalogDBEntity({
   table: 'records',
@@ -284,6 +285,10 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
       }
     }
     return ret;
+  }
+
+  public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
+    return [];
   }
 
   public getORMCatalogMappings(): IPropCatalogDBMapping[] {

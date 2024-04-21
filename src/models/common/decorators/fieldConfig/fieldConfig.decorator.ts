@@ -39,6 +39,7 @@ export interface IFieldConfigInfo {
   infoMsgCode?: string[];
   validation?: IValidationConfigInfo[];
   default?: string | number;
+  shapeFileMapping?: string;
 }
 
 export interface IPropFieldConfigInfo extends IFieldConfigInfo {
