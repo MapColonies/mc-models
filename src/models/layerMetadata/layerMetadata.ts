@@ -10,6 +10,7 @@ import {
   IPropFieldConfigInfo,
 } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { RecordType } from '../pycsw/coreEnums';
+import { NewRasterLayerMetadata, UpdateRasterLayerMetadata } from '../raster/ingestion';
 import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { getInputDataMapping, IDataMapping, DataFileType, inputDataMapping, IPropSHPMapping } from './decorators/property/shp.decorator';
@@ -1201,6 +1202,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   public static getFieldConfigs(): IPropFieldConfigInfo[] {
     const ret = [];
+    const newLayerMetadataProps = Object.keys(new NewRasterLayerMetadata());
+    const updatedLayerMetadataProps = Object.keys(new UpdateRasterLayerMetadata());
     const layer = new LayerMetadata();
     for (const prop in layer) {
       const fieldConfigMap = getFieldConfig<LayerMetadata>(layer, prop);
@@ -1208,6 +1211,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
         ret.push({
           prop: prop,
           ...fieldConfigMap,
+          isCreateEssential: newLayerMetadataProps.includes(prop),
+          isUpdateEssential: updatedLayerMetadataProps.includes(prop),
         });
       }
     }
