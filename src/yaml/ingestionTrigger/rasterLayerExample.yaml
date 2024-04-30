@@ -16,7 +16,7 @@ components:
           srsName: 'WGS84GEO'
           transparency: TRANSPARENT
           region: string
-          classification: 'not classified'
+          classification: '6'
           producerName: string
           scale: 100000000
         partData:
@@ -58,7 +58,7 @@ components:
           productSubType: string
           description: string
           region: string
-          classification: 'not classified'
+          classification: '6'
           scale: 100000000
         partData:
           - id: string
