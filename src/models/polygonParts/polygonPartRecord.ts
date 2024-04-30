@@ -487,7 +487,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: updatedInVersion [Version number of the best layer when it was updated]
   @catalogDB({
     column: {
-      name: 'version',
+      name: 'updatedInVersion',
       type: 'text',
       nullable: true,
     },
