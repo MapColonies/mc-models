@@ -5,6 +5,7 @@ import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import { graphqlClass } from '../common/decorators/graphQL/classGraphql.decorator';
 import { FieldCategory, fieldConfig, getFieldConfig, IPropFieldConfigInfo } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { getFieldConfigClassInfo } from '../common/decorators/fieldConfig/classFieldConfig.decorator';
+import { NewRasterLayerMetadata, UpdateRasterLayerMetadata } from '../raster/ingestion';
 import { Link } from './link';
 import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
@@ -12,7 +13,6 @@ import { IPropPYCSWMapping, LayerMetadata } from './layerMetadata';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
 import { getPyCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { IPropSHPMapping } from './decorators/property/shp.decorator';
-import { NewRasterLayerMetadata, UpdateRasterLayerMetadata } from '../raster/ingestion';
 
 @catalogDBEntity({
   table: 'records',
