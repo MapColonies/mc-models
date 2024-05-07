@@ -11,21 +11,6 @@ import { getCatalogDBEntityMapping } from '../layerMetadata/decorators/class/cat
 interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
 }
-export interface IPolygonPart {
-  id: string | undefined;
-  name: string | undefined;
-  description: string | undefined;
-  resolutionDegree: number | undefined;
-  resolutionMeter: number | undefined;
-  sourceResolutionMeter: number | undefined;
-  horizontalAccuracyCE90: number | undefined;
-  countries: string[] | undefined;
-  cities: string[] | undefined;
-  sensors: string[] | undefined;
-  imagingTimeBeginUTC: Date | undefined;
-  imagingTimeEndUTC: Date | undefined;
-  geometry: GeoJSON | undefined;
-}
 
 @graphqlClass({ alias: 'PolygonPartRecord' })
 export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
@@ -582,4 +567,20 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   public getORMCatalogEntityMappings(): ICatalogDBEntityMapping {
     return getCatalogDBEntityMapping(PolygonPartRecord);
   }
+}
+
+export interface IPolygonPart {
+  id: string | undefined;
+  name: string | undefined;
+  description: string | undefined;
+  resolutionDegree: number | undefined;
+  resolutionMeter: number | undefined;
+  sourceResolutionMeter: number | undefined;
+  horizontalAccuracyCE90: number | undefined;
+  countries: string[] | undefined;
+  cities: string[] | undefined;
+  sensors: string[] | undefined;
+  imagingTimeBeginUTC: Date | undefined;
+  imagingTimeEndUTC: Date | undefined;
+  geometry: GeoJSON | undefined;
 }
