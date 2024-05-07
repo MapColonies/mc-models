@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [15.3.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@15.2.0...mc-model-types@15.3.0) (2024-05-07)
+
+
+### Features
+
+* polygon parts entity ([#183](https://github.com/MapColonies/mc-models/issues/183)) ([6164660](https://github.com/MapColonies/mc-models/commit/6164660f72d0a2ad2f935c3c9de948ac725514c2))
+
 ## [15.2.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@15.1.1...mc-model-types@15.2.0) (2024-01-08)
 
 
