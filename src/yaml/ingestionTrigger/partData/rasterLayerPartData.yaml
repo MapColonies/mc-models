@@ -21,7 +21,6 @@ components:
             id:
               type: string
               description: Layer's external identifier
-              pattern: ^[a-zA-Z0-9_-]+$
             name:
               type: string
               description: Layer's external name
@@ -72,9 +71,6 @@ components:
               items:
                 type: string
               description: cities included in the layer
-            classification:
-              type: string
-              description: Permitted roles
             description:
               type: string
             geometry:

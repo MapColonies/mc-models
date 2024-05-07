@@ -10,12 +10,12 @@ export class UpdateRasterLayerMetadata implements IUpdateRasterLayerMetadata {
   public classification: string | undefined;
   public scale: number | undefined;
 
-  public constructor() {
-    this.productSubType = undefined;
-    this.description = undefined;
-    this.region = undefined;
-    this.classification = undefined;
-    this.scale = undefined;
+  public constructor(productSubType?: string, description?: string, region?: string[], classification?: string, scale?: number) {
+    this.productSubType = productSubType;
+    this.description = description;
+    this.region = region;
+    this.classification = classification;
+    this.scale = scale;
   }
 }
 
@@ -31,15 +31,28 @@ export class NewRasterLayerMetadata extends UpdateRasterLayerMetadata implements
   public transparency: Transparency | undefined;
   public productName: string | undefined;
 
-  public constructor() {
-    super();
-    this.productId = undefined;
-    this.producerName = undefined;
-    this.productType = undefined;
-    this.srs = undefined;
-    this.srsName = undefined;
-    this.transparency = undefined;
-    this.productName = undefined;
+  public constructor(
+    productId?: string,
+    producerName?: string,
+    productType?: ProductType,
+    srs?: string,
+    srsName?: string,
+    transparency?: Transparency,
+    productName?: string,
+    productSubType?: string,
+    description?: string,
+    region?: string[],
+    classification?: string,
+    scale?: number
+  ) {
+    super(productSubType, description, region, classification, scale);
+    this.productId = productId;
+    this.producerName = producerName;
+    this.productType = productType;
+    this.srs = srs;
+    this.srsName = srsName;
+    this.transparency = transparency;
+    this.productName = productName;
   }
 }
 

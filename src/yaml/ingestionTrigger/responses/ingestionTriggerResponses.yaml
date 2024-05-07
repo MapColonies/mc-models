@@ -64,7 +64,5 @@ components:
       properties:
         message:
           type: string
-        stacktrace:
-          type: string
       required:
         - message
