@@ -10,6 +10,7 @@ import {
   IPropFieldConfigInfo,
 } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { RecordType } from '../pycsw/coreEnums';
+import { NewRasterLayerMetadata, UpdateRasterLayerMetadata } from '../raster/ingestion';
 import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { getInputDataMapping, IDataMapping, DataFileType, inputDataMapping, IPropSHPMapping } from './decorators/property/shp.decorator';
@@ -18,6 +19,7 @@ import { getTsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTyp
 import { ProductType, Transparency, TileOutputFormat } from './enums';
 
 export interface ILayerMetadata {
+  srs: string | undefined;
   productVersion: string | undefined;
   maxResolutionDeg: number | undefined;
   rms: number | undefined;
@@ -188,7 +190,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
   public description: string | undefined = undefined;
 
-  //#region COMMON: srsId
+  //#region COMMON: srs
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:SRS',
@@ -221,7 +223,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     ],
   })
   //#endregion
-  public srsId: string | undefined = undefined;
+  public srs: string | undefined = undefined;
 
   //#region COMMON: producerName
   @pycsw({
@@ -775,12 +777,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.maxResolutionDeg.min',
         valueType: 'value',
-        min: 0.00000009,
+        min: 1.67638e-7,
       },
       {
         errorMsgCode: 'validation-field.maxResolutionDeg.max',
         valueType: 'value',
-        max: 0.072,
+        max: 0.703125,
       },
     ],
     isLifecycleEnvolved: true,
@@ -822,12 +824,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.min',
         valueType: 'value',
-        min: 0.01,
+        min: 0.0185,
       },
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.max',
         valueType: 'value',
-        max: 8000,
+        max: 78273,
       },
     ],
     isLifecycleEnvolved: true,
@@ -1200,6 +1202,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   public static getFieldConfigs(): IPropFieldConfigInfo[] {
     const ret = [];
+    const newLayerMetadataProps = Object.keys(new NewRasterLayerMetadata());
+    const updatedLayerMetadataProps = Object.keys(new UpdateRasterLayerMetadata());
     const layer = new LayerMetadata();
     for (const prop in layer) {
       const fieldConfigMap = getFieldConfig<LayerMetadata>(layer, prop);
@@ -1207,6 +1211,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
         ret.push({
           prop: prop,
           ...fieldConfigMap,
+          isCreateEssential: newLayerMetadataProps.includes(prop),
+          isUpdateEssential: updatedLayerMetadataProps.includes(prop),
         });
       }
     }

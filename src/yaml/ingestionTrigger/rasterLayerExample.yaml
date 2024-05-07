@@ -1,0 +1,95 @@
+openapi: "3.0.1"
+info:
+  title: Raster layer examples
+  version: 1.0.0
+components:
+  examples:
+    NewRasterLayerExample:
+      value:
+        metadata:
+          productId: string
+          productName: string
+          productType: Orthophoto
+          productSubType: string
+          description: string
+          srs: '4326'
+          srsName: 'WGS84GEO'
+          transparency: TRANSPARENT
+          region: string
+          classification: '6'
+          producerName: string
+          scale: 100000000
+        partData:
+          - id: string
+            name: string
+            imagingTimeBeginUTC: "2024-01-28T13:47:43.427Z"
+            imagingTimeEndUTC: "2024-01-28T13:47:43.427Z"
+            resolutionDegree: 0.703125
+            resolutionMeter: 8000
+            sourceResolutionMeter: 8000
+            horizontalAccuracyCE90: 10
+            sensors:
+              - string
+            countries:
+              - string
+            cities:
+              - string
+            description: string
+            geometry:
+              type: Polygon
+              coordinates: 
+              - - - 34.85149443279957
+                  - 32.30543192283443
+                - - 34.85149443279957
+                  - 32.29430955805424
+                - - 34.86824157112912
+                  - 32.29430955805424
+                - - 34.86824157112912
+                  - 32.30543192283443
+                - - 34.85149443279957
+                  - 32.30543192283443
+        inputFiles:            
+          originDirectory: string
+          fileNames:
+            - 'example.gpkg'
+    UpdateRasterLayerExample:
+      value:
+        metadata:
+          productSubType: string
+          description: string
+          region: string
+          classification: '6'
+          scale: 100000000
+        partData:
+          - id: string
+            name: string
+            imagingTimeBeginUTC: "2024-01-28T13:47:43.427Z"
+            imagingTimeEndUTC: "2024-01-28T13:47:43.427Z"
+            resolutionDegree: 0.703125
+            resolutionMeter: 78273
+            sourceResolutionMeter: 78273
+            horizontalAccuracyCE90: 10
+            sensors:
+              - string
+            countries:
+              - string
+            cities:
+              - string
+            description: string
+            geometry:
+              type: Polygon
+              coordinates: 
+              - - - 34.85149443279957
+                  - 32.30543192283443
+                - - 34.85149443279957
+                  - 32.29430955805424
+                - - 34.86824157112912
+                  - 32.29430955805424
+                - - 34.86824157112912
+                  - 32.30543192283443
+                - - 34.85149443279957
+                  - 32.30543192283443
+        inputFiles:            
+          originDirectory: string
+          fileNames:
+            - 'example.gpkg'

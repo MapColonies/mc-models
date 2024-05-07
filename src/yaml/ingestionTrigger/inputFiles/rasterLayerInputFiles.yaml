@@ -1,0 +1,24 @@
+openapi: "3.0.1"
+info:
+  title: Layer metadata definitions
+  version: 1.0.0
+components:
+  schemas:
+    InputFiles:
+      title: 'Layer input files'
+      type: object
+      properties:
+        originDirectory:
+          type: string
+          example: 'string'
+          description: layer source directory
+        fileNames:
+          type: array
+          items:
+            type: string
+            pattern: ^.+\.[Gg][Pp][Kk][Gg]$
+            description: layer source files
+          example: ['example.gpkg']
+      required:
+      - originDirectory
+      - fileNames    

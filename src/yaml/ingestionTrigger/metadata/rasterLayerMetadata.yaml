@@ -1,0 +1,71 @@
+openapi: "3.0.1"
+info:
+  title: layer metadata definitions
+  version: 1.0.0
+components:
+  schemas:
+    updateRasterLayerMetadata:
+      type: object
+      required:
+        - region
+        - classification
+      description: layer meta data that will override
+      properties:
+        productSubType:
+          type: string
+          description: Layer's sub type
+        description:
+          type: string
+          description: layer's description
+        region:
+          type: string
+          description: region of record
+        classification:
+          type: string
+          description: Permitted roles
+        scale:
+          type: integer
+          minimum: 0
+          maximum: 100000000
+    newRasterLayerMetadata:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/updateRasterLayerMetadata'
+        - properties:
+            productId:
+              type: string
+              description: Layer's external identifier
+              pattern: ^[a-zA-Z0-9_-]+$
+            productName:
+              type: string
+              description: Layer's external name
+            productType:
+              $ref: '#/components/schemas/productType'
+            srs:
+              type: string
+              description: geo system id
+            srsName:
+              type: string
+              description: geo system name
+            transparency:
+              type: string
+              enum:
+                - TRANSPARENT
+                - OPAQUE
+              description: layer can be transparent or opaque
+            producerName:
+              type: string
+              description: creator name default IDFMU                            
+    productType:
+      type: string
+      enum:
+        - Orthophoto
+        - OrthophotoHistory
+        - OrthophotoBest
+        - RasterMap
+        - RasterMapBest
+        - RasterAid
+        - RasterAidBest
+        - RasterVector
+        - RasterVectorBest
+      description: layer's type might be derived from the first letter

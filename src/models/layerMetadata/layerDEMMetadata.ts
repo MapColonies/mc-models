@@ -16,6 +16,7 @@ import { getTsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTyp
 import { ProductType, RecordStatus } from './enums';
 
 export interface ILayerMetadata {
+  srsId: string | undefined;
   resolutionDegree: number | undefined;
   resolutionMeter: number | undefined;
   absoluteAccuracyLEP90: number | undefined;

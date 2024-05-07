@@ -15,6 +15,7 @@ import { catalogDB, ORMColumnType } from './decorators/property/catalogDB.decora
 import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 
 export interface ILayer3DMetadata {
+  srsId: string | undefined;
   productVersion: number | undefined;
   creationDate: Date | undefined;
   minResolutionMeter: number | undefined;

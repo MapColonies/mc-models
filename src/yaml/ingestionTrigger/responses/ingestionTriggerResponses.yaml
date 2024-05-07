@@ -1,0 +1,68 @@
+openapi: "3.0.1"
+info:
+  title: Layer metadata definitions
+  version: 1.0.0
+components:
+  schemas:
+    sourcesInfoResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          crs:
+            type: number
+          fileFormat:
+            type: string
+          pixelSize:
+            type: number
+          extentPolygon:
+            $ref: '../../geojson.yaml#/components/schemas/Geometry'
+        required:
+          - crs
+          - fileFormat
+          - pixelSize
+          - extentPolygon
+        example:
+          crs: 4326
+          fileFormat: gpkg
+          pixelSize: 0.703125
+          extentPolygon:
+            type: Polygon
+            coordinates:
+              - - - -180
+                  - -90
+                - - -180
+                  - 90
+                - - 180
+                  - 90
+                - - 180
+                  - -90
+                - - -180
+                  - -90
+    validateSourcesResponse:
+      type: object
+      properties:
+        isValid:
+          type: boolean
+          example: true
+        message:
+          type: string
+          example: "Files are valid"
+      required:
+        - status
+        - message              
+    successMessage:
+      type: object
+      properties:
+        status:
+          type: string
+          example: "success"
+      required:
+        - message
+    errorMessage:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message

@@ -1,0 +1,78 @@
+openapi: "3.0.1"
+info:
+  title: Layer polygon part
+  version: 1.0.0
+components:
+  schemas:
+    polygonPartMetadata:
+          type: object
+          description: Layer polygon part data definitions
+          required:
+            - name
+            - imagingTimeBeginUTC
+            - imagingTimeEndUTC
+            - geometry
+            - resolutionDegree
+            - resolutionMeter
+            - sourceResolutionMeter
+            - horizontalAccuracyCE90
+            - sensors
+          properties:
+            id:
+              type: string
+              description: Layer's external identifier
+            name:
+              type: string
+              description: Layer's external name
+            imagingTimeBeginUTC:
+              type: string
+              description: Oldest imaging date (UTC)
+              format: date-time
+            imagingTimeEndUTC:
+              type: string
+              description: Latest imaging date (UTC)
+              format: date-time
+            resolutionDegree:
+              type: number
+              minimum: 1.67638e-7
+              maximum: 0.703125
+              format: double
+              description: min resolution of layer in degrees/pixel
+            resolutionMeter:
+              type: number
+              minimum: 0.0185
+              maximum: 78273
+              format: double
+              description: min resolution of layer in meters
+            sourceResolutionMeter:
+              type: number
+              minimum: 0.0185
+              maximum: 78273
+              format: double
+              description: min resolution of layer in meters
+            horizontalAccuracyCE90:
+              type: number
+              minimum: 0.01
+              maximum: 4000
+              format: double
+              description: minimum Horizontal Accuracy
+            sensors:
+              type: array
+              items:
+                type: string
+              description: Layer sensors list
+            countries:
+              type: array
+              items:
+                type: string
+              description: countries included in the layer
+            cities:
+              type: array
+              items:
+                type: string
+              description: cities included in the layer
+            description:
+              type: string
+            geometry:
+              $ref: '../../geojson.yaml#/components/schemas/Geometry'
+              example: ['example.gpkg']

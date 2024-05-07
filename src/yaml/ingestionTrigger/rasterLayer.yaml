@@ -1,0 +1,24 @@
+openapi: "3.0.1"
+info:
+  title: Raster layer definitions
+  version: 1.0.0
+components:
+  schemas:
+    NewRasterLayer:
+      type: object
+      properties:
+        metadata: 
+          $ref: './metadata/rasterLayerMetadata.yaml#/components/schemas/newRasterLayerMetadata'
+        partData:
+          $ref: './partData/rasterLayerPartData.yaml#/components/schemas/polygonPartMetadata' 
+        inputFiles:
+          $ref: './inputFiles/rasterLayerInputFiles.yaml#/components/schemas/InputFiles'
+    UpdateRasterLayer:
+      type: object
+      properties:
+        metadata: 
+          $ref: './metadata/rasterLayerMetadata.yaml#/components/schemas/updateRasterLayerMetadata'
+        partData:
+          $ref: './partData/rasterLayerPartData.yaml#/components/schemas/polygonPartMetadata' 
+        inputFiles:
+          $ref: './inputFiles/rasterLayerInputFiles.yaml#/components/schemas/InputFiles'                

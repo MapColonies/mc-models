@@ -5,6 +5,7 @@ import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import { graphqlClass } from '../common/decorators/graphQL/classGraphql.decorator';
 import { FieldCategory, fieldConfig, getFieldConfig, IPropFieldConfigInfo } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { getFieldConfigClassInfo } from '../common/decorators/fieldConfig/classFieldConfig.decorator';
+import { NewRasterLayerMetadata, UpdateRasterLayerMetadata } from '../raster/ingestion';
 import { Link } from './link';
 import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
@@ -232,11 +233,18 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
 
   public static getFieldConfigs(): IPropFieldConfigInfo[] {
     const ret = [];
+    const newLayerMetadataProps = Object.keys(new NewRasterLayerMetadata());
+    const updatedLayerMetadataProps = Object.keys(new UpdateRasterLayerMetadata());
     const layer = new PycswLayerCatalogRecord();
     for (const prop in layer) {
       const fieldConfigMap = getFieldConfig<PycswLayerCatalogRecord>(layer, prop);
       if (fieldConfigMap) {
-        const fieldConfig = { prop: prop, ...fieldConfigMap };
+        const fieldConfig = {
+          prop: prop,
+          ...fieldConfigMap,
+          isCreateEssential: newLayerMetadataProps.includes(prop),
+          isUpdateEssential: updatedLayerMetadataProps.includes(prop),
+        };
         if (fieldConfigMap.complexType) {
           fieldConfig.subFields = getFieldConfigClassInfo(fieldConfigMap.complexType.value);
         }

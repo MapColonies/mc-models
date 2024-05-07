@@ -18,6 +18,7 @@ import { ProductType } from './enums';
 import { DiscreteOrder } from './discreteOrder';
 
 export interface IBestMetadata {
+  srsId: string | undefined;
   productVersion: string | undefined;
   maxResolutionDeg: number | undefined;
   rms: number | undefined;
