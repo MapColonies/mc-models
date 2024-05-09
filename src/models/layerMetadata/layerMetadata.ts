@@ -425,6 +425,53 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
   public sourceDateEnd: Date | undefined = undefined;
 
+  //#region COMMON: maxHorizontalAccuracyCE90
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:maxHorizontalAccuracyCE90',
+    queryableField: 'mc:maxHorizontalAccuracyCE90',
+    pycswField: 'pycsw:horizontalAccuracyCE90', //TODO:
+  })
+  @catalogDB({
+    column: {
+      name: 'max_horizontal_accuracy_ce_90',
+      type: 'real',
+    },
+  })
+  @inputDataMapping({
+    dataFile: DataFileType.SHAPE_METADATA,
+    valuePath: 'features[0].properties.Ep90', //TODO:
+  })
+  @tsTypes({
+    mappingType: TsTypes.NUMBER,
+  })
+  @graphql({
+    nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.GEO_INFO,
+    infoMsgCode: ['info-general-tooltip.required'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        required: true,
+      },
+      {
+        errorMsgCode: 'validation-field.maxHorizontalAccuracyCE90.min', //TODO:
+        valueType: 'value',
+        min: 0.01,
+      },
+      {
+        errorMsgCode: 'validation-field.maxHorizontalAccuracyCE90.max', //TODO:
+        valueType: 'value',
+        max: 4000,
+      },
+    ],
+    isLifecycleEnvolved: true,
+  })
+  //#endregion
+  public maxHorizontalAccuracyCE90: number | undefined = undefined;
+
   //#region COMMON: minHorizontalAccuracyCE90
   @pycsw({
     profile: 'mc_raster',
@@ -790,6 +837,60 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
   public maxResolutionDeg: number | undefined = undefined;
 
+  //#region RASTER: min_resolution_deg
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:minResolutionDeg',
+    queryableField: 'mc:minResolutionDeg',
+    pycswField: 'pycsw:Resolution', // TODO: check what to put here
+  })
+  @catalogDB({
+    //TODO: how to set not editable
+    column: {
+      name: 'min_resolution_deg',
+      type: 'numeric',
+    },
+  })
+  @inputDataMapping({
+    dataFile: DataFileType.TFW,
+    valuePath: '[0]',
+  })
+  @tsTypes({
+    mappingType: TsTypes.NUMBER,
+  })
+  @graphql({
+    nullable: true, //TODO: check
+    //TODO: editable
+  })
+  @fieldConfig({
+    category: FieldCategory.MAIN, //TODO: check
+    infoMsgCode: [
+      'info-field-tooltip.maxResolutionDeg.tooltip',
+      'info-general-tooltip.required',
+      'info-field-tooltip.minResolutionDeg.min',
+      'info-field-tooltip.minResolutionDeg.max',
+    ],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        required: true,
+      },
+      {
+        errorMsgCode: 'validation-field.minResolutionDeg.min', //TODO:
+        valueType: 'value',
+        min: 0.00000009,
+      },
+      {
+        errorMsgCode: 'validation-field.minResolutionDeg.max', //TODO:
+        valueType: 'value',
+        max: 0.072,
+      },
+    ],
+    isLifecycleEnvolved: true, //TODO:
+  })
+  //#endregion
+  public minResolutionDeg: number | undefined = undefined;
+
   //#region RASTER: maxResolutionMeter
   @pycsw({
     profile: 'mc_raster',
@@ -836,6 +937,53 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   //#endregion
   public maxResolutionMeter: number | undefined = undefined;
+
+  //#region RASTER: minResolutionMeter
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:minResolutionMeter',
+    queryableField: 'mc:minResolutionMeter',
+    pycswField: 'pycsw:minResolutionMeter',
+  })
+  @catalogDB({
+    column: {
+      name: 'min_resolution_meter',
+      type: 'numeric',
+    },
+  })
+  @inputDataMapping({
+    dataFile: DataFileType.SHAPE_METADATA,
+    valuePath: 'features[0].properties.Resolution', //TODO:
+  })
+  @tsTypes({
+    mappingType: TsTypes.NUMBER,
+  })
+  @graphql({
+    nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+    infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.minResolutionMeter.min', 'info-field-tooltip.minResolutionMeter.max'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        required: true,
+      },
+      {
+        errorMsgCode: 'validation-field.minResolutionMeter.min', //TODO:
+        valueType: 'value',
+        min: 0.0185,
+      },
+      {
+        errorMsgCode: 'validation-field.minResolutionMeter.max', //TODO:
+        valueType: 'value',
+        max: 78273,
+      },
+    ],
+    isLifecycleEnvolved: true,
+  })
+  //#endregion
+  public minResolutionMeter: number | undefined = undefined;
 
   //#region RASTER: rms
   @pycsw({
@@ -949,88 +1097,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   //#endregion
   public footprint: GeoJSON | undefined = undefined;
-
-  //#region RASTER: layerPolygonParts
-  @pycsw({
-    profile: 'mc_raster',
-    xmlElement: 'mc:layerPolygonParts',
-    queryableField: 'mc:layerPolygonParts',
-    pycswField: 'pycsw:layerPolygonParts',
-  })
-  @catalogDB({
-    column: {
-      name: 'layer_polygon_parts',
-      type: 'text',
-      nullable: true,
-    },
-  })
-  @inputDataMapping({
-    isCustomLogic: true,
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***entire geo json feature collection***',
-  })
-  @tsTypes({
-    mappingType: TsTypes.OBJECT,
-  })
-  @graphql({
-    nullable: true,
-  })
-  @fieldConfig({
-    category: FieldCategory.GEO_INFO,
-    validation: [
-      {
-        errorMsgCode: 'validation-field.layerPolygonParts.json',
-        json: true,
-      },
-    ],
-    isLifecycleEnvolved: true,
-  })
-  //#endregion
-  public layerPolygonParts: GeoJSON | undefined = undefined;
-
-  //#region RASTER: includedInBests
-  @pycsw({
-    profile: 'mc_raster',
-    xmlElement: 'mc:includedInBests',
-    queryableField: 'mc:includedInBests',
-    pycswField: 'pycsw:includedInBests',
-  })
-  @catalogDB({
-    column: {
-      name: 'included_in_bests',
-      type: 'text',
-      nullable: true,
-    },
-    field: {
-      overrideType: TsTypes.NULLABLE_STRING,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING_ARRAY,
-  })
-  @graphql({
-    nullable: true,
-  })
-  //#endregion
-  public includedInBests: string[] | undefined = undefined;
-
-  //#region RASTER: rawProductData
-  @catalogDB({
-    column: {
-      name: 'raw_product_data',
-      type: 'jsonb',
-    },
-  })
-  @inputDataMapping({
-    isCustomLogic: true,
-    dataFile: DataFileType.PRODUCT,
-    valuePath: '*** entire product shape file geo json ***',
-  })
-  @tsTypes({
-    mappingType: TsTypes.OBJECT,
-  })
-  //#endregion
-  public rawProductData: GeoJSON | undefined = undefined;
 
   //#region RASTER: productBoundingBox
   @pycsw({
