@@ -24,7 +24,6 @@ export interface ILayerMetadata {
   maxResolutionDeg: number | undefined;
   rms: number | undefined;
   scale: number | undefined;
-  includedInBests: string[] | undefined;
   creationDate: Date | undefined;
   ingestionDate: Date | undefined;
   minHorizontalAccuracyCE90: number | undefined;
@@ -865,7 +864,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.MAIN, //TODO: check
     infoMsgCode: [
-      'info-field-tooltip.maxResolutionDeg.tooltip',
+      'info-field-tooltip.minResolutionDeg.tooltip',
       'info-general-tooltip.required',
       'info-field-tooltip.minResolutionDeg.min',
       'info-field-tooltip.minResolutionDeg.max',
@@ -876,14 +875,14 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
         required: true,
       },
       {
-        errorMsgCode: 'validation-field.minResolutionDeg.min', //TODO:
+        errorMsgCode: 'validation-field.minResolutionDeg.min',
         valueType: 'value',
-        min: 0.00000009,
+        min: 1.67638e-7,
       },
       {
-        errorMsgCode: 'validation-field.minResolutionDeg.max', //TODO:
+        errorMsgCode: 'validation-field.minResolutionDeg.max',
         valueType: 'value',
-        max: 0.072,
+        max: 0.703125,
       },
     ],
     isLifecycleEnvolved: true, //TODO:
@@ -970,12 +969,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
         required: true,
       },
       {
-        errorMsgCode: 'validation-field.minResolutionMeter.min', //TODO:
+        errorMsgCode: 'validation-field.minResolutionMeter.min',
         valueType: 'value',
         min: 0.0185,
       },
       {
-        errorMsgCode: 'validation-field.minResolutionMeter.max', //TODO:
+        errorMsgCode: 'validation-field.minResolutionMeter.max',
         valueType: 'value',
         max: 78273,
       },
