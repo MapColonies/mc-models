@@ -32,3 +32,22 @@ components:
               - image/png
               - image/jpeg
               description: Image format associated with content type (mime)
+            minResolutionDeg:
+              type: number
+              minimum: 1.67638e-7
+              maximum: 0.703125
+              format: double
+              description:  min resolution of layer in degrees/pixel
+            minResolutionMeter:
+              type: number
+              minimum: 0.0185
+              maximum: 78273 
+              format: double
+              description: min (rounded) resolution of layer in meters/pixel
+            maxHorizontalAccuracyCE90:
+              type: number
+              minimum: 0.01
+              maximum: 4000
+              format: double
+              description: minimum Horizontal Accuracy
+
