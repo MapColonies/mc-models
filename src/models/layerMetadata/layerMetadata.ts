@@ -429,7 +429,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     profile: 'mc_raster',
     xmlElement: 'mc:maxHorizontalAccuracyCE90',
     queryableField: 'mc:maxHorizontalAccuracyCE90',
-    pycswField: 'pycsw:horizontalAccuracyCE90', //TODO:
+    pycswField: 'pycsw:maxHorizontalAccuracyCE90',
   })
   @catalogDB({
     column: {
@@ -439,29 +439,29 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @inputDataMapping({
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Ep90', //TODO:
+    valuePath: 'features[0].properties.Ep90',
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: true,
+    nullable: false, //keep it true like in min?
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
-    infoMsgCode: ['info-general-tooltip.required'],
+    infoMsgCode: ['info-general-tooltip.required'], //is it required?
     validation: [
       {
         errorMsgCode: 'validation-general.required',
         required: true,
       },
       {
-        errorMsgCode: 'validation-field.maxHorizontalAccuracyCE90.min', //TODO:
+        errorMsgCode: 'validation-field.maxHorizontalAccuracyCE90.min',
         valueType: 'value',
         min: 0.01,
       },
       {
-        errorMsgCode: 'validation-field.maxHorizontalAccuracyCE90.max', //TODO:
+        errorMsgCode: 'validation-field.maxHorizontalAccuracyCE90.max',
         valueType: 'value',
         max: 4000,
       },
@@ -841,10 +841,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     profile: 'mc_raster',
     xmlElement: 'mc:minResolutionDeg',
     queryableField: 'mc:minResolutionDeg',
-    pycswField: 'pycsw:Resolution', // TODO: check what to put here
+    pycswField: 'pycsw:minResolutionDeg',
   })
   @catalogDB({
-    //TODO: how to set not editable
     column: {
       name: 'min_resolution_deg',
       type: 'numeric',
@@ -858,14 +857,13 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: true, //TODO: check
-    //TODO: editable
+    nullable: false, //keep it true like in max?
   })
   @fieldConfig({
-    category: FieldCategory.MAIN, //TODO: check
+    category: FieldCategory.MAIN,
     infoMsgCode: [
       'info-field-tooltip.minResolutionDeg.tooltip',
-      'info-general-tooltip.required',
+      'info-general-tooltip.required', // is it required?
       'info-field-tooltip.minResolutionDeg.min',
       'info-field-tooltip.minResolutionDeg.max',
     ],
@@ -885,7 +883,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
         max: 0.703125,
       },
     ],
-    isLifecycleEnvolved: true, //TODO:
   })
   //#endregion
   public minResolutionDeg: number | undefined = undefined;
@@ -952,16 +949,16 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @inputDataMapping({
     dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Resolution', //TODO:
+    valuePath: 'features[0].properties.Resolution',
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: true,
+    nullable: false, //keep it true like in max?
   })
   @fieldConfig({
-    category: FieldCategory.MAIN,
+    category: FieldCategory.MAIN, // is it required?
     infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.minResolutionMeter.min', 'info-field-tooltip.minResolutionMeter.max'],
     validation: [
       {
