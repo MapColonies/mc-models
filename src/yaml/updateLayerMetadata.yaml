@@ -59,7 +59,7 @@ components:
         producerName:
           type: string
           description: creator name default IDFMU
-        creationDate:
+        creationDateUTC:
           type: string
           description: Creation date
           format: date-time
@@ -67,11 +67,11 @@ components:
           type: string
           description: Ingestion date
           format: date-time
-        sourceDateStart:
+        imagingTimeBeginUTC:
           type: string
           description: Oldest imaging date
           format: date-time
-        sourceDateEnd:
+        imagingTimeEndUTC:
           type: string
           description: Latest imaging date
           format: date-time
