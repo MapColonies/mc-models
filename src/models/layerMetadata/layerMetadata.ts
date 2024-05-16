@@ -19,19 +19,30 @@ import { getTsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTyp
 import { ProductType, Transparency, TileOutputFormat } from './enums';
 
 export interface ILayerMetadata {
+  id: string | undefined;
   srs: string | undefined;
   productVersion: string | undefined;
   maxResolutionDeg: number | undefined;
+  minResolutionDeg: number | undefined;
   rms: number | undefined;
   scale: number | undefined;
   creationDateUTC: Date | undefined;
   ingestionDate: Date | undefined;
   minHorizontalAccuracyCE90: number | undefined;
+  maxHorizontalAccuracyCE90: number | undefined;
   region: string[] | undefined;
   sensors: string[] | undefined;
   imagingTimeBeginUTC: Date | undefined;
   imagingTimeEndUTC: Date | undefined;
   updateDateUTC: Date | undefined;
+  maxResolutionMeter: number | undefined;
+  minResolutionMeter: number | undefined;
+  productSubType: string | undefined;
+  productBoundingBox: string | undefined;
+  displayPath: string | undefined;
+  transparency: Transparency | undefined;
+  tileMimeFormat: TilesMimeFormat | undefined;
+  tileOutputFormat: TileOutputFormat | undefined;
 }
 
 export interface IPropPYCSWMapping extends IPYCSWMapping {
