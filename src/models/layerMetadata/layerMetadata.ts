@@ -24,11 +24,14 @@ export interface ILayerMetadata {
   maxResolutionDeg: number | undefined;
   rms: number | undefined;
   scale: number | undefined;
-  creationDate: Date | undefined;
+  creationDateUTC: Date | undefined;
   ingestionDate: Date | undefined;
   minHorizontalAccuracyCE90: number | undefined;
   region: string[] | undefined;
   sensors: string[] | undefined;
+  imagingTimeBeginUTC: Date | undefined;
+  imagingTimeEndUTC: Date | undefined;
+  updateDateUTC: Date | undefined;
 }
 
 export interface IPropPYCSWMapping extends IPYCSWMapping {
@@ -253,7 +256,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
   public producerName: string | undefined = undefined;
 
-  //#region COMMON: creationDate
+  //#region COMMON: creationDateUTC
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:creationDateUTC',
@@ -262,7 +265,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @catalogDB({
     column: {
-      name: 'creation_date',
+      name: 'creation_date_utc',
       type: 'timestamp without time zone',
     },
   })
@@ -279,7 +282,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     isLifecycleEnvolved: true,
   })
   //#endregion
-  public creationDate: Date | undefined = undefined;
+  public creationDateUTC: Date | undefined = undefined;
 
   //#region COMMON: ingestionDate
   @pycsw({
@@ -307,7 +310,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
   public ingestionDate: Date | undefined = undefined;
 
-  //#region COMMON: updateDate
+  //#region COMMON: updateDateUTC
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:updateDateUTC',
@@ -317,7 +320,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @catalogDB({
     columnType: ORMColumnType.UPDATE_DATE_COLUMN,
     column: {
-      name: 'update_date',
+      name: 'update_date_utc',
       type: 'timestamp without time zone',
     },
   })
@@ -339,9 +342,9 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     isLifecycleEnvolved: true,
   })
   //#endregion
-  public updateDate: Date | undefined = undefined;
+  public updateDateUTC: Date | undefined = undefined;
 
-  //#region COMMON: sourceDateStart
+  //#region COMMON: imagingTimeBeginUTC
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:imagingTimeBeginUTC',
@@ -350,7 +353,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @catalogDB({
     column: {
-      name: 'source_start_date',
+      name: 'imaging_time_begin_utc',
       type: 'timestamp without time zone',
       nullable: false,
     },
@@ -377,15 +380,15 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.sourceDateStart.max',
         valueType: 'field',
-        max: 'sourceDateEnd',
+        max: 'imagingTimeEndUTC',
       },
     ],
     isLifecycleEnvolved: true,
   })
   //#endregion
-  public sourceDateStart: Date | undefined = undefined;
+  public imagingTimeBeginUTC: Date | undefined = undefined;
 
-  //#region COMMON: sourceDateEnd
+  //#region COMMON: imagingTimeEndUTC
   @pycsw({
     profile: 'mc_raster',
     xmlElement: 'mc:imagingTimeEndUTC',
@@ -394,7 +397,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @catalogDB({
     column: {
-      name: 'source_end_date',
+      name: 'imaging_time_end_utc',
       type: 'timestamp without time zone',
       nullable: false,
     },
@@ -422,7 +425,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     isLifecycleEnvolved: true,
   })
   //#endregion
-  public sourceDateEnd: Date | undefined = undefined;
+  public imagingTimeEndUTC: Date | undefined = undefined;
 
   //#region COMMON: maxHorizontalAccuracyCE90
   @pycsw({

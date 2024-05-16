@@ -32,6 +32,9 @@ export interface ILayerMetadata {
   imagingSortieAccuracyCEP90: number | undefined;
   productStatus: RecordStatus | undefined;
   hasTerrain: boolean | undefined;
+  sourceDateStart: Date | undefined;
+  sourceDateEnd: Date | undefined;
+  updateDate: Date | undefined;
 }
 
 export interface IPropPYCSWMapping extends IPYCSWMapping {

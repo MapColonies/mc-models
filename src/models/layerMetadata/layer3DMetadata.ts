@@ -35,6 +35,9 @@ export interface ILayer3DMetadata {
   productBoundingBox: string | undefined;
   productSource: string | undefined;
   productStatus: RecordStatus | undefined;
+  sourceDateStart: Date | undefined;
+  sourceDateEnd: Date | undefined;
+  updateDate: Date | undefined;
 }
 
 export interface IPropPYCSWMapping extends IPYCSWMapping {
