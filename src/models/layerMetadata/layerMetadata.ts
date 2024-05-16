@@ -1,5 +1,6 @@
 import { GeoJSON } from 'geojson';
 import { TilesMimeFormat } from '@map-colonies/types';
+import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
 import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import {
@@ -17,7 +18,6 @@ import { getInputDataMapping, IDataMapping, DataFileType, inputDataMapping, IPro
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB, ORMColumnType } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 import { ProductType, Transparency, TileOutputFormat } from './enums';
-import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
 
 const horizontalAccuracyValidation = { min: 0.01, max: 4000 };
 
