@@ -17,7 +17,11 @@ import { getInputDataMapping, IDataMapping, DataFileType, inputDataMapping, IPro
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB, ORMColumnType } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 import { ProductType, Transparency, TileOutputFormat } from './enums';
+import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
 
+const resolutionDegValidation = { min: zoomLevelToResolutionDeg(22), max: zoomLevelToResolutionDeg(0) };
+const resolutionMeterValidation = { min: zoomLevelToResolutionMeter(22), max: zoomLevelToResolutionMeter(0) };
+const horizontalAccuracyValidation = { min: 0.01, max: 4000 };
 export interface ILayerMetadata {
   id: string | undefined;
   srs: string | undefined;
@@ -472,12 +476,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.maxHorizontalAccuracyCE90.min',
         valueType: 'value',
-        min: 0.01,
+        min: horizontalAccuracyValidation.min,
       },
       {
         errorMsgCode: 'validation-field.maxHorizontalAccuracyCE90.max',
         valueType: 'value',
-        max: 4000,
+        max: horizontalAccuracyValidation.max,
       },
     ],
     isLifecycleEnvolved: true,
@@ -519,12 +523,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.minHorizontalAccuracyCE90.min',
         valueType: 'value',
-        min: 0.01,
+        min: horizontalAccuracyValidation.min,
       },
       {
         errorMsgCode: 'validation-field.minHorizontalAccuracyCE90.max',
         valueType: 'value',
-        max: 4000,
+        max: horizontalAccuracyValidation.max,
       },
     ],
     isLifecycleEnvolved: true,
@@ -837,12 +841,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.maxResolutionDeg.min',
         valueType: 'value',
-        min: 1.67638e-7,
+        min: resolutionDegValidation.min,
       },
       {
         errorMsgCode: 'validation-field.maxResolutionDeg.max',
         valueType: 'value',
-        max: 0.703125,
+        max: resolutionDegValidation.max,
       },
     ],
     isLifecycleEnvolved: true,
@@ -889,12 +893,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.minResolutionDeg.min',
         valueType: 'value',
-        min: 1.67638e-7,
+        min: resolutionDegValidation.min,
       },
       {
         errorMsgCode: 'validation-field.minResolutionDeg.max',
         valueType: 'value',
-        max: 0.703125,
+        max: resolutionDegValidation.min,
       },
     ],
   })
@@ -935,12 +939,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.min',
         valueType: 'value',
-        min: 0.0185,
+        min: resolutionMeterValidation.min,
       },
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.max',
         valueType: 'value',
-        max: 78273,
+        max: resolutionMeterValidation.max,
       },
     ],
     isLifecycleEnvolved: true,
@@ -982,12 +986,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.minResolutionMeter.min',
         valueType: 'value',
-        min: 0.0185,
+        min: resolutionMeterValidation.min,
       },
       {
         errorMsgCode: 'validation-field.minResolutionMeter.max',
         valueType: 'value',
-        max: 78273,
+        max: resolutionMeterValidation.max,
       },
     ],
     isLifecycleEnvolved: true,
