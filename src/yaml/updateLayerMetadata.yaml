@@ -111,10 +111,6 @@ components:
           maximum: 100000000
         footprint:
           $ref: geojson.yaml#/components/schemas/Geometry
-        layerPolygonParts:
-          $ref: geojson.yaml#/components/schemas/FeatureCollection
-        rawProductData:
-          $ref: geojson.yaml#/components/schemas/FeatureCollection
         productBoundingBox:
           type: string
           pattern: "^-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?$"
