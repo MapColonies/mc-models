@@ -12,12 +12,16 @@ components:
         - productVersion
         - productType
         - maxResolutionDeg
+        - minResolutionDeg
+        - maxResolutionMeter
+        - minResolutionMeter
         - minHorizontalAccuracyCE90
+        - maxHorizontalAccuracyCE90
         - sensors
         - footprint
         - type
-        - sourceDateStart
-        - sourceDateEnd
+        - imagingTimeBeginUTC
+        - imagingTimeEndUTC
         - classification
         - transparency
       allOf:
