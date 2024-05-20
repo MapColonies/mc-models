@@ -38,6 +38,9 @@ export interface IQuantizedMeshBestMetadata {
   productBoundingBox: string | undefined;
   productSource: string | undefined;
   productStatus: RecordStatus | undefined;
+  sourceDateStart: Date | undefined;
+  sourceDateEnd: Date | undefined;
+  updateDate: Date | undefined;
 
   // Description field must include info:
   // undulationModel: UndulationModel | undefined;

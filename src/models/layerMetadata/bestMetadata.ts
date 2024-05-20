@@ -24,6 +24,9 @@ export interface IBestMetadata {
   rms: number | undefined;
   scale: number | undefined;
   discretes: DiscreteOrder[] | undefined;
+  sourceDateStart: Date | undefined;
+  sourceDateEnd: Date | undefined;
+  updateDate: Date | undefined;
 }
 
 export interface IPropPYCSWMapping extends IPYCSWMapping {

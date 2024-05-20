@@ -10,9 +10,6 @@ export interface IMetadataCommonModel {
   description: string | undefined;
   srsName: string | undefined;
   producerName: string | undefined;
-  updateDate: Date | undefined;
-  sourceDateStart: Date | undefined;
-  sourceDateEnd: Date | undefined;
   sensors: string[] | undefined;
   region: string[] | undefined;
   footprint: GeoJSON | undefined;
