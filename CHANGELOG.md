@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [16.0.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@15.0.2...mc-model-types@16.0.0) (2024-05-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update raster CSW record to new design (MAPCO-4265, MAPCO-4232) (#186)
+
+### Features
+
+* polygon parts entity ([#183](https://github.com/MapColonies/mc-models/issues/183)) ([6164660](https://github.com/MapColonies/mc-models/commit/6164660f72d0a2ad2f935c3c9de948ac725514c2))
+* raster validations ([#181](https://github.com/MapColonies/mc-models/issues/181)) ([668423c](https://github.com/MapColonies/mc-models/commit/668423c4159c4fc6123b0814ef920632d06069d7))
+* remove limitation on description in 3d ([#178](https://github.com/MapColonies/mc-models/issues/178)) ([0f3366e](https://github.com/MapColonies/mc-models/commit/0f3366ee40388d07b43fd44f45408599aac0aca1))
+* Update raster CSW record to new design (MAPCO-4265, MAPCO-4232) ([#186](https://github.com/MapColonies/mc-models/issues/186)) ([ac98adb](https://github.com/MapColonies/mc-models/commit/ac98adb90b9aedba225d9785021dd2e665be6f3a))
+
+
+### Bug Fixes
+
+* allow classification in update ([#176](https://github.com/MapColonies/mc-models/issues/176)) ([4750ec5](https://github.com/MapColonies/mc-models/commit/4750ec50fd7b5f6d729dddf6ae607447a79bf060))
+* ingestion date 3d classification ([#177](https://github.com/MapColonies/mc-models/issues/177)) ([68ad681](https://github.com/MapColonies/mc-models/commit/68ad6810acb4afda15e5ba449ab8e3cec2c143dd))
+* make id required ([#174](https://github.com/MapColonies/mc-models/issues/174)) ([89eb427](https://github.com/MapColonies/mc-models/commit/89eb427092923e6dccb73ba119cd28ee39794277))
+* set minimum and maximum value to coordinate per point ([#175](https://github.com/MapColonies/mc-models/issues/175)) ([f6cc1b0](https://github.com/MapColonies/mc-models/commit/f6cc1b0ee91cc2440485a6a37e3f80cdc6354d1a))
+
 ## [15.4.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@15.2.0...mc-model-types@15.4.0) (2024-05-07)
 
 
