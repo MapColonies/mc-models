@@ -19,7 +19,7 @@ import { getCatalogDBMapping, ICatalogDBMapping, catalogDB, ORMColumnType } from
 import { getTsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 import { ProductType, Transparency, TileOutputFormat } from './enums';
 
-const horizontalAccuracyValidation = { min: 0.01, max: 4000 };
+export const horizontalAccuracyValidation = { min: 0.01, max: 4000 };
 
 export interface ILayerMetadata {
   id: string | undefined;

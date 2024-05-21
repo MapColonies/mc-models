@@ -1,10 +1,11 @@
 import { GeoJSON } from 'geojson';
+import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import { FieldCategory, IPropFieldConfigInfo, fieldConfig, getFieldConfig } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { DataFileType, IPropSHPMapping, getInputDataMapping, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
 import { catalogDB, getCatalogDBMapping } from '../layerMetadata/decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
-import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping } from '../layerMetadata';
+import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping, horizontalAccuracyValidation } from '../layerMetadata';
 import { graphqlClass, IPropCatalogDBMapping } from '../common';
 import { getCatalogDBEntityMapping } from '../layerMetadata/decorators/class/catalogDBEntity.decorator';
 
@@ -175,12 +176,12 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       {
         errorMsgCode: 'validation-field.minHorizontalAccuracyCE90.min',
         valueType: 'value',
-        min: 0.01,
+        min: horizontalAccuracyValidation.min,
       },
       {
         errorMsgCode: 'validation-field.minHorizontalAccuracyCE90.max',
         valueType: 'value',
-        max: 4000,
+        max: horizontalAccuracyValidation.max,
       },
     ],
     isLifecycleEnvolved: true,
@@ -302,12 +303,12 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       {
         errorMsgCode: 'validation-field.maxResolutionDeg.min',
         valueType: 'value',
-        min: 1.67638e-7,
+        min: zoomLevelToResolutionDeg(22),
       },
       {
         errorMsgCode: 'validation-field.maxResolutionDeg.max',
         valueType: 'value',
-        max: 0.703125,
+        max: zoomLevelToResolutionDeg(0),
       },
     ],
   })
@@ -333,12 +334,12 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.min',
         valueType: 'value',
-        min: 0.0185,
+        min: zoomLevelToResolutionMeter(22),
       },
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.max',
         valueType: 'value',
-        max: 78273,
+        max: zoomLevelToResolutionMeter(0),
       },
     ],
   })
