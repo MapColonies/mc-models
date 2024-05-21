@@ -1,4 +1,5 @@
 import { GeoJSON } from 'geojson';
+import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import { FieldCategory, IPropFieldConfigInfo, fieldConfig, getFieldConfig } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { DataFileType, IPropSHPMapping, getInputDataMapping, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
@@ -7,7 +8,6 @@ import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators
 import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping, horizontalAccuracyValidation } from '../layerMetadata';
 import { graphqlClass, IPropCatalogDBMapping } from '../common';
 import { getCatalogDBEntityMapping } from '../layerMetadata/decorators/class/catalogDBEntity.decorator';
-import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
 
 interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
