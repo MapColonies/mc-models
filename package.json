@@ -16,7 +16,7 @@
   },
   "scripts": {
     "clean": "rimraf *.tgz Schema",
-    "release": "standard-version -t mc-model-types@",
+    "release": "standard-version",
     "build:skipLibCheck": "npm run prebuild && tsc --skipLibCheck --project tsconfig.build.json",
     "build": "tsc --project tsconfig.build.json",
     "copy:yaml": "copyfiles -u 1 \"./src/yaml/**/*.yaml\" ./Schema",
