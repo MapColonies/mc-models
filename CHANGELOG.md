@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.0.0](https://github.com/MapColonies/mc-models/compare/v13.1.0...v17.0.0) (2024-05-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update raster CSW record to new design (MAPCO-4265, MAPCO-4232) (#186)
+* adding format column (image content type) (#169)
+* adding records entity for transparency + tileFormatOutput (#159)
+
+### Features
+
+* added catalogId and displayPath support ([#148](https://github.com/MapColonies/mc-models/issues/148)) ([a3eae14](https://github.com/MapColonies/mc-models/commit/a3eae1446b75bc58c29604527ec1b3081660fbb8))
+* adding format column (image content type) ([#169](https://github.com/MapColonies/mc-models/issues/169)) ([95fb611](https://github.com/MapColonies/mc-models/commit/95fb6116705857d149e769f2b861e792e9d8d1c1))
+* adding records entity for transparency + tileFormatOutput ([#159](https://github.com/MapColonies/mc-models/issues/159)) ([8e99f5b](https://github.com/MapColonies/mc-models/commit/8e99f5bbfec2413e5004fc2216cdb43bc9ea4bc3))
+* dem v2 ([#164](https://github.com/MapColonies/mc-models/issues/164)) ([4c859f6](https://github.com/MapColonies/mc-models/commit/4c859f6a643caced9cfc54a21458a4c36fe455db))
+* isLifecycleEnvolved flag added and remove redundant flags ([#152](https://github.com/MapColonies/mc-models/issues/152)) ([0ce3aee](https://github.com/MapColonies/mc-models/commit/0ce3aee89abda4d99a4b0770a3e3533602790397))
+* polygon parts entity ([#183](https://github.com/MapColonies/mc-models/issues/183)) ([6164660](https://github.com/MapColonies/mc-models/commit/6164660f72d0a2ad2f935c3c9de948ac725514c2))
+* raster validations ([#181](https://github.com/MapColonies/mc-models/issues/181)) ([668423c](https://github.com/MapColonies/mc-models/commit/668423c4159c4fc6123b0814ef920632d06069d7))
+* remove limitation on description in 3d ([#178](https://github.com/MapColonies/mc-models/issues/178)) ([0f3366e](https://github.com/MapColonies/mc-models/commit/0f3366ee40388d07b43fd44f45408599aac0aca1))
+* Update raster CSW record to new design (MAPCO-4265, MAPCO-4232) ([#186](https://github.com/MapColonies/mc-models/issues/186)) ([ac98adb](https://github.com/MapColonies/mc-models/commit/ac98adb90b9aedba225d9785021dd2e665be6f3a))
+
+
+### Bug Fixes
+
+* add type to openapi scheme with nullable ([#167](https://github.com/MapColonies/mc-models/issues/167)) ([6ecd830](https://github.com/MapColonies/mc-models/commit/6ecd830ee01c4b5d05faa668433e47df34bc8ef5))
+* added lookuptable decoration field ([#160](https://github.com/MapColonies/mc-models/issues/160)) ([8a4f2b5](https://github.com/MapColonies/mc-models/commit/8a4f2b5abae20c3fd9bfebf419d69d381bce5925))
+* allow classification in update ([#176](https://github.com/MapColonies/mc-models/issues/176)) ([4750ec5](https://github.com/MapColonies/mc-models/commit/4750ec50fd7b5f6d729dddf6ae607447a79bf060))
+* change format to tileMImeFormat - naming convention ([#171](https://github.com/MapColonies/mc-models/issues/171)) ([e599d5b](https://github.com/MapColonies/mc-models/commit/e599d5b908a5af199488bc2f95d93f1d7192cdc6))
+* ingestion date 3d classification ([#177](https://github.com/MapColonies/mc-models/issues/177)) ([68ad681](https://github.com/MapColonies/mc-models/commit/68ad6810acb4afda15e5ba449ab8e3cec2c143dd))
+* insert request required format ([#170](https://github.com/MapColonies/mc-models/issues/170)) ([ade7de5](https://github.com/MapColonies/mc-models/commit/ade7de56363a6a3c67586084cd9c0c9888c4a141))
+* integration with 3D - product status ([#149](https://github.com/MapColonies/mc-models/issues/149)) ([15f2bed](https://github.com/MapColonies/mc-models/commit/15f2bedbc85c1f97ec6bf9eb3ce0b30d9d1010dc))
+* make id required ([#174](https://github.com/MapColonies/mc-models/issues/174)) ([89eb427](https://github.com/MapColonies/mc-models/commit/89eb427092923e6dccb73ba119cd28ee39794277))
+* naming - format to tilesMimeFormat (layerMetadata) ([#172](https://github.com/MapColonies/mc-models/issues/172)) ([cb77207](https://github.com/MapColonies/mc-models/commit/cb7720781c6d70dfe7d7bbe3004ca57b71823fe9))
+* product status should be auto generated and not manually editable ([#146](https://github.com/MapColonies/mc-models/issues/146)) ([d2e1b88](https://github.com/MapColonies/mc-models/commit/d2e1b88428e8d2d27368da367aaa1f7f918e19fb))
+* raster sensors field config ([#151](https://github.com/MapColonies/mc-models/issues/151)) ([5d4d256](https://github.com/MapColonies/mc-models/commit/5d4d2563b420c89d9f770cc5e6f354cab1a51e6c))
+* revert default params raster layers ([#155](https://github.com/MapColonies/mc-models/issues/155)) ([3eddc8a](https://github.com/MapColonies/mc-models/commit/3eddc8ae8cf2484dfb1c23d6966a1aaaaf38ee77))
+* revert nodatavalue to string ([#166](https://github.com/MapColonies/mc-models/issues/166)) ([8fcd49d](https://github.com/MapColonies/mc-models/commit/8fcd49da743cfe824777b3d6fef4b533303c2611))
+* rms field uppercase ([#162](https://github.com/MapColonies/mc-models/issues/162)) ([28a5146](https://github.com/MapColonies/mc-models/commit/28a514672f6b343871674e060faa3d5a30226c51))
+* sensors required field ([#153](https://github.com/MapColonies/mc-models/issues/153)) ([03a5066](https://github.com/MapColonies/mc-models/commit/03a506662130138664f189fb53ed7f3b4f27bd44))
+* set minimum and maximum value to coordinate per point ([#175](https://github.com/MapColonies/mc-models/issues/175)) ([f6cc1b0](https://github.com/MapColonies/mc-models/commit/f6cc1b0ee91cc2440485a6a37e3f80cdc6354d1a))
+* turn undefined id, layerpolygonpart and bbox for overseer req ([#154](https://github.com/MapColonies/mc-models/issues/154)) ([2ba866c](https://github.com/MapColonies/mc-models/commit/2ba866cae928f7c92b12a47ea7dcb97e41329685))
+* validation to polygon parts ([#187](https://github.com/MapColonies/mc-models/issues/187)) ([b2cf4b0](https://github.com/MapColonies/mc-models/commit/b2cf4b0aeadf2c9eef2349cc84161b6f865d4653))
+
 ### [16.0.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@16.0.0...mc-model-types@16.0.1) (2024-05-20)
 
 ## [16.0.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@15.0.2...mc-model-types@16.0.0) (2024-05-20)
