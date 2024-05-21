@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [16.0.2](https://github.com/MapColonies/mc-models/compare/mc-model-types@16.0.1...mc-model-types@16.0.2) (2024-05-21)
+
+
+### Bug Fixes
+
+* validation to polygon parts ([#187](https://github.com/MapColonies/mc-models/issues/187)) ([b2cf4b0](https://github.com/MapColonies/mc-models/commit/b2cf4b0aeadf2c9eef2349cc84161b6f865d4653))
+
 ### [16.0.1](https://github.com/MapColonies/mc-models/compare/mc-model-types@16.0.0...mc-model-types@16.0.1) (2024-05-20)
 
 ## [16.0.0](https://github.com/MapColonies/mc-models/compare/mc-model-types@15.0.2...mc-model-types@16.0.0) (2024-05-20)
