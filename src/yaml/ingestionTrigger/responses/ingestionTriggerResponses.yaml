@@ -17,11 +17,14 @@ components:
             type: number
           extentPolygon:
             $ref: '../../geojson.yaml#/components/schemas/Geometry'
+          fileName:
+            type: string            
         required:
           - crs
           - fileFormat
           - pixelSize
           - extentPolygon
+          - fileName
         example:
           crs: 4326
           fileFormat: gpkg
@@ -39,6 +42,7 @@ components:
                   - -90
                 - - -180
                   - -90
+          fileName: "file.gpkg"       
     validateSourcesResponse:
       type: object
       properties:
