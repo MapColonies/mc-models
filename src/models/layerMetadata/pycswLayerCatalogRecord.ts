@@ -13,6 +13,7 @@ import { IPropPYCSWMapping, LayerMetadata } from './layerMetadata';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
 import { getPyCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { IPropSHPMapping } from './decorators/property/shp.decorator';
+import { ProductType, Transparency } from './enums';
 
 @catalogDBEntity({
   table: 'records',
@@ -233,8 +234,8 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
 
   public static getFieldConfigs(): IPropFieldConfigInfo[] {
     const ret = [];
-    const newLayerMetadataProps = Object.keys(new NewRasterLayerMetadata());
-    const updatedLayerMetadataProps = Object.keys(new UpdateRasterLayerMetadata());
+    const newLayerMetadataProps = Object.keys(new NewRasterLayerMetadata('', ProductType.ORTHOPHOTO, '', '', Transparency.TRANSPARENT, '', [''], ''));
+    const updatedLayerMetadataProps = Object.keys(new UpdateRasterLayerMetadata(''));
     const layer = new PycswLayerCatalogRecord();
     for (const prop in layer) {
       const fieldConfigMap = getFieldConfig<PycswLayerCatalogRecord>(layer, prop);

@@ -1,10 +1,10 @@
 import { LayerMetadata, ProductType, Transparency } from '../../layerMetadata';
 import { PolygonPartRecord } from '../../polygonParts';
 
-export type IUpdateRasterLayerMetadata = Pick<LayerMetadata, 'classification' | 'description'>;
+export type IUpdateRasterLayerMetadata = Pick<LayerMetadata, 'classification'> & Partial<Pick<LayerMetadata, 'description'>>;
 
 export class UpdateRasterLayerMetadata implements IUpdateRasterLayerMetadata {
-  public description: string | undefined;
+  public description?: string | undefined;
   public classification: string | undefined;
 
   public constructor(classification: string, description?: string) {
@@ -14,7 +14,8 @@ export class UpdateRasterLayerMetadata implements IUpdateRasterLayerMetadata {
 }
 
 export type INewRasterLayerMetadata = UpdateRasterLayerMetadata &
-  Pick<LayerMetadata, 'productId' | 'productType' | 'srs' | 'srsName' | 'transparency' | 'productName' | 'producerName'>;
+  Pick<LayerMetadata, 'productId' | 'productType' | 'srs' | 'srsName' | 'transparency' | 'productName'> &
+  Partial<Pick<LayerMetadata, 'producerName'>>;
 
 export class NewRasterLayerMetadata extends UpdateRasterLayerMetadata implements INewRasterLayerMetadata {
   public productId: string | undefined;
@@ -24,9 +25,9 @@ export class NewRasterLayerMetadata extends UpdateRasterLayerMetadata implements
   public transparency: Transparency | undefined;
   public productName: string | undefined;
   public region: string[] | undefined;
-  public productSubType: string | undefined;
-  public scale: number | undefined;
-  public producerName: string | undefined;
+  public productSubType?: string | undefined;
+  public scale?: number | undefined;
+  public producerName?: string | undefined;
 
   public constructor(
     productId: string,
