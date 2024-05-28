@@ -59,20 +59,17 @@ export class NewRasterLayerMetadata extends UpdateRasterLayerMetadata implements
 
 export type PolygonPart = Pick<
   PolygonPartRecord,
-  | 'id'
   | 'name'
-  | 'description'
   | 'resolutionDegree'
   | 'resolutionMeter'
   | 'sourceResolutionMeter'
   | 'horizontalAccuracyCE90'
-  | 'countries'
-  | 'cities'
   | 'sensors'
   | 'imagingTimeBeginUTC'
   | 'imagingTimeEndUTC'
   | 'geometry'
->;
+> &
+  Partial<Pick<PolygonPartRecord, 'id' | 'description' | 'countries' | 'cities'>>;
 
 export interface InputFiles {
   originDirectory: string;
