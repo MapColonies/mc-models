@@ -1,51 +1,48 @@
 import { LayerMetadata, ProductType, Transparency } from '../../layerMetadata';
 import { PolygonPartRecord } from '../../polygonParts';
 
-export type IUpdateRasterLayerMetadata = Pick<LayerMetadata, 'productSubType' | 'description' | 'region' | 'classification' | 'scale'>;
+export type IUpdateRasterLayerMetadata = Pick<LayerMetadata, 'classification' | 'description'>;
 
 export class UpdateRasterLayerMetadata implements IUpdateRasterLayerMetadata {
-  public productSubType: string | undefined;
   public description: string | undefined;
-  public region: string[] | undefined;
   public classification: string | undefined;
-  public scale: number | undefined;
 
-  public constructor(productSubType?: string, description?: string, region?: string[], classification?: string, scale?: number) {
-    this.productSubType = productSubType;
+  public constructor(classification: string, description?: string) {
     this.description = description;
-    this.region = region;
     this.classification = classification;
-    this.scale = scale;
   }
 }
 
 export type INewRasterLayerMetadata = UpdateRasterLayerMetadata &
-  Pick<LayerMetadata, 'productId' | 'producerName' | 'productType' | 'srs' | 'srsName' | 'transparency' | 'productName'>;
+  Pick<LayerMetadata, 'productId' | 'productType' | 'srs' | 'srsName' | 'transparency' | 'productName' | 'producerName'>;
 
 export class NewRasterLayerMetadata extends UpdateRasterLayerMetadata implements INewRasterLayerMetadata {
   public productId: string | undefined;
-  public producerName: string | undefined;
   public productType: ProductType | undefined;
   public srs: string | undefined;
   public srsName: string | undefined;
   public transparency: Transparency | undefined;
   public productName: string | undefined;
+  public region: string[] | undefined;
+  public productSubType: string | undefined;
+  public scale: number | undefined;
+  public producerName: string | undefined;
 
   public constructor(
-    productId?: string,
-    producerName?: string,
-    productType?: ProductType,
-    srs?: string,
-    srsName?: string,
-    transparency?: Transparency,
-    productName?: string,
+    productId: string,
+    productType: ProductType,
+    srs: string,
+    srsName: string,
+    transparency: Transparency,
+    productName: string,
+    region: string[],
+    classification: string,
     productSubType?: string,
     description?: string,
-    region?: string[],
-    classification?: string,
-    scale?: number
+    scale?: number,
+    producerName?: string
   ) {
-    super(productSubType, description, region, classification, scale);
+    super(classification, description);
     this.productId = productId;
     this.producerName = producerName;
     this.productType = productType;
@@ -53,6 +50,9 @@ export class NewRasterLayerMetadata extends UpdateRasterLayerMetadata implements
     this.srsName = srsName;
     this.transparency = transparency;
     this.productName = productName;
+    this.scale = scale;
+    this.productSubType = productSubType;
+    this.region = region;
   }
 }
 

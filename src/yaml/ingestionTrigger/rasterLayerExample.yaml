@@ -66,8 +66,8 @@ components:
             imagingTimeBeginUTC: "2024-01-28T13:47:43.427Z"
             imagingTimeEndUTC: "2024-01-28T13:47:43.427Z"
             resolutionDegree: 0.703125
-            resolutionMeter: 78273
-            sourceResolutionMeter: 78273
+            resolutionMeter: 78271.52
+            sourceResolutionMeter: 78271.52
             horizontalAccuracyCE90: 10
             sensors:
               - string

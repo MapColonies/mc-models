@@ -41,13 +41,13 @@ components:
             resolutionMeter:
               type: number
               minimum: 0.0185
-              maximum: 78273
+              maximum: 78271.52
               format: double
               description: min resolution of layer in meters
             sourceResolutionMeter:
               type: number
               minimum: 0.0185
-              maximum: 78273
+              maximum: 78271.52
               format: double
               description: min resolution of layer in meters
             horizontalAccuracyCE90:

@@ -7,28 +7,25 @@ components:
     updateRasterLayerMetadata:
       type: object
       required:
-        - region
         - classification
-      description: layer meta data that will override
+      description: layer metadata that will override
       properties:
-        productSubType:
-          type: string
-          description: Layer's sub type
         description:
           type: string
           description: layer's description
-        region:
-          type: string
-          description: region of record
         classification:
           type: string
           description: Permitted roles
-        scale:
-          type: integer
-          minimum: 0
-          maximum: 100000000
     newRasterLayerMetadata:
       type: object
+      required:
+        - productId
+        - productName
+        - productType
+        - srs
+        - srsName
+        - transparency
+        - region
       allOf:
         - $ref: '#/components/schemas/updateRasterLayerMetadata'
         - properties:
@@ -41,11 +38,21 @@ components:
               description: Layer's external name
             productType:
               $ref: '#/components/schemas/productType'
+            productSubType:
+              type: string
+              description: Layer's sub type  
+            region:
+              type: string
+              description: region of record  
             srs:
               type: string
+              enum: 
+                - '4326'
               description: geo system id
             srsName:
               type: string
+              enum:
+                - WGS84Geo
               description: geo system name
             transparency:
               type: string
@@ -55,7 +62,11 @@ components:
               description: layer can be transparent or opaque
             producerName:
               type: string
-              description: creator name default IDFMU                            
+              description: creator name default IDFMU  
+            scale:
+              type: integer
+              minimum: 0
+              maximum: 100000000                                        
     productType:
       type: string
       enum:

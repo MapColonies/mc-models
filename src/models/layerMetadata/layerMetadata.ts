@@ -605,6 +605,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GENERAL,
+    isManuallyEditable: true,
     infoMsgCode: ['info-field-tooltip.region.tooltip', 'info-general-tooltip.required'],
     validation: [
       {
@@ -1051,6 +1052,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
+    isManuallyEditable: true,
     infoMsgCode: ['info-field-tooltip.scale.min', 'info-field-tooltip.scale.max'],
     validation: [
       {
@@ -1281,8 +1283,8 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
 
   public static getFieldConfigs(): IPropFieldConfigInfo[] {
     const ret = [];
-    const newLayerMetadataProps = Object.keys(new NewRasterLayerMetadata());
-    const updatedLayerMetadataProps = Object.keys(new UpdateRasterLayerMetadata());
+    const newLayerMetadataProps = Object.keys(new NewRasterLayerMetadata('', ProductType.ORTHOPHOTO, '', '', Transparency.TRANSPARENT, '', [''], ''));
+    const updatedLayerMetadataProps = Object.keys(new UpdateRasterLayerMetadata(''));
     const layer = new LayerMetadata();
     for (const prop in layer) {
       const fieldConfigMap = getFieldConfig<LayerMetadata>(layer, prop);
