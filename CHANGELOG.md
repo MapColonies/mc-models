@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.0.1](https://github.com/MapColonies/mc-models/compare/v17.0.0...v17.0.1) (2024-05-28)
+
+
+### Bug Fixes
+
+* add fileName property to sourceInfo response ([#188](https://github.com/MapColonies/mc-models/issues/188)) ([1ac65f8](https://github.com/MapColonies/mc-models/commit/1ac65f871dcbfa7bd838717f624649304fa6f5ac))
+
 ## [17.0.0](https://github.com/MapColonies/mc-models/compare/v13.1.0...v17.0.0) (2024-05-21)
 
 
