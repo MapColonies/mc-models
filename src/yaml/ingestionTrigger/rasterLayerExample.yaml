@@ -13,7 +13,7 @@ components:
           productSubType: string
           description: string
           srs: '4326'
-          srsName: 'WGS84GEO'
+          srsName: 'WGS84Geo'
           transparency: TRANSPARENT
           region: string
           classification: '6'
