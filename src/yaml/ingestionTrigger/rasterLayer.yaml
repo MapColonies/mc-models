@@ -10,7 +10,9 @@ components:
         metadata: 
           $ref: './metadata/rasterLayerMetadata.yaml#/components/schemas/newRasterLayerMetadata'
         partData:
-          $ref: './partData/rasterLayerPartData.yaml#/components/schemas/polygonPartMetadata' 
+          type: array
+          items:
+            $ref: './partData/rasterLayerPartData.yaml#/components/schemas/polygonPartMetadata' 
         inputFiles:
           $ref: './inputFiles/rasterLayerInputFiles.yaml#/components/schemas/InputFiles'
     UpdateRasterLayer:
@@ -19,6 +21,8 @@ components:
         metadata: 
           $ref: './metadata/rasterLayerMetadata.yaml#/components/schemas/updateRasterLayerMetadata'
         partData:
-          $ref: './partData/rasterLayerPartData.yaml#/components/schemas/polygonPartMetadata' 
+          type: array
+          items:
+            $ref: './partData/rasterLayerPartData.yaml#/components/schemas/polygonPartMetadata' 
         inputFiles:
           $ref: './inputFiles/rasterLayerInputFiles.yaml#/components/schemas/InputFiles'                
