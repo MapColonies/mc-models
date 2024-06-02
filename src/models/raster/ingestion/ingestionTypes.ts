@@ -4,8 +4,8 @@ import { PolygonPartRecord } from '../../polygonParts';
 export type IUpdateRasterLayerMetadata = Pick<LayerMetadata, 'classification'> & Partial<Pick<LayerMetadata, 'description'>>;
 
 export class UpdateRasterLayerMetadata implements IUpdateRasterLayerMetadata {
-  public description?: string | undefined;
-  public classification: string | undefined;
+  public description?: string;
+  public classification: string;
 
   public constructor(classification: string, description?: string) {
     this.description = description;
@@ -18,16 +18,16 @@ export type INewRasterLayerMetadata = UpdateRasterLayerMetadata &
   Partial<Pick<LayerMetadata, 'producerName'>>;
 
 export class NewRasterLayerMetadata extends UpdateRasterLayerMetadata implements INewRasterLayerMetadata {
-  public productId: string | undefined;
-  public productType: ProductType | undefined;
-  public srs: string | undefined;
-  public srsName: string | undefined;
-  public transparency: Transparency | undefined;
-  public productName: string | undefined;
-  public region: string[] | undefined;
-  public productSubType?: string | undefined;
-  public scale?: number | undefined;
-  public producerName?: string | undefined;
+  public productId: string;
+  public productType: ProductType;
+  public srs: string;
+  public srsName: string;
+  public transparency: Transparency;
+  public productName: string;
+  public region: string[];
+  public productSubType?: string;
+  public scale?: number;
+  public producerName?: string;
 
   public constructor(
     productId: string,

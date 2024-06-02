@@ -42,7 +42,9 @@ components:
               type: string
               description: Layer's sub type  
             region:
-              type: string
+              type: array
+              items:
+                type: string
               description: region of record  
             srs:
               type: string
