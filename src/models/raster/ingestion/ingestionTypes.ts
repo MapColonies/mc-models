@@ -1,9 +1,9 @@
 import { LayerMetadata, ProductType, Transparency } from '../../layerMetadata';
 import { PolygonPartRecord } from '../../polygonParts';
 
-export type IUpdateRasterLayerMetadata = Pick<LayerMetadata, 'classification'> & Partial<Pick<LayerMetadata, 'description'>>;
+export type IBaseRasterLayerMetadata = Pick<LayerMetadata, 'classification'> & Partial<Pick<LayerMetadata, 'description'>>;
 
-export class UpdateRasterLayerMetadata implements IUpdateRasterLayerMetadata {
+export class BaseRasterLayerMetadata implements IBaseRasterLayerMetadata {
   public description?: string;
   public classification: string;
 
@@ -12,12 +12,17 @@ export class UpdateRasterLayerMetadata implements IUpdateRasterLayerMetadata {
     this.classification = classification;
   }
 }
+export class UpdateRasterLayerMetadata extends BaseRasterLayerMetadata {
+  constructor(classification: string, description?: string) {
+    super(classification, description);
+  }
+}
 
-export type INewRasterLayerMetadata = UpdateRasterLayerMetadata &
+export type INewRasterLayerMetadata = BaseRasterLayerMetadata &
   Pick<LayerMetadata, 'productId' | 'productType' | 'srs' | 'srsName' | 'transparency' | 'productName'> &
   Partial<Pick<LayerMetadata, 'producerName'>>;
 
-export class NewRasterLayerMetadata extends UpdateRasterLayerMetadata implements INewRasterLayerMetadata {
+export class NewRasterLayerMetadata extends BaseRasterLayerMetadata implements INewRasterLayerMetadata {
   public productId: string;
   public productType: ProductType;
   public srs: string;
