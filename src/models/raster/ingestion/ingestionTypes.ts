@@ -1,26 +1,24 @@
 import { LayerMetadata, ProductType, Transparency } from '../../layerMetadata';
 import { PolygonPartRecord } from '../../polygonParts';
 
-export type IBaseRasterLayerMetadata = Pick<LayerMetadata, 'classification'> & Partial<Pick<LayerMetadata, 'description'>>;
+export type IBaseRasterLayerMetadata = Pick<LayerMetadata, 'classification'>;
 
 export class BaseRasterLayerMetadata implements IBaseRasterLayerMetadata {
-  public description?: string;
   public classification: string;
 
-  public constructor(classification: string, description?: string) {
-    this.description = description;
+  public constructor(classification: string) {
     this.classification = classification;
   }
 }
 export class UpdateRasterLayerMetadata extends BaseRasterLayerMetadata {
-  constructor(classification: string, description?: string) {
-    super(classification, description);
+  constructor(classification: string) {
+    super(classification);
   }
 }
 
 export type INewRasterLayerMetadata = BaseRasterLayerMetadata &
   Pick<LayerMetadata, 'productId' | 'productType' | 'srs' | 'srsName' | 'transparency' | 'productName'> &
-  Partial<Pick<LayerMetadata, 'producerName'>>;
+  Partial<Pick<LayerMetadata, 'producerName' | 'description'>>;
 
 export class NewRasterLayerMetadata extends BaseRasterLayerMetadata implements INewRasterLayerMetadata {
   public productId: string;
@@ -33,6 +31,7 @@ export class NewRasterLayerMetadata extends BaseRasterLayerMetadata implements I
   public productSubType?: string;
   public scale?: number;
   public producerName?: string;
+  public description?: string;
 
   public constructor(
     productId: string,
@@ -48,7 +47,7 @@ export class NewRasterLayerMetadata extends BaseRasterLayerMetadata implements I
     scale?: number,
     producerName?: string
   ) {
-    super(classification, description);
+    super(classification);
     this.productId = productId;
     this.producerName = producerName;
     this.productType = productType;
@@ -59,6 +58,7 @@ export class NewRasterLayerMetadata extends BaseRasterLayerMetadata implements I
     this.scale = scale;
     this.productSubType = productSubType;
     this.region = region;
+    this.description = description;
   }
 }
 

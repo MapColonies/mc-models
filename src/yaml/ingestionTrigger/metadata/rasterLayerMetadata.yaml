@@ -10,9 +10,6 @@ components:
         - classification
       description: layer metadata that will override
       properties:
-        description:
-          type: string
-          description: layer's description
         classification:
           type: string
           description: Permitted roles
@@ -68,7 +65,10 @@ components:
             scale:
               type: integer
               minimum: 0
-              maximum: 100000000                                        
+              maximum: 100000000     
+            description:
+              type: string
+              description: layer's description                                   
     productType:
       type: string
       enum:
