@@ -11,7 +11,7 @@ export class BaseRasterLayerMetadata implements IBaseRasterLayerMetadata {
   }
 }
 export class UpdateRasterLayerMetadata extends BaseRasterLayerMetadata {
-  constructor(classification: string) {
+  public constructor(classification: string) {
     super(classification);
   }
 }
@@ -81,10 +81,10 @@ export interface InputFiles {
   fileNames: string[];
 }
 
-export type LayerData = {
+export interface LayerData {
   partData: PolygonPart[];
   inputFiles: InputFiles;
-};
+}
 
 export type NewRasterLayer = { metadata: NewRasterLayerMetadata } & LayerData;
 export type UpdateRasterLayer = { metadata: UpdateRasterLayerMetadata } & LayerData;
