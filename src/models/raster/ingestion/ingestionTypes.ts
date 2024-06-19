@@ -81,12 +81,6 @@ export interface InputFiles {
   fileNames: string[];
 }
 
-// export interface RasterIngestionLayer {
-//   metadata: NewRasterLayerMetadata | UpdateRasterLayerMetadata;
-//   partData: PolygonPart[];
-//   inputFiles: InputFiles;
-// }
-
 export type LayerData = {
   partData: PolygonPart[];
   inputFiles: InputFiles;
