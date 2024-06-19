@@ -75,4 +75,3 @@ components:
               type: string
             geometry:
               $ref: '../../geojson.yaml#/components/schemas/Geometry'
-              example: ['example.gpkg']
