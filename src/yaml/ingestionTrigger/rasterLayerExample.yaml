@@ -7,7 +7,7 @@ components:
     NewRasterLayerExample:
       value:
         metadata:
-          productId: c5e3f820-b2bd-4f0b-a70f-c98bf33b2692
+          productId: some-name
           productName: string
           productType: Orthophoto
           productSubType: string
@@ -21,7 +21,7 @@ components:
           producerName: string
           scale: 100000000
         partData:
-          - id: c5e3f820-b2bd-4f0b-a70f-c98bf33b2692
+          - id: avi
             name: string
             imagingTimeBeginUTC: "2024-01-28T13:47:43.427Z"
             imagingTimeEndUTC: "2024-01-28T13:47:43.427Z"
