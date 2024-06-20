@@ -7,20 +7,21 @@ components:
     NewRasterLayerExample:
       value:
         metadata:
-          productId: string
+          productId: some-name
           productName: string
           productType: Orthophoto
           productSubType: string
           description: string
           srs: '4326'
-          srsName: 'WGS84GEO'
+          srsName: 'WGS84Geo'
           transparency: TRANSPARENT
-          region: string
+          region: 
+            - string
           classification: '6'
           producerName: string
           scale: 100000000
         partData:
-          - id: string
+          - id: avi
             name: string
             imagingTimeBeginUTC: "2024-01-28T13:47:43.427Z"
             imagingTimeEndUTC: "2024-01-28T13:47:43.427Z"
@@ -66,8 +67,8 @@ components:
             imagingTimeBeginUTC: "2024-01-28T13:47:43.427Z"
             imagingTimeEndUTC: "2024-01-28T13:47:43.427Z"
             resolutionDegree: 0.703125
-            resolutionMeter: 78273
-            sourceResolutionMeter: 78273
+            resolutionMeter: 78271.52
+            sourceResolutionMeter: 78271.52
             horizontalAccuracyCE90: 10
             sensors:
               - string
