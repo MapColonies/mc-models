@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.0.2](https://github.com/MapColonies/mc-models/compare/v17.0.1...v17.0.2) (2024-06-20)
+
+
+### Bug Fixes
+
+* new raster ingestion modifications (MAPCO-4302) ([#189](https://github.com/MapColonies/mc-models/issues/189)) ([d99d608](https://github.com/MapColonies/mc-models/commit/d99d608ddcdc5924b427c6b0da22ee7b2efe554f))
+
 ### [17.0.1](https://github.com/MapColonies/mc-models/compare/v17.0.0...v17.0.1) (2024-05-28)
 
 
