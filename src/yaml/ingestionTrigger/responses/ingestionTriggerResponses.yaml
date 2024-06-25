@@ -62,7 +62,7 @@ components:
           type: string
           example: "success"
       required:
-        - message
+        - status
     errorMessage:
       type: object
       properties:
