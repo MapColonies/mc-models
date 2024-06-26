@@ -53,8 +53,7 @@ components:
           type: string
           example: "Files are valid"
       required:
-        - status
-        - message              
+        - isValid              
     successMessage:
       type: object
       properties:
