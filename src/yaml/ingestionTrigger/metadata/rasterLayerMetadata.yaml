@@ -13,6 +13,7 @@ components:
         classification:
           type: string
           description: Permitted roles
+          pattern: ^[0-9]$|^[1-9][0-9]$|^(100)$
     newRasterLayerMetadata:
       type: object
       required:

@@ -30,7 +30,7 @@ components:
         classification:
           type: string
           description: Permitted roles
-          pattern: ^[3-6]$
+          pattern: ^[0-9]$|^[1-9][0-9]$|^(100)$
         productId:
           type: string
           description: Layer's external identifier
