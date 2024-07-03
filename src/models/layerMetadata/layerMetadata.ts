@@ -712,7 +712,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     column: {
       name: 'product_type',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @inputDataMapping({
