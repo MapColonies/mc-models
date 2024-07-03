@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.0.3](https://github.com/MapColonies/mc-models/compare/v17.0.2...v17.0.3) (2024-06-30)
+
+
+### Bug Fixes
+
+* required property in success message in ingestion trigger ([#190](https://github.com/MapColonies/mc-models/issues/190)) ([f274cd0](https://github.com/MapColonies/mc-models/commit/f274cd065ad70934d1a0813ff906d6d83f097951))
+
 ### [17.0.2](https://github.com/MapColonies/mc-models/compare/v17.0.1...v17.0.2) (2024-06-20)
 
 
