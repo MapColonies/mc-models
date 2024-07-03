@@ -52,7 +52,7 @@ components:
             srsName:
               type: string
               enum:
-                - WGS84Geo
+                - WGS84GEO
               description: geo system name
             transparency:
               type: string
