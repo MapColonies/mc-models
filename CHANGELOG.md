@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.0.4](https://github.com/MapColonies/mc-models/compare/v17.0.3...v17.0.4) (2024-07-08)
+
+
+### Bug Fixes
+
+* Bug fixes (MAPCO-4408 , MAPCO-4409 , MAPCO-4401) ([#191](https://github.com/MapColonies/mc-models/issues/191)) ([b9e96f5](https://github.com/MapColonies/mc-models/commit/b9e96f5083abf73df9554a00af6fb1798481eeeb))
+
 ### [17.0.3](https://github.com/MapColonies/mc-models/compare/v17.0.2...v17.0.3) (2024-06-30)
 
 
