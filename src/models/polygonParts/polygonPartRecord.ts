@@ -59,6 +59,50 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#endregion
   public name: string | undefined = undefined;
 
+  //#region METADATA: productId
+  @catalogDB({
+    column: {
+      name: 'product_id',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @inputDataMapping({
+    dataFile: DataFileType.SHAPE_METADATA,
+    valuePath: 'properties.SourceName',
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql()
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+  })
+  //#endregion
+  public productId: string | undefined = undefined;
+
+  //#region METADATA: productType
+  @catalogDB({
+    column: {
+      name: 'product_type',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @inputDataMapping({
+    dataFile: DataFileType.SHAPE_METADATA,
+    valuePath: 'properties.SourceName',
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql()
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+  })
+  //#endregion
+  public productType: string | undefined = undefined;
+
   //#region METADATA: description
   @catalogDB({
     column: {
@@ -86,7 +130,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: imagingTimeBeginUTC
   @catalogDB({
     column: {
-      name: 'imagingTimeBeginUTC',
+      name: 'imaging_time_begin_utc',
       type: 'timestamp with time zone',
       nullable: false,
     },
@@ -122,8 +166,8 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: imagingTimeEndUTC
   @catalogDB({
     column: {
-      name: 'imagingTimeEndUTC',
-      type: 'timestamp without time zone',
+      name: 'imaging_time_end_utc',
+      type: 'timestamp with time zone',
       nullable: false,
     },
   })
@@ -153,7 +197,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: horizontalAccuracyCE90
   @catalogDB({
     column: {
-      name: 'horizontalAccuracyCE90',
+      name: 'horizontal_accuracy_ce_90',
       type: 'real',
     },
   })
@@ -282,7 +326,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: resolutionDegree??? [from INGESTION PARAMS]
   @catalogDB({
     column: {
-      name: 'resolutionDegree',
+      name: 'resolution_degree',
       type: 'numeric',
     },
   })
@@ -318,7 +362,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: resolutionMeter [from INGESTION PARAMS]
   @catalogDB({
     column: {
-      name: 'resolutionMeter',
+      name: 'resolution_meter',
       type: 'numeric',
     },
   })
@@ -349,7 +393,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: sourceResolutionMeter [READONLY]
   @catalogDB({
     column: {
-      name: 'sourceResolutionMeter',
+      name: 'source_resolution_meter',
       type: 'numeric',
     },
   })
@@ -406,10 +450,10 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#endregion
   public geometry: GeoJSON | undefined = undefined;
 
-  //#region RECORD: internalId_partId
+  //#region RECORD: internalId
   @catalogDB({
     column: {
-      name: 'internalId_partId',
+      name: 'internal_id',
       type: 'number',
       nullable: false,
       primary: true,
@@ -425,12 +469,12 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   })
   //#endregion
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  public internalId_partId: number | undefined;
+  public internalId: number | undefined;
 
   //#region RECORD: partId
   @catalogDB({
     column: {
-      name: 'partId',
+      name: 'part_id',
       type: 'number',
       nullable: false,
     },
@@ -449,7 +493,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: recordId
   @catalogDB({
     column: {
-      name: 'recordId',
+      name: 'record_id',
       type: 'text',
       nullable: false,
     },
@@ -468,7 +512,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: updatedInVersion [Version number of the best layer when it was updated]
   @catalogDB({
     column: {
-      name: 'updatedInVersion',
+      name: 'updated_in_version',
       type: 'text',
       nullable: true,
     },
@@ -497,7 +541,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: ingestionDateUTC
   @catalogDB({
     column: {
-      name: 'ingestionDateUTC',
+      name: 'ingestion_date_utc',
       type: 'timestamp with time zone',
     },
   })
