@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.1.2](https://github.com/MapColonies/mc-models/compare/v17.1.1...v17.1.2) (2024-08-27)
+
+
+### Bug Fixes
+
+* fix copy yaml work flow on publishing to npm ([#196](https://github.com/MapColonies/mc-models/issues/196)) ([2af713e](https://github.com/MapColonies/mc-models/commit/2af713e13ff3094a37f55c2cc9ea539d185b32dd))
+
 ### [17.1.1](https://github.com/MapColonies/mc-models/compare/v17.1.0...v17.1.1) (2024-08-27)
 
 
