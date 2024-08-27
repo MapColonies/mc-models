@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.1.0](https://github.com/MapColonies/mc-models/compare/v17.0.4...v17.1.0) (2024-08-27)
+
+
+### Features
+
+* adding IngestionUpdateJobParams type ([#193](https://github.com/MapColonies/mc-models/issues/193)) ([0a6361c](https://github.com/MapColonies/mc-models/commit/0a6361c016f361b7284675e058bd4eedaab83a2c))
+
 ### [17.0.4](https://github.com/MapColonies/mc-models/compare/v17.0.3...v17.0.4) (2024-07-08)
 
 
