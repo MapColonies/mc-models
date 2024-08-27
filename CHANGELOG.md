@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.1.1](https://github.com/MapColonies/mc-models/compare/v17.1.0...v17.1.1) (2024-08-27)
+
+
+### Bug Fixes
+
+* remove validate from publish script ([#195](https://github.com/MapColonies/mc-models/issues/195)) ([6905332](https://github.com/MapColonies/mc-models/commit/690533264cc940a523e87df0548956a11564cf5f))
+
 ## [17.1.0](https://github.com/MapColonies/mc-models/compare/v17.0.4...v17.1.0) (2024-08-27)
 
 
