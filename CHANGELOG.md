@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.1.4](https://github.com/MapColonies/mc-models/compare/v17.1.3...v17.1.4) (2024-08-29)
+
+
+### Bug Fixes
+
+* openapi example ([#198](https://github.com/MapColonies/mc-models/issues/198)) ([9e45d41](https://github.com/MapColonies/mc-models/commit/9e45d4165ff2076d3842eb8abeab6684bf53888d))
+
 ### [17.1.3](https://github.com/MapColonies/mc-models/compare/v17.1.2...v17.1.3) (2024-08-29)
 
 
