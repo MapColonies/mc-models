@@ -21,8 +21,8 @@ components:
           producerName: string
           scale: 100000000
         partData:
-          - id: avi
-            name: string
+          - sourceId: avi
+            sourceName: string
             imagingTimeBeginUTC: "2024-01-28T13:47:43.427Z"
             imagingTimeEndUTC: "2024-01-28T13:47:43.427Z"
             resolutionDegree: 0.703125
@@ -58,8 +58,8 @@ components:
         metadata:
           classification: '6'
         partData:
-          - id: string
-            name: string
+          - sourceId: string
+            sourceName: string
             imagingTimeBeginUTC: "2024-01-28T13:47:43.427Z"
             imagingTimeEndUTC: "2024-01-28T13:47:43.427Z"
             resolutionDegree: 0.703125
