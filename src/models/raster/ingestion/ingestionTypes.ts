@@ -73,8 +73,11 @@ export type PolygonPart = Pick<
   | 'imagingTimeBeginUTC'
   | 'imagingTimeEndUTC'
   | 'geometry'
-> &
-  Partial<Pick<PolygonPartRecord, 'sourceId' | 'description' | 'countries' | 'cities'>>;
+  | 'sourceId'
+  | 'description'
+  | 'countries'
+  | 'cities'
+>;
 
 export interface InputFiles {
   originDirectory: string;
