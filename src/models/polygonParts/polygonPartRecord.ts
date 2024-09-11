@@ -5,7 +5,7 @@ import { FieldCategory, IPropFieldConfigInfo, fieldConfig, getFieldConfig } from
 import { DataFileType, IPropSHPMapping, getInputDataMapping, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
 import { catalogDB, getCatalogDBMapping } from '../layerMetadata/decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
-import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping, horizontalAccuracyValidation } from '../layerMetadata';
+import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping, ProductType, horizontalAccuracyValidation } from '../layerMetadata';
 import { graphqlClass, IPropCatalogDBMapping } from '../common';
 import { getCatalogDBEntityMapping } from '../layerMetadata/decorators/class/catalogDBEntity.decorator';
 
@@ -35,14 +35,14 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     category: FieldCategory.MAIN,
   })
   //#endregion
-  public sourceId: string | undefined = undefined;
+  public sourceId?: string;
 
   //#region METADATA: sourceName
   @catalogDB({
     column: {
       name: 'source_name',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @inputDataMapping({
@@ -57,14 +57,14 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     category: FieldCategory.MAIN,
   })
   //#endregion
-  public sourceName: string | undefined = undefined;
+  public sourceName!: string;
 
   //#region METADATA: productId
   @catalogDB({
     column: {
       name: 'product_id',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @inputDataMapping({
@@ -79,14 +79,14 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     category: FieldCategory.MAIN,
   })
   //#endregion
-  public productId: string | undefined = undefined;
+  public productId!: string;
 
   //#region METADATA: productType
   @catalogDB({
     column: {
       name: 'product_type',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @inputDataMapping({
@@ -94,14 +94,14 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     valuePath: 'properties.SourceName',
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.PRODUCTTYPE,
   })
   @graphql()
   @fieldConfig({
     category: FieldCategory.MAIN,
   })
   //#endregion
-  public productType: string | undefined = undefined;
+  public productType!: ProductType;
 
   //#region METADATA: description
   @catalogDB({
@@ -125,7 +125,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     category: FieldCategory.GENERAL,
   })
   //#endregion
-  public description: string | undefined = undefined;
+  public description?: string;
 
   //#region METADATA: imagingTimeBeginUTC
   @catalogDB({
@@ -161,7 +161,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     isLifecycleEnvolved: true,
   })
   //#endregion
-  public imagingTimeBeginUTC: Date | undefined = undefined;
+  public imagingTimeBeginUTC!: Date;
 
   //#region METADATA: imagingTimeEndUTC
   @catalogDB({
@@ -192,7 +192,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     isLifecycleEnvolved: true,
   })
   //#endregion
-  public imagingTimeEndUTC: Date | undefined = undefined;
+  public imagingTimeEndUTC!: Date;
 
   //#region METADATA: horizontalAccuracyCE90
   @catalogDB({
@@ -231,13 +231,14 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     isLifecycleEnvolved: true,
   })
   //#endregion
-  public horizontalAccuracyCE90: number | undefined = undefined;
+  public horizontalAccuracyCE90!: number;
 
   //#region METADATA: sensors
   @catalogDB({
     column: {
       name: 'sensors',
       type: 'text',
+      nullable: false,
     },
     field: {
       overrideType: TsTypes.STRING,
@@ -264,7 +265,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     ],
   })
   //#endregion
-  public sensors: string[] | undefined = undefined;
+  public sensors!: string[];
 
   //#region METADATA: countries
   @catalogDB({
@@ -293,7 +294,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     infoMsgCode: ['info-field-tooltip.region.tooltip'],
   })
   //#endregion
-  public countries: string[] | undefined = undefined;
+  public countries?: string[];
 
   //#region **TO_VERIFY_CITIES?** METADATA: cities
   @catalogDB({
@@ -321,7 +322,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     category: FieldCategory.GENERAL,
   })
   //#endregion
-  public cities: string[] | undefined = undefined;
+  public cities?: string[];
 
   //#region METADATA: resolutionDegree??? [from INGESTION PARAMS]
   @catalogDB({
@@ -357,7 +358,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     ],
   })
   //#endregion
-  public resolutionDegree: number | undefined = undefined;
+  public resolutionDegree!: number;
 
   //#region METADATA: resolutionMeter [from INGESTION PARAMS]
   @catalogDB({
@@ -388,7 +389,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     ],
   })
   //#endregion
-  public resolutionMeter: number | undefined = undefined;
+  public resolutionMeter!: number;
 
   //#region METADATA: sourceResolutionMeter [READONLY]
   @catalogDB({
@@ -416,7 +417,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     ],
   })
   //#endregion
-  public sourceResolutionMeter: number | undefined = undefined;
+  public sourceResolutionMeter!: number;
 
   //#region METADATA: geometry
   @catalogDB({
@@ -448,7 +449,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     ],
   })
   //#endregion
-  public geometry: GeoJSON | undefined = undefined;
+  public geometry!: GeoJSON;
 
   //#region RECORD: id
   @catalogDB({
@@ -469,7 +470,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   })
   //#endregion
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  public id: string | undefined;
+  public id!: string;
 
   //#region RECORD: partId
   @catalogDB({
@@ -488,7 +489,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     isAutoGenerated: true,
   })
   //#endregion
-  public partId: number | undefined;
+  public partId!: string;
 
   //#region RECORD: catalogId
   @catalogDB({
@@ -507,21 +508,21 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     isAutoGenerated: true,
   })
   //#endregion
-  public catalogId: string | undefined = 'UNKNOWN';
+  public catalogId!: string;
 
   //#region RECORD: productVersion [Version number of the best layer when it was updated]
   @catalogDB({
     column: {
       name: 'product_version',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.MAIN,
@@ -536,13 +537,14 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     ],
   })
   //#endregion
-  public productVersion: string | undefined = undefined;
+  public productVersion!: string;
 
   //#region RECORD: ingestionDateUTC
   @catalogDB({
     column: {
       name: 'ingestion_date_utc',
       type: 'timestamp with time zone',
+      nullable: false,
     },
   })
   @tsTypes({
@@ -554,7 +556,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     isAutoGenerated: true,
   })
   //#endregion
-  public ingestionDateUTC: Date | undefined = undefined;
+  public ingestionDateUTC!: Date;
 
   public static getPyCSWMappings(): IPropPYCSWMapping[] {
     return [];
@@ -615,17 +617,24 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
 }
 
 export interface IPolygonPart {
-  sourceId: string | undefined;
-  sourceName: string | undefined;
-  description: string | undefined;
-  resolutionDegree: number | undefined;
-  resolutionMeter: number | undefined;
-  sourceResolutionMeter: number | undefined;
-  horizontalAccuracyCE90: number | undefined;
-  countries: string[] | undefined;
-  cities: string[] | undefined;
-  sensors: string[] | undefined;
-  imagingTimeBeginUTC: Date | undefined;
-  imagingTimeEndUTC: Date | undefined;
-  geometry: GeoJSON | undefined;
+  id: string;
+  partId: string;
+  catalogId: string;
+  productId: string;
+  productVersion: string;
+  productType: ProductType;
+  sourceId?: string;
+  sourceName: string;
+  description?: string;
+  resolutionDegree: number;
+  resolutionMeter: number;
+  sourceResolutionMeter: number;
+  horizontalAccuracyCE90: number;
+  countries?: string[];
+  cities?: string[];
+  sensors: string[];
+  imagingTimeBeginUTC: Date;
+  imagingTimeEndUTC: Date;
+  ingestionDateUTC: Date;
+  geometry: GeoJSON;
 }

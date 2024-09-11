@@ -17,7 +17,7 @@ export interface IDescribeTsType {
 }
 
 /* eslint-disable @typescript-eslint/naming-convention */
-export const TsTypes: Record<string, IDescribeTsType> = {
+export const TsTypes = {
   STRING: {
     value: 'string',
     type: PropertiesTypes.PRIMITIVE,
@@ -117,7 +117,8 @@ export const TsTypes: Record<string, IDescribeTsType> = {
     value: 'DiscreteOrder',
     type: PropertiesTypes.ARRAY,
   },
-};
+} satisfies Record<string, IDescribeTsType>;
+
 /* eslint-enable @typescript-eslint/naming-convention */
 export interface ITsTypesMapping {
   mappingType: IDescribeTsType;
