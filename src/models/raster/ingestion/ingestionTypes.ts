@@ -1,5 +1,5 @@
 import { LayerMetadata, ProductType, Transparency } from '../../layerMetadata';
-import { PolygonPartRecord } from '../../polygonParts';
+import { IPolygonPart, PolygonPartRecord } from '../../polygonParts';
 
 export type IBaseRasterLayerMetadata = Pick<LayerMetadata, 'classification'>;
 
@@ -63,7 +63,7 @@ export class NewRasterLayerMetadata extends BaseRasterLayerMetadata implements I
 }
 
 export type PolygonPart = Pick<
-  PolygonPartRecord,
+  IPolygonPart,
   | 'sourceName'
   | 'resolutionDegree'
   | 'resolutionMeter'
