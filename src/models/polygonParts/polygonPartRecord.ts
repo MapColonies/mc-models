@@ -5,7 +5,7 @@ import { FieldCategory, IPropFieldConfigInfo, fieldConfig, getFieldConfig } from
 import { DataFileType, IPropSHPMapping, getInputDataMapping, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
 import { catalogDB, getCatalogDBMapping } from '../layerMetadata/decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
-import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping, horizontalAccuracyValidation } from '../layerMetadata';
+import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping, ProductType, horizontalAccuracyValidation } from '../layerMetadata';
 import { graphqlClass, IPropCatalogDBMapping } from '../common';
 import { getCatalogDBEntityMapping } from '../layerMetadata/decorators/class/catalogDBEntity.decorator';
 
@@ -94,14 +94,14 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     valuePath: 'properties.SourceName',
   })
   @tsTypes({
-    mappingType: TsTypes.STRING,
+    mappingType: TsTypes.PRODUCTTYPE,
   })
   @graphql()
   @fieldConfig({
     category: FieldCategory.MAIN,
   })
   //#endregion
-  public productType!: string;
+  public productType!: ProductType;
 
   //#region METADATA: description
   @catalogDB({
@@ -622,7 +622,7 @@ export interface IPolygonPart {
   catalogId: string;
   productId: string;
   productVersion: string;
-  productType: string;
+  productType: ProductType;
   sourceId?: string;
   sourceName: string;
   description?: string;
