@@ -1,5 +1,5 @@
 import { LayerMetadata, ProductType, Transparency } from '../../layerMetadata';
-import { IPolygonPart, PolygonPartRecord } from '../../polygonParts';
+import { IPolygonPart } from '../../polygonParts';
 
 export type IBaseRasterLayerMetadata = Pick<LayerMetadata, 'classification'>;
 
