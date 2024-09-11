@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.1.5](https://github.com/MapColonies/mc-models/compare/v17.1.4...v17.1.5) (2024-09-11)
+
+
+### Bug Fixes
+
+* fields alignment according to the definition of the polygon part ([#199](https://github.com/MapColonies/mc-models/issues/199)) ([30931e6](https://github.com/MapColonies/mc-models/commit/30931e6582be7a2e6332c472be577ff85119b4e6))
+
 ### [17.1.4](https://github.com/MapColonies/mc-models/compare/v17.1.3...v17.1.4) (2024-08-29)
 
 
