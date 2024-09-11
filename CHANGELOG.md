@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.1.6](https://github.com/MapColonies/mc-models/compare/v17.1.5...v17.1.6) (2024-09-11)
+
+
+### Bug Fixes
+
+* geomtry type changed to Polygon ([#200](https://github.com/MapColonies/mc-models/issues/200)) ([e06c64a](https://github.com/MapColonies/mc-models/commit/e06c64abe67b7c58f1de8cbd6cc66ec7982c4be2))
+
 ### [17.1.5](https://github.com/MapColonies/mc-models/compare/v17.1.4...v17.1.5) (2024-09-11)
 
 
