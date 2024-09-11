@@ -1,4 +1,4 @@
-import { GeoJSON } from 'geojson';
+import { Polygon } from 'geojson';
 import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import { FieldCategory, IPropFieldConfigInfo, fieldConfig, getFieldConfig } from '../common/decorators/fieldConfig/fieldConfig.decorator';
@@ -449,7 +449,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     ],
   })
   //#endregion
-  public geometry!: GeoJSON;
+  public geometry!: Polygon;
 
   //#region RECORD: id
   @catalogDB({
@@ -636,5 +636,5 @@ export interface IPolygonPart {
   imagingTimeBeginUTC: Date;
   imagingTimeEndUTC: Date;
   ingestionDateUTC: Date;
-  geometry: GeoJSON;
+  geometry: Polygon;
 }
