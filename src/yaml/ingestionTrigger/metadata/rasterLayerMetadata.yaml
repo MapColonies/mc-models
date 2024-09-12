@@ -26,16 +26,11 @@ components:
         - region
       allOf:
         - $ref: '#/components/schemas/updateRasterLayerMetadata'
+        - $ref: '#/components/schemas/RasterLayerBaseMetadata'
         - properties:
-            productId:
-              type: string
-              description: Layer's external identifier
-              pattern: ^[a-zA-Z0-9_-]+$
             productName:
               type: string
               description: Layer's external name
-            productType:
-              $ref: '#/components/schemas/productType'
             productSubType:
               type: string
               description: Layer's sub type  
@@ -70,6 +65,17 @@ components:
             description:
               type: string
               description: layer's description                                   
+    RasterLayerBaseMetadata:
+      required:
+        - productId
+        - productType
+      properties:
+        productId:
+          type: string
+          description: layer's external identifier
+          pattern: ^[a-zA-Z0-9_-]+$
+        productType:
+          $ref: '#/components/schemas/productType'
     productType:
       type: string
       enum:

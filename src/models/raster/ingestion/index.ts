@@ -1,1 +1,1 @@
-export * from './ingestionTypes';
+export * from './types';

@@ -79,6 +79,10 @@ export type PolygonPart = Pick<
   | 'cities'
 >;
 
+export type PolygonPartsPayload = Pick<IPolygonPart, 'catalogId' | 'productId' | 'productType' | 'productVersion'> & {
+  partsData: PolygonPart[];
+};
+
 export interface InputFiles {
   originDirectory: string;
   fileNames: string[];

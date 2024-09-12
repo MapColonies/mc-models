@@ -1,0 +1,33 @@
+openapi: "3.0.1"
+info:
+  title: Polygon parts payload
+  version: 1.0.0
+components:
+  schemas:
+    PolygonPartsPayload:
+      type: object
+      required:
+        - catalogId
+        - productId
+        - productType
+        - productVersion
+        - partsData
+      allOf:
+        - type: object
+          allOf:
+            - $ref: '../ingestionTrigger/metadata/rasterLayerMetadata.yaml#/components/schemas/RasterLayerBaseMetadata'
+            - properties:
+                catalogId:
+                  type: string
+                  format: uuid
+                  example: c52d8189-7e07-456a-8c6b-53859523c3e9
+                  description: layer's identifier
+                productVersion:
+                  type: string
+                  pattern: ^[1-9]\d{0,}?(\.(0|[1-9]\d?))?$
+                  description: layer's version
+                partsData:
+                  type: array
+                  items: 
+                    $ref: '../ingestionTrigger/partData/rasterLayerPartData.yaml#/components/schemas/polygonPartMetadata'
+                  description: polygon parts data
