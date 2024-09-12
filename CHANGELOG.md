@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.2.0](https://github.com/MapColonies/mc-models/compare/v17.1.6...v17.2.0) (2024-09-12)
+
+
+### Features
+
+* add openapi and ts types for polygon-parts-manager (MAPCO-4776) ([#201](https://github.com/MapColonies/mc-models/issues/201)) ([a2cecdb](https://github.com/MapColonies/mc-models/commit/a2cecdbccf73326479a1abdc3f46b2162cfc16b5))
+
 ### [17.1.6](https://github.com/MapColonies/mc-models/compare/v17.1.5...v17.1.6) (2024-09-11)
 
 
