@@ -74,4 +74,4 @@ components:
         description:
           type: string
         geometry:
-          $ref: '../../geojson.yaml#/components/schemas/Geometry'
+          $ref: '../../geojson.yaml#/components/schemas/Polygon'
