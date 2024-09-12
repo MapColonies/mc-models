@@ -1,3 +1,4 @@
+import { type } from 'os';
 import { LayerMetadata, ProductType, Transparency } from '../../layerMetadata';
 import { IPolygonPart } from '../../polygonParts';
 
@@ -78,6 +79,10 @@ export type PolygonPart = Pick<
   | 'countries'
   | 'cities'
 >;
+
+export type PolygonPartsPayload = Pick<IPolygonPart, 'catalogId' | 'productId' | 'productType' | 'productVersion'> & {
+  polygonPartsData: PolygonPart[];
+};
 
 export interface InputFiles {
   originDirectory: string;
