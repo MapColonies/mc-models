@@ -6,6 +6,12 @@ components:
   schemas:
     PolygonPartsPayload:
       type: object
+      required:
+        - catalogId
+        - productId
+        - productType
+        - productVersion
+        - partsData
       allOf:
         - type: object
           allOf:
@@ -25,7 +31,3 @@ components:
                   items: 
                     $ref: '../ingestionTrigger/partData/rasterLayerPartData.yaml#/components/schemas/polygonPartMetadata'
                   description: polygon parts data
-              required:
-                - catalogId
-                - productVersion
-                - partsData
