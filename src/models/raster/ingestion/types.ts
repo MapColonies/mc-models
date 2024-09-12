@@ -1,4 +1,3 @@
-import { type } from 'os';
 import { LayerMetadata, ProductType, Transparency } from '../../layerMetadata';
 import { IPolygonPart } from '../../polygonParts';
 
