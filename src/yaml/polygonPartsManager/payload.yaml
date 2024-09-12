@@ -8,8 +8,6 @@ components:
       type: object
       allOf:
         - type: object
-          required:
-            - polygonPartsData
           allOf:
             - $ref: '../ingestionTrigger/metadata/rasterLayerMetadata.yaml#/components/schemas/RasterLayerBaseMetadata'
             - properties:
@@ -22,7 +20,7 @@ components:
                   type: string
                   pattern: ^[1-9]\d{0,}?(\.(0|[1-9]\d?))?$
                   description: layer's version
-                polygonPartsData:
+                partsData:
                   type: array
                   items: 
                     $ref: '../ingestionTrigger/partData/rasterLayerPartData.yaml#/components/schemas/polygonPartMetadata'
@@ -30,4 +28,4 @@ components:
               required:
                 - catalogId
                 - productVersion
-                - polygonPartsData
+                - partsData

@@ -80,7 +80,7 @@ export type PolygonPart = Pick<
 >;
 
 export type PolygonPartsPayload = Pick<IPolygonPart, 'catalogId' | 'productId' | 'productType' | 'productVersion'> & {
-  polygonPartsData: PolygonPart[];
+  partsData: PolygonPart[];
 };
 
 export interface InputFiles {
