@@ -694,7 +694,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.productVersion.pattern',
         valueType: 'value',
-        pattern: '^[1-9]\\d{0,2}(\\.(0|[1-9]\\d?))?$',
+        pattern: '^[1-9]\\d*(\\.(0|[1-9]\\d?))?$',
       },
     ],
   })
