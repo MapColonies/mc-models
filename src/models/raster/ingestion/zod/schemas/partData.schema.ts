@@ -7,7 +7,7 @@ const resolutionDegRange = { min: zoomLevelToResolutionDeg(22), max: zoomLevelTo
 const horizontalAccuracyCE90Range = { min: 0.01, max: 4000 };
 
 export const partSchema = z.object({
-  sourceId: z.string().optional(), //NOTE FOR THE FUTURE:removed regex check because po noted that we cannot know the the struct of the id, we may want to add the constraint in the future but not for now
+  sourceId: z.string().optional(),
   sourceName: z.string().min(1),
   description: z.string().optional(),
   imagingTimeBeginUTC: z.coerce.date(),
