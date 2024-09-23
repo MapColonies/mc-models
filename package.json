@@ -1,6 +1,6 @@
 {
   "name": "@map-colonies/mc-model-types",
-  "version": "17.3.0",
+  "version": "17.3.1",
   "description": "json schemas for validations and generated ts models",
   "author": "",
   "license": "MIT",
