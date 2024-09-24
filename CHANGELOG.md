@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.5.0](https://github.com/MapColonies/mc-models/compare/v17.4.0...v17.5.0) (2024-09-24)
+
+
+### Features
+
+* add zod export mechanisem ([#206](https://github.com/MapColonies/mc-models/issues/206)) ([cec17b6](https://github.com/MapColonies/mc-models/commit/cec17b6428e242331da6c489b7ae0206378ab592))
+
 ## [17.4.0](https://github.com/MapColonies/mc-models/compare/v17.3.1...v17.4.0) (2024-09-23)
 
 
