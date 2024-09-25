@@ -72,7 +72,7 @@ export type PolygonPart = Pick<
   | 'sensors'
   | 'imagingTimeBeginUTC'
   | 'imagingTimeEndUTC'
-  | 'geometry'
+  | 'footprint'
   | 'sourceId'
   | 'description'
   | 'countries'

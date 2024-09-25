@@ -77,6 +77,14 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @graphql()
   @fieldConfig({
     category: FieldCategory.MAIN,
+    infoMsgCode: ['info-field-tooltip.productId.pattern'],
+    validation: [
+      {
+        errorMsgCode: 'validation-field.productId.pattern',
+        valueType: 'value',
+        pattern: '^[A-Za-z]{1}[A-Za-z0-9_]{0,62}$',
+      },
+    ],
   })
   //#endregion
   public productId!: string;
@@ -419,16 +427,16 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#endregion
   public sourceResolutionMeter!: number;
 
-  //#region METADATA: geometry
+  //#region METADATA: footprint
   @catalogDB({
     column: {
-      name: 'geometry',
+      name: 'footprint',
       type: 'text',
     },
   })
   @inputDataMapping({
     dataFile: DataFileType.PRODUCT,
-    valuePath: 'geometry',
+    valuePath: 'footprint',
   })
   @tsTypes({
     mappingType: TsTypes.OBJECT,
@@ -449,7 +457,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     ],
   })
   //#endregion
-  public geometry!: Polygon;
+  public footprint!: Polygon;
 
   //#region RECORD: id
   @catalogDB({
@@ -636,5 +644,5 @@ export interface IPolygonPart {
   imagingTimeBeginUTC: Date;
   imagingTimeEndUTC: Date;
   ingestionDateUTC: Date;
-  geometry: Polygon;
+  footprint: Polygon;
 }

@@ -34,7 +34,7 @@ components:
         productId:
           type: string
           description: Layer's external identifier
-          pattern: ^[a-zA-Z0-9_-]+$
+          pattern: ^[A-Za-z]{1}[A-Za-z0-9_]{0,62}$
         productName: 
           type: string
           description: Layer's external name

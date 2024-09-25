@@ -28,6 +28,6 @@ components:
                   description: layer's version
                 partsData:
                   type: array
-                  items: 
+                  items:
                     $ref: '../ingestionTrigger/partData/rasterLayerPartData.yaml#/components/schemas/polygonPartMetadata'
                   description: polygon parts data
