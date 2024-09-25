@@ -33,15 +33,15 @@ components:
               description: Layer's external name
             productSubType:
               type: string
-              description: Layer's sub type  
+              description: Layer's sub type
             region:
               type: array
               items:
                 type: string
-              description: region of record  
+              description: region of record
             srs:
               type: string
-              enum: 
+              enum:
                 - '4326'
               description: geo system id
             srsName:
@@ -57,14 +57,14 @@ components:
               description: layer can be transparent or opaque
             producerName:
               type: string
-              description: creator name default IDFMU  
+              description: creator name default IDFMU
             scale:
               type: integer
               minimum: 0
-              maximum: 100000000     
+              maximum: 100000000
             description:
               type: string
-              description: layer's description                                   
+              description: layer's description
     RasterLayerBaseMetadata:
       required:
         - productId
