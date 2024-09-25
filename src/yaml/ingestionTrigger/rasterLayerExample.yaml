@@ -7,7 +7,7 @@ components:
     NewRasterLayerExample:
       value:
         metadata:
-          productId: some-name
+          productId: SOME_NAME
           productName: string
           productType: Orthophoto
           productSubType: string

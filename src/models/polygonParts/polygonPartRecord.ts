@@ -77,6 +77,14 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @graphql()
   @fieldConfig({
     category: FieldCategory.MAIN,
+    infoMsgCode: ['info-field-tooltip.productId.pattern'],
+    validation: [
+      {
+        errorMsgCode: 'validation-field.productId.pattern',
+        valueType: 'value',
+        pattern: '^[A-Za-z]{1}[A-Za-z0-9_]{0,62}$',
+      },
+    ],
   })
   //#endregion
   public productId!: string;

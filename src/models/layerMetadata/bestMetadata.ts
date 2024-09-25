@@ -483,6 +483,11 @@ export class BestMetadata implements IBestMetadata, IMetadataCommonModel {
         errorMsgCode: 'validation-general.required',
         required: true,
       },
+      {
+        errorMsgCode: 'validation-field.productId.pattern',
+        valueType: 'value',
+        pattern: '^[A-Za-z]{1}[A-Za-z0-9_]{0,62}$',
+      },
     ],
   })
   //#endregion
