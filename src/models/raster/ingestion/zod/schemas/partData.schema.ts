@@ -29,5 +29,5 @@ export const partSchema = z.object({
   sensors: z.array(z.string().min(1)).min(1),
   countries: z.array(z.string().min(1)).optional(),
   cities: z.array(z.string().min(1)).optional(),
-  geometry: z.custom<GeoJSON>(),
+  footprint: z.custom<GeoJSON>(),
 });

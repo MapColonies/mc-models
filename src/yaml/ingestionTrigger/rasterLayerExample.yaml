@@ -36,7 +36,7 @@ components:
             cities:
               - string
             description: string
-            geometry:
+            footprint:
               type: Polygon
               coordinates: 
               - - - 34.85149443279957
@@ -73,7 +73,7 @@ components:
             cities:
               - string
             description: string
-            geometry:
+            footprint:
               type: Polygon
               coordinates: 
               - - - 34.85149443279957
