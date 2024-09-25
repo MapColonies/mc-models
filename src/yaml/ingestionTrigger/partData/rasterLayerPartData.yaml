@@ -11,7 +11,7 @@ components:
         - sourceName
         - imagingTimeBeginUTC
         - imagingTimeEndUTC
-        - geometry
+        - footprint
         - resolutionDegree
         - resolutionMeter
         - sourceResolutionMeter
@@ -73,5 +73,5 @@ components:
           description: cities included in the layer
         description:
           type: string
-        geometry:
+        footprint:
           $ref: '../../geojson.yaml#/components/schemas/Polygon'
