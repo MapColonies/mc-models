@@ -60,6 +60,8 @@ components:
             - Point
         coordinates:
           $ref: "#/components/schemas/Point2D"
+        bbox:
+          $ref: "#/components/schemas/BBox"
   
     LineString:
       type: object
@@ -79,6 +81,8 @@ components:
           minItems: 2
           items:
             $ref: "#/components/schemas/Point2D"
+        bbox:
+          $ref: "#/components/schemas/BBox"
   
     Polygon:
       type: object
@@ -100,6 +104,8 @@ components:
             minItems: 4
             items:
               $ref: "#/components/schemas/Point2D"
+        bbox:
+          $ref: "#/components/schemas/BBox"
   
     MultiPoint:
       type: object
@@ -118,6 +124,8 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Point2D"
+        bbox:
+          $ref: "#/components/schemas/BBox"
   
     MultiLineString:
       type: object
@@ -139,6 +147,8 @@ components:
             minItems: 2
             items:
               $ref: "#/components/schemas/Point2D"
+        bbox:
+          $ref: "#/components/schemas/BBox"
   
     MultiPolygon:
       type: object
@@ -162,6 +172,8 @@ components:
               minItems: 4
               items:
                 $ref: "#/components/schemas/Point2D"
+        bbox:
+          $ref: "#/components/schemas/BBox"
   
     GeometryCollection:
       type: object
@@ -181,6 +193,8 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Geometry"
+        bbox:
+          $ref: "#/components/schemas/BBox"
 
     BBox:
       type: array
