@@ -26,6 +26,7 @@ components:
                   type: string
                   pattern: ^[1-9]\d*(\.(0|[1-9]\d?))?$
                   description: layer's version
+                  example: 1.23
                 partsData:
                   type: array
                   items:
