@@ -22,7 +22,6 @@ components:
             - MultiLineString
             - MultiPolygon
           description: geometry type
-          
     Geometry:
       description: GeoJSON Geometry
       discriminator:
@@ -35,7 +34,6 @@ components:
         - $ref: '#/components/schemas/MultiPoint'
         - $ref: '#/components/schemas/MultiLineString'
         - $ref: '#/components/schemas/MultiPolygon'
-  
     Point2D:
       type: array
       maxItems: 2
@@ -44,7 +42,6 @@ components:
         type: number
         minimum: -180
         maximum: 180
-  
     Point:
       type: object
       description: GeoJSON Point
@@ -62,7 +59,6 @@ components:
           $ref: "#/components/schemas/Point2D"
         bbox:
           $ref: "#/components/schemas/BBox"
-  
     LineString:
       type: object
       description: GeoJSON LineString
@@ -83,7 +79,6 @@ components:
             $ref: "#/components/schemas/Point2D"
         bbox:
           $ref: "#/components/schemas/BBox"
-  
     Polygon:
       type: object
       description: GeoJSON Polygon
@@ -106,7 +101,6 @@ components:
               $ref: "#/components/schemas/Point2D"
         bbox:
           $ref: "#/components/schemas/BBox"
-  
     MultiPoint:
       type: object
       description: GeoJSON MultiPoint
@@ -126,7 +120,6 @@ components:
             $ref: "#/components/schemas/Point2D"
         bbox:
           $ref: "#/components/schemas/BBox"
-  
     MultiLineString:
       type: object
       description: GeoJSON MultiLineString
@@ -149,7 +142,6 @@ components:
               $ref: "#/components/schemas/Point2D"
         bbox:
           $ref: "#/components/schemas/BBox"
-  
     MultiPolygon:
       type: object
       description: GeoJSON MultiPolygon
@@ -174,7 +166,6 @@ components:
                 $ref: "#/components/schemas/Point2D"
         bbox:
           $ref: "#/components/schemas/BBox"
-  
     GeometryCollection:
       type: object
       description: GeoJSON GeometryCollection
@@ -195,13 +186,11 @@ components:
             $ref: "#/components/schemas/Geometry"
         bbox:
           $ref: "#/components/schemas/BBox"
-
     BBox:
       type: array
       minItems: 4
       items:
         type: number
-    
     Feature:
       required:
         - type
@@ -210,7 +199,7 @@ components:
       properties:
         type:
           type: string
-          enum: 
+          enum:
             - Feature
         properties:
           type: object
