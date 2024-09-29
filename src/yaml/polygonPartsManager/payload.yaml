@@ -20,8 +20,8 @@ components:
                 catalogId:
                   type: string
                   format: uuid
-                  example: c52d8189-7e07-456a-8c6b-53859523c3e9
                   description: layer's identifier
+                  example: c52d8189-7e07-456a-8c6b-53859523c3e9
                 productVersion:
                   type: string
                   pattern: ^[1-9]\d*(\.(0|[1-9]\d?))?$
