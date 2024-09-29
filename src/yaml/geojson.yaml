@@ -50,6 +50,9 @@ components:
       description: GeoJSon geometry
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id2
+      required:
+        - type
+        - coordinates
       properties:
         type:
           type: string
@@ -63,6 +66,9 @@ components:
       description: GeoJSon geometry
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id3
+      required:
+        - type
+        - coordinates
       properties:
         type:
           type: string
@@ -78,6 +84,9 @@ components:
       description: GeoJSon geometry
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id4
+      required:
+        - type
+        - coordinates
       properties:
         type:
           type: string
@@ -95,6 +104,9 @@ components:
       description: GeoJSon geometry
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id5
+      required:
+        - type
+        - coordinates
       properties:
         type:
           type: string
@@ -110,6 +122,9 @@ components:
       description: GeoJSon geometry
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id6
+      required:
+        - type
+        - coordinates
       properties:
         type:
           type: string
@@ -127,6 +142,9 @@ components:
       description: GeoJSon geometry
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id6
+      required:
+        - type
+        - coordinates
       properties:
         type:
           type: string
