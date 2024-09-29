@@ -50,84 +50,96 @@ components:
       description: GeoJSon geometry
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id2
-      allOf:
-        - $ref: "#/components/schemas/GeometryBase"
-        - properties:
-            coordinates:
-              $ref: "#/components/schemas/Point2D"
+      properties:
+        type:
+          type: string
+          enum:
+            - Point
+        coordinates:
+          $ref: "#/components/schemas/Point2D"
   
     LineString:
       type: object
       description: GeoJSon geometry
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id3
-      allOf:
-        - $ref: "#/components/schemas/GeometryBase"
-        - properties:
-            coordinates:
-              type: array
-              items:
-                $ref: "#/components/schemas/Point2D"
+      properties:
+        type:
+          type: string
+          enum:
+            - LineString
+        coordinates:
+          type: array
+          items:
+            $ref: "#/components/schemas/Point2D"
   
     Polygon:
       type: object
       description: GeoJSon geometry
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id4
-      allOf:
-        - $ref: "#/components/schemas/GeometryBase"
-        - properties:
-            coordinates:
-              type: array
-              items:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Point2D"
+      properties:
+        type:
+          type: string
+          enum:
+            - Polygon
+        coordinates:
+          type: array
+          items:
+            type: array
+            items:
+              $ref: "#/components/schemas/Point2D"
   
     MultiPoint:
       type: object
       description: GeoJSon geometry
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id5
-      allOf:
-        - $ref: "#/components/schemas/GeometryBase"
-        - properties:
-            coordinates:
-              type: array
-              items:
-                $ref: "#/components/schemas/Point2D"
+      properties:
+        type:
+          type: string
+          enum:
+            - MultiPoint
+        coordinates:
+          type: array
+          items:
+            $ref: "#/components/schemas/Point2D"
   
     MultiLineString:
       type: object
       description: GeoJSon geometry
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id6
-      allOf:
-        - $ref: "#/components/schemas/GeometryBase"
-        - properties:
-            coordinates:
-              type: array
-              items:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Point2D"
+      properties:
+        type:
+          type: string
+          enum:
+            - MultiLineString
+        coordinates:
+          type: array
+          items:
+            type: array
+            items:
+              $ref: "#/components/schemas/Point2D"
   
     MultiPolygon:
       type: object
       description: GeoJSon geometry
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id6
-      allOf:
-        - $ref: "#/components/schemas/GeometryBase"
-        - properties:
-            coordinates:
+      properties:
+        type:
+          type: string
+          enum:
+            - MultiPolygon
+        coordinates:
+          type: array
+          items:
+            type: array
+            items:
               type: array
               items:
-                type: array
-                items:
-                  type: array
-                  items:
-                    $ref: "#/components/schemas/Point2D"
+                $ref: "#/components/schemas/Point2D"
   
     GeometryCollection:
       type: object
