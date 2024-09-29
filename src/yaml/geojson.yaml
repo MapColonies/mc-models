@@ -180,7 +180,7 @@ components:
         geometries:
           type: array
           items:
-            $ref: "#/components/schemas/GeometryBase"
+            $ref: "#/components/schemas/Geometry"
 
     BBox:
       type: array
