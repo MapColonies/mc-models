@@ -201,6 +201,10 @@ components:
           type: string
           enum:
             - Feature
+        id:
+          oneOf:
+            - type: number
+            - type: string
         properties:
           type: object
           nullable: true
