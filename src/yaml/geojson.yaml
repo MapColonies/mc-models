@@ -1,12 +1,12 @@
 openapi: "3.0.1"
 info:
-  title: Geojson definitions
+  title: GeoJSON definitions
   version: 1.0.0
 components:
   schemas:
     GeometryBase:
       type: object
-      description: GeoJSon geometry
+      description: GeoJSON geometry
       required:
         - type
       externalDocs:
@@ -21,10 +21,10 @@ components:
             - MultiPoint
             - MultiLineString
             - MultiPolygon
-          description: the geometry type
+          description: geometry type
           
     Geometry:
-      description: GeoJSon geometry
+      description: GeoJSON Geometry
       discriminator:
           propertyName: type
       type: object
@@ -47,7 +47,7 @@ components:
   
     Point:
       type: object
-      description: GeoJSon geometry
+      description: GeoJSON Point
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id2
       required:
@@ -65,7 +65,7 @@ components:
   
     LineString:
       type: object
-      description: GeoJSon geometry
+      description: GeoJSON LineString
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id3
       required:
@@ -86,7 +86,7 @@ components:
   
     Polygon:
       type: object
-      description: GeoJSon geometry
+      description: GeoJSON Polygon
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id4
       required:
@@ -109,7 +109,7 @@ components:
   
     MultiPoint:
       type: object
-      description: GeoJSon geometry
+      description: GeoJSON MultiPoint
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id5
       required:
@@ -129,7 +129,7 @@ components:
   
     MultiLineString:
       type: object
-      description: GeoJSon geometry
+      description: GeoJSON MultiLineString
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id6
       required:
@@ -152,7 +152,7 @@ components:
   
     MultiPolygon:
       type: object
-      description: GeoJSon geometry
+      description: GeoJSON MultiPolygon
       externalDocs:
         url: http://geojson.org/geojson-spec.html#id6
       required:
@@ -177,7 +177,7 @@ components:
   
     GeometryCollection:
       type: object
-      description: GeoJSon geometry collection
+      description: GeoJSON GeometryCollection
       required:
         - type
         - geometries
@@ -226,7 +226,7 @@ components:
 
     FeatureCollection:
       type: object
-      description: GeoJson Feature collection
+      description: GeoJSON Feature collection
       required:
         - type
         - features
