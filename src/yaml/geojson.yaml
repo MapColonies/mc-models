@@ -136,6 +136,7 @@ components:
           type: array
           items:
             type: array
+            minItems: 2
             items:
               $ref: "#/components/schemas/Point2D"
   
