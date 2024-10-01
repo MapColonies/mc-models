@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.5.3](https://github.com/MapColonies/mc-models/compare/v17.5.2...v17.5.3) (2024-10-01)
+
+
+### Bug Fixes
+
+* geojson definition ([#209](https://github.com/MapColonies/mc-models/issues/209)) ([2323f57](https://github.com/MapColonies/mc-models/commit/2323f572997841e311c31948194cf3e52e39a48e))
+
 ### [17.5.2](https://github.com/MapColonies/mc-models/compare/v17.5.1...v17.5.2) (2024-09-25)
 
 
