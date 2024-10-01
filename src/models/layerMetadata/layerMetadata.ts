@@ -11,7 +11,7 @@ import {
 } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { RecordType } from '../pycsw/coreEnums';
 import { NewRasterLayerMetadata, UpdateRasterLayerMetadata } from '../raster/ingestion';
-import { Validations } from '../raster/constants';
+import { VALIDATIONS } from '../raster/constants';
 import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { getInputDataMapping, IDataMapping, DataFileType, inputDataMapping, IPropSHPMapping } from './decorators/property/shp.decorator';
@@ -473,12 +473,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.maxHorizontalAccuracyCE90.min',
         valueType: 'value',
-        min: Validations.horizontalAccuracyCE90.min,
+        min: VALIDATIONS.horizontalAccuracyCE90.min,
       },
       {
         errorMsgCode: 'validation-field.maxHorizontalAccuracyCE90.max',
         valueType: 'value',
-        max: Validations.horizontalAccuracyCE90.max,
+        max: VALIDATIONS.horizontalAccuracyCE90.max,
       },
     ],
     isLifecycleEnvolved: true,
@@ -520,12 +520,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.minHorizontalAccuracyCE90.min',
         valueType: 'value',
-        min: Validations.horizontalAccuracyCE90.min,
+        min: VALIDATIONS.horizontalAccuracyCE90.min,
       },
       {
         errorMsgCode: 'validation-field.minHorizontalAccuracyCE90.max',
         valueType: 'value',
-        max: Validations.horizontalAccuracyCE90.max,
+        max: VALIDATIONS.horizontalAccuracyCE90.max,
       },
     ],
     isLifecycleEnvolved: true,
@@ -654,7 +654,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.productId.pattern',
         valueType: 'value',
-        pattern: Validations.productId.pattern,
+        pattern: VALIDATIONS.productId.pattern,
       },
     ],
   })
@@ -697,7 +697,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.productVersion.pattern',
         valueType: 'value',
-        pattern: Validations.productVersion.pattern,
+        pattern: VALIDATIONS.productVersion.pattern,
       },
     ],
   })
@@ -844,12 +844,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.maxResolutionDeg.min',
         valueType: 'value',
-        min: Validations.resolutionDeg.min,
+        min: VALIDATIONS.resolutionDeg.min,
       },
       {
         errorMsgCode: 'validation-field.maxResolutionDeg.max',
         valueType: 'value',
-        max: Validations.resolutionDeg.max,
+        max: VALIDATIONS.resolutionDeg.max,
       },
     ],
     isLifecycleEnvolved: true,
@@ -896,12 +896,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.minResolutionDeg.min',
         valueType: 'value',
-        min: Validations.resolutionDeg.min,
+        min: VALIDATIONS.resolutionDeg.min,
       },
       {
         errorMsgCode: 'validation-field.minResolutionDeg.max',
         valueType: 'value',
-        max: Validations.resolutionDeg.max,
+        max: VALIDATIONS.resolutionDeg.max,
       },
     ],
   })
@@ -942,12 +942,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.min',
         valueType: 'value',
-        min: Validations.resolutionMeter.min,
+        min: VALIDATIONS.resolutionMeter.min,
       },
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.max',
         valueType: 'value',
-        max: Validations.resolutionMeter.max,
+        max: VALIDATIONS.resolutionMeter.max,
       },
     ],
     isLifecycleEnvolved: true,
@@ -989,12 +989,12 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       {
         errorMsgCode: 'validation-field.minResolutionMeter.min',
         valueType: 'value',
-        min: Validations.resolutionMeter.min,
+        min: VALIDATIONS.resolutionMeter.min,
       },
       {
         errorMsgCode: 'validation-field.minResolutionMeter.max',
         valueType: 'value',
-        max: Validations.resolutionMeter.max,
+        max: VALIDATIONS.resolutionMeter.max,
       },
     ],
     isLifecycleEnvolved: true,

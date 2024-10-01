@@ -7,7 +7,7 @@ import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators
 import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping, ProductType } from '../layerMetadata';
 import { graphqlClass, IPropCatalogDBMapping } from '../common';
 import { getCatalogDBEntityMapping } from '../layerMetadata/decorators/class/catalogDBEntity.decorator';
-import { Validations } from '../raster/constants';
+import { VALIDATIONS } from '../raster/constants';
 
 interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
@@ -82,7 +82,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       {
         errorMsgCode: 'validation-field.productId.pattern',
         valueType: 'value',
-        pattern: Validations.productId.pattern,
+        pattern: VALIDATIONS.productId.pattern,
       },
     ],
   })
@@ -228,12 +228,12 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       {
         errorMsgCode: 'validation-field.minHorizontalAccuracyCE90.min',
         valueType: 'value',
-        min: Validations.horizontalAccuracyCE90.min,
+        min: VALIDATIONS.horizontalAccuracyCE90.min,
       },
       {
         errorMsgCode: 'validation-field.minHorizontalAccuracyCE90.max',
         valueType: 'value',
-        max: Validations.horizontalAccuracyCE90.max,
+        max: VALIDATIONS.horizontalAccuracyCE90.max,
       },
     ],
     isLifecycleEnvolved: true,
@@ -356,12 +356,12 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       {
         errorMsgCode: 'validation-field.maxResolutionDeg.min',
         valueType: 'value',
-        min: Validations.resolutionDeg.min,
+        min: VALIDATIONS.resolutionDeg.min,
       },
       {
         errorMsgCode: 'validation-field.maxResolutionDeg.max',
         valueType: 'value',
-        max: Validations.resolutionDeg.max,
+        max: VALIDATIONS.resolutionDeg.max,
       },
     ],
   })
@@ -387,12 +387,12 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.min',
         valueType: 'value',
-        min: Validations.resolutionMeter.min,
+        min: VALIDATIONS.resolutionMeter.min,
       },
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.max',
         valueType: 'value',
-        max: Validations.resolutionMeter.max,
+        max: VALIDATIONS.resolutionMeter.max,
       },
     ],
   })
@@ -540,7 +540,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       {
         errorMsgCode: 'validation-field.productVersion.pattern',
         valueType: 'value',
-        pattern: Validations.productVersion.pattern,
+        pattern: VALIDATIONS.productVersion.pattern,
       },
     ],
   })

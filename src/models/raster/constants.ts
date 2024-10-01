@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
 
-export const Validations = {
+export const VALIDATIONS = {
   resolutionMeter: {
     min: zoomLevelToResolutionMeter(22),
     max: zoomLevelToResolutionMeter(0),

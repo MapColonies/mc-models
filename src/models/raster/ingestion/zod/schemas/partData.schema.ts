@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import { z } from 'zod';
 import { GeoJSON } from 'geojson';
-import { Validations } from '../../../constants';
+import { VALIDATIONS } from '../../../constants';
 
 export const partSchema = z.object({
   sourceId: z.string().optional(),
@@ -11,17 +11,17 @@ export const partSchema = z.object({
   imagingTimeEndUTC: z.coerce.date(),
   resolutionDegree: z
     .number()
-    .min(Validations.resolutionDeg.min as number)
-    .max(Validations.resolutionDeg.max as number),
+    .min(VALIDATIONS.resolutionDeg.min as number)
+    .max(VALIDATIONS.resolutionDeg.max as number),
   resolutionMeter: z
     .number()
-    .min(Validations.resolutionMeter.min as number)
-    .max(Validations.resolutionMeter.max as number),
+    .min(VALIDATIONS.resolutionMeter.min as number)
+    .max(VALIDATIONS.resolutionMeter.max as number),
   sourceResolutionMeter: z
     .number()
-    .min(Validations.resolutionMeter.min as number)
-    .max(Validations.resolutionMeter.max as number),
-  horizontalAccuracyCE90: z.number().min(Validations.horizontalAccuracyCE90.min).max(Validations.horizontalAccuracyCE90.max),
+    .min(VALIDATIONS.resolutionMeter.min as number)
+    .max(VALIDATIONS.resolutionMeter.max as number),
+  horizontalAccuracyCE90: z.number().min(VALIDATIONS.horizontalAccuracyCE90.min).max(VALIDATIONS.horizontalAccuracyCE90.max),
   sensors: z.array(z.string().min(1)).min(1),
   countries: z.array(z.string().min(1)).optional(),
   cities: z.array(z.string().min(1)).optional(),
