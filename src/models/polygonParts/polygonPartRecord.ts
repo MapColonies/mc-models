@@ -1,13 +1,13 @@
 import { Polygon } from 'geojson';
-import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import { FieldCategory, IPropFieldConfigInfo, fieldConfig, getFieldConfig } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { DataFileType, IPropSHPMapping, getInputDataMapping, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
 import { catalogDB, getCatalogDBMapping } from '../layerMetadata/decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
-import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping, ProductType, horizontalAccuracyValidation } from '../layerMetadata';
+import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping, ProductType } from '../layerMetadata';
 import { graphqlClass, IPropCatalogDBMapping } from '../common';
 import { getCatalogDBEntityMapping } from '../layerMetadata/decorators/class/catalogDBEntity.decorator';
+import { Validations } from '../raster/constants';
 
 interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
@@ -82,7 +82,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       {
         errorMsgCode: 'validation-field.productId.pattern',
         valueType: 'value',
-        pattern: '^[A-Za-z]{1}[A-Za-z0-9_]{0,62}$',
+        pattern: Validations.productId.pattern,
       },
     ],
   })
@@ -228,12 +228,12 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       {
         errorMsgCode: 'validation-field.minHorizontalAccuracyCE90.min',
         valueType: 'value',
-        min: horizontalAccuracyValidation.min,
+        min: Validations.horizontalAccuracyCE90.min,
       },
       {
         errorMsgCode: 'validation-field.minHorizontalAccuracyCE90.max',
         valueType: 'value',
-        max: horizontalAccuracyValidation.max,
+        max: Validations.horizontalAccuracyCE90.max,
       },
     ],
     isLifecycleEnvolved: true,
@@ -356,12 +356,12 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       {
         errorMsgCode: 'validation-field.maxResolutionDeg.min',
         valueType: 'value',
-        min: zoomLevelToResolutionDeg(22),
+        min: Validations.resolutionDeg.min,
       },
       {
         errorMsgCode: 'validation-field.maxResolutionDeg.max',
         valueType: 'value',
-        max: zoomLevelToResolutionDeg(0),
+        max: Validations.resolutionDeg.max,
       },
     ],
   })
@@ -387,12 +387,12 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.min',
         valueType: 'value',
-        min: zoomLevelToResolutionMeter(22),
+        min: Validations.resolutionMeter.min,
       },
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.max',
         valueType: 'value',
-        max: zoomLevelToResolutionMeter(0),
+        max: Validations.resolutionMeter.max,
       },
     ],
   })
@@ -540,7 +540,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       {
         errorMsgCode: 'validation-field.productVersion.pattern',
         valueType: 'value',
-        pattern: '^[1-9]\\d*(\\.(0|[1-9]\\d?))?$',
+        pattern: Validations.productVersion.pattern,
       },
     ],
   })
