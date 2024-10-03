@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import { z } from 'zod';
-import { GeoJSON } from 'geojson';
+import { GeoJSON, Polygon } from 'geojson';
 import { VALIDATIONS } from '../../../constants';
 
 export const partSchema = z.object({
@@ -25,5 +25,5 @@ export const partSchema = z.object({
   sensors: z.array(z.string().min(1)).min(1),
   countries: z.array(z.string().min(1)).optional(),
   cities: z.array(z.string().min(1)).optional(),
-  footprint: z.custom<GeoJSON>(),
+  footprint: z.custom<Polygon>(),
 });
