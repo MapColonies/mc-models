@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import { z } from 'zod';
 import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
-import { GeoJSON } from 'geojson';
+import { Polygon } from 'geojson';
 
 const resolutionMeterRange = { min: zoomLevelToResolutionMeter(22), max: zoomLevelToResolutionMeter(0) };
 const resolutionDegRange = { min: zoomLevelToResolutionDeg(22), max: zoomLevelToResolutionDeg(0) };
@@ -29,5 +29,5 @@ export const partSchema = z.object({
   sensors: z.array(z.string().min(1)).min(1),
   countries: z.array(z.string().min(1)).optional(),
   cities: z.array(z.string().min(1)).optional(),
-  footprint: z.custom<GeoJSON>(),
+  footprint: z.custom<Polygon>(),
 });
