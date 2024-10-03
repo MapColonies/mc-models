@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.6.0](https://github.com/MapColonies/mc-models/compare/v17.5.3...v17.6.0) (2024-10-03)
+
+
+### Features
+
+* footprint type changed from GeoJSON to Polygon ([#212](https://github.com/MapColonies/mc-models/issues/212)) ([8ac43ee](https://github.com/MapColonies/mc-models/commit/8ac43eeb3d316ce15143f0e065ea2adeeb3f3412))
+
+
+### Bug Fixes
+
+* remove best entity and small raster fixes ([#211](https://github.com/MapColonies/mc-models/issues/211)) ([4aaa04d](https://github.com/MapColonies/mc-models/commit/4aaa04df4b585ca37f181aaa2474002c6ba8d82e))
+
 ### [17.5.3](https://github.com/MapColonies/mc-models/compare/v17.5.2...v17.5.3) (2024-10-01)
 
 
