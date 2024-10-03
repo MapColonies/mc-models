@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import { z } from 'zod';
-import { GeoJSON, Polygon } from 'geojson';
+import { Polygon } from 'geojson';
 import { VALIDATIONS } from '../../../constants';
 
 export const partSchema = z.object({
