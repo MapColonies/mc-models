@@ -109,14 +109,6 @@ export const TsTypes = {
     type: PropertiesTypes.ENUM,
     importFromPackage: '@map-colonies/mc-model-types',
   },
-  DISCRETE_ORDER: {
-    value: 'DiscreteOrder',
-    type: PropertiesTypes.CLASS,
-  },
-  DISCRETE_ORDERS: {
-    value: 'DiscreteOrder',
-    type: PropertiesTypes.ARRAY,
-  },
 } satisfies Record<string, IDescribeTsType>;
 
 /* eslint-enable @typescript-eslint/naming-convention */

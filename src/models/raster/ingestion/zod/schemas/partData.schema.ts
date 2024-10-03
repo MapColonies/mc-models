@@ -1,11 +1,7 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import { z } from 'zod';
-import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
 import { Polygon } from 'geojson';
-
-const resolutionMeterRange = { min: zoomLevelToResolutionMeter(22), max: zoomLevelToResolutionMeter(0) };
-const resolutionDegRange = { min: zoomLevelToResolutionDeg(22), max: zoomLevelToResolutionDeg(0) };
-const horizontalAccuracyCE90Range = { min: 0.01, max: 4000 };
+import { VALIDATIONS } from '../../../constants';
 
 export const partSchema = z.object({
   sourceId: z.string().optional(),
@@ -15,17 +11,17 @@ export const partSchema = z.object({
   imagingTimeEndUTC: z.coerce.date(),
   resolutionDegree: z
     .number()
-    .min(resolutionDegRange.min as number)
-    .max(resolutionDegRange.max as number),
+    .min(VALIDATIONS.resolutionDeg.min as number)
+    .max(VALIDATIONS.resolutionDeg.max as number),
   resolutionMeter: z
     .number()
-    .min(resolutionMeterRange.min as number)
-    .max(resolutionMeterRange.max as number),
+    .min(VALIDATIONS.resolutionMeter.min as number)
+    .max(VALIDATIONS.resolutionMeter.max as number),
   sourceResolutionMeter: z
     .number()
-    .min(resolutionMeterRange.min as number)
-    .max(resolutionMeterRange.max as number),
-  horizontalAccuracyCE90: z.number().min(horizontalAccuracyCE90Range.min).max(horizontalAccuracyCE90Range.max),
+    .min(VALIDATIONS.resolutionMeter.min as number)
+    .max(VALIDATIONS.resolutionMeter.max as number),
+  horizontalAccuracyCE90: z.number().min(VALIDATIONS.horizontalAccuracyCE90.min).max(VALIDATIONS.horizontalAccuracyCE90.max),
   sensors: z.array(z.string().min(1)).min(1),
   countries: z.array(z.string().min(1)).optional(),
   cities: z.array(z.string().min(1)).optional(),
