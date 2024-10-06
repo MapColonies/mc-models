@@ -20,4 +20,14 @@ export const VALIDATIONS = {
   productVersion: {
     pattern: '^[1-9]\\d*(\\.(0|[1-9]\\d?))?$',
   },
+  classification: {
+    pattern: '^[0-9]$|^[1-9][0-9]$|^(100)$',
+  },
+  scale: {
+    min: 0,
+    max: 100000000,
+  },
+  fileNames: {
+    pattern: '^.+.[Gg][Pp][Kk][Gg]$',
+  },
 };
