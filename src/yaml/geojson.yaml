@@ -25,7 +25,7 @@ components:
     Geometry:
       description: GeoJSON Geometry
       discriminator:
-          propertyName: type
+        propertyName: type
       type: object
       anyOf:
         - $ref: '#/components/schemas/Point'
