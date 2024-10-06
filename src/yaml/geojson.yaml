@@ -25,7 +25,7 @@ components:
     Geometry:
       description: GeoJSON Geometry
       discriminator:
-          propertyName: type
+        propertyName: type
       type: object
       anyOf:
         - $ref: '#/components/schemas/Point'
@@ -59,6 +59,9 @@ components:
           $ref: "#/components/schemas/Point2D"
         bbox:
           $ref: "#/components/schemas/BBox"
+      example:
+        type: Point
+        coordinates: [-180, -90]
     LineString:
       type: object
       description: GeoJSON LineString
@@ -79,6 +82,9 @@ components:
             $ref: "#/components/schemas/Point2D"
         bbox:
           $ref: "#/components/schemas/BBox"
+      example:
+        type: LineString
+        coordinates: [[-180, -90], [180, 90]]
     Polygon:
       type: object
       description: GeoJSON Polygon
@@ -101,6 +107,9 @@ components:
               $ref: "#/components/schemas/Point2D"
         bbox:
           $ref: "#/components/schemas/BBox"
+      example:
+        type: Polygon
+        coordinates: [[[-180, -90], [180, -90], [180, 90], [-180, 90], [-180, -90]]]
     MultiPoint:
       type: object
       description: GeoJSON MultiPoint
@@ -120,6 +129,9 @@ components:
             $ref: "#/components/schemas/Point2D"
         bbox:
           $ref: "#/components/schemas/BBox"
+      example:
+        type: MultiPoint
+        coordinates: [[-180, -90], [180, 90]]
     MultiLineString:
       type: object
       description: GeoJSON MultiLineString
@@ -142,6 +154,9 @@ components:
               $ref: "#/components/schemas/Point2D"
         bbox:
           $ref: "#/components/schemas/BBox"
+      example:
+        type: MultiLineString
+        coordinates: [[[-180, -90], [180, 90]], [[-180, 90], [180, 90]]]
     MultiPolygon:
       type: object
       description: GeoJSON MultiPolygon
@@ -166,6 +181,9 @@ components:
                 $ref: "#/components/schemas/Point2D"
         bbox:
           $ref: "#/components/schemas/BBox"
+      example:
+        type: MultiPolygon
+        coordinates: [[[[-180, -90], [0, -90], [0, 90], [-180, 90], [-180, -90]]], [[[0, -90], [180, -90], [180, 90], [0, 90], [0, -90]]]]
     GeometryCollection:
       type: object
       description: GeoJSON GeometryCollection
@@ -191,6 +209,7 @@ components:
       minItems: 4
       items:
         type: number
+      example: [-180, -90, 180, 90]
     Feature:
       required:
         - type
@@ -216,7 +235,6 @@ components:
             - $ref: "#/components/schemas/Geometry"
         bbox:
           $ref: "#/components/schemas/BBox"
-
     FeatureCollection:
       type: object
       description: GeoJSON Feature collection
