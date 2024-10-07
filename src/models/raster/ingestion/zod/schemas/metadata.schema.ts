@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import { z } from 'zod';
-import { Polygon } from 'geojson';
 import { VALIDATIONS } from '../../../constants';
 import { ProductType, Transparency } from '../../../../layerMetadata/enums';
 
