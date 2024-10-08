@@ -7,6 +7,7 @@ const target: IGraphQLClassMapping[] = [];
 
 export interface IGraphQLClass {
   alias?: string;
+  fields?: string[];
 }
 
 export interface IGraphQLClassMapping {
@@ -20,7 +21,7 @@ export function graphqlClass(args?: IGraphQLClass): ClassDecorator {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-explicit-any
     const classInstance = new (classCtr as any)();
     const classData: IGraphQLClassMapping = {
-      fields: getGraphQLMappings(classInstance),
+      fields: getGraphQLMappings(classInstance, args?.fields),
       name: args?.alias ?? classCtr.name,
     };
 
@@ -33,9 +34,10 @@ export function getGraphQLClassMapping(): IGraphQLClassMapping[] {
   return target;
 }
 
-export function getGraphQLMappings(object: KeyValueDict): IPropGraphQLMapping[] {
-  const ret = [];
-  for (const prop in object) {
+export function getGraphQLMappings(object: KeyValueDict, fields?: string[]): IPropGraphQLMapping[] {
+  const ret: IPropGraphQLMapping[] = [];
+  const props = fields ?? Object.keys(object);
+  props.forEach((prop) => {
     const graphQLMap = getGraphQLMapping(object, prop);
     const tsTypesMap = getTsTypesMapping(object, prop);
     if (graphQLMap && tsTypesMap) {
@@ -45,6 +47,6 @@ export function getGraphQLMappings(object: KeyValueDict): IPropGraphQLMapping[] 
         ...tsTypesMap,
       });
     }
-  }
+  });
   return ret;
 }
