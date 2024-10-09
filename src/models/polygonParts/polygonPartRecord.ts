@@ -14,29 +14,6 @@ interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
 }
 
-export interface IPolygonPart {
-  id: string;
-  partId: string;
-  catalogId: string;
-  productId: string;
-  productVersion: string;
-  productType: ProductType;
-  sourceId?: string;
-  sourceName: string;
-  description?: string;
-  resolutionDegree: number;
-  resolutionMeter: number;
-  sourceResolutionMeter: number;
-  horizontalAccuracyCE90: number;
-  countries?: string[];
-  cities?: string[];
-  sensors: string[];
-  imagingTimeBeginUTC: Date;
-  imagingTimeEndUTC: Date;
-  ingestionDateUTC: Date;
-  footprint: Polygon;
-}
-
 @graphqlClass({ alias: 'PolygonPartRecord', fields: keys<IPolygonPart>() })
 export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: sourceId
@@ -646,4 +623,27 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   public getORMCatalogEntityMappings(): ICatalogDBEntityMapping {
     return getCatalogDBEntityMapping(PolygonPartRecord);
   }
+}
+
+export interface IPolygonPart {
+  id: string;
+  partId: string;
+  catalogId: string;
+  productId: string;
+  productVersion: string;
+  productType: ProductType;
+  sourceId?: string;
+  sourceName: string;
+  description?: string;
+  resolutionDegree: number;
+  resolutionMeter: number;
+  sourceResolutionMeter: number;
+  horizontalAccuracyCE90: number;
+  countries?: string[];
+  cities?: string[];
+  sensors: string[];
+  imagingTimeBeginUTC: Date;
+  imagingTimeEndUTC: Date;
+  ingestionDateUTC: Date;
+  footprint: Polygon;
 }
