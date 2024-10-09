@@ -1,4 +1,5 @@
 import { Polygon } from 'geojson';
+import { keys } from 'ts-transformer-keys';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import { FieldCategory, IPropFieldConfigInfo, fieldConfig, getFieldConfig } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { DataFileType, IPropSHPMapping, getInputDataMapping, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
@@ -13,7 +14,7 @@ interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
 }
 
-@graphqlClass({ alias: 'PolygonPartRecord' })
+@graphqlClass({ alias: 'PolygonPartRecord', fields: keys<IPolygonPart>() })
 export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: sourceId
   @catalogDB({

@@ -15,4 +15,9 @@ module.exports = {
     'default',
     ['jest-html-reporters', { multipleReportsUnitePath: './reports', pageTitle: 'unit', publicPath: './reports', filename: 'unit.html' }],
   ],
+  globals: {
+    'ts-jest': {
+      astTransformers: { before: ['<rootDir>/tests/configurations/unit/ts-jest-keys-transformer.js'] },
+    },
+  },
 };
