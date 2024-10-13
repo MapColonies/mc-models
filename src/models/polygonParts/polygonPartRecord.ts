@@ -146,6 +146,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       type: 'timestamp with time zone',
       nullable: false,
     },
+    index: {}
   })
   @inputDataMapping({
     isCustomLogic: false,
@@ -220,6 +221,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @catalogDB({
     column: {
       type: 'real',
+      nullable: false
     },
   })
   @inputDataMapping({
@@ -457,6 +459,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       type: 'geometry',
       spatialFeatureType: 'Polygon',
       srid: 4326,
+      nullable: false
     },
     customChecks: [
       {
@@ -585,11 +588,12 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: ingestionDateUTC
   @catalogDB({
     column: {
-      generateName: false, // Ask Alex!!
+      generateName: false,
       type: 'timestamp with time zone',
       nullable: false,
       insert: false,
       columnType: ORMColumnType.CREATE_DATE_COLUMN,
+      // add readonly here
     },
     index: {},
   })
