@@ -2,7 +2,7 @@ import { Polygon } from 'geojson';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import { FieldCategory, IPropFieldConfigInfo, fieldConfig, getFieldConfig } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { DataFileType, IPropSHPMapping, getInputDataMapping, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
-import { catalogDB, getCatalogDBMapping } from '../layerMetadata/decorators/property/catalogDB.decorator';
+import { catalogDB, getCatalogDBMapping, ORMColumnType } from '../layerMetadata/decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
 import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping, ProductType } from '../layerMetadata';
 import { graphqlClass, IPropCatalogDBMapping } from '../common';
@@ -18,9 +18,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: sourceId
   @catalogDB({
     column: {
-      name: 'source_id',
       type: 'text',
       nullable: true,
+      collation: 'C.UTF-8',
     },
   })
   @inputDataMapping({
@@ -40,9 +40,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: sourceName
   @catalogDB({
     column: {
-      name: 'source_name',
       type: 'text',
       nullable: false,
+      collation: 'C.UTF-8',
     },
   })
   @inputDataMapping({
@@ -62,10 +62,11 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: productId
   @catalogDB({
     column: {
-      name: 'product_id',
       type: 'text',
       nullable: false,
+      collation: 'C.UTF-8',
     },
+    index: {},
   })
   @inputDataMapping({
     dataFile: DataFileType.SHAPE_METADATA,
@@ -92,10 +93,14 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: productType
   @catalogDB({
     column: {
-      name: 'product_type',
-      type: 'text',
+      type: 'enum',
+      enum: {
+        enumName: 'product_type_enum',
+        enum: 'ProductType',
+      },
       nullable: false,
     },
+    index: {},
   })
   @inputDataMapping({
     dataFile: DataFileType.SHAPE_METADATA,
@@ -114,9 +119,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: description
   @catalogDB({
     column: {
-      name: 'description',
       type: 'text',
       nullable: true,
+      collation: 'C.UTF-8',
     },
   })
   @inputDataMapping({
@@ -138,7 +143,6 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: imagingTimeBeginUTC
   @catalogDB({
     column: {
-      name: 'imaging_time_begin_utc',
       type: 'timestamp with time zone',
       nullable: false,
     },
@@ -165,6 +169,11 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
         valueType: 'field',
         max: 'imagingTimeEndUTC',
       },
+      {
+        errorMsgCode: 'validation-general.date.future',
+        valueType: 'value',
+        max: '$NOW',
+      },
     ],
     isLifecycleEnvolved: true,
   })
@@ -174,10 +183,10 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: imagingTimeEndUTC
   @catalogDB({
     column: {
-      name: 'imaging_time_end_utc',
       type: 'timestamp with time zone',
       nullable: false,
     },
+    index: {},
   })
   @inputDataMapping({
     isCustomLogic: false,
@@ -196,6 +205,11 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
         errorMsgCode: 'validation-general.required',
         required: true,
       },
+      {
+        errorMsgCode: 'validation-field.sourceDateStart.min',
+        valueType: 'field',
+        max: '$NOW',
+      },
     ],
     isLifecycleEnvolved: true,
   })
@@ -205,7 +219,6 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: horizontalAccuracyCE90
   @catalogDB({
     column: {
-      name: 'horizontal_accuracy_ce_90',
       type: 'real',
     },
   })
@@ -244,9 +257,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: sensors
   @catalogDB({
     column: {
-      name: 'sensors',
       type: 'text',
       nullable: false,
+      collation: 'C.UTF-8',
     },
     field: {
       overrideType: TsTypes.STRING,
@@ -278,9 +291,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: countries
   @catalogDB({
     column: {
-      name: 'countries',
       type: 'text',
       nullable: true,
+      collation: 'C.UTF-8',
     },
     field: {
       overrideType: TsTypes.STRING,
@@ -307,7 +320,6 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region **TO_VERIFY_CITIES?** METADATA: cities
   @catalogDB({
     column: {
-      name: 'cities',
       type: 'text',
       nullable: true,
     },
@@ -335,9 +347,10 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: resolutionDegree??? [from INGESTION PARAMS]
   @catalogDB({
     column: {
-      name: 'resolution_degree',
       type: 'numeric',
+      nullable: false,
     },
+    index: {},
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
@@ -371,9 +384,10 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: resolutionMeter [from INGESTION PARAMS]
   @catalogDB({
     column: {
-      name: 'resolution_meter',
       type: 'numeric',
+      nullable: false,
     },
+    index: {},
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
@@ -402,8 +416,8 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: sourceResolutionMeter [READONLY]
   @catalogDB({
     column: {
-      name: 'source_resolution_meter',
       type: 'numeric',
+      nullable: false,
     },
   })
   @tsTypes({
@@ -422,6 +436,16 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
         errorMsgCode: 'validation-general.required',
         required: true,
       },
+      {
+        errorMsgCode: 'validation-field.maxResolutionMeter.min',
+        valueType: 'value',
+        min: VALIDATIONS.resolutionMeter.min,
+      },
+      {
+        errorMsgCode: 'validation-field.maxResolutionMeter.max',
+        valueType: 'value',
+        max: VALIDATIONS.resolutionMeter.max,
+      },
     ],
   })
   //#endregion
@@ -430,9 +454,21 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: footprint
   @catalogDB({
     column: {
-      name: 'footprint',
-      type: 'text',
+      type: 'geometry',
+      spatialFeatureType: 'Polygon',
+      srid: 4326,
     },
+    customChecks: [
+      {
+        name: 'valid geometry',
+        expression: 'ST_IsValid("footprint")',
+      },
+      {
+        name: 'geometry extent',
+        expression: `Box2D("footprint") @Box2D(ST_GeomFromText('LINESTRING(-180 -90, 180 90)'))`,
+      },
+    ],
+    index: { spatial: true },
   })
   @inputDataMapping({
     dataFile: DataFileType.PRODUCT,
@@ -462,7 +498,6 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: id
   @catalogDB({
     column: {
-      name: 'id',
       type: 'text',
       nullable: false,
       primary: true,
@@ -483,7 +518,6 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: partId
   @catalogDB({
     column: {
-      name: 'part_id',
       type: 'number',
       nullable: false,
     },
@@ -502,10 +536,11 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: catalogId
   @catalogDB({
     column: {
-      name: 'catalog_id',
       type: 'text',
       nullable: false,
+      unique: true,
     },
+    index: {},
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -521,9 +556,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: productVersion [Version number of the best layer when it was updated]
   @catalogDB({
     column: {
-      name: 'product_version',
       type: 'text',
       nullable: false,
+      collation: 'C.UTF-8',
     },
   })
   @tsTypes({
@@ -550,10 +585,13 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: ingestionDateUTC
   @catalogDB({
     column: {
-      name: 'ingestion_date_utc',
+      generateName: false, // Ask Alex!!
       type: 'timestamp with time zone',
       nullable: false,
+      insert: false,
+      columnType: ORMColumnType.CREATE_DATE_COLUMN,
     },
+    index: {},
   })
   @tsTypes({
     mappingType: TsTypes.DATE,

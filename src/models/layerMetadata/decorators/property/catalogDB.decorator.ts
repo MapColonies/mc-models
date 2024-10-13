@@ -5,13 +5,18 @@ const catalogDbMetadataKey = Symbol('catalogdbmapping');
 
 export interface IColumnProps {
   name?: string;
+  generateName?: boolean;
   type: string;
+  enum?: { enumName: string; enum: string };
   nullable?: boolean;
   default?: string;
   primary?: boolean;
   unique?: boolean;
   spatialFeatureType?: string;
   srid?: number;
+  collation?: string; //Consult with Alex
+  columnType?: ORMColumnType; // deafult is 'Column'
+  insert?: boolean;
 }
 
 export interface IFieldProps {
@@ -32,7 +37,8 @@ export enum ORMColumnType {
 
 export interface ICatalogDBMapping {
   column: IColumnProps; // column properties
-  columnType?: ORMColumnType; // deafult is 'Column'
+  index?: { spatial?: true };
+  customChecks?: { name?: string; expression: string }[];
   field?: IFieldProps; // field properties
 }
 

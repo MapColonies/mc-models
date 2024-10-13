@@ -13,7 +13,7 @@ export interface IValidationConfigInfo {
   errorMsgCode: string;
   valueType?: 'value' | 'field';
   min?: number | string | '$NOW';
-  max?: number | string;
+  max?: number | string | '$NOW';
   minLength?: number;
   maxLength?: number;
   pattern?: string;
