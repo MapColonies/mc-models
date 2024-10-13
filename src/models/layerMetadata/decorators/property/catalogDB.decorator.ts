@@ -14,7 +14,7 @@ export interface IColumnProps {
   unique?: boolean;
   spatialFeatureType?: string;
   srid?: number;
-  collation?: string; //Consult with Alex
+  collation?: string;
   columnType?: ORMColumnType; // deafult is 'Column'
   insert?: boolean;
 }
