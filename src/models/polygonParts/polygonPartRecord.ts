@@ -8,6 +8,7 @@ import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping, ProductType } from
 import { graphqlClass, IPropCatalogDBMapping } from '../common';
 import { getCatalogDBEntityMapping } from '../layerMetadata/decorators/class/catalogDBEntity.decorator';
 import { VALIDATIONS } from '../raster/constants';
+import { camelCaseToSnakeCase } from '../helpers/utils';
 
 interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
@@ -18,6 +19,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: sourceId
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('sourceId'),
       type: 'text',
       nullable: true,
       collation: 'C.UTF-8',
@@ -40,6 +42,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: sourceName
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('sourceName'),
       type: 'text',
       nullable: false,
       collation: 'C.UTF-8',
@@ -62,6 +65,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: productId
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('productId'),
       type: 'text',
       nullable: false,
       collation: 'C.UTF-8',
@@ -93,10 +97,24 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: productType
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('productType'),
       type: 'enum',
       enum: {
         enumName: 'product_type_enum',
-        enum: 'ProductType',
+        enumValues: [
+          ProductType.ORTHOPHOTO,
+          ProductType.ORTHOPHOTO_BEST,
+          ProductType.RASTER_AID,
+          ProductType.RASTER_AID_BEST,
+          ProductType.RASTER_MAP,
+          ProductType.RASTER_MAP_BEST,
+          ProductType.RASTER_VECTOR,
+          ProductType.RASTER_VECTOR_BEST,
+        ],
+        generateValuesConstName: 'PRODUCT_TYPES',
+
+        // enumName: 'product_type_enum',
+        // enum: 'ProductType'
       },
       nullable: false,
     },
@@ -119,6 +137,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: description
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('description'),
       type: 'text',
       nullable: true,
       collation: 'C.UTF-8',
@@ -143,9 +162,11 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: imagingTimeBeginUTC
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('imagingTimeBeginUTC'),
       type: 'timestamp with time zone',
       nullable: false,
     },
+    index: {},
   })
   @inputDataMapping({
     isCustomLogic: false,
@@ -183,6 +204,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: imagingTimeEndUTC
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('imagingTimeEndUTC'),
       type: 'timestamp with time zone',
       nullable: false,
     },
@@ -219,7 +241,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: horizontalAccuracyCE90
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('horizontalAccuracyCE90'),
       type: 'real',
+      nullable: false,
     },
   })
   @inputDataMapping({
@@ -257,6 +281,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: sensors
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('sensors'),
       type: 'text',
       nullable: false,
       collation: 'C.UTF-8',
@@ -291,6 +316,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: countries
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('countries'),
       type: 'text',
       nullable: true,
       collation: 'C.UTF-8',
@@ -320,6 +346,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region **TO_VERIFY_CITIES?** METADATA: cities
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('cities'),
       type: 'text',
       nullable: true,
     },
@@ -347,6 +374,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: resolutionDegree??? [from INGESTION PARAMS]
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('resolutionDegree'),
       type: 'numeric',
       nullable: false,
     },
@@ -384,6 +412,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: resolutionMeter [from INGESTION PARAMS]
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('resolutionMeter'),
       type: 'numeric',
       nullable: false,
     },
@@ -416,6 +445,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: sourceResolutionMeter [READONLY]
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('sourceResolutionMeter'),
       type: 'numeric',
       nullable: false,
     },
@@ -454,9 +484,11 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: footprint
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('footprint'),
       type: 'geometry',
       spatialFeatureType: 'Polygon',
       srid: 4326,
+      nullable: false,
     },
     customChecks: [
       {
@@ -536,6 +568,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: catalogId
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('catalogId'),
       type: 'text',
       nullable: false,
       unique: true,
@@ -556,6 +589,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: productVersion [Version number of the best layer when it was updated]
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('productVersion'),
       type: 'text',
       nullable: false,
       collation: 'C.UTF-8',
@@ -585,6 +619,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: ingestionDateUTC
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('ingestionDateUTC'),
       type: 'timestamp with time zone',
       nullable: false,
       insert: false,
@@ -602,7 +637,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     isAutoGenerated: true,
   })
   //#endregion
-  public ingestionDateUTC!: Date;
+  public readonly ingestionDateUTC!: Date;
 
   public static getPyCSWMappings(): IPropPYCSWMapping[] {
     return [];

@@ -7,7 +7,13 @@ export interface IColumnProps {
   name?: string;
   type: string;
   readonly?: boolean;
-  enum?: { enumName: string; enum: string };
+  enum?: {
+    enumName: string;
+    enumType?: string; // enumType or enumValues + generateValuesConstName(optional)
+    enumValues?: string[];
+    generateValuesConstName?: string;
+    // enum: string
+  };
   nullable?: boolean;
   default?: string;
   primary?: boolean;
