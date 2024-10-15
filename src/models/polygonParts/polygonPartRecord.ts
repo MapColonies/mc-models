@@ -585,11 +585,11 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: ingestionDateUTC
   @catalogDB({
     column: {
-      generateName: false, // Ask Alex!!
       type: 'timestamp with time zone',
       nullable: false,
       insert: false,
       columnType: ORMColumnType.CREATE_DATE_COLUMN,
+      readonly: true,
     },
     index: {},
   })

@@ -5,8 +5,8 @@ const catalogDbMetadataKey = Symbol('catalogdbmapping');
 
 export interface IColumnProps {
   name?: string;
-  generateName?: boolean;
   type: string;
+  readonly?: boolean;
   enum?: { enumName: string; enum: string };
   nullable?: boolean;
   default?: string;
