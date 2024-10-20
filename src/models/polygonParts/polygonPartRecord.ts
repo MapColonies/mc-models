@@ -6,14 +6,17 @@ import { catalogDB, getCatalogDBMapping, ORMColumnType } from '../layerMetadata/
 import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
 import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping, ProductType } from '../layerMetadata';
 import { graphqlClass, IPropCatalogDBMapping } from '../common';
-import { getCatalogDBEntityMapping } from '../layerMetadata/decorators/class/catalogDBEntity.decorator';
 import { VALIDATIONS } from '../raster/constants';
 import { camelCaseToSnakeCase } from '../helpers/utils';
+import { DBEntity, getDBEntityMapping } from '../layerMetadata/decorators/class/DBEntity.decorator';
 
 interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
 }
-
+@DBEntity({
+  table: 'records',
+  className: 'PolygonPartPartialEntity',
+})
 @graphqlClass({ alias: 'PolygonPartRecord' })
 export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: sourceId
@@ -693,7 +696,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   }
 
   public getORMCatalogEntityMappings(): ICatalogDBEntityMapping {
-    return getCatalogDBEntityMapping(PolygonPartRecord);
+    return getDBEntityMapping(PolygonPartRecord);
   }
 }
 
