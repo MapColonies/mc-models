@@ -14,7 +14,9 @@ interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
 }
 
-const POLYGON_PARTS_KEYS = keys<Omit<IPolygonPart, 'productId' | 'productType' | 'id' | 'catalogId' | 'productVersion' | 'ingestionDateUTC'>>();
+const POLYGON_PARTS_KEYS = keys<IPolygonPart>();
+const POLYGON_PARTS_SERVED_KEYS =
+  keys<Omit<IPolygonPart, 'productId' | 'productType' | 'id' | 'catalogId' | 'productVersion' | 'ingestionDateUTC'>>();
 
 @catalogDBEntity({
   table: 'PPRecordsPartial',
@@ -624,9 +626,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   }
 
   public static getWFSMappings(): IPropWFSMapping[] {
-    const ret: any[] = [];
+    const ret: IPropWFSMapping[] = [];
     const layer = new PolygonPartRecord();
-    POLYGON_PARTS_KEYS.forEach((prop) => {
+    POLYGON_PARTS_SERVED_KEYS.forEach((prop) => {
       const catalogDbMap = getCatalogDBMapping(layer, prop);
       const wfsMap = getWFSMapping<PolygonPartRecord>(layer, prop);
       if (catalogDbMap && wfsMap) {
@@ -634,8 +636,8 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
         ret.push({
           prop: prop,
           name: name ?? prop,
-          sourrce: catalogDbMap.column.name,
-          nillable: catalogDbMap.column.nullable,
+          source: catalogDbMap.column.name as string,
+          nillable: catalogDbMap.column.nullable ?? false,
           ...rest,
         });
       }
@@ -644,9 +646,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   }
 
   public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
-    const ret: any[] = [];
+    const ret: IPropSHPMapping[] = [];
     const layer = new PolygonPartRecord();
-    POLYGON_PARTS_KEYS.forEach((prop) => {
+    POLYGON_PARTS_SERVED_KEYS.forEach((prop) => {
       const shpMap = getInputDataMapping<PolygonPartRecord>(layer, prop);
       const tsTypesMap = getTsTypesMapping<PolygonPartRecord>(layer, prop);
       if (shpMap && tsTypesMap && (includeCustomLogic || shpMap.isCustomLogic === undefined || !shpMap.isCustomLogic)) {
@@ -661,9 +663,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   }
 
   public static getFieldConfigs(): IPropFieldConfigInfo[] {
-    const ret: any[] = [];
+    const ret: IPropFieldConfigInfo[] = [];
     const layer = new PolygonPartRecord();
-    POLYGON_PARTS_KEYS.forEach((prop) => {
+    POLYGON_PARTS_SERVED_KEYS.forEach((prop) => {
       const fieldConfigMap = getFieldConfig<PolygonPartRecord>(layer, prop);
       if (fieldConfigMap) {
         ret.push({
@@ -675,9 +677,8 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     return ret;
   }
 
-  // This method defined as private static in order to be comliant with IOrmCatalog interface (for code-generator implementation)
-  private static getORMCatalogMappings(): IPropCatalogDBMapping[] {
-    const ret: any[] = [];
+  public getORMCatalogMappings(): IPropCatalogDBMapping[] {
+    const ret: IPropCatalogDBMapping[] = [];
 
     const layer = new PolygonPartRecord();
     POLYGON_PARTS_KEYS.forEach((prop) => {
@@ -694,17 +695,8 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     return ret;
   }
 
-  // This method defined as private static in order to be comliant with IOrmCatalog interface (for code-generator implementation)
-  private static getORMCatalogEntityMappings(): ICatalogDBEntityMapping {
-    return getCatalogDBEntityMapping(PolygonPartRecord);
-  }
-
-  public getORMCatalogMappings(): IPropCatalogDBMapping[] {
-    return PolygonPartRecord.getORMCatalogMappings();
-  }
-
   public getORMCatalogEntityMappings(): ICatalogDBEntityMapping {
-    return PolygonPartRecord.getORMCatalogEntityMappings();
+    return getCatalogDBEntityMapping(PolygonPartRecord);
   }
 }
 

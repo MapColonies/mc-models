@@ -2,6 +2,7 @@ import 'reflect-metadata';
 
 const wfsMetadataKey = Symbol('wfsmapping');
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export enum JAVA_BINDINGS {
   UUID = 'java.util.UUID',
   STRING = 'java.lang.String',
