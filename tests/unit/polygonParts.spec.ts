@@ -16,7 +16,7 @@ describe('PolygonParts class static methods', () => {
   it('getWFSMappings(): class property members HAS WFS mapped fields', () => {
     const ppWFSMappings = PolygonPartRecord.getWFSMappings();
 
-    expect(ppWFSMappings?.length).toBeGreaterThan(0);
+    expect(ppWFSMappings.length).toBeGreaterThan(0);
   });
 
   it('getORMCatalogEntityMappings(): class HAS ORM entity mapping', () => {
@@ -28,6 +28,6 @@ describe('PolygonParts class static methods', () => {
   it('getORMCatalogMappings(): class property members HAS ORM mapped fields', () => {
     const ppORMEntityFieldsMapping = new PolygonPartRecord().getORMCatalogMappings();
 
-    expect(ppORMEntityFieldsMapping?.length).toBeGreaterThan(0);
+    expect(ppORMEntityFieldsMapping.length).toBeGreaterThan(0);
   });
 });
