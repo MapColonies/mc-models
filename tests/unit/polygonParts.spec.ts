@@ -12,4 +12,22 @@ describe('PolygonParts class static methods', () => {
 
     expect(ppGQLMappings?.fields.length).toBeGreaterThan(0);
   });
+
+  it('getWFSMappings(): class property members HAS WFS mapped fields', () => {
+    const ppWFSMappings = PolygonPartRecord.getWFSMappings();
+
+    expect(ppWFSMappings?.length).toBeGreaterThan(0);
+  });
+
+  it('getORMCatalogEntityMappings(): class HAS ORM entity mapping', () => {
+    const ppORMEntityMapping = new PolygonPartRecord().getORMCatalogEntityMappings();
+
+    expect(ppORMEntityMapping).toBeDefined();
+  });
+
+  it('getORMCatalogMappings(): class property members HAS ORM mapped fields', () => {
+    const ppORMEntityFieldsMapping = new PolygonPartRecord().getORMCatalogMappings();
+
+    expect(ppORMEntityFieldsMapping?.length).toBeGreaterThan(0);
+  });
 });
