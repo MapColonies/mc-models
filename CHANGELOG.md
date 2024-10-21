@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.7.0](https://github.com/MapColonies/mc-models/compare/v17.6.3...v17.7.0) (2024-10-21)
+
+
+### Features
+
+* wfs decorator and pp synch and  orm mappings ([#216](https://github.com/MapColonies/mc-models/issues/216)) ([e515e1f](https://github.com/MapColonies/mc-models/commit/e515e1fb5a2de4a02e4939f4e4f6449c674cbc91))
+
 ### [17.6.3](https://github.com/MapColonies/mc-models/compare/v17.6.2...v17.6.3) (2024-10-09)
 
 
