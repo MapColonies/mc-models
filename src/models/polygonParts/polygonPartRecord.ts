@@ -620,9 +620,8 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @catalogDB({
     column: {
       name: camelCaseToSnakeCase('catalogId'),
-      type: 'text',
+      type: 'uuid',
       nullable: false,
-      unique: true,
     },
     index: {},
   })
