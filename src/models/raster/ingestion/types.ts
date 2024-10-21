@@ -79,9 +79,7 @@ export type PolygonPart = Pick<
   | 'cities'
 >;
 
-export type PolygonPartsPayload = Pick<IPolygonPart, 'catalogId' | 'productId' | 'productType' | 'productVersion'> & {
-  partsData: PolygonPart[];
-};
+export type PolygonPartsPayload = Pick<IPolygonPart, 'catalogId' | 'productId' | 'productType' | 'productVersion'> & Pick<LayerData, 'partsData'>;
 
 export interface InputFiles {
   originDirectory: string;
@@ -89,7 +87,7 @@ export interface InputFiles {
 }
 
 export interface LayerData {
-  partData: PolygonPart[];
+  partsData: PolygonPart[];
   inputFiles: InputFiles;
 }
 
