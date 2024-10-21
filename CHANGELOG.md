@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.6.3](https://github.com/MapColonies/mc-models/compare/v17.6.2...v17.6.3) (2024-10-09)
+
+
+### Bug Fixes
+
+* pp entity graphql fields from interface ([#215](https://github.com/MapColonies/mc-models/issues/215)) ([5dcdcdc](https://github.com/MapColonies/mc-models/commit/5dcdcdcdbbf41bfbd92ebb8a6184e3235984c4b6))
+
 ### [17.6.2](https://github.com/MapColonies/mc-models/compare/v17.6.1...v17.6.2) (2024-10-07)
 
 ### [17.6.1](https://github.com/MapColonies/mc-models/compare/v17.6.0...v17.6.1) (2024-10-06)

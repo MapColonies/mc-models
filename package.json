@@ -1,6 +1,6 @@
 {
   "name": "@map-colonies/mc-model-types",
-  "version": "17.6.2",
+  "version": "17.6.3",
   "description": "json schemas for validations and generated ts models",
   "author": "",
   "license": "MIT",
@@ -17,8 +17,8 @@
   "scripts": {
     "clean": "rimraf *.tgz Schema",
     "release": "standard-version",
-    "build:skipLibCheck": "npm run prebuild && tsc --skipLibCheck --project tsconfig.build.json",
-    "build": "tsc --project tsconfig.build.json",
+    "build:skipLibCheck": "npm run prebuild && ttsc --skipLibCheck --project tsconfig.build.json",
+    "build": "ttsc --project tsconfig.build.json",
     "copy:yaml": "copyfiles -u 1 \"./src/yaml/**/*.yaml\" ./Schema",
     "copy": "npm run copy:yaml",
     "prepack": "npm run build && npm run copy",
@@ -68,6 +68,8 @@
     "standard-version": "^9.0.0",
     "ts-jest": "^27.0.5",
     "ts-node": "^9.1.1",
+    "ts-transformer-keys": "^0.4.4",
+    "ttypescript": "^1.5.15",
     "typescript": "^4.7.4",
     "yaml-lint": "^1.2.4"
   },
