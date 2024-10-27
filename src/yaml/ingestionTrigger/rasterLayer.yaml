@@ -9,7 +9,7 @@ components:
       properties:
         metadata: 
           $ref: './metadata/rasterLayerMetadata.yaml#/components/schemas/newRasterLayerMetadata'
-        partData:
+        partsData:
           type: array
           items:
             $ref: './partData/rasterLayerPartData.yaml#/components/schemas/polygonPartMetadata' 
@@ -20,7 +20,7 @@ components:
       properties:
         metadata: 
           $ref: './metadata/rasterLayerMetadata.yaml#/components/schemas/updateRasterLayerMetadata'
-        partData:
+        partsData:
           type: array
           items:
             $ref: './partData/rasterLayerPartData.yaml#/components/schemas/polygonPartMetadata' 
