@@ -101,3 +101,11 @@ export interface IngestionNewFinalizeTaskParams {
   insertedToGeoServer: boolean;
   insertedToCatalog: boolean;
 }
+
+export interface IngestionUpdateFinalizeTaskParams {
+  updatedInCatalog: boolean;
+}
+
+export type IngestionSwapUpdateFinalizeTaskParams = IngestionUpdateFinalizeTaskParams & {
+  updateInMapproxy: boolean;
+};
