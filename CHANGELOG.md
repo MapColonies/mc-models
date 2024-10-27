@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.7.1](https://github.com/MapColonies/mc-models/compare/v17.7.0...v17.7.1) (2024-10-27)
+
+
+### Bug Fixes
+
+* partData changed to partsData on yaml schemas ([#218](https://github.com/MapColonies/mc-models/issues/218)) ([6f5e06b](https://github.com/MapColonies/mc-models/commit/6f5e06b11a52225474f00716bd1cc361ba9fdc59))
+* polygon parts picks parts data from layer data type ([#217](https://github.com/MapColonies/mc-models/issues/217)) ([0f39a9a](https://github.com/MapColonies/mc-models/commit/0f39a9a17edd008e7d0da61f929d4a69cdd19499))
+
 ## [17.7.0](https://github.com/MapColonies/mc-models/compare/v17.6.3...v17.7.0) (2024-10-21)
 
 
