@@ -93,6 +93,7 @@ export interface LayerData {
 
 export type NewRasterLayer = { metadata: NewRasterLayerMetadata } & LayerData;
 export type UpdateRasterLayer = { metadata: UpdateRasterLayerMetadata } & LayerData;
+export type IngestionNewJobParams = NewRasterLayer & { additionalParams: Record<string, unknown> };
 export type IngestionUpdateJobParams = UpdateRasterLayer & { additionalParams: Record<string, unknown> };
 
 export interface IngestionNewFinalizeTaskParams {
