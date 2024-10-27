@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.8.0](https://github.com/MapColonies/mc-models/compare/v17.7.3...v17.8.0) (2024-10-27)
+
+
+### Features
+
+* add FinalizeTaskParams interfaces per job ([#220](https://github.com/MapColonies/mc-models/issues/220)) ([6738680](https://github.com/MapColonies/mc-models/commit/67386809609959597c3881fb7f1f0deada7e9012))
+
 ### [17.7.3](https://github.com/MapColonies/mc-models/compare/v17.7.2...v17.7.3) (2024-10-27)
 
 ### [17.7.2](https://github.com/MapColonies/mc-models/compare/v17.7.1...v17.7.2) (2024-10-27)
