@@ -107,5 +107,5 @@ export interface IngestionUpdateFinalizeTaskParams {
 }
 
 export type IngestionSwapUpdateFinalizeTaskParams = IngestionUpdateFinalizeTaskParams & {
-  updateInMapproxy: boolean;
+  updatedInMapproxy: boolean;
 };
