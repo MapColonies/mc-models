@@ -9,6 +9,7 @@ export enum PropertiesTypes {
   ARRAY = 'array',
   OBJECT = 'object',
   ENUM_ARRAY = 'enumArray',
+  POLYGON = 'polygon',
 }
 export interface IDescribeTsType {
   value: string;
@@ -45,6 +46,10 @@ export const TsTypes = {
   OBJECT: {
     value: 'object',
     type: PropertiesTypes.OBJECT,
+  },
+  POLYGON: {
+    value: 'Polygon',
+    type: PropertiesTypes.POLYGON,
   },
   LINK: {
     value: 'Link',

@@ -133,7 +133,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
         generateValuesConstName: 'PRODUCT_TYPES',
 
         // enumName: 'product_type_enum',
-        // enum: 'ProductType'
+        // enumType: 'ProductType'
       },
       nullable: false,
     },
@@ -534,6 +534,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       srid: 4326,
       nullable: false,
     },
+    field: {
+      overrideType: TsTypes.POLYGON,
+    },
     customChecks: [
       {
         name: 'valid geometry',
@@ -676,7 +679,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       nullable: false,
       insert: false,
       columnType: ORMColumnType.CREATE_DATE_COLUMN,
-      readonly: true,
+    },
+    field: {
+      isReadonly: true,
     },
     index: {},
   })
