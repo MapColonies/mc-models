@@ -20,7 +20,7 @@ components:
           classification: '6'
           producerName: string
           scale: 100000000
-        partData:
+        partsData:
           - sourceId: avi
             sourceName: string
             imagingTimeBeginUTC: "2024-01-28T13:47:43.427Z"
@@ -57,7 +57,7 @@ components:
       value:
         metadata:
           classification: '6'
-        partData:
+        partsData:
           - sourceId: string
             sourceName: string
             imagingTimeBeginUTC: "2024-01-28T13:47:43.427Z"
