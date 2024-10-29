@@ -73,7 +73,7 @@ components:
         productId:
           type: string
           description: layer's external identifier
-          pattern: ^[A-Za-z]{1}[A-Za-z0-9_]{0,62}$
+          pattern: ^[A-Za-z]{1}[A-Za-z0-9_]{0,37}$
           example: BLUE_MARBLE
         productType:
           $ref: '#/components/schemas/productType'
