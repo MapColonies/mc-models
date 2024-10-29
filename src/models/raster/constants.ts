@@ -15,7 +15,7 @@ export const VALIDATIONS = {
     max: 4000,
   },
   productId: {
-    pattern: '^[A-Za-z]{1}[A-Za-z0-9_]{0,62}$',
+    pattern: '^[A-Za-z]{1}[A-Za-z0-9_]{0,37}$',
   },
   productVersion: {
     pattern: '^[1-9]\\d*(\\.(0|[1-9]\\d?))?$',
