@@ -1,7 +1,13 @@
 import { Polygon } from 'geojson';
 import { keys } from 'ts-transformer-keys';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
-import { FieldCategory, IPropFieldConfigInfo, fieldConfig, getFieldConfig } from '../common/decorators/fieldConfig/fieldConfig.decorator';
+import {
+  FieldCategory,
+  IFieldConfigInfo,
+  IPropFieldConfigInfo,
+  fieldConfig,
+  getFieldConfig,
+} from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { DataFileType, IPropSHPMapping, getInputDataMapping, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
 import { catalogDB, getCatalogDBMapping, ORMColumnType } from '../layerMetadata/decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
@@ -255,7 +261,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       },
       {
         errorMsgCode: 'validation-field.sourceDateStart.min',
-        valueType: 'field',
+        valueType: 'value',
         max: '$NOW',
       },
     ],
@@ -537,11 +543,11 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     customChecks: [
       {
         name: 'valid geometry',
-        expression: 'ST_IsValid("footprint")',
+        expression: `ST_IsValid('footprint')`,
       },
       {
         name: 'geometry extent',
-        expression: `Box2D("footprint") @Box2D(ST_GeomFromText('LINESTRING(-180 -90, 180 90)'))`,
+        expression: `Box2D('footprint') @Box2D(ST_GeomFromText('LINESTRING(-180 -90, 180 90)'))`,
       },
     ],
     index: { spatial: true },
@@ -755,11 +761,14 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     const layer = new PolygonPartRecord();
     POLYGON_PARTS_KEYS.forEach((prop) => {
       const catalogDbMap = getCatalogDBMapping(layer, prop);
+      const fieldConfigMap = getFieldConfig(layer, prop);
+      const { validation, ...rest } = fieldConfigMap as IFieldConfigInfo;
       const tsTypesMap = getTsTypesMapping(layer, prop);
       if (catalogDbMap && tsTypesMap) {
         ret.push({
           prop: prop,
           ...catalogDbMap,
+          validation: validation,
           ...tsTypesMap,
         });
       }
