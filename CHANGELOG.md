@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.9.0](https://github.com/MapColonies/mc-models/compare/v17.8.0...v17.9.0) (2024-11-03)
+
+
+### Features
+
+* add normalizedPixelSize ([#222](https://github.com/MapColonies/mc-models/issues/222)) ([b0752c0](https://github.com/MapColonies/mc-models/commit/b0752c0dfeebb3e2f9dbef92e0043eb69681782d))
+
+
+### Bug Fixes
+
+* limit productId to 38 chars ([#221](https://github.com/MapColonies/mc-models/issues/221)) ([4f35270](https://github.com/MapColonies/mc-models/commit/4f35270dbb62ece769baa5f5e5ee149cd0d6a496))
+
 ## [17.8.0](https://github.com/MapColonies/mc-models/compare/v17.7.3...v17.8.0) (2024-10-27)
 
 
