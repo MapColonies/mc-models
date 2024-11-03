@@ -14,9 +14,7 @@ components:
           fileFormat:
             type: string
           pixelSize:
-            type: number
-          normalizedPixelSize:
-            type: number  
+            type: number 
           extentPolygon:
             $ref: '../../geojson.yaml#/components/schemas/Geometry'
           fileName:
@@ -27,12 +25,10 @@ components:
           - pixelSize
           - extentPolygon
           - fileName
-          - normalizedPixelSize
         example:
           crs: 4326
           fileFormat: gpkg
           pixelSize: 0.703125
-          normalizedPixelSize: 0.703125
           extentPolygon:
             type: Polygon
             coordinates:
