@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.9.1](https://github.com/MapColonies/mc-models/compare/v17.9.0...v17.9.1) (2024-11-03)
+
+
+### Bug Fixes
+
+* revert normalized pixelSize ([#223](https://github.com/MapColonies/mc-models/issues/223)) ([12f296e](https://github.com/MapColonies/mc-models/commit/12f296e52af2ce4705ada4d8b1726712915376a5))
+
 ## [17.9.0](https://github.com/MapColonies/mc-models/compare/v17.8.0...v17.9.0) (2024-11-03)
 
 
