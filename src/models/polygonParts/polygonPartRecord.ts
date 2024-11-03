@@ -1,7 +1,13 @@
 import { Polygon } from 'geojson';
 import { keys } from 'ts-transformer-keys';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
-import { FieldCategory, IPropFieldConfigInfo, fieldConfig, getFieldConfig } from '../common/decorators/fieldConfig/fieldConfig.decorator';
+import {
+  FieldCategory,
+  IFieldConfigInfo,
+  IPropFieldConfigInfo,
+  fieldConfig,
+  getFieldConfig,
+} from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { DataFileType, IPropSHPMapping, getInputDataMapping, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
 import { catalogDB, getCatalogDBMapping, ORMColumnType } from '../layerMetadata/decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
@@ -130,7 +136,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
           ProductType.RASTER_VECTOR,
           ProductType.RASTER_VECTOR_BEST,
         ],
-        generateValuesConstName: 'PRODUCT_TYPES',
+        // generateValuesConstName: 'PRODUCT_TYPES',
 
         // enumName: 'product_type_enum',
         // enumType: 'ProductType'
@@ -760,11 +766,14 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     const layer = new PolygonPartRecord();
     POLYGON_PARTS_KEYS.forEach((prop) => {
       const catalogDbMap = getCatalogDBMapping(layer, prop);
+      const fieldConfigMap = getFieldConfig(layer, prop);
       const tsTypesMap = getTsTypesMapping(layer, prop);
+      const { validation } = fieldConfigMap ?? {};
       if (catalogDbMap && tsTypesMap) {
         ret.push({
           prop: prop,
           ...catalogDbMap,
+          validation,
           ...tsTypesMap,
         });
       }

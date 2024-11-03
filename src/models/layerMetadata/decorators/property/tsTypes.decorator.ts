@@ -9,7 +9,6 @@ export enum PropertiesTypes {
   ARRAY = 'array',
   OBJECT = 'object',
   ENUM_ARRAY = 'enumArray',
-  POLYGON = 'polygon',
 }
 export interface IDescribeTsType {
   value: string;
@@ -49,7 +48,8 @@ export const TsTypes = {
   },
   POLYGON: {
     value: 'Polygon',
-    type: PropertiesTypes.POLYGON,
+    type: PropertiesTypes.OBJECT,
+    importFromPackage: 'geojson',
   },
   LINK: {
     value: 'Link',
