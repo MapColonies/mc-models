@@ -136,10 +136,10 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
           ProductType.RASTER_VECTOR,
           ProductType.RASTER_VECTOR_BEST,
         ],
-        generateValuesConstName: 'PRODUCT_TYPES',
+        // generateValuesConstName: 'PRODUCT_TYPES',
 
         // enumName: 'product_type_enum',
-        // enum: 'ProductType'
+        // enumType: 'ProductType'
       },
       nullable: false,
     },
@@ -540,6 +540,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       srid: 4326,
       nullable: false,
     },
+    field: {
+      overrideType: TsTypes.POLYGON,
+    },
     customChecks: [
       {
         name: 'valid geometry',
@@ -682,7 +685,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       nullable: false,
       insert: false,
       columnType: ORMColumnType.CREATE_DATE_COLUMN,
-      readonly: true,
+    },
+    field: {
+      isReadonly: true,
     },
     index: {},
   })
@@ -762,13 +767,13 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     POLYGON_PARTS_KEYS.forEach((prop) => {
       const catalogDbMap = getCatalogDBMapping(layer, prop);
       const fieldConfigMap = getFieldConfig(layer, prop);
-      const { validation, ...rest } = fieldConfigMap as IFieldConfigInfo;
       const tsTypesMap = getTsTypesMapping(layer, prop);
+      const { validation } = fieldConfigMap ?? {};
       if (catalogDbMap && tsTypesMap) {
         ret.push({
           prop: prop,
           ...catalogDbMap,
-          validation: validation,
+          validation,
           ...tsTypesMap,
         });
       }

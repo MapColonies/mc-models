@@ -12,7 +12,6 @@ export interface IColumnProps {
     enumType?: string; // enumType or enumValues + generateValuesConstName(optional)
     enumValues?: string[];
     generateValuesConstName?: string;
-    // enum: string
   };
   nullable?: boolean;
   default?: string;
@@ -27,6 +26,7 @@ export interface IColumnProps {
 
 export interface IFieldProps {
   overrideType?: IDescribeTsType;
+  isReadonly?: boolean;
 }
 
 export enum ORMColumnType {

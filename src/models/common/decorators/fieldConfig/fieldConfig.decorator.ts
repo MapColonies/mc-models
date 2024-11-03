@@ -4,6 +4,10 @@ import { IFieldConfigClassInfo } from './classFieldConfig.decorator';
 
 const fieldConfigMetadataKey = Symbol('fieldconfig');
 
+export interface IValidationConfigInfoMapping {
+  validation?: IValidationConfigInfo[];
+}
+
 export enum FieldCategory {
   MAIN = 'MAIN',
   GENERAL = 'GENERAL',
@@ -46,6 +50,7 @@ export interface IFieldConfigInfo {
 
 export interface IPropFieldConfigInfo extends IFieldConfigInfo {
   prop: string;
+  validation?: IValidationConfigInfo[];
 }
 
 export function fieldConfig(fieldConfigInfo: IFieldConfigInfo): PropertyDecorator {

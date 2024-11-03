@@ -46,6 +46,11 @@ export const TsTypes = {
     value: 'object',
     type: PropertiesTypes.OBJECT,
   },
+  POLYGON: {
+    value: 'Polygon',
+    type: PropertiesTypes.OBJECT,
+    importFromPackage: 'geojson',
+  },
   LINK: {
     value: 'Link',
     type: PropertiesTypes.CLASS,
