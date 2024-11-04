@@ -4,6 +4,12 @@ info:
   version: 1.0.0
 components:
   schemas:
+    polygonPartsMetadata:
+      type: array
+      items:
+        $ref: '#/components/schemas/polygonPartMetadata'
+      minItems: 1
+      description: polygon parts data
     polygonPartMetadata:
       type: object
       description: Layer polygon part data definitions

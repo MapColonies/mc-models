@@ -28,7 +28,5 @@ components:
                   description: layer's version
                   example: 1.23
                 partsData:
-                  type: array
                   items:
-                    $ref: '../ingestionTrigger/partData/rasterLayerPartData.yaml#/components/schemas/polygonPartMetadata'
-                  description: polygon parts data
+                    $ref: '../ingestionTrigger/partData/rasterLayerPartData.yaml#/components/schemas/polygonPartsMetadata'
