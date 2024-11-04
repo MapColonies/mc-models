@@ -7,22 +7,18 @@ components:
     NewRasterLayer:
       type: object
       properties:
-        metadata: 
+        metadata:
           $ref: './metadata/rasterLayerMetadata.yaml#/components/schemas/newRasterLayerMetadata'
         partsData:
-          type: array
-          items:
-            $ref: './partData/rasterLayerPartData.yaml#/components/schemas/polygonPartMetadata' 
+          $ref: './partData/rasterLayerPartData.yaml#/components/schemas/polygonPartsMetadata'
         inputFiles:
           $ref: './inputFiles/rasterLayerInputFiles.yaml#/components/schemas/InputFiles'
     UpdateRasterLayer:
       type: object
       properties:
-        metadata: 
+        metadata:
           $ref: './metadata/rasterLayerMetadata.yaml#/components/schemas/updateRasterLayerMetadata'
         partsData:
-          type: array
-          items:
-            $ref: './partData/rasterLayerPartData.yaml#/components/schemas/polygonPartMetadata' 
+          $ref: './partData/rasterLayerPartData.yaml#/components/schemas/polygonPartsMetadata'
         inputFiles:
-          $ref: './inputFiles/rasterLayerInputFiles.yaml#/components/schemas/InputFiles'                
+          $ref: './inputFiles/rasterLayerInputFiles.yaml#/components/schemas/InputFiles'
