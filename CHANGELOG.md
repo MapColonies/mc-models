@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.9.2](https://github.com/MapColonies/mc-models/compare/v17.9.1...v17.9.2) (2024-11-04)
+
+
+### Bug Fixes
+
+* parts data array should have at least one item ([#224](https://github.com/MapColonies/mc-models/issues/224)) ([c1aa9ed](https://github.com/MapColonies/mc-models/commit/c1aa9edc507fbae305820dbfe89721997f3d85fd))
+
 ### [17.9.1](https://github.com/MapColonies/mc-models/compare/v17.9.0...v17.9.1) (2024-11-03)
 
 
