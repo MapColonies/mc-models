@@ -28,5 +28,4 @@ components:
                   description: layer's version
                   example: 1.23
                 partsData:
-                  items:
-                    $ref: '../ingestionTrigger/partData/rasterLayerPartData.yaml#/components/schemas/polygonPartsMetadata'
+                  $ref: '../ingestionTrigger/partData/rasterLayerPartData.yaml#/components/schemas/polygonPartsMetadata'
