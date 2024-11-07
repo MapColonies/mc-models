@@ -976,7 +976,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: false, //keep it true like in max?
+    nullable: true,
   })
   @fieldConfig({
     category: FieldCategory.MAIN, // is it required?

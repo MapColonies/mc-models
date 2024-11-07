@@ -16,7 +16,7 @@ interface IPropPYCSWMapping extends IPYCSWMapping {
 
 const POLYGON_PARTS_KEYS = keys<IPolygonPart>();
 const POLYGON_PARTS_SERVED_KEYS =
-  keys<Omit<IPolygonPart, 'productId' | 'productType' | 'id' | 'catalogId' | 'productVersion' | 'ingestionDateUTC'>>();
+  keys<Omit<IPolygonPart, 'productId' | 'productType' | 'id' | 'catalogId' | 'productVersion' | 'ingestionDateUTC' | 'partId'>>();
 
 @catalogDBEntity({
   table: 'PPRecordsPartial',
