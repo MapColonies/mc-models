@@ -118,11 +118,11 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     pycswField: 'pycsw:InsertDate',
   })
   @catalogDB({
-    columnType: ORMColumnType.CREATE_DATE_COLUMN,
     column: {
       name: 'insert_date',
       type: 'timestamp without time zone',
       nullable: true,
+      columnType: ORMColumnType.CREATE_DATE_COLUMN,
     },
   })
   @tsTypes({

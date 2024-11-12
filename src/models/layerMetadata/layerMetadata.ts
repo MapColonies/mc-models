@@ -330,10 +330,10 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     pycswField: 'pycsw:UpdateDate',
   })
   @catalogDB({
-    columnType: ORMColumnType.UPDATE_DATE_COLUMN,
     column: {
       name: 'update_date_utc',
       type: 'timestamp without time zone',
+      columnType: ORMColumnType.UPDATE_DATE_COLUMN,
     },
   })
   @inputDataMapping({
@@ -393,6 +393,11 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
         errorMsgCode: 'validation-field.sourceDateStart.max',
         valueType: 'field',
         max: 'imagingTimeEndUTC',
+      },
+      {
+        errorMsgCode: 'validation-field.sourceDateStart.max',
+        valueType: 'field',
+        max: '$NOW',
       },
     ],
     isLifecycleEnvolved: true,

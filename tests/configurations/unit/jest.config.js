@@ -20,4 +20,7 @@ module.exports = {
       astTransformers: { before: ['<rootDir>/tests/configurations/unit/ts-jest-keys-transformer.js'] },
     },
   },
+  moduleNameMapper: {
+    '^change-case-all': 'change-case-all/dist/index.umd.cjs',
+  },
 };

@@ -259,11 +259,11 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
     pycswField: 'pycsw:updateDate',
   })
   @catalogDB({
-    columnType: ORMColumnType.UPDATE_DATE_COLUMN,
     column: {
       name: 'update_date',
       type: 'timestamp without time zone',
       nullable: true,
+      columnType: ORMColumnType.UPDATE_DATE_COLUMN,
     },
   })
   @tsTypes({

@@ -1,14 +1,21 @@
 import { Polygon } from 'geojson';
 import { keys } from 'ts-transformer-keys';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
-import { FieldCategory, IPropFieldConfigInfo, fieldConfig, getFieldConfig } from '../common/decorators/fieldConfig/fieldConfig.decorator';
+import {
+  FieldCategory,
+  IFieldConfigInfo,
+  IPropFieldConfigInfo,
+  fieldConfig,
+  getFieldConfig,
+} from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { DataFileType, IPropSHPMapping, getInputDataMapping, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
-import { catalogDB, getCatalogDBMapping } from '../layerMetadata/decorators/property/catalogDB.decorator';
+import { catalogDB, getCatalogDBMapping, ORMColumnType } from '../layerMetadata/decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
 import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping, ProductType } from '../layerMetadata';
 import { getWFSMapping, graphqlClass, IPropCatalogDBMapping, IPropWFSMapping, JAVA_BINDINGS, wfs } from '../common';
-import { catalogDBEntity, getCatalogDBEntityMapping } from '../layerMetadata/decorators/class/catalogDBEntity.decorator';
 import { VALIDATIONS } from '../raster/constants';
+import { camelCaseToSnakeCase } from '../helpers/utils';
+import { DBEntity, getDBEntityMapping } from '../layerMetadata/decorators/class/DBEntity.decorator';
 
 interface IPropPYCSWMapping extends IPYCSWMapping {
   prop: string;
@@ -18,18 +25,19 @@ const POLYGON_PARTS_KEYS = keys<IPolygonPart>();
 const POLYGON_PARTS_SERVED_KEYS =
   keys<Omit<IPolygonPart, 'productId' | 'productType' | 'id' | 'catalogId' | 'productVersion' | 'ingestionDateUTC'>>();
 
-@catalogDBEntity({
-  table: 'PPRecordsPartial',
-  className: 'PolygonPartRecord',
+@DBEntity({
+  table: 'records',
+  className: 'Common',
 })
 @graphqlClass({ alias: 'PolygonPartRecord', fields: POLYGON_PARTS_KEYS })
 export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: sourceId
   @catalogDB({
     column: {
-      name: 'source_id',
+      name: camelCaseToSnakeCase('sourceId'),
       type: 'text',
       nullable: true,
+      collation: 'C.UTF-8',
     },
   })
   @wfs({
@@ -52,9 +60,10 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: sourceName
   @catalogDB({
     column: {
-      name: 'source_name',
+      name: camelCaseToSnakeCase('sourceName'),
       type: 'text',
       nullable: false,
+      collation: 'C.UTF-8',
     },
   })
   @wfs({
@@ -77,10 +86,12 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: productId
   @catalogDB({
     column: {
-      name: 'product_id',
+      name: camelCaseToSnakeCase('productId'),
       type: 'text',
       nullable: false,
+      collation: 'C.UTF-8',
     },
+    index: {},
   })
   @wfs({
     binding: JAVA_BINDINGS.STRING,
@@ -111,10 +122,28 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: productType
   @catalogDB({
     column: {
-      name: 'product_type',
-      type: 'text',
+      name: camelCaseToSnakeCase('productType'),
+      type: 'enum',
+      enum: {
+        enumName: 'product_type_enum',
+        enumValues: [
+          ProductType.ORTHOPHOTO,
+          ProductType.ORTHOPHOTO_BEST,
+          ProductType.RASTER_AID,
+          ProductType.RASTER_AID_BEST,
+          ProductType.RASTER_MAP,
+          ProductType.RASTER_MAP_BEST,
+          ProductType.RASTER_VECTOR,
+          ProductType.RASTER_VECTOR_BEST,
+        ],
+        // generateValuesConstName: 'PRODUCT_TYPES',
+
+        // enumName: 'product_type_enum',
+        // enumType: 'ProductType'
+      },
       nullable: false,
     },
+    index: {},
   })
   @wfs({
     binding: JAVA_BINDINGS.STRING,
@@ -132,9 +161,10 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: description
   @catalogDB({
     column: {
-      name: 'description',
+      name: camelCaseToSnakeCase('description'),
       type: 'text',
       nullable: true,
+      collation: 'C.UTF-8',
     },
   })
   @wfs({
@@ -159,10 +189,11 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: imagingTimeBeginUTC
   @catalogDB({
     column: {
-      name: 'imaging_time_begin_utc',
+      name: camelCaseToSnakeCase('imagingTimeBeginUTC'),
       type: 'timestamp with time zone',
       nullable: false,
     },
+    index: {},
   })
   @wfs({
     binding: JAVA_BINDINGS.TIMESTAMP,
@@ -189,6 +220,11 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
         valueType: 'field',
         max: 'imagingTimeEndUTC',
       },
+      {
+        errorMsgCode: 'validation-general.date.future',
+        valueType: 'value',
+        max: '$NOW',
+      },
     ],
   })
   //#endregion
@@ -197,10 +233,11 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: imagingTimeEndUTC
   @catalogDB({
     column: {
-      name: 'imaging_time_end_utc',
+      name: camelCaseToSnakeCase('imagingTimeEndUTC'),
       type: 'timestamp with time zone',
       nullable: false,
     },
+    index: {},
   })
   @wfs({
     binding: JAVA_BINDINGS.TIMESTAMP,
@@ -222,6 +259,11 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
         errorMsgCode: 'validation-general.required',
         required: true,
       },
+      {
+        errorMsgCode: 'validation-field.sourceDateStart.min',
+        valueType: 'value',
+        max: '$NOW',
+      },
     ],
   })
   //#endregion
@@ -230,8 +272,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: horizontalAccuracyCE90
   @catalogDB({
     column: {
-      name: 'horizontal_accuracy_ce_90',
+      name: camelCaseToSnakeCase('horizontalAccuracyCE90'),
       type: 'real',
+      nullable: false,
     },
   })
   @wfs({
@@ -271,9 +314,10 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: sensors
   @catalogDB({
     column: {
-      name: 'sensors',
+      name: camelCaseToSnakeCase('sensors'),
       type: 'text',
       nullable: false,
+      collation: 'C.UTF-8',
     },
     field: {
       overrideType: TsTypes.STRING,
@@ -307,9 +351,10 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: countries
   @catalogDB({
     column: {
-      name: 'countries',
+      name: camelCaseToSnakeCase('countries'),
       type: 'text',
       nullable: true,
+      collation: 'C.UTF-8',
     },
     field: {
       overrideType: TsTypes.STRING,
@@ -339,7 +384,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region **TO_VERIFY_CITIES?** METADATA: cities
   @catalogDB({
     column: {
-      name: 'cities',
+      name: camelCaseToSnakeCase('cities'),
       type: 'text',
       nullable: true,
     },
@@ -370,9 +415,11 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: resolutionDegree??? [from INGESTION PARAMS]
   @catalogDB({
     column: {
-      name: 'resolution_degree',
+      name: camelCaseToSnakeCase('resolutionDegree'),
       type: 'numeric',
+      nullable: false,
     },
+    index: {},
   })
   @wfs({
     binding: JAVA_BINDINGS.BIGDECIMAL,
@@ -409,9 +456,11 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: resolutionMeter [from INGESTION PARAMS]
   @catalogDB({
     column: {
-      name: 'resolution_meter',
+      name: camelCaseToSnakeCase('resolutionMeter'),
       type: 'numeric',
+      nullable: false,
     },
+    index: {},
   })
   @wfs({
     binding: JAVA_BINDINGS.BIGDECIMAL,
@@ -443,8 +492,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: sourceResolutionMeter [READONLY]
   @catalogDB({
     column: {
-      name: 'source_resolution_meter',
+      name: camelCaseToSnakeCase('sourceResolutionMeter'),
       type: 'numeric',
+      nullable: false,
     },
   })
   @wfs({
@@ -466,6 +516,16 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
         errorMsgCode: 'validation-general.required',
         required: true,
       },
+      {
+        errorMsgCode: 'validation-field.maxResolutionMeter.min',
+        valueType: 'value',
+        min: VALIDATIONS.resolutionMeter.min,
+      },
+      {
+        errorMsgCode: 'validation-field.maxResolutionMeter.max',
+        valueType: 'value',
+        max: VALIDATIONS.resolutionMeter.max,
+      },
     ],
   })
   //#endregion
@@ -474,9 +534,26 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region METADATA: footprint
   @catalogDB({
     column: {
-      name: 'footprint',
-      type: 'text',
+      name: camelCaseToSnakeCase('footprint'),
+      type: 'geometry',
+      spatialFeatureType: 'Polygon',
+      srid: 4326,
+      nullable: false,
     },
+    field: {
+      overrideType: TsTypes.POLYGON,
+    },
+    customChecks: [
+      {
+        name: 'valid geometry',
+        expression: `ST_IsValid('footprint')`,
+      },
+      {
+        name: 'geometry extent',
+        expression: `Box2D('footprint') @Box2D(ST_GeomFromText('LINESTRING(-180 -90, 180 90)'))`,
+      },
+    ],
+    index: { spatial: true },
   })
   @wfs({
     binding: JAVA_BINDINGS.POLYGON,
@@ -509,7 +586,6 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: id
   @catalogDB({
     column: {
-      name: 'id',
       type: 'text',
       nullable: false,
       primary: true,
@@ -531,7 +607,6 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: partId
   @catalogDB({
     column: {
-      name: 'part_id',
       type: 'number',
       nullable: false,
     },
@@ -553,10 +628,11 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: catalogId
   @catalogDB({
     column: {
-      name: 'catalog_id',
-      type: 'text',
+      name: camelCaseToSnakeCase('catalogId'),
+      type: 'uuid',
       nullable: false,
     },
+    index: {},
   })
   @wfs({
     binding: JAVA_BINDINGS.UUID,
@@ -574,9 +650,10 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: productVersion [Version number of the best layer when it was updated]
   @catalogDB({
     column: {
-      name: 'product_version',
+      name: camelCaseToSnakeCase('productVersion'),
       type: 'text',
       nullable: false,
+      collation: 'C.UTF-8',
     },
   })
   @wfs({
@@ -603,10 +680,16 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: ingestionDateUTC
   @catalogDB({
     column: {
-      name: 'ingestion_date_utc',
+      name: camelCaseToSnakeCase('ingestionDateUTC'),
       type: 'timestamp with time zone',
       nullable: false,
+      insert: false,
+      columnType: ORMColumnType.CREATE_DATE_COLUMN,
     },
+    field: {
+      isReadonly: true,
+    },
+    index: {},
   })
   @wfs({
     binding: JAVA_BINDINGS.TIMESTAMP,
@@ -619,7 +702,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     isAutoGenerated: true,
   })
   //#endregion
-  public ingestionDateUTC!: Date;
+  public readonly ingestionDateUTC!: Date;
 
   public static getPyCSWMappings(): IPropPYCSWMapping[] {
     return [];
@@ -683,11 +766,14 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     const layer = new PolygonPartRecord();
     POLYGON_PARTS_KEYS.forEach((prop) => {
       const catalogDbMap = getCatalogDBMapping(layer, prop);
+      const fieldConfigMap = getFieldConfig(layer, prop);
       const tsTypesMap = getTsTypesMapping(layer, prop);
+      const { validation } = fieldConfigMap ?? {};
       if (catalogDbMap && tsTypesMap) {
         ret.push({
           prop: prop,
           ...catalogDbMap,
+          validation,
           ...tsTypesMap,
         });
       }
@@ -696,7 +782,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   }
 
   public getORMCatalogEntityMappings(): ICatalogDBEntityMapping {
-    return getCatalogDBEntityMapping(PolygonPartRecord);
+    return getDBEntityMapping(PolygonPartRecord);
   }
 }
 
