@@ -70,6 +70,13 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @graphql()
   @fieldConfig({
     category: FieldCategory.MAIN,
+    infoMsgCode: ['info-general-tooltip.required'],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        required: true,
+      },
+    ],
   })
   //#endregion
   public sourceName!: string;
