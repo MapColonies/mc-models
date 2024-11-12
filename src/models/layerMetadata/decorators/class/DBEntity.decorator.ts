@@ -3,6 +3,7 @@ import { ICatalogDBEntityMapping } from './catalogDBEntity.decorator';
 
 const catalogDbEntityMetadataKey = Symbol('dbentitymapping');
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export function DBEntity(catalogdbentitymapping: ICatalogDBEntityMapping): ClassDecorator {
   return Reflect.metadata(catalogDbEntityMetadataKey, catalogdbentitymapping);
 }
