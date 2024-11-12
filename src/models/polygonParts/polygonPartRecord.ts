@@ -383,7 +383,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @graphql()
   @fieldConfig({
     category: FieldCategory.MAIN,
-    isLifecycleEnvolved: true, //currently defined as TRUE in order to avoid user input
+    isLifecycleEnvolved: true,
     infoMsgCode: [
       'info-field-tooltip.maxResolutionDeg.tooltip',
       'info-general-tooltip.required',
@@ -423,7 +423,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @fieldConfig({
     category: FieldCategory.MAIN,
     infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.maxResolutionMeter.min', 'info-field-tooltip.maxResolutionMeter.max'],
-    isLifecycleEnvolved: true, //currently defined as TRUE in order to avoid user input
+    isLifecycleEnvolved: true,
     validation: [
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.min',
