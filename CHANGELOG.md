@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.10.0](https://github.com/MapColonies/mc-models/compare/v17.9.3...v17.10.0) (2024-11-12)
+
+
+### Features
+
+* extension of db decorator for more precise generation ORM code ([#226](https://github.com/MapColonies/mc-models/issues/226)) ([7c9ee84](https://github.com/MapColonies/mc-models/commit/7c9ee841367de9c52458d302bb828159608a91cb))
+
+
+### Bug Fixes
+
+* tuning layermetadata and polygonpart ([#227](https://github.com/MapColonies/mc-models/issues/227)) ([21ae991](https://github.com/MapColonies/mc-models/commit/21ae991546f96a4bf801a4f488d25c50ad2444e6))
+
 ### [17.9.3](https://github.com/MapColonies/mc-models/compare/v17.9.2...v17.9.3) (2024-11-05)
 
 
