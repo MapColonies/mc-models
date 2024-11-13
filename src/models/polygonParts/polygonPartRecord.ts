@@ -26,8 +26,9 @@ const POLYGON_PARTS_SERVED_KEYS =
   keys<Omit<IPolygonPart, 'productId' | 'productType' | 'id' | 'catalogId' | 'productVersion' | 'ingestionDateUTC' | 'partId'>>();
 
 @DBEntity({
-  table: 'records',
+  table: '***DUMMY_NOT_RELEVANT***',
   className: 'Common',
+  isPartial: true,
 })
 @graphqlClass({ alias: 'PolygonPartRecord', fields: POLYGON_PARTS_KEYS })
 export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
