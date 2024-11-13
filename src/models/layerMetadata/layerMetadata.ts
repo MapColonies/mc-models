@@ -889,7 +889,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     category: FieldCategory.MAIN,
     infoMsgCode: [
       'info-field-tooltip.minResolutionDeg.tooltip',
-      'info-general-tooltip.required', // is it required?
+      'info-general-tooltip.required',
       'info-field-tooltip.minResolutionDeg.min',
       'info-field-tooltip.minResolutionDeg.max',
     ],
@@ -985,7 +985,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     nullable: false,
   })
   @fieldConfig({
-    category: FieldCategory.MAIN, // is it required?
+    category: FieldCategory.MAIN,
     infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.minResolutionMeter.min', 'info-field-tooltip.minResolutionMeter.max'],
     validation: [
       {
