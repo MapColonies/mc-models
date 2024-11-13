@@ -345,7 +345,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.DATE,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.MAIN,
@@ -465,7 +465,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: false, //keep it true like in min?
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
@@ -512,7 +512,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
@@ -883,7 +883,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: false, //keep it true like in max?
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.MAIN,
@@ -909,6 +909,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
         max: VALIDATIONS.resolutionDeg.max,
       },
     ],
+    isLifecycleEnvolved: true,
   })
   //#endregion
   public minResolutionDeg: number | undefined = undefined;
@@ -981,7 +982,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.MAIN, // is it required?
