@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.10.2](https://github.com/MapColonies/mc-models/compare/v17.10.1...v17.10.2) (2024-11-13)
+
+
+### Bug Fixes
+
+* add isPartial class to ICatalogDBEntityMapping ([#229](https://github.com/MapColonies/mc-models/issues/229)) ([aa60fed](https://github.com/MapColonies/mc-models/commit/aa60fedf4caefb5ec9f1d641b39c9d0d36bc1add))
+* cleanup inputmapping decorator not relevant ([#231](https://github.com/MapColonies/mc-models/issues/231)) ([250f983](https://github.com/MapColonies/mc-models/commit/250f9830177a05cb1c4d456c9b10064e24c1f208))
+* pp islivecycleenvolved in layerrecord tuning ([#230](https://github.com/MapColonies/mc-models/issues/230)) ([d316873](https://github.com/MapColonies/mc-models/commit/d316873b87f7efc0e198de2c9f213857468854be))
+
 ### [17.10.1](https://github.com/MapColonies/mc-models/compare/v17.10.0...v17.10.1) (2024-11-12)
 
 ## [17.10.0](https://github.com/MapColonies/mc-models/compare/v17.9.3...v17.10.0) (2024-11-12)
