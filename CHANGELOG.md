@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.10.3](https://github.com/MapColonies/mc-models/compare/v17.10.2...v17.10.3) (2024-11-17)
+
 ### [17.10.2](https://github.com/MapColonies/mc-models/compare/v17.10.1...v17.10.2) (2024-11-13)
 
 
