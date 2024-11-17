@@ -1,6 +1,5 @@
-import { LayerMetadata, IPYCSWMapping, IDataMapping, IPropPYCSWMapping, Pycsw3DCatalogRecord } from '../../src/models';
+import { LayerMetadata, IPYCSWMapping, IPropPYCSWMapping, Pycsw3DCatalogRecord } from '../../src/models';
 import { ICatalogDBMapping } from '../../src/models/layerMetadata/decorators/property/catalogDB.decorator';
-import { IPropSHPMapping } from '../../src/models/layerMetadata/decorators/property/shp.decorator';
 import { PycswLayerCatalogRecord } from '../../src/models/layerMetadata/pycswLayerCatalogRecord';
 
 describe('LayerMetadata class static methods', () => {
@@ -19,21 +18,6 @@ describe('LayerMetadata class static methods', () => {
     expect(pycswMapping).toBeUndefined();
   });
 
-  it('getShpMapping(): mapped to SHAPE prop', () => {
-    const PROPERTY_NAME = 'footprint';
-    const shpMapping: IDataMapping | undefined = LayerMetadata.getShpMapping(PROPERTY_NAME);
-
-    expect(shpMapping).toHaveProperty('dataFile');
-    expect(shpMapping).toHaveProperty('valuePath');
-  });
-
-  it('getShpMapping(): NOT mapped to SHAPE prop', () => {
-    const PROPERTY_NAME = 'dummy_footprint';
-    const shpMapping: IDataMapping | undefined = LayerMetadata.getShpMapping(PROPERTY_NAME);
-
-    expect(shpMapping).toBeUndefined();
-  });
-
   it('getPyCSWMappings(): HAS props mapped to PYCSW', () => {
     const pycswMappings: IPropPYCSWMapping[] = LayerMetadata.getPyCSWMappings();
 
@@ -42,16 +26,6 @@ describe('LayerMetadata class static methods', () => {
     expect(pycswMappings[0]).toHaveProperty('prop');
     expect(pycswMappings[0]).toHaveProperty('xmlElement');
     expect(pycswMappings[0]).toHaveProperty('queryableField');
-  });
-
-  it('getShpMappings(): HAS props mapped to SHAPE', () => {
-    const shpMappings: IPropSHPMapping[] = LayerMetadata.getShpMappings();
-
-    expect(shpMappings.length).toBeGreaterThan(0);
-    expect(shpMappings[0]).toHaveProperty('prop');
-    expect(shpMappings[0]).toHaveProperty('dataFile');
-    expect(shpMappings[0]).toHaveProperty('valuePath');
-    expect(shpMappings[0]).toHaveProperty('mappingType');
   });
 
   it('getCatalogDbMapping(): mapped to DATABASE prop', () => {

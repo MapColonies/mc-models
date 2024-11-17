@@ -594,9 +594,10 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: id
   @catalogDB({
     column: {
-      type: 'text',
+      name: camelCaseToSnakeCase('id'),
+      type: 'uuid',
+      columnType: ORMColumnType.PRIMARY_GENERATED_COLUMN,
       nullable: false,
-      primary: true,
     },
   })
   @wfs({
@@ -615,6 +616,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: partId
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('partId'),
       type: 'number',
       nullable: false,
     },
