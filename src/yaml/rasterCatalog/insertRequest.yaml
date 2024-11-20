@@ -15,6 +15,10 @@ components:
         - properties:
             metadata:
               $ref: ../insertLayerMetadata.yaml#/components/schemas/insertLayerMetadata
+            links:
+              type: array
+              items:
+                $ref: ../link.yaml#/components/schemas/Link
         - properties:
             metadata:
               required:

@@ -50,4 +50,98 @@ components:
               maximum: 4000
               format: double
               description: minimum Horizontal Accuracy
+            type:
+              type: string
+              description: Layer type raster / 3d / dem
+              enum:
+                - RECORD_RASTER
+                - RECORD_3D
+            classification:
+              type: string
+              description: Permitted roles
+              pattern: ^[0-9]$|^[1-9][0-9]$|^(100)$
+            productId:
+              type: string
+              description: Layer's external identifier
+              pattern: ^[A-Za-z]{1}[A-Za-z0-9_]{0,37}$
+            productName: 
+              type: string
+              description: Layer's external name
+            productVersion:
+              type: string
+              pattern: ^[1-9]\d*(\.(0|[1-9]\d?))?$
+              description: layer's version
+            productType:
+              $ref: './updateLayerMetadata.yaml#/components/schemas/productType'
+            productSubType:
+              type: string
+              description: Layer's sub type
+            description: 
+              type: string
+              description: layer's description
+            srs:
+              type: string
+              description: geo system id
+            srsName:
+              type: string
+              description: geo system name
+            producerName:
+              type: string
+              description: creator name default IDFMU
+            creationDateUTC:
+              type: string
+              description: Creation date
+              format: date-time
+            ingestionDate:
+              type: string
+              description: Ingestion date
+              format: date-time
+            imagingTimeBeginUTC:
+              type: string
+              description: Oldest imaging date
+              format: date-time
+            imagingTimeEndUTC:
+              type: string
+              description: Latest imaging date
+              format: date-time
+            maxResolutionDeg:
+              type: number
+              minimum: 0.000000167638063430786
+              maximum: 0.703125
+              format: double
+              description:  max resolution of layer in degrees/pixel
+            maxResolutionMeter:
+              type: number
+              minimum: 0.0185
+              maximum: 78271.52 
+              format: double
+              description: max (rounded) resolution of layer in meters/pixel
+            minHorizontalAccuracyCE90:
+              type: number
+              minimum: 0.01
+              maximum: 4000
+              format: double
+              description: minimum Horizontal Accuracy
+            sensors:
+              type: array
+              items:
+                type: string
+              description: Layer sensors list 
+            region:
+              type: array
+              items:
+                type: string
+              description: regions included in the layer
+            rms:
+              type: number
+            scale:
+              type: integer
+              minimum: 0
+              maximum: 100000000
+            footprint:
+              $ref: geojson.yaml#/components/schemas/Geometry
+            productBoundingBox:
+              type: string
+              pattern: "^-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?$"  
+
 
