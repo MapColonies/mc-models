@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.10.4](https://github.com/MapColonies/mc-models/compare/v17.10.3...v17.10.4) (2024-11-24)
+
+
+### Bug Fixes
+
+* update yaml and types for raster catalog manager bugs ([#233](https://github.com/MapColonies/mc-models/issues/233)) ([d65072a](https://github.com/MapColonies/mc-models/commit/d65072a7ec8e704124e56fe7560534c7207d6430))
+
 ### [17.10.3](https://github.com/MapColonies/mc-models/compare/v17.10.2...v17.10.3) (2024-11-17)
 
 ### [17.10.2](https://github.com/MapColonies/mc-models/compare/v17.10.1...v17.10.2) (2024-11-13)
