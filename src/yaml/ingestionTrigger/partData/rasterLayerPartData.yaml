@@ -43,41 +43,44 @@ components:
           minimum: 1.67638e-7
           maximum: 0.703125
           format: double
-          description: min resolution of layer in degrees/pixel
+          description: Resolution of layer in degrees/pixel
         resolutionMeter:
           type: number
           minimum: 0.0185
           maximum: 78271.52
           format: double
-          description: min resolution of layer in meters
+          description: Resolution of layer in meters
         sourceResolutionMeter:
           type: number
           minimum: 0.0185
           maximum: 78271.52
           format: double
-          description: min resolution of layer in meters
+          description: Resolution of layer in meters
         horizontalAccuracyCE90:
           type: number
           minimum: 0.01
           maximum: 4000
           format: double
-          description: minimum Horizontal Accuracy
+          description: Horizontal accuracy
         sensors:
           type: array
           items:
             type: string
+            pattern: ^(?! ).+(?<! )$
+          minItems: 1
           description: Layer sensors list
         countries:
           type: array
           items:
             type: string
-          description: countries included in the layer
+          description: Countries included in the part
         cities:
           type: array
           items:
             type: string
-          description: cities included in the layer
+          description: Cities included in the part
         description:
           type: string
         footprint:
           $ref: '../../geojson.yaml#/components/schemas/Polygon'
+          description: Part polygonal footprint
