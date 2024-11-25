@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.11.0](https://github.com/MapColonies/mc-models/compare/v17.10.4...v17.11.0) (2024-11-25)
+
+
+### Features
+
+* aggregation layer metadata ([#234](https://github.com/MapColonies/mc-models/issues/234)) ([153c12c](https://github.com/MapColonies/mc-models/commit/153c12cfa8a611d64becdd5f266d98468766df3a))
+
 ### [17.10.4](https://github.com/MapColonies/mc-models/compare/v17.10.3...v17.10.4) (2024-11-24)
 
 
