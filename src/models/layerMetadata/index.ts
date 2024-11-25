@@ -1,4 +1,5 @@
 export * from './layerMetadata';
+export { AggregationLayerMetadata } from './aggregationLayerMetadata';
 export { Layer3DMetadata } from './layer3DMetadata';
 export { LayerDemMetadata } from './layerDEMMetadata';
 export * from './layerMetadata-StatusFields';
