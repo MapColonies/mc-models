@@ -12,7 +12,7 @@ type FlatArraysInRecord<T extends Record<PropertyKey, unknown>> = {
 
 type MakePolygonalRecord<T, P extends keyof T, Q = GeoJSON> = NonNullable<T[P]> extends Q ? Record<P, Polygon | MultiPolygon> : never;
 
-export interface AggregatedLayerMetadata
+export interface AggregationLayerMetadata
   extends NonNullableRecord<
       Pick<
         ILayerMetadata,
