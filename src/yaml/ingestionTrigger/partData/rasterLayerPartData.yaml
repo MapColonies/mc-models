@@ -83,4 +83,3 @@ components:
           type: string
         footprint:
           $ref: '../../geojson.yaml#/components/schemas/Polygon'
-          description: Part polygonal footprint
