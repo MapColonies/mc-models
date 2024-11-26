@@ -9,7 +9,7 @@ export const VALIDATIONS = {
     pattern: '^[0-9]$|^[1-9][0-9]$|^(100)$',
   },
   fileNames: {
-    pattern: '^.+.[Gg][Pp][Kk][Gg]$',
+    pattern: '^.+\\.[Gg][Pp][Kk][Gg]$',
   },
   horizontalAccuracyCE90: {
     min: 0.01,
