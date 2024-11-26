@@ -65,7 +65,7 @@ export const aggregationLayerMetadataSchema: ZodType<AggregationLayerMetadata> =
       sensors: z
         .array(
           z.string({ message: 'Aggregation of sensors should be an array of strings' }).regex(new RegExp(VALIDATIONS.sensor.pattern), {
-            message: 'Aggregation of sensors should be an array with items not starting or ending with a whitespace',
+            message: 'Aggregation of sensors should be an array with items not starting or ending with whitespace characters',
           }),
           { message: 'Aggregation of sensors should be an array' }
         )
@@ -78,7 +78,10 @@ export const aggregationLayerMetadataSchema: ZodType<AggregationLayerMetadata> =
     (aggregationLayerMetadata) =>
       aggregationLayerMetadata.imagingTimeBeginUTC <= aggregationLayerMetadata.imagingTimeEndUTC &&
       aggregationLayerMetadata.imagingTimeEndUTC <= new Date(),
-    { message: 'Aggregation of imaging time begin UTC should be less than or equal to imaging time end UTC and both less than current timestamp' }
+    {
+      message:
+        'Aggregation of imaging time begin UTC should be less than or equal to imaging time end UTC and both less than or equal to current timestamp',
+    }
   )
   .refine((aggregationLayerMetadata) => aggregationLayerMetadata.minHorizontalAccuracyCE90 <= aggregationLayerMetadata.maxHorizontalAccuracyCE90, {
     message: 'Aggregation of min horizontal accuracy CE90 should be less than or equal to max horizontal accuracy CE90',
