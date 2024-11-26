@@ -2,13 +2,14 @@
 import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
 
 export const VALIDATIONS = {
-  resolutionMeter: {
-    min: zoomLevelToResolutionMeter(22),
-    max: zoomLevelToResolutionMeter(0),
+  boundingBox: {
+    pattern: '^-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?$',
   },
-  resolutionDeg: {
-    min: zoomLevelToResolutionDeg(22),
-    max: zoomLevelToResolutionDeg(0),
+  classification: {
+    pattern: '^[0-9]$|^[1-9][0-9]$|^(100)$',
+  },
+  fileNames: {
+    pattern: '^.+.[Gg][Pp][Kk][Gg]$',
   },
   horizontalAccuracyCE90: {
     min: 0.01,
@@ -20,14 +21,19 @@ export const VALIDATIONS = {
   productVersion: {
     pattern: '^[1-9]\\d*(\\.(0|[1-9]\\d?))?$',
   },
-  classification: {
-    pattern: '^[0-9]$|^[1-9][0-9]$|^(100)$',
+  resolutionDeg: {
+    min: zoomLevelToResolutionDeg(22),
+    max: zoomLevelToResolutionDeg(0),
+  },
+  resolutionMeter: {
+    min: zoomLevelToResolutionMeter(22),
+    max: zoomLevelToResolutionMeter(0),
   },
   scale: {
     min: 0,
     max: 100000000,
   },
-  fileNames: {
-    pattern: '^.+.[Gg][Pp][Kk][Gg]$',
+  sensor: {
+    pattern: '^(?!\\s).+(?<!\\s)$',
   },
 };
