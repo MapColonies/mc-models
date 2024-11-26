@@ -23,7 +23,7 @@ export const partSchema = z
       .min(VALIDATIONS.resolutionMeter.min as number)
       .max(VALIDATIONS.resolutionMeter.max as number),
     horizontalAccuracyCE90: z.number().min(VALIDATIONS.horizontalAccuracyCE90.min).max(VALIDATIONS.horizontalAccuracyCE90.max),
-    sensors: z.array(z.string().regex(new RegExp('^(?! ).+(?<! )$'))).min(1),
+    sensors: z.array(z.string().regex(new RegExp(VALIDATIONS.sensor.pattern))).min(1),
     countries: z.array(z.string().min(1)).optional(),
     cities: z.array(z.string().min(1)).optional(),
     footprint: z.custom<Polygon>(),
