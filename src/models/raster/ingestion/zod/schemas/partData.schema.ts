@@ -28,4 +28,5 @@ export const partSchema = z
     cities: z.array(z.string().min(1)).optional(),
     footprint: z.custom<Polygon>(),
   })
+  .refine((part) => part.imagingTimeBeginUTC <= part.imagingTimeEndUTC && part.imagingTimeEndUTC <= new Date())
   .describe('partSchema');
