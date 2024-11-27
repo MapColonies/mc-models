@@ -1,19 +1,15 @@
 openapi: "3.0.1"
 info:
-  title: raster catalog update request
+  title: raster catalog edit metadata request
   version: 1.0.0
 components:
   schemas:
-    UpdateRequest:
+    EditMetadataRequest:
       type: object
-      description: raster catalog update request
+      description: raster catalog edit request
       properties:
         metadata:
-          $ref: ../updateLayerMetadata.yaml#/components/schemas/updateLayerMetadata
-        links:
-          type: array
-          items:
-            $ref: ../link.yaml#/components/schemas/Link  
+          $ref: ../editLayerMetadata.yaml#/components/schemas/editLayerMetadata
             
       #due to bug in validator additional properties is not compilable with allof
       #https://github.com/cdimascio/express-openapi-validator/issues/239

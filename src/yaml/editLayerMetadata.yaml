@@ -1,0 +1,48 @@
+openapi: "3.0.1"
+info:
+  title: Editable layer metadata fields
+  version: 2.0.0
+components:
+  schemas:
+    productType:
+      type: string
+      enum:
+        - Orthophoto
+        - OrthophotoHistory
+        - OrthophotoBest
+        - RasterMap
+        - RasterMapBest
+        - RasterAid
+        - RasterAidBest
+        - RasterVector
+        - RasterVectorBest
+      description: layer's type might be derived from the first letter  
+    editLayerMetadata:
+      type: object
+      description: updatable layer metadata
+      properties:
+        classification:
+          type: string
+          description: Permitted roles
+          pattern: ^[0-9]$|^[1-9][0-9]$|^(100)$
+        productName: 
+          type: string
+          description: Layer's external name
+        productSubType:
+          type: string
+          description: Layer's sub type
+        description: 
+          type: string
+          description: layer's description
+        producerName:
+          type: string
+          description: creator name default IDFMU
+        region:
+          type: array
+          items:
+            type: string
+          description: regions included in the layer
+        scale:
+          type: integer
+          minimum: 0
+          maximum: 100000000

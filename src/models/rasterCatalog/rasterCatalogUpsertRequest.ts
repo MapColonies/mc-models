@@ -10,6 +10,6 @@ export interface IRasterCatalogUpsertRequestBody {
   links?: Link[];
 }
 
-export interface IRasterCatalogUpdateRequestBody {
+export interface IRasterCatalogEditRequestBody {
   metadata: UpdateLayerMetadata;
 }
