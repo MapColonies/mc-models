@@ -36,7 +36,7 @@ export const VALIDATIONS = {
   sensor: {
     pattern: '^(?!\\s).+(?<!\\s)$',
   },
-  polygonPartsTableName: {
+  polygonPartsEntityName: {
     pattern: '^[a-zA-Z][a-zA-Z0-9_]{0,62}$',
   },
 };

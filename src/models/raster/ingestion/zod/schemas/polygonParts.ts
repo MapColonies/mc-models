@@ -69,10 +69,10 @@ export const partSchema = z
 
 export const polygonPartsEntityNameSchema = z
   .object({
-    polygonPartsTableName: z.string().regex(new RegExp(VALIDATIONS.polygonPartsTableName.pattern), {
-      message: 'Polygon parts table name must be a valid table name',
+    polygonPartsEntity: z.string().regex(new RegExp(VALIDATIONS.polygonPartsEntityName.pattern), {
+      message: 'Polygon parts entity name must be a valid entity name',
     }),
   })
-  .describe('polygonPartsTableNameSchema');
+  .describe('polygonPartsEntityNameSchema');
 
 export type PolygonPartsEntityName = z.infer<typeof polygonPartsEntityNameSchema>;
