@@ -10,7 +10,4 @@ components:
       properties:
         metadata:
           $ref: ../editLayerMetadata.yaml#/components/schemas/editLayerMetadata
-            
-      #due to bug in validator additional properties is not compilable with allof
-      #https://github.com/cdimascio/express-openapi-validator/issues/239
-      #additionalProperties: false
+      additionalProperties: false
