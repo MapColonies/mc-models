@@ -70,7 +70,7 @@ export const partSchema = z
 
 export const polygonPartsEntityNameSchema = z
   .object({
-    polygonPartsEntity: z
+    polygonPartsEntityName: z
       .string()
       .regex(new RegExp(VALIDATIONS.polygonPartsEntityName.pattern), { message: 'Polygon parts entity name should valid entity name' })
       .refine(
