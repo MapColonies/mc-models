@@ -75,7 +75,7 @@ export const polygonPartsEntityNameSchema = z
       .regex(new RegExp(VALIDATIONS.polygonPartsEntityName.pattern), { message: 'Polygon parts entity name should valid entity name' })
       .refine(
         (value) => {
-          return RASTER_PRODUCT_TYPES.some((type) => value.endsWith(type));
+          return RASTER_PRODUCT_TYPES.some((type) => value.endsWith(type.toLowerCase()));
         },
         { message: 'Polygon parts entity name should end with one of the valid raster product types' }
       ),
