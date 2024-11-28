@@ -1,6 +1,18 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
 
+export const RASTER_PRODUCT_TYPES = [
+  'Orthophoto',
+  'OrthophotoHistory',
+  'OrthophotoBest',
+  'RasterMap',
+  'RasterMapBest',
+  'RasterAid',
+  'RasterAidBest',
+  'RasterVector',
+  'RasterVectorBest',
+] as const;
+
 export const VALIDATIONS = {
   boundingBox: {
     pattern: '^-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?$',

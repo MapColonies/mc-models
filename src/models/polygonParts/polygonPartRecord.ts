@@ -1,13 +1,7 @@
 import { Polygon } from 'geojson';
 import { keys } from 'ts-transformer-keys';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
-import {
-  FieldCategory,
-  IFieldConfigInfo,
-  IPropFieldConfigInfo,
-  fieldConfig,
-  getFieldConfig,
-} from '../common/decorators/fieldConfig/fieldConfig.decorator';
+import { FieldCategory, IPropFieldConfigInfo, fieldConfig, getFieldConfig } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { DataFileType, IPropSHPMapping, getInputDataMapping, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
 import { catalogDB, getCatalogDBMapping, ORMColumnType } from '../layerMetadata/decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';

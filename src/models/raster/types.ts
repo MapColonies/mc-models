@@ -1,4 +1,4 @@
-import type { ProductType } from '../../layerMetadata';
+import type { ProductType } from '../layerMetadata';
 import { RASTER_PRODUCT_TYPES } from './constants';
 
 export type EnsureType<T extends Expected, Expected> = T;

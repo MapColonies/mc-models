@@ -2,7 +2,7 @@
 import type { Polygon } from 'geojson';
 import { z } from 'zod';
 import { VALIDATIONS } from '../../../constants';
-import { RASTER_PRODUCT_TYPES } from '../../../common/constants';
+import { RASTER_PRODUCT_TYPES } from '../../../constants';
 
 export const partSchema = z
   .object({
