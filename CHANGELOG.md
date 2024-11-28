@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.13.0](https://github.com/MapColonies/mc-models/compare/v17.12.2...v17.13.0) (2024-11-28)
+
+
+### Features
+
+* adding polygon-parts table name type and valdiation ([#241](https://github.com/MapColonies/mc-models/issues/241)) ([e1f1621](https://github.com/MapColonies/mc-models/commit/e1f16217088403e7b749c175f786ad28c76bff6b))
+
 ### [17.12.2](https://github.com/MapColonies/mc-models/compare/v17.12.1...v17.12.2) (2024-11-28)
 
 
