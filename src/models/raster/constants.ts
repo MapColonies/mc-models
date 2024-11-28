@@ -1,17 +1,20 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
 
-export const RASTER_PRODUCT_TYPES = [
-  'Orthophoto',
-  'OrthophotoHistory',
-  'OrthophotoBest',
-  'RasterMap',
-  'RasterMapBest',
-  'RasterAid',
-  'RasterAidBest',
-  'RasterVector',
-  'RasterVectorBest',
-] as const;
+export const RasterProductTypes = {
+  Orthophoto: 'Orthophoto',
+  OrthophotoHistory: 'OrthophotoHistory',
+  OrthophotoBest: 'OrthophotoBest',
+  RasterMap: 'RasterMap',
+  RasterMapBest: 'RasterMapBest',
+  RasterAid: 'RasterAid',
+  RasterAidBest: 'RasterAidBest',
+  RasterVector: 'RasterVector',
+  RasterVectorBest: 'RasterVectorBest',
+} as const;
+
+export const RASTER_PRODUCT_TYPES = Object.values(RasterProductTypes);
 
 export const VALIDATIONS = {
   boundingBox: {
@@ -49,6 +52,6 @@ export const VALIDATIONS = {
     pattern: '^(?!\\s).+(?<!\\s)$',
   },
   polygonPartsEntityName: {
-    pattern: '^[a-z][a-z0-9_]{0,62}$',
+    pattern: '^[a-z][a-z0-9_]{0,61}[a-z0-9]$',
   },
 };
