@@ -3,7 +3,6 @@ import { z, ZodType } from 'zod';
 import { MultiPolygon, Polygon } from 'geojson';
 import { VALIDATIONS } from '../../../constants';
 import { ProductType, Transparency } from '../../../../layerMetadata/enums';
-import { AggregationLayerMetadata } from '../../../../polygonParts';
 
 export const newMetadataSchema = z
   .object({
@@ -28,7 +27,7 @@ export const updateMetadataSchema = z
   })
   .describe('updateMetadataSchema');
 
-export const aggregationMetadataSchema: ZodType<AggregationLayerMetadata> = z
+export const aggregationMetadataSchema = z
   .object(
     {
       footprint: z.custom<Polygon | MultiPolygon>(),
@@ -115,3 +114,5 @@ export const aggregationMetadataSchema: ZodType<AggregationLayerMetadata> = z
     message: 'Min resolution meter should be less than or equal to max resolution meter',
   })
   .describe('aggregationLayerMetadataSchema');
+
+export type AggregationLayerMetadata = z.infer<typeof aggregationMetadataSchema>;
