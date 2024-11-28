@@ -90,3 +90,11 @@ export const aggregationLayerMetadataSchema: ZodType<AggregationLayerMetadata> =
     message: 'Min resolution meter should be less than or equal to max resolution meter',
   })
   .describe('aggregationLayerMetadataSchema');
+
+export const polygonPartsTableNameSchema = z.object({
+  polygonPartsTableName: z.string().regex(new RegExp(VALIDATIONS.polygonPartsTableName.pattern), {
+    message: 'Polygon parts table name must be a valid table name',
+  }),
+});
+
+export type PolygonPartsTableName = z.infer<typeof polygonPartsTableNameSchema>;
