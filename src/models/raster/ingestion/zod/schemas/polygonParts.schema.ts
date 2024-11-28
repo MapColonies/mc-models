@@ -2,6 +2,7 @@
 import type { Polygon } from 'geojson';
 import { z } from 'zod';
 import { VALIDATIONS } from '../../../constants';
+import { RASTER_PRODUCT_TYPES } from '../../../constants';
 
 export const partSchema = z
   .object({
@@ -66,3 +67,19 @@ export const partSchema = z
     message: 'Imaging time begin UTC should be less than or equal to imaging time end UTC and both less than or equal to current timestamp',
   })
   .describe('partSchema');
+
+export const polygonPartsEntityNameSchema = z
+  .object({
+    polygonPartsEntityName: z
+      .string()
+      .regex(new RegExp(VALIDATIONS.polygonPartsEntityName.pattern), { message: 'Polygon parts entity name should valid entity name' })
+      .refine(
+        (value) => {
+          return RASTER_PRODUCT_TYPES.some((type) => value.endsWith(type.toLowerCase()));
+        },
+        { message: 'Polygon parts entity name should end with one of the valid raster product types' }
+      ),
+  })
+  .describe('polygonPartsEntityNameSchema');
+
+export type PolygonPartsEntityName = z.infer<typeof polygonPartsEntityNameSchema>;
