@@ -2,6 +2,7 @@
 import type { Polygon } from 'geojson';
 import { z } from 'zod';
 import { VALIDATIONS } from '../../../constants';
+import { RASTER_PRODUCT_TYPES } from '../../../common/constants';
 
 export const partSchema = z
   .object({
@@ -69,9 +70,15 @@ export const partSchema = z
 
 export const polygonPartsEntityNameSchema = z
   .object({
-    polygonPartsEntity: z.string().regex(new RegExp(VALIDATIONS.polygonPartsEntityName.pattern), {
-      message: 'Polygon parts entity name must be a valid entity name',
-    }),
+    polygonPartsEntity: z
+      .string()
+      .regex(new RegExp(VALIDATIONS.polygonPartsEntityName.pattern), { message: 'Polygon parts entity name should valid entity name' })
+      .refine(
+        (value) => {
+          return RASTER_PRODUCT_TYPES.some((type) => value.endsWith(type));
+        },
+        { message: 'Polygon parts entity name should end with one of the valid raster product types' }
+      ),
   })
   .describe('polygonPartsEntityNameSchema');
 

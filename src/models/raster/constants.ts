@@ -37,6 +37,6 @@ export const VALIDATIONS = {
     pattern: '^(?!\\s).+(?<!\\s)$',
   },
   polygonPartsEntityName: {
-    pattern: '^[a-zA-Z][a-zA-Z0-9_]{0,62}$',
+    pattern: '^[a-z][a-z0-9_]{0,62}$',
   },
 };
