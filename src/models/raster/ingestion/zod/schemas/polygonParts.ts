@@ -66,3 +66,13 @@ export const partSchema = z
     message: 'Imaging time begin UTC should be less than or equal to imaging time end UTC and both less than or equal to current timestamp',
   })
   .describe('partSchema');
+
+export const polygonPartsEntityNameSchema = z
+  .object({
+    polygonPartsTableName: z.string().regex(new RegExp(VALIDATIONS.polygonPartsTableName.pattern), {
+      message: 'Polygon parts table name must be a valid table name',
+    }),
+  })
+  .describe('polygonPartsTableNameSchema');
+
+export type PolygonPartsEntityName = z.infer<typeof polygonPartsEntityNameSchema>;
