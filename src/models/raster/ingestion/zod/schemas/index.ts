@@ -1,4 +1,4 @@
-export * from './aggregationLayerMetadata.schema';
+export * from './aggregation';
 export * from './inputFiles.schema';
 export * from './metadata.schema';
-export * from './partData.schema';
+export * from './polygonParts';
