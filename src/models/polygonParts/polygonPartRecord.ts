@@ -1,13 +1,7 @@
 import { Polygon } from 'geojson';
 import { keys } from 'ts-transformer-keys';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
-import {
-  FieldCategory,
-  IFieldConfigInfo,
-  IPropFieldConfigInfo,
-  fieldConfig,
-  getFieldConfig,
-} from '../common/decorators/fieldConfig/fieldConfig.decorator';
+import { FieldCategory, IPropFieldConfigInfo, fieldConfig, getFieldConfig } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { DataFileType, IPropSHPMapping, getInputDataMapping, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
 import { catalogDB, getCatalogDBMapping, ORMColumnType } from '../layerMetadata/decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
@@ -26,8 +20,9 @@ const POLYGON_PARTS_SERVED_KEYS =
   keys<Omit<IPolygonPart, 'productId' | 'productType' | 'id' | 'catalogId' | 'productVersion' | 'ingestionDateUTC' | 'partId'>>();
 
 @DBEntity({
-  table: 'records',
+  table: '***DUMMY_NOT_RELEVANT***',
   className: 'Common',
+  isPartial: true,
 })
 @graphqlClass({ alias: 'PolygonPartRecord', fields: POLYGON_PARTS_KEYS })
 export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
@@ -595,9 +590,10 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: id
   @catalogDB({
     column: {
-      type: 'text',
+      name: camelCaseToSnakeCase('id'),
+      type: 'uuid',
+      columnType: ORMColumnType.PRIMARY_GENERATED_COLUMN,
       nullable: false,
-      primary: true,
     },
   })
   @wfs({
@@ -616,6 +612,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   //#region RECORD: partId
   @catalogDB({
     column: {
+      name: camelCaseToSnakeCase('partId'),
       type: 'number',
       nullable: false,
     },

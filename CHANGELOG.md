@@ -2,6 +2,70 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.13.0](https://github.com/MapColonies/mc-models/compare/v17.12.2...v17.13.0) (2024-11-28)
+
+
+### Features
+
+* adding polygon-parts table name type and valdiation ([#241](https://github.com/MapColonies/mc-models/issues/241)) ([e1f1621](https://github.com/MapColonies/mc-models/commit/e1f16217088403e7b749c175f786ad28c76bff6b))
+
+### [17.12.2](https://github.com/MapColonies/mc-models/compare/v17.12.1...v17.12.2) (2024-11-28)
+
+
+### Bug Fixes
+
+* additional properties ([#240](https://github.com/MapColonies/mc-models/issues/240)) ([0370d86](https://github.com/MapColonies/mc-models/commit/0370d8622d78808a983c185430745d646e2a0076))
+
+### [17.12.1](https://github.com/MapColonies/mc-models/compare/v17.12.0...v17.12.1) (2024-11-27)
+
+
+### Bug Fixes
+
+* revert to old update request and add edit request ([#239](https://github.com/MapColonies/mc-models/issues/239)) ([7069117](https://github.com/MapColonies/mc-models/commit/70691175af3b7b33b3de27ff37ad303b3bfa92a4))
+
+## [17.12.0](https://github.com/MapColonies/mc-models/compare/v17.11.3...v17.12.0) (2024-11-26)
+
+
+### Features
+
+* aggregation validation ([#238](https://github.com/MapColonies/mc-models/issues/238)) ([c9f8a64](https://github.com/MapColonies/mc-models/commit/c9f8a6435cd6e86add2108b01f596669814a5ff1))
+
+### [17.11.3](https://github.com/MapColonies/mc-models/compare/v17.11.2...v17.11.3) (2024-11-25)
+
+
+### Bug Fixes
+
+* remove description ([#237](https://github.com/MapColonies/mc-models/issues/237)) ([083aafd](https://github.com/MapColonies/mc-models/commit/083aafd56dfd2d925db13c68e594a7eed6cff35e))
+
+### [17.11.2](https://github.com/MapColonies/mc-models/compare/v17.11.1...v17.11.2) (2024-11-25)
+
+### [17.11.1](https://github.com/MapColonies/mc-models/compare/v17.11.0...v17.11.1) (2024-11-25)
+
+## [17.11.0](https://github.com/MapColonies/mc-models/compare/v17.10.4...v17.11.0) (2024-11-25)
+
+
+### Features
+
+* aggregation layer metadata ([#234](https://github.com/MapColonies/mc-models/issues/234)) ([153c12c](https://github.com/MapColonies/mc-models/commit/153c12cfa8a611d64becdd5f266d98468766df3a))
+
+### [17.10.4](https://github.com/MapColonies/mc-models/compare/v17.10.3...v17.10.4) (2024-11-24)
+
+
+### Bug Fixes
+
+* update yaml and types for raster catalog manager bugs ([#233](https://github.com/MapColonies/mc-models/issues/233)) ([d65072a](https://github.com/MapColonies/mc-models/commit/d65072a7ec8e704124e56fe7560534c7207d6430))
+
+### [17.10.3](https://github.com/MapColonies/mc-models/compare/v17.10.2...v17.10.3) (2024-11-17)
+
+### [17.10.2](https://github.com/MapColonies/mc-models/compare/v17.10.1...v17.10.2) (2024-11-13)
+
+
+### Bug Fixes
+
+* add isPartial class to ICatalogDBEntityMapping ([#229](https://github.com/MapColonies/mc-models/issues/229)) ([aa60fed](https://github.com/MapColonies/mc-models/commit/aa60fedf4caefb5ec9f1d641b39c9d0d36bc1add))
+* cleanup inputmapping decorator not relevant ([#231](https://github.com/MapColonies/mc-models/issues/231)) ([250f983](https://github.com/MapColonies/mc-models/commit/250f9830177a05cb1c4d456c9b10064e24c1f208))
+* pp islivecycleenvolved in layerrecord tuning ([#230](https://github.com/MapColonies/mc-models/issues/230)) ([d316873](https://github.com/MapColonies/mc-models/commit/d316873b87f7efc0e198de2c9f213857468854be))
+
 ### [17.10.1](https://github.com/MapColonies/mc-models/compare/v17.10.0...v17.10.1) (2024-11-12)
 
 ## [17.10.0](https://github.com/MapColonies/mc-models/compare/v17.9.3...v17.10.0) (2024-11-12)

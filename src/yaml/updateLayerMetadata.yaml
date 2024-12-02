@@ -114,7 +114,7 @@ components:
         productBoundingBox:
           type: string
           pattern: "^-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?$"
-          
+
     updateStatusLayerMetadata:
       type: object
       description: Metadata for layer status

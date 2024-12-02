@@ -14,7 +14,7 @@ import { NewRasterLayerMetadata, UpdateRasterLayerMetadata } from '../raster/ing
 import { VALIDATIONS } from '../raster/constants';
 import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
-import { getInputDataMapping, IDataMapping, DataFileType, inputDataMapping, IPropSHPMapping } from './decorators/property/shp.decorator';
+import { getInputDataMapping, IDataMapping, IPropSHPMapping } from './decorators/property/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB, ORMColumnType } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 import { ProductType, Transparency, TileOutputFormat } from './enums';
@@ -151,10 +151,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       nullable: true,
     },
   })
-  @inputDataMapping({
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.SourceName',
-  })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
@@ -186,10 +182,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'text',
       nullable: true,
     },
-  })
-  @inputDataMapping({
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Dsc',
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -336,16 +328,11 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       columnType: ORMColumnType.UPDATE_DATE_COLUMN,
     },
   })
-  @inputDataMapping({
-    isCustomLogic: true,
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***max(features[].properties.UpdateDate)***',
-  })
   @tsTypes({
     mappingType: TsTypes.DATE,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.MAIN,
@@ -369,11 +356,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'timestamp without time zone',
       nullable: false,
     },
-  })
-  @inputDataMapping({
-    isCustomLogic: true,
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***min(features[].properties.UpdateDate)***',
   })
   @tsTypes({
     mappingType: TsTypes.DATE,
@@ -419,11 +401,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       nullable: false,
     },
   })
-  @inputDataMapping({
-    isCustomLogic: true,
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***max(features[].properties.UpdateDate)***',
-  })
   @tsTypes({
     mappingType: TsTypes.DATE,
   })
@@ -457,15 +434,11 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'real',
     },
   })
-  @inputDataMapping({
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Ep90',
-  })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: false, //keep it true like in min?
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
@@ -504,15 +477,11 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'real',
     },
   })
-  @inputDataMapping({
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Ep90',
-  })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
@@ -554,11 +523,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       overrideType: TsTypes.STRING,
     },
   })
-  @inputDataMapping({
-    isCustomLogic: true,
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***features[].properties.SensorType***',
-  })
   @tsTypes({
     mappingType: TsTypes.STRING_ARRAY,
   })
@@ -594,11 +558,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     field: {
       overrideType: TsTypes.STRING,
     },
-  })
-  @inputDataMapping({
-    isCustomLogic: true,
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***features[].properties.Countries***',
   })
   @tsTypes({
     mappingType: TsTypes.STRING_ARRAY,
@@ -636,11 +595,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'text',
       nullable: false,
     },
-  })
-  @inputDataMapping({
-    isCustomLogic: true,
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***features[0].properties.Source.Split(-)[0]***',
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -680,11 +634,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       nullable: true,
     },
   })
-  @inputDataMapping({
-    isCustomLogic: true,
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: '***features[0].properties.Source.Split(-)[1]***',
-  })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
@@ -722,10 +671,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'text',
       nullable: false,
     },
-  })
-  @inputDataMapping({
-    dataFile: DataFileType.PRODUCT,
-    valuePath: 'features[0].properties.Type',
   })
   @tsTypes({
     mappingType: TsTypes.PRODUCTTYPE,
@@ -823,10 +768,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'numeric',
     },
   })
-  @inputDataMapping({
-    dataFile: DataFileType.TFW,
-    valuePath: '[0]',
-  })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
@@ -875,21 +816,17 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'numeric',
     },
   })
-  @inputDataMapping({
-    dataFile: DataFileType.TFW,
-    valuePath: '[0]',
-  })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: false, //keep it true like in max?
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.MAIN,
     infoMsgCode: [
       'info-field-tooltip.minResolutionDeg.tooltip',
-      'info-general-tooltip.required', // is it required?
+      'info-general-tooltip.required',
       'info-field-tooltip.minResolutionDeg.min',
       'info-field-tooltip.minResolutionDeg.max',
     ],
@@ -909,6 +846,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
         max: VALIDATIONS.resolutionDeg.max,
       },
     ],
+    isLifecycleEnvolved: true,
   })
   //#endregion
   public minResolutionDeg: number | undefined = undefined;
@@ -925,10 +863,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       name: 'max_resolution_meter',
       type: 'numeric',
     },
-  })
-  @inputDataMapping({
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Resolution',
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
@@ -973,18 +907,14 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'numeric',
     },
   })
-  @inputDataMapping({
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Resolution',
-  })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
-    category: FieldCategory.MAIN, // is it required?
+    category: FieldCategory.MAIN,
     infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.minResolutionMeter.min', 'info-field-tooltip.minResolutionMeter.max'],
     validation: [
       {
@@ -1021,10 +951,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       nullable: true,
     },
   })
-  @inputDataMapping({
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Rms',
-  })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
@@ -1047,10 +973,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'integer',
       nullable: true,
     },
-  })
-  @inputDataMapping({
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'features[0].properties.Scale',
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
@@ -1092,10 +1014,6 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
       type: 'text',
       nullable: false,
     },
-  })
-  @inputDataMapping({
-    dataFile: DataFileType.PRODUCT,
-    valuePath: 'features[0].geometry',
   })
   @tsTypes({
     mappingType: TsTypes.OBJECT,

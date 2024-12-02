@@ -21,4 +21,4 @@ components:
           example: ['example.gpkg']
       required:
       - originDirectory
-      - fileNames    
+      - fileNames
