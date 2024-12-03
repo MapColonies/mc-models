@@ -45,7 +45,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
-  @graphql()
+  @graphql({
+    nullable: true,
+  })
   @fieldConfig({
     category: FieldCategory.MAIN,
   })
