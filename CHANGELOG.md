@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.13.2](https://github.com/MapColonies/mc-models/compare/v17.13.1...v17.13.2) (2024-12-03)
+
+
+### Bug Fixes
+
+* schema should switch min and max in aggregation ([#243](https://github.com/MapColonies/mc-models/issues/243)) ([753ad9a](https://github.com/MapColonies/mc-models/commit/753ad9a455fa6be9d8ff176153ea24631875a491))
+
 ### [17.13.1](https://github.com/MapColonies/mc-models/compare/v17.13.0...v17.13.1) (2024-12-03)
 
 
