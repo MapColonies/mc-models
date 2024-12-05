@@ -1,8 +1,11 @@
 import { Link } from '../common';
-import { LayerMetadata } from '../layerMetadata';
+import { LayerMetadata, PycswLayerCatalogRecord } from '../layerMetadata';
 
-export type UpdateLayerMetadata = Partial<
-  Pick<LayerMetadata, 'classification' | 'productName' | 'productSubType' | 'description' | 'producerName' | 'region' | 'scale'>
+export type EditLayerMetadata = Partial<
+  Pick<
+    PycswLayerCatalogRecord,
+    'classification' | 'productName' | 'productSubType' | 'description' | 'producerName' | 'region' | 'scale' | 'keywords'
+  >
 >;
 
 export interface IRasterCatalogUpsertRequestBody {
@@ -11,5 +14,5 @@ export interface IRasterCatalogUpsertRequestBody {
 }
 
 export interface IRasterCatalogEditRequestBody {
-  metadata: UpdateLayerMetadata;
+  metadata: EditLayerMetadata;
 }
