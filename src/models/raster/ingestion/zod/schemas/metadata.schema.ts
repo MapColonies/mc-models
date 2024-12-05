@@ -104,14 +104,14 @@ export const aggregationMetadataSchema = z
       message: 'Imaging time begin UTC should be less than or equal to imaging time end UTC and both less than or equal to current timestamp',
     }
   )
-  .refine((aggregationLayerMetadata) => aggregationLayerMetadata.maxHorizontalAccuracyCE90 <= aggregationLayerMetadata.minHorizontalAccuracyCE90, {
-    message: 'Max horizontal accuracy CE90 should be less than or equal to min horizontal accuracy CE90',
+  .refine((aggregationLayerMetadata) => aggregationLayerMetadata.minHorizontalAccuracyCE90 <= aggregationLayerMetadata.maxHorizontalAccuracyCE90, {
+    message: 'Min horizontal accuracy CE90 should be less than or equal to max horizontal accuracy CE90',
   })
-  .refine((aggregationLayerMetadata) => aggregationLayerMetadata.maxResolutionDeg <= aggregationLayerMetadata.minResolutionDeg, {
-    message: 'Max resolution degree should be less than or equal to min resolution degree',
+  .refine((aggregationLayerMetadata) => aggregationLayerMetadata.minResolutionDeg <= aggregationLayerMetadata.maxResolutionDeg, {
+    message: 'Min resolution degree should be less than or equal to max resolution degree',
   })
-  .refine((aggregationLayerMetadata) => aggregationLayerMetadata.maxResolutionMeter <= aggregationLayerMetadata.minResolutionMeter, {
-    message: 'Max resolution meter should be less than or equal to min resolution meter',
+  .refine((aggregationLayerMetadata) => aggregationLayerMetadata.minResolutionMeter <= aggregationLayerMetadata.maxResolutionMeter, {
+    message: 'Min resolution meter should be less than or equal to max resolution meter',
   })
   .describe('aggregationLayerMetadataSchema');
 
