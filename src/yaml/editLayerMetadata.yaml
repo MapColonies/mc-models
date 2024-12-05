@@ -46,3 +46,6 @@ components:
           type: integer
           minimum: 0
           maximum: 100000000
+        keywords:
+          type: string
+          description: The keywords of the product
