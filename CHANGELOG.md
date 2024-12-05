@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.13.3](https://github.com/MapColonies/mc-models/compare/v17.13.2...v17.13.3) (2024-12-05)
+
+
+### Bug Fixes
+
+* add keywords to editable fields(MAPCO-5673) ([#244](https://github.com/MapColonies/mc-models/issues/244)) ([7767628](https://github.com/MapColonies/mc-models/commit/77676285fea10823ad0b3741caa307f0a093ca4f))
+
 ### [17.13.2](https://github.com/MapColonies/mc-models/compare/v17.13.1...v17.13.2) (2024-12-03)
 
 
