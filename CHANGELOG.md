@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.13.4](https://github.com/MapColonies/mc-models/compare/v17.13.3...v17.13.4) (2024-12-10)
+
+
+### Bug Fixes
+
+* changed horizontalAccuracyCE90 to numeric ([#246](https://github.com/MapColonies/mc-models/issues/246)) ([88611d9](https://github.com/MapColonies/mc-models/commit/88611d96294797c0c47c97d87b598e67e78dcc11))
+
 ### [17.13.3](https://github.com/MapColonies/mc-models/compare/v17.13.2...v17.13.3) (2024-12-05)
 
 
