@@ -431,7 +431,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @catalogDB({
     column: {
       name: 'max_horizontal_accuracy_ce_90',
-      type: 'real',
+      type: 'numeric',
     },
   })
   @tsTypes({
@@ -474,7 +474,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @catalogDB({
     column: {
       name: 'min_horizontal_accuracy_ce_90',
-      type: 'real',
+      type: 'numeric',
     },
   })
   @tsTypes({

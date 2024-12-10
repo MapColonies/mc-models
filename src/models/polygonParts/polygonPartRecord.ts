@@ -277,7 +277,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @catalogDB({
     column: {
       name: camelCaseToSnakeCase('horizontalAccuracyCE90'),
-      type: 'real',
+      type: 'numeric',
       nullable: false,
     },
   })
