@@ -32,7 +32,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       name: camelCaseToSnakeCase('sourceId'),
       type: 'text',
       nullable: true,
-      collation: 'C.UTF-8',
+      collation: 'ucs_basic',
     },
   })
   @wfs({
@@ -60,7 +60,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       name: camelCaseToSnakeCase('sourceName'),
       type: 'text',
       nullable: false,
-      collation: 'C.UTF-8',
+      collation: 'ucs_basic',
     },
   })
   @wfs({
@@ -93,7 +93,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       name: camelCaseToSnakeCase('productId'),
       type: 'text',
       nullable: false,
-      collation: 'C.UTF-8',
+      collation: 'ucs_basic',
     },
     index: {},
   })
@@ -168,7 +168,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       name: camelCaseToSnakeCase('description'),
       type: 'text',
       nullable: true,
-      collation: 'C.UTF-8',
+      collation: 'ucs_basic',
     },
   })
   @wfs({
@@ -321,7 +321,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       name: camelCaseToSnakeCase('sensors'),
       type: 'text',
       nullable: false,
-      collation: 'C.UTF-8',
+      collation: 'ucs_basic',
     },
     field: {
       overrideType: TsTypes.STRING,
@@ -358,7 +358,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       name: camelCaseToSnakeCase('countries'),
       type: 'text',
       nullable: true,
-      collation: 'C.UTF-8',
+      collation: 'ucs_basic',
     },
     field: {
       overrideType: TsTypes.STRING,
@@ -659,7 +659,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       name: camelCaseToSnakeCase('productVersion'),
       type: 'text',
       nullable: false,
-      collation: 'C.UTF-8',
+      collation: 'ucs_basic',
     },
   })
   @wfs({
