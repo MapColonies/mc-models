@@ -119,7 +119,7 @@ components:
           example: ["OTHER"]
         footprint:
           allOf:
-            - $ref: ../geojson.yaml#/components/schemas/Geometry
+            - $ref: ../geojsonWith3DPoints.yaml#/components/schemas/Geometry
             - description: Geographic demarcation of the product
             - example: '{"type":"Polygon","coordinates":[[[1,2],[3,4],[5,6],[7,8],[1,2]]]}'
         heightRangeFrom:
@@ -299,7 +299,7 @@ components:
           example: ["OTHER"]
         footprint:
           allOf:
-            - $ref: ../geojson.yaml#/components/schemas/Geometry
+            - $ref: ../geojsonWith3DPoints.yaml#/components/schemas/Geometry
             - description: Geographic demarcation of the product
             - example: '{"type":"Polygon","coordinates":[[[1,2],[3,4],[5,6],[7,8],[1,2]]]}'
         heightRangeFrom:
@@ -483,7 +483,7 @@ components:
           example: ["OTHER"]
         footprint:
           allOf:
-            - $ref: ../geojson.yaml#/components/schemas/Geometry
+            - $ref: ../geojsonWith3DPoints.yaml#/components/schemas/Geometry
             - description: Geographic demarcation of the product
             - example: '{"type":"Polygon","coordinates":[[[1,2],[3,4],[5,6],[7,8],[1,2]]]}'
         heightRangeFrom:
@@ -614,7 +614,7 @@ components:
           description: Newest date of taken photo  
         footprint:
           allOf:
-            - $ref: ../geojson.yaml#/components/schemas/Geometry
+            - $ref: ../geojsonWith3DPoints.yaml#/components/schemas/Geometry
             - description: Geographic demarcation of the product
             - example: '{"type":"Polygon","coordinates":[[[1,2],[3,4],[5,6],[7,8],[1,2]]]}'    
         minResolutionMeter:
