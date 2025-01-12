@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.14.0](https://github.com/MapColonies/mc-models/compare/v17.13.4...v17.14.0) (2025-01-12)
+
+
+### Features
+
+* add support for point3D in 3D ingestion ([#248](https://github.com/MapColonies/mc-models/issues/248)) ([c019078](https://github.com/MapColonies/mc-models/commit/c0190787371979762574c68f7e6a991863c4ffbc))
+
+
+### Bug Fixes
+
+* pp entity collation ([#247](https://github.com/MapColonies/mc-models/issues/247)) ([36380b0](https://github.com/MapColonies/mc-models/commit/36380b0434b9440d2b869d33b7f217cd7e40bbc1))
+
 ### [17.13.4](https://github.com/MapColonies/mc-models/compare/v17.13.3...v17.13.4) (2024-12-10)
 
 
