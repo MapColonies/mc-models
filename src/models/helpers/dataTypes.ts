@@ -1,5 +1,5 @@
 import { DataType } from '@map-colonies/mc-utils';
-import { RecordType } from '../pycsw/coreEnums';
+import { RecordType } from '@map-colonies/types';
 
 type ValueOf<T> = T[keyof T];
 

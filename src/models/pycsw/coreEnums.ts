@@ -1,12 +1,7 @@
 /* eslint-disable  @typescript-eslint/prefer-literal-enum-member, @typescript-eslint/no-magic-numbers */
 import { DataType } from '@map-colonies/mc-utils';
 
-export enum RecordType {
-  RECORD_RASTER = 'RECORD_RASTER',
-  RECORD_3D = 'RECORD_3D',
-  RECORD_DEM = 'RECORD_DEM',
-  RECORD_ALL = 'RECORD_ALL',
-}
+export { RecordType } from '@map-colonies/types';
 
 export enum Units {
   METER = 'METER',
