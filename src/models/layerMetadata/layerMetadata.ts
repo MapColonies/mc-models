@@ -945,7 +945,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     nullable: true,
   })
   //#endregion
-  public rms: number | undefined = undefined;
+  public rms?: number;
 
   //#region RASTER: scale
   @pycsw({
