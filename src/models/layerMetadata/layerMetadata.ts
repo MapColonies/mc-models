@@ -1146,7 +1146,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     return getPyCSWMapping<LayerMetadata>(new LayerMetadata(), prop);
   }
 
-  public static getShpMapping(prop: string): IDataMapping | undefined {
+  public static getShpMapping(prop: string): IDataMapping[] | undefined {
     return getInputDataMapping<LayerMetadata>(new LayerMetadata(), prop);
   }
 
@@ -1190,16 +1190,16 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
     return ret;
   }
 
-  public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
+  public static getShpMappings(): IPropSHPMapping[] {
     const ret = [];
     const layer = new LayerMetadata();
     for (const prop in layer) {
       const shpMap = getInputDataMapping<LayerMetadata>(layer, prop);
       const tsTypesMap = getTsTypesMapping<LayerMetadata>(layer, prop);
-      if (shpMap && tsTypesMap && (includeCustomLogic || shpMap.isCustomLogic === undefined || !shpMap.isCustomLogic)) {
+      if (shpMap && tsTypesMap) {
         ret.push({
           prop: prop,
-          ...shpMap,
+          shapeFileMappings: [...shpMap],
           ...tsTypesMap,
         });
       }

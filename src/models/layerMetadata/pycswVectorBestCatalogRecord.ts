@@ -273,7 +273,7 @@ export class PycswVectorBestCatalogRecord extends VectorBestMetadata implements 
     return ret as IPropFieldConfigInfo[];
   }
 
-  public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
+  public static getShpMappings(): IPropSHPMapping[] {
     return [];
   }
 
