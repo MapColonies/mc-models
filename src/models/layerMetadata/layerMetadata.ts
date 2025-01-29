@@ -17,7 +17,7 @@ import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw
 import { getInputDataMapping, IDataMapping, IPropSHPMapping } from './decorators/property/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB, ORMColumnType } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
-import { ProductType, Transparency, TileOutputFormat } from './enums';
+import { ProductType, Transparency, TileOutputFormat, RecordStatus } from './enums';
 
 export interface ILayerMetadata {
   id: string | undefined;
@@ -44,6 +44,7 @@ export interface ILayerMetadata {
   transparency: Transparency | undefined;
   tileMimeFormat: TilesMimeFormat | undefined;
   tileOutputFormat: TileOutputFormat | undefined;
+  productStatus: RecordStatus | undefined;
 }
 
 export interface IPropPYCSWMapping extends IPYCSWMapping {
@@ -1140,6 +1141,36 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   //#endregion
   public tileOutputFormat: TileOutputFormat | undefined = undefined;
 
+  //#endregion
+
+  //#region Raster: productStatus
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:productStatus',
+    queryableField: 'mc:productStatus',
+    pycswField: 'pycsw:productStatus',
+  })
+  @catalogDB({
+    column: {
+      name: 'product_status',
+      type: 'text',
+      default: RecordStatus.PUBLISHED,
+      nullable: false,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.RECORD_STATUS,
+  })
+  @graphql({
+    nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+    default: RecordStatus.PUBLISHED,
+    isLifecycleEnvolved: true,
+  })
+  //#endregion
+  public productStatus: RecordStatus | undefined = RecordStatus.PUBLISHED;
   //#endregion
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
