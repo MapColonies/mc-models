@@ -65,17 +65,17 @@ export class LayerMetadata implements RasterLayerMetadata {
     column: {
       name: 'type',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.RECORDTYPE,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   //#endregion
-  public type: RecordType | undefined = RecordType.RECORD_RASTER;
+  public type: RecordType = RecordType.RECORD_RASTER;
 
   //#region COMMON: classification
   @pycsw({
@@ -111,7 +111,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     isLifecycleEnvolved: true,
   })
   //#endregion
-  public classification: string | undefined = undefined;
+  public classification!: string;
 
   //#region COMMON: productName
   @pycsw({
@@ -124,7 +124,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     column: {
       name: 'product_name',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
@@ -143,7 +143,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     ],
   })
   //#endregion
-  public productName: string | undefined = undefined;
+  public productName!: string;
 
   //#region COMMON: description
   @pycsw({
@@ -247,6 +247,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     column: {
       name: 'creation_date_utc',
       type: 'timestamp without time zone',
+      nullable: false,
     },
   })
   @tsTypes({
@@ -262,7 +263,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     isLifecycleEnvolved: true,
   })
   //#endregion
-  public creationDateUTC: Date | undefined = undefined;
+  public creationDateUTC!: Date;
 
   //#region COMMON: ingestionDate
   @pycsw({
@@ -275,6 +276,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     column: {
       name: 'ingestion_date',
       type: 'timestamp without time zone',
+      nullable: false,
     },
   })
   @tsTypes({
@@ -302,6 +304,7 @@ export class LayerMetadata implements RasterLayerMetadata {
       name: 'update_date_utc',
       type: 'timestamp without time zone',
       columnType: ORMColumnType.UPDATE_DATE_COLUMN,
+      nullable: false,
     },
   })
   @tsTypes({
@@ -361,7 +364,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     isLifecycleEnvolved: true,
   })
   //#endregion
-  public imagingTimeBeginUTC: Date | undefined = undefined;
+  public imagingTimeBeginUTC!: Date;
 
   //#region COMMON: imagingTimeEndUTC
   @pycsw({
@@ -395,7 +398,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     isLifecycleEnvolved: true,
   })
   //#endregion
-  public imagingTimeEndUTC: Date | undefined = undefined;
+  public imagingTimeEndUTC!: Date;
 
   //#region COMMON: maxHorizontalAccuracyCE90
   @pycsw({
@@ -408,6 +411,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     column: {
       name: 'max_horizontal_accuracy_ce_90',
       type: 'numeric',
+      nullable: false,
     },
   })
   @tsTypes({
@@ -451,6 +455,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     column: {
       name: 'min_horizontal_accuracy_ce_90',
       type: 'numeric',
+      nullable: false,
     },
   })
   @tsTypes({
@@ -481,7 +486,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     isLifecycleEnvolved: true,
   })
   //#endregion
-  public minHorizontalAccuracyCE90: number | undefined = undefined;
+  public minHorizontalAccuracyCE90!: number;
 
   //#region COMMON: sensors
   @pycsw({
@@ -494,6 +499,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     column: {
       name: 'sensors',
       type: 'text',
+      nullable: false,
     },
     field: {
       overrideType: TsTypes.STRING,
@@ -530,6 +536,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     column: {
       name: 'region',
       type: 'text',
+      nullable: false,
     },
     field: {
       overrideType: TsTypes.STRING,
@@ -594,7 +601,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     ],
   })
   //#endregion
-  public productId: string | undefined = 'UNKNOWN';
+  public productId!: string;
 
   //#region RASTER: productVersion
   @pycsw({
@@ -632,7 +639,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     ],
   })
   //#endregion
-  public productVersion: string | undefined = undefined;
+  public productVersion!: string;
 
   //#region RASTER: productType
   @pycsw({
@@ -663,7 +670,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     ],
   })
   //#endregion
-  public productType: ProductType | undefined = undefined;
+  public productType!: ProductType;
 
   //#region RASTER: productSubType
   @pycsw({
@@ -742,6 +749,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     column: {
       name: 'max_resolution_deg',
       type: 'numeric',
+      nullable: false,
     },
   })
   @tsTypes({
@@ -790,6 +798,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     column: {
       name: 'min_resolution_deg',
       type: 'numeric',
+      nullable: false,
     },
   })
   @tsTypes({
@@ -838,6 +847,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     column: {
       name: 'max_resolution_meter',
       type: 'numeric',
+      nullable: false,
     },
   })
   @tsTypes({
@@ -881,6 +891,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     column: {
       name: 'min_resolution_meter',
       type: 'numeric',
+      nullable: false,
     },
   })
   @tsTypes({
@@ -1013,7 +1024,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     isLifecycleEnvolved: true,
   })
   //#endregion
-  public footprint: GeoJSON | undefined = undefined;
+  public footprint!: GeoJSON;
 
   //#region RASTER: productBoundingBox
   @pycsw({
