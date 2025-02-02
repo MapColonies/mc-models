@@ -13,14 +13,25 @@ module.exports = {
   testEnvironment: 'node',
   reporters: [
     'default',
-    ['jest-html-reporters', { multipleReportsUnitePath: './reports', pageTitle: 'unit', publicPath: './reports', filename: 'unit.html' }],
+    [
+      'jest-html-reporters',
+      {
+        multipleReportsUnitePath: './reports',
+        pageTitle: 'unit',
+        publicPath: './reports',
+        filename: 'unit.html',
+      },
+    ],
   ],
   globals: {
     'ts-jest': {
-      astTransformers: { before: ['<rootDir>/tests/configurations/unit/ts-jest-keys-transformer.js'] },
+      astTransformers: {
+        before: ['<rootDir>/tests/configurations/unit/ts-jest-keys-transformer.js'],
+      },
     },
   },
   moduleNameMapper: {
     '^change-case-all': 'change-case-all/dist/index.umd.cjs',
+    '^axios$': require.resolve('axios'),
   },
 };
