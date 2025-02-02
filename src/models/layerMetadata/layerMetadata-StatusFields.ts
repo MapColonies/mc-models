@@ -1,4 +1,4 @@
-import { LayerMetadata } from './layerMetadata';
+import { LayerMetadata } from './layerRASTERMetadata';
 
 export class StatusMetadata extends LayerMetadata {
   /**

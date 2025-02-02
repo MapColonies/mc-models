@@ -1,7 +1,7 @@
 import { keys } from 'ts-transformer-keys';
-import { NewRasterLayerMetadata, UpdateRasterLayerMetadata, RasterLayerMetadata } from '@map-colonies/raster-shared';
+import { NewRasterLayerMetadata, UpdateRasterLayerMetadata, RasterLayerMetadata, Transparency, TileOutputFormat } from '@map-colonies/raster-shared';
 import { GeoJSON } from 'geojson';
-import { TilesMimeFormat, RecordType } from '@map-colonies/types';
+import { TilesMimeFormat, RecordType, ProductType } from '@map-colonies/types';
 import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import {
@@ -16,7 +16,6 @@ import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw
 import { getInputDataMapping, IDataMapping, IPropSHPMapping } from './decorators/property/shp.decorator';
 import { getCatalogDBMapping, ICatalogDBMapping, catalogDB, ORMColumnType } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
-import { ProductType, Transparency, TileOutputFormat } from './enums';
 
 const RASTER_LAYER_METADATA_PROPS = keys<RasterLayerMetadata>();
 const NEW_RASTER_LAYER_METADATA_PROPS = keys<NewRasterLayerMetadata>();

@@ -1,3 +1,5 @@
+import { Transparency } from '@map-colonies/raster-shared';
+import { ProductType } from '@map-colonies/types';
 import { IPycswCoreModel } from '../pycsw/interfaces/pycswCoreModel';
 import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
 import { IOrmCatalog } from '../common/interfaces/ormCatalog.interface';
@@ -9,11 +11,10 @@ import { NewRasterLayerMetadata, UpdateRasterLayerMetadata } from '../raster/ing
 import { Link } from './link';
 import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
-import { IPropPYCSWMapping, LayerMetadata } from './layerMetadata';
+import { IPropPYCSWMapping, LayerMetadata } from './layerRASTERMetadata';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
 import { getPyCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { IPropSHPMapping } from './decorators/property/shp.decorator';
-import { ProductType, Transparency } from './enums';
 
 @catalogDBEntity({
   table: 'records',

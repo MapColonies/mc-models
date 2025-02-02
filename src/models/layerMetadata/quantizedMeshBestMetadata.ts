@@ -1,5 +1,5 @@
 import { GeoJSON } from 'geojson';
-import { RecordType } from '@map-colonies/types';
+import { RecordType, ProductType, RecordStatus } from '@map-colonies/types';
 import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import {
@@ -13,7 +13,6 @@ import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw
 import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 import { catalogDB, getCatalogDBMapping, ICatalogDBMapping, ORMColumnType } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
-import { ProductType, RecordStatus } from './enums';
 import { IPropSHPMapping } from './decorators/property/shp.decorator';
 
 export interface IQuantizedMeshBestMetadata {

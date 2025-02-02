@@ -1,5 +1,5 @@
 import { GeoJSON } from 'geojson';
-import { RecordType } from '@map-colonies/types';
+import { RecordType, ProductType, RecordStatus } from '@map-colonies/types';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import {
   FieldCategory,
@@ -11,7 +11,6 @@ import {
 import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
-import { ProductType, RecordStatus } from './enums';
 import { catalogDB, ORMColumnType } from './decorators/property/catalogDB.decorator';
 
 export interface ILayer3DMetadata {

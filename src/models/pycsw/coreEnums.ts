@@ -1,8 +1,6 @@
 /* eslint-disable  @typescript-eslint/prefer-literal-enum-member, @typescript-eslint/no-magic-numbers */
 import { DataType } from '@map-colonies/mc-utils';
 
-export { RecordType } from '@map-colonies/types';
-
 export enum Units {
   METER = 'METER',
   DD = 'DD',
