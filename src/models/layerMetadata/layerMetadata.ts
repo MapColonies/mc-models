@@ -72,7 +72,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     mappingType: TsTypes.RECORDTYPE,
   })
   @graphql({
-    nullable: false,
+    nullable: true,
   })
   //#endregion
   public type: RecordType = RecordType.RECORD_RASTER;
