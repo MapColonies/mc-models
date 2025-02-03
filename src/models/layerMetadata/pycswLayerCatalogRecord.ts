@@ -256,7 +256,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     return ret as IPropFieldConfigInfo[];
   }
 
-  public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
+  public static getShpMappings(): IPropSHPMapping[] {
     return [];
   }
 

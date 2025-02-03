@@ -576,7 +576,7 @@ export class VectorBestMetadata implements IVectorBestMetadata {
     return ret;
   }
 
-  public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
+  public static getShpMappings(): IPropSHPMapping[] {
     return [];
   }
 }

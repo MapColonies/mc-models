@@ -30,4 +30,10 @@ describe('PolygonParts class static methods', () => {
 
     expect(ppORMEntityFieldsMapping.length).toBeGreaterThan(0);
   });
+
+  it('getShpMappings(): class property members HAS SHAPE FILE mappings', () => {
+    const ppShapeEntityFieldsMapping = PolygonPartRecord.getShpMappings();
+
+    expect(ppShapeEntityFieldsMapping.length).toBeGreaterThan(0);
+  });
 });
