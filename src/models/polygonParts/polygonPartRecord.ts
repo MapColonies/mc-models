@@ -1,5 +1,6 @@
 import { Polygon } from 'geojson';
 import { keys } from 'ts-transformer-keys';
+import { ProductType } from '@map-colonies/types';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import { FieldCategory, IPropFieldConfigInfo, fieldConfig, getFieldConfig } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import {
@@ -11,7 +12,7 @@ import {
 } from '../layerMetadata/decorators/property/shp.decorator';
 import { catalogDB, getCatalogDBMapping, ORMColumnType } from '../layerMetadata/decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
-import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping, ProductType } from '../layerMetadata';
+import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping } from '../layerMetadata';
 import { getWFSMapping, graphqlClass, IPropCatalogDBMapping, IPropWFSMapping, JAVA_BINDINGS, wfs } from '../common';
 import { VALIDATIONS } from '../raster/constants';
 import { camelCaseToSnakeCase } from '../helpers/utils';
