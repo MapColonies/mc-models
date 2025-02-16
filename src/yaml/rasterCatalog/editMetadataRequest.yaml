@@ -1,0 +1,13 @@
+openapi: "3.0.1"
+info:
+  title: raster catalog edit metadata request
+  version: 1.0.0
+components:
+  schemas:
+    EditMetadataRequest:
+      type: object
+      description: raster catalog edit request
+      properties:
+        metadata:
+          $ref: ../editLayerMetadata.yaml#/components/schemas/editLayerMetadata
+      additionalProperties: false

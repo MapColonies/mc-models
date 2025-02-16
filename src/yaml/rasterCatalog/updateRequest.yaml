@@ -13,7 +13,7 @@ components:
         links:
           type: array
           items:
-            $ref: ../link.yaml#/components/schemas/Link
+            $ref: ../link.yaml#/components/schemas/Link  
             
       #due to bug in validator additional properties is not compilable with allof
       #https://github.com/cdimascio/express-openapi-validator/issues/239

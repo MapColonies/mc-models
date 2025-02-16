@@ -2,6 +2,110 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.15.1](https://github.com/MapColonies/mc-models/compare/v17.15.0...v17.15.1) (2025-02-03)
+
+## [17.15.0](https://github.com/MapColonies/mc-models/compare/v17.14.0...v17.15.0) (2025-01-29)
+
+
+### Features
+
+* shape file providers mappings ([#250](https://github.com/MapColonies/mc-models/issues/250)) ([375a38f](https://github.com/MapColonies/mc-models/commit/375a38f9be717e9e9cda08c6e2a844e0b69529f4))
+
+## [17.14.0](https://github.com/MapColonies/mc-models/compare/v17.13.4...v17.14.0) (2025-01-12)
+
+
+### Features
+
+* add support for point3D in 3D ingestion ([#248](https://github.com/MapColonies/mc-models/issues/248)) ([c019078](https://github.com/MapColonies/mc-models/commit/c0190787371979762574c68f7e6a991863c4ffbc))
+
+
+### Bug Fixes
+
+* pp entity collation ([#247](https://github.com/MapColonies/mc-models/issues/247)) ([36380b0](https://github.com/MapColonies/mc-models/commit/36380b0434b9440d2b869d33b7f217cd7e40bbc1))
+
+### [17.13.4](https://github.com/MapColonies/mc-models/compare/v17.13.3...v17.13.4) (2024-12-10)
+
+
+### Bug Fixes
+
+* changed horizontalAccuracyCE90 to numeric ([#246](https://github.com/MapColonies/mc-models/issues/246)) ([88611d9](https://github.com/MapColonies/mc-models/commit/88611d96294797c0c47c97d87b598e67e78dcc11))
+
+### [17.13.3](https://github.com/MapColonies/mc-models/compare/v17.13.2...v17.13.3) (2024-12-05)
+
+
+### Bug Fixes
+
+* add keywords to editable fields(MAPCO-5673) ([#244](https://github.com/MapColonies/mc-models/issues/244)) ([7767628](https://github.com/MapColonies/mc-models/commit/77676285fea10823ad0b3741caa307f0a093ca4f))
+
+### [17.13.2](https://github.com/MapColonies/mc-models/compare/v17.13.1...v17.13.2) (2024-12-03)
+
+
+### Bug Fixes
+
+* schema should switch min and max in aggregation ([#243](https://github.com/MapColonies/mc-models/issues/243)) ([753ad9a](https://github.com/MapColonies/mc-models/commit/753ad9a455fa6be9d8ff176153ea24631875a491))
+
+### [17.13.1](https://github.com/MapColonies/mc-models/compare/v17.13.0...v17.13.1) (2024-12-03)
+
+
+### Bug Fixes
+
+* change sourceId to be nullable ([#242](https://github.com/MapColonies/mc-models/issues/242)) ([9ba6536](https://github.com/MapColonies/mc-models/commit/9ba653643f0ef030cc6e5953705c2bb15a67d237))
+
+## [17.13.0](https://github.com/MapColonies/mc-models/compare/v17.12.2...v17.13.0) (2024-11-28)
+
+
+### Features
+
+* adding polygon-parts table name type and valdiation ([#241](https://github.com/MapColonies/mc-models/issues/241)) ([e1f1621](https://github.com/MapColonies/mc-models/commit/e1f16217088403e7b749c175f786ad28c76bff6b))
+
+### [17.12.2](https://github.com/MapColonies/mc-models/compare/v17.12.1...v17.12.2) (2024-11-28)
+
+
+### Bug Fixes
+
+* additional properties ([#240](https://github.com/MapColonies/mc-models/issues/240)) ([0370d86](https://github.com/MapColonies/mc-models/commit/0370d8622d78808a983c185430745d646e2a0076))
+
+### [17.12.1](https://github.com/MapColonies/mc-models/compare/v17.12.0...v17.12.1) (2024-11-27)
+
+
+### Bug Fixes
+
+* revert to old update request and add edit request ([#239](https://github.com/MapColonies/mc-models/issues/239)) ([7069117](https://github.com/MapColonies/mc-models/commit/70691175af3b7b33b3de27ff37ad303b3bfa92a4))
+
+## [17.12.0](https://github.com/MapColonies/mc-models/compare/v17.11.3...v17.12.0) (2024-11-26)
+
+
+### Features
+
+* aggregation validation ([#238](https://github.com/MapColonies/mc-models/issues/238)) ([c9f8a64](https://github.com/MapColonies/mc-models/commit/c9f8a6435cd6e86add2108b01f596669814a5ff1))
+
+### [17.11.3](https://github.com/MapColonies/mc-models/compare/v17.11.2...v17.11.3) (2024-11-25)
+
+
+### Bug Fixes
+
+* remove description ([#237](https://github.com/MapColonies/mc-models/issues/237)) ([083aafd](https://github.com/MapColonies/mc-models/commit/083aafd56dfd2d925db13c68e594a7eed6cff35e))
+
+### [17.11.2](https://github.com/MapColonies/mc-models/compare/v17.11.1...v17.11.2) (2024-11-25)
+
+### [17.11.1](https://github.com/MapColonies/mc-models/compare/v17.11.0...v17.11.1) (2024-11-25)
+
+## [17.11.0](https://github.com/MapColonies/mc-models/compare/v17.10.4...v17.11.0) (2024-11-25)
+
+
+### Features
+
+* aggregation layer metadata ([#234](https://github.com/MapColonies/mc-models/issues/234)) ([153c12c](https://github.com/MapColonies/mc-models/commit/153c12cfa8a611d64becdd5f266d98468766df3a))
+
+### [17.10.4](https://github.com/MapColonies/mc-models/compare/v17.10.3...v17.10.4) (2024-11-24)
+
+
+### Bug Fixes
+
+* update yaml and types for raster catalog manager bugs ([#233](https://github.com/MapColonies/mc-models/issues/233)) ([d65072a](https://github.com/MapColonies/mc-models/commit/d65072a7ec8e704124e56fe7560534c7207d6430))
+
+### [17.10.3](https://github.com/MapColonies/mc-models/compare/v17.10.2...v17.10.3) (2024-11-17)
+
 ### [17.10.2](https://github.com/MapColonies/mc-models/compare/v17.10.1...v17.10.2) (2024-11-13)
 
 

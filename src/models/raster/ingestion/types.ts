@@ -1,4 +1,6 @@
-import { LayerMetadata, ProductType, Transparency } from '../../layerMetadata';
+import { ProductType } from '@map-colonies/types';
+import { Transparency } from '@map-colonies/raster-shared';
+import { LayerMetadata } from '../../layerMetadata';
 import { IPolygonPart } from '../../polygonParts';
 
 export type IBaseRasterLayerMetadata = Pick<LayerMetadata, 'classification'>;

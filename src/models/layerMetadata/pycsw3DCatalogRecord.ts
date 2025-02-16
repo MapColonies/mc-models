@@ -287,7 +287,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
     return ret;
   }
 
-  public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
+  public static getShpMappings(): IPropSHPMapping[] {
     return [];
   }
 

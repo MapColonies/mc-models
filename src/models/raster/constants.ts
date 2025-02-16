@@ -1,14 +1,30 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
 
+export const RasterProductTypes = {
+  Orthophoto: 'Orthophoto',
+  OrthophotoHistory: 'OrthophotoHistory',
+  OrthophotoBest: 'OrthophotoBest',
+  RasterMap: 'RasterMap',
+  RasterMapBest: 'RasterMapBest',
+  RasterAid: 'RasterAid',
+  RasterAidBest: 'RasterAidBest',
+  RasterVector: 'RasterVector',
+  RasterVectorBest: 'RasterVectorBest',
+} as const;
+
+export const RASTER_PRODUCT_TYPES = Object.values(RasterProductTypes);
+
 export const VALIDATIONS = {
-  resolutionMeter: {
-    min: zoomLevelToResolutionMeter(22),
-    max: zoomLevelToResolutionMeter(0),
+  boundingBox: {
+    pattern: '^-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?$',
   },
-  resolutionDeg: {
-    min: zoomLevelToResolutionDeg(22),
-    max: zoomLevelToResolutionDeg(0),
+  classification: {
+    pattern: '^[0-9]$|^[1-9][0-9]$|^(100)$',
+  },
+  fileNames: {
+    pattern: '^.+\\.[Gg][Pp][Kk][Gg]$',
   },
   horizontalAccuracyCE90: {
     min: 0.01,
@@ -20,14 +36,22 @@ export const VALIDATIONS = {
   productVersion: {
     pattern: '^[1-9]\\d*(\\.(0|[1-9]\\d?))?$',
   },
-  classification: {
-    pattern: '^[0-9]$|^[1-9][0-9]$|^(100)$',
+  resolutionDeg: {
+    min: zoomLevelToResolutionDeg(22),
+    max: zoomLevelToResolutionDeg(0),
+  },
+  resolutionMeter: {
+    min: zoomLevelToResolutionMeter(22),
+    max: zoomLevelToResolutionMeter(0),
   },
   scale: {
     min: 0,
     max: 100000000,
   },
-  fileNames: {
-    pattern: '^.+.[Gg][Pp][Kk][Gg]$',
+  sensor: {
+    pattern: '^(?!\\s).+(?<!\\s)$',
+  },
+  polygonPartsEntityName: {
+    pattern: '^[a-z][a-z0-9_]{0,61}[a-z0-9]$',
   },
 };

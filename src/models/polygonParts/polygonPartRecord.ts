@@ -1,17 +1,18 @@
 import { Polygon } from 'geojson';
 import { keys } from 'ts-transformer-keys';
+import { ProductType } from '@map-colonies/types';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
+import { FieldCategory, IPropFieldConfigInfo, fieldConfig, getFieldConfig } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import {
-  FieldCategory,
-  IFieldConfigInfo,
-  IPropFieldConfigInfo,
-  fieldConfig,
-  getFieldConfig,
-} from '../common/decorators/fieldConfig/fieldConfig.decorator';
-import { DataFileType, IPropSHPMapping, getInputDataMapping, inputDataMapping } from '../layerMetadata/decorators/property/shp.decorator';
+  DataFileType,
+  IPropSHPMapping,
+  ProviderType,
+  getInputDataMapping,
+  inputDataMapping,
+} from '../layerMetadata/decorators/property/shp.decorator';
 import { catalogDB, getCatalogDBMapping, ORMColumnType } from '../layerMetadata/decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
-import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping, ProductType } from '../layerMetadata';
+import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping } from '../layerMetadata';
 import { getWFSMapping, graphqlClass, IPropCatalogDBMapping, IPropWFSMapping, JAVA_BINDINGS, wfs } from '../common';
 import { VALIDATIONS } from '../raster/constants';
 import { camelCaseToSnakeCase } from '../helpers/utils';
@@ -38,20 +39,35 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       name: camelCaseToSnakeCase('sourceId'),
       type: 'text',
       nullable: true,
-      collation: 'C.UTF-8',
+      collation: 'ucs_basic',
     },
   })
   @wfs({
     binding: JAVA_BINDINGS.STRING,
   })
-  @inputDataMapping({
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'properties.Source',
-  })
+  @inputDataMapping([
+    {
+      provider: ProviderType.SYNERGY,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.Source',
+    },
+    {
+      provider: ProviderType.TERRA_NOVA,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.sourceId',
+    },
+    {
+      provider: ProviderType.MAXAR,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.catalog_id',
+    },
+  ])
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
-  @graphql()
+  @graphql({
+    nullable: true,
+  })
   @fieldConfig({
     category: FieldCategory.MAIN,
   })
@@ -64,16 +80,29 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       name: camelCaseToSnakeCase('sourceName'),
       type: 'text',
       nullable: false,
-      collation: 'C.UTF-8',
+      collation: 'ucs_basic',
     },
   })
   @wfs({
     binding: JAVA_BINDINGS.STRING,
   })
-  @inputDataMapping({
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'properties.SourceName',
-  })
+  @inputDataMapping([
+    {
+      provider: ProviderType.SYNERGY,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.SourceName',
+    },
+    {
+      provider: ProviderType.TERRA_NOVA,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.sourceName',
+    },
+    {
+      provider: ProviderType.MAXAR,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'NOT_EXISTS_USE_FILENAME',
+    },
+  ])
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
@@ -97,17 +126,30 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       name: camelCaseToSnakeCase('productId'),
       type: 'text',
       nullable: false,
-      collation: 'C.UTF-8',
+      collation: 'ucs_basic',
     },
     index: {},
   })
   @wfs({
     binding: JAVA_BINDINGS.STRING,
   })
-  @inputDataMapping({
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'properties.SourceName',
-  })
+  @inputDataMapping([
+    {
+      provider: ProviderType.SYNERGY,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.SourceName',
+    },
+    {
+      provider: ProviderType.TERRA_NOVA,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.sourceName',
+    },
+    {
+      provider: ProviderType.MAXAR,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'NOT_EXISTS_USE_FILENAME',
+    },
+  ])
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
@@ -172,16 +214,29 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       name: camelCaseToSnakeCase('description'),
       type: 'text',
       nullable: true,
-      collation: 'C.UTF-8',
+      collation: 'ucs_basic',
     },
   })
   @wfs({
     binding: JAVA_BINDINGS.STRING,
   })
-  @inputDataMapping({
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'properties.Dsc',
-  })
+  @inputDataMapping([
+    {
+      provider: ProviderType.SYNERGY,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.Dsc',
+    },
+    {
+      provider: ProviderType.TERRA_NOVA,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.desc',
+    },
+    {
+      provider: ProviderType.MAXAR,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.proc_notes',
+    },
+  ])
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
@@ -206,11 +261,23 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @wfs({
     binding: JAVA_BINDINGS.TIMESTAMP,
   })
-  @inputDataMapping({
-    isCustomLogic: false,
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'properties.UpdateDate',
-  })
+  @inputDataMapping([
+    {
+      provider: ProviderType.SYNERGY,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.UpdateDate',
+    },
+    {
+      provider: ProviderType.TERRA_NOVA,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.updateDate',
+    },
+    {
+      provider: ProviderType.MAXAR,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.acq_date',
+    },
+  ])
   @tsTypes({
     mappingType: TsTypes.DATE,
   })
@@ -250,11 +317,23 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @wfs({
     binding: JAVA_BINDINGS.TIMESTAMP,
   })
-  @inputDataMapping({
-    isCustomLogic: false,
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'properties.UpdateDate',
-  })
+  @inputDataMapping([
+    {
+      provider: ProviderType.SYNERGY,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.UpdateDate',
+    },
+    {
+      provider: ProviderType.TERRA_NOVA,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.updateDate',
+    },
+    {
+      provider: ProviderType.MAXAR,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.acq_date',
+    },
+  ])
   @tsTypes({
     mappingType: TsTypes.DATE,
   })
@@ -281,17 +360,30 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @catalogDB({
     column: {
       name: camelCaseToSnakeCase('horizontalAccuracyCE90'),
-      type: 'real',
+      type: 'numeric',
       nullable: false,
     },
   })
   @wfs({
     binding: JAVA_BINDINGS.FLOAT,
   })
-  @inputDataMapping({
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'properties.Ep90',
-  })
+  @inputDataMapping([
+    {
+      provider: ProviderType.SYNERGY,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.Ep90',
+    },
+    {
+      provider: ProviderType.TERRA_NOVA,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.Ep90',
+    },
+    {
+      provider: ProviderType.MAXAR,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.accuracy',
+    },
+  ])
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
@@ -325,7 +417,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       name: camelCaseToSnakeCase('sensors'),
       type: 'text',
       nullable: false,
-      collation: 'C.UTF-8',
+      collation: 'ucs_basic',
     },
     field: {
       overrideType: TsTypes.STRING,
@@ -334,11 +426,23 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @wfs({
     binding: JAVA_BINDINGS.STRING,
   })
-  @inputDataMapping({
-    isCustomLogic: false,
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'properties.SensorType',
-  })
+  @inputDataMapping([
+    {
+      provider: ProviderType.SYNERGY,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.SensorType',
+    },
+    {
+      provider: ProviderType.TERRA_NOVA,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.sensors',
+    },
+    {
+      provider: ProviderType.MAXAR,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.sensor',
+    },
+  ])
   @tsTypes({
     mappingType: TsTypes.STRING_ARRAY,
   })
@@ -362,7 +466,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       name: camelCaseToSnakeCase('countries'),
       type: 'text',
       nullable: true,
-      collation: 'C.UTF-8',
+      collation: 'ucs_basic',
     },
     field: {
       overrideType: TsTypes.STRING,
@@ -371,11 +475,23 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @wfs({
     binding: JAVA_BINDINGS.STRING,
   })
-  @inputDataMapping({
-    isCustomLogic: false,
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'properties.Countries',
-  })
+  @inputDataMapping([
+    {
+      provider: ProviderType.SYNERGY,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.Countries',
+    },
+    {
+      provider: ProviderType.TERRA_NOVA,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.countries',
+    },
+    {
+      provider: ProviderType.MAXAR,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: '',
+    },
+  ])
   @tsTypes({
     mappingType: TsTypes.STRING_ARRAY,
   })
@@ -403,11 +519,23 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @wfs({
     binding: JAVA_BINDINGS.STRING,
   })
-  @inputDataMapping({
-    isCustomLogic: false,
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'properties.Cities',
-  })
+  @inputDataMapping([
+    {
+      provider: ProviderType.SYNERGY,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.Cities',
+    },
+    {
+      provider: ProviderType.TERRA_NOVA,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.cities',
+    },
+    {
+      provider: ProviderType.MAXAR,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: '',
+    },
+  ])
   @tsTypes({
     mappingType: TsTypes.STRING_ARRAY,
   })
@@ -511,10 +639,23 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
-  @inputDataMapping({
-    dataFile: DataFileType.SHAPE_METADATA,
-    valuePath: 'properties.Resolution',
-  })
+  @inputDataMapping([
+    {
+      provider: ProviderType.SYNERGY,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.Resolution',
+    },
+    {
+      provider: ProviderType.TERRA_NOVA,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.resolution',
+    },
+    {
+      provider: ProviderType.MAXAR,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'properties.native_res',
+    },
+  ])
   @graphql()
   @fieldConfig({
     category: FieldCategory.MAIN,
@@ -566,10 +707,23 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
   @wfs({
     binding: JAVA_BINDINGS.POLYGON,
   })
-  @inputDataMapping({
-    dataFile: DataFileType.PRODUCT,
-    valuePath: 'geometry',
-  })
+  @inputDataMapping([
+    {
+      provider: ProviderType.SYNERGY,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'geometry',
+    },
+    {
+      provider: ProviderType.TERRA_NOVA,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'geometry',
+    },
+    {
+      provider: ProviderType.MAXAR,
+      dataFile: DataFileType.SHAPE_METADATA,
+      valuePath: 'geometry',
+    },
+  ])
   @tsTypes({
     mappingType: TsTypes.OBJECT,
   })
@@ -663,7 +817,7 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
       name: camelCaseToSnakeCase('productVersion'),
       type: 'text',
       nullable: false,
-      collation: 'C.UTF-8',
+      collation: 'ucs_basic',
     },
   })
   @wfs({
@@ -738,16 +892,16 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     return ret;
   }
 
-  public static getShpMappings(includeCustomLogic = false): IPropSHPMapping[] {
+  public static getShpMappings(): IPropSHPMapping[] {
     const ret: IPropSHPMapping[] = [];
     const layer = new PolygonPartRecord();
     POLYGON_PARTS_SERVED_KEYS.forEach((prop) => {
       const shpMap = getInputDataMapping<PolygonPartRecord>(layer, prop);
       const tsTypesMap = getTsTypesMapping<PolygonPartRecord>(layer, prop);
-      if (shpMap && tsTypesMap && (includeCustomLogic || shpMap.isCustomLogic === undefined || !shpMap.isCustomLogic)) {
+      if (shpMap && tsTypesMap) {
         ret.push({
           prop: prop,
-          ...shpMap,
+          shapeFileMappings: [...shpMap],
           ...tsTypesMap,
         });
       }

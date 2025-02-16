@@ -50,4 +50,3 @@ components:
               maximum: 4000
               format: double
               description: minimum Horizontal Accuracy
-
