@@ -333,6 +333,7 @@ export class VectorBestMetadata implements IVectorBestMetadata {
   @fieldConfig({
     category: FieldCategory.GENERAL,
     infoMsgCode: ['info-field-tooltip.region.tooltip', 'info-general-tooltip.required'],
+    lookupTable: 'countries',
     validation: [
       {
         errorMsgCode: 'validation-general.required',

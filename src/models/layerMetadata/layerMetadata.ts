@@ -605,6 +605,7 @@ export class LayerMetadata implements ILayerMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.MAIN,
     infoMsgCode: ['info-field-tooltip.productId.tooltip', 'info-general-tooltip.required'],
+    lookupTable: 'countries',
     validation: [
       {
         errorMsgCode: 'validation-general.required',
