@@ -26,7 +26,7 @@ export interface IPropPYCSWMapping extends IPYCSWMapping {
 }
 
 export class LayerMetadata implements RasterLayerMetadata {
-  constructor() {
+  public constructor() {
     const DUMMY_VALUE_STRING = 'DUMMY_VALUE';
     const DUMMY_VALUE_NUMBER = 0;
     const DUMMY_VALUE_TRANSPARENCY = Transparency.OPAQUE;
