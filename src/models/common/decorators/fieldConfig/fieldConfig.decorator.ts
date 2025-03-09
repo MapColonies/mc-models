@@ -37,6 +37,7 @@ export interface IFieldConfigInfo {
   isLifecycleEnvolved?: boolean; // is field might be changed during external processes, outside of the app's form.
   isCreateEssential?: boolean; // is field should participate in create process
   isUpdateEssential?: boolean; // is field should participate in update process
+  isMultiSelection?: boolean; // is multi selection field
   lookupTable?: string; // lookup table name where from comes allowed values (should participate in server-side validations)
   autocomplete?: {
     type: 'domain' | 'service';
