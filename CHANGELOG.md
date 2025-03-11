@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.16.0](https://github.com/MapColonies/mc-models/compare/v17.15.1...v17.16.0) (2025-03-11)
+
+
+### Features
+
+* Country list from lookuptables ([#252](https://github.com/MapColonies/mc-models/issues/252)) ([a3d17ef](https://github.com/MapColonies/mc-models/commit/a3d17efa3edb6c4e93f0c02a8c2c4ce3089e58c1))
+
 ### [17.15.1](https://github.com/MapColonies/mc-models/compare/v17.15.0...v17.15.1) (2025-02-03)
 
 ## [17.15.0](https://github.com/MapColonies/mc-models/compare/v17.14.0...v17.15.0) (2025-01-29)
