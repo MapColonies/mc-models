@@ -97,12 +97,12 @@ export const TsTypes = {
   PRODUCTTYPE: {
     value: 'ProductType',
     type: PropertiesTypes.ENUM,
-    importFromPackage: '@map-colonies/mc-model-types',
+    importFromPackage: '@map-colonies/types',
   },
   TRANSPARENCY: {
     value: 'Transparency',
     type: PropertiesTypes.ENUM,
-    importFromPackage: '@map-colonies/mc-model-types',
+    importFromPackage: '@map-colonies/types',
   },
   TILE_OUTPUT_FORMAT: {
     value: 'TileOutputFormat',
@@ -112,7 +112,7 @@ export const TsTypes = {
   RECORD_STATUS: {
     value: 'RecordStatus',
     type: PropertiesTypes.ENUM,
-    importFromPackage: '@map-colonies/mc-model-types',
+    importFromPackage: '@map-colonies/types',
   },
 } satisfies Record<string, IDescribeTsType>;
 

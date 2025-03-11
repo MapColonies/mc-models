@@ -550,6 +550,8 @@ export class LayerMetadata implements RasterLayerMetadata {
   @fieldConfig({
     category: FieldCategory.GENERAL,
     isManuallyEditable: true,
+    isMultiSelection: true,
+    lookupTable: 'countries',
     infoMsgCode: ['info-field-tooltip.region.tooltip', 'info-general-tooltip.required'],
     validation: [
       {
@@ -1127,6 +1129,50 @@ export class LayerMetadata implements RasterLayerMetadata {
   public tileOutputFormat!: TileOutputFormat;
 
   //#endregion
+
+  public constructor() {
+    const DUMMY_VALUE_STRING = 'DUMMY_VALUE';
+    const DUMMY_VALUE_NUMBER = 0;
+    const DUMMY_VALUE_TRANSPARENCY = Transparency.OPAQUE;
+    const DUMMY_VALUE_TILE_OUTPUT_FORMAT = TileOutputFormat.JPEG;
+    const DUMMY_VALUE_TILE_MIME_FORMAT = 'image/png';
+
+    this.classification = DUMMY_VALUE_STRING;
+    this.id = DUMMY_VALUE_STRING;
+    this.srs = DUMMY_VALUE_STRING;
+    this.productVersion = DUMMY_VALUE_STRING;
+    this.maxResolutionDeg = DUMMY_VALUE_NUMBER;
+    this.minResolutionDeg = DUMMY_VALUE_NUMBER;
+    this.rms = DUMMY_VALUE_NUMBER;
+    this.scale = DUMMY_VALUE_NUMBER;
+    this.creationDateUTC = new Date();
+    this.ingestionDate = new Date();
+    this.minHorizontalAccuracyCE90 = DUMMY_VALUE_NUMBER;
+    this.maxHorizontalAccuracyCE90 = DUMMY_VALUE_NUMBER;
+    this.region = [DUMMY_VALUE_STRING];
+    this.sensors = [DUMMY_VALUE_STRING];
+    this.imagingTimeBeginUTC = new Date();
+    this.imagingTimeEndUTC = new Date();
+    this.updateDateUTC = new Date();
+    this.maxResolutionMeter = DUMMY_VALUE_NUMBER;
+    this.minResolutionMeter = DUMMY_VALUE_NUMBER;
+    this.productSubType = DUMMY_VALUE_STRING;
+    this.productBoundingBox = DUMMY_VALUE_STRING;
+    this.displayPath = DUMMY_VALUE_STRING;
+    this.transparency = DUMMY_VALUE_TRANSPARENCY;
+    this.tileMimeFormat = DUMMY_VALUE_TILE_MIME_FORMAT;
+    this.tileOutputFormat = DUMMY_VALUE_TILE_OUTPUT_FORMAT;
+    this.type = RecordType.RECORD_RASTER;
+    this.classification = DUMMY_VALUE_STRING;
+    this.productName = DUMMY_VALUE_STRING;
+    this.description = DUMMY_VALUE_STRING;
+    this.srsName = DUMMY_VALUE_STRING;
+    this.producerName = DUMMY_VALUE_STRING;
+    this.sensors = [DUMMY_VALUE_STRING];
+    this.region = [DUMMY_VALUE_STRING];
+    this.productId = DUMMY_VALUE_STRING;
+    this.productType = ProductType.ORTHOPHOTO;
+  }
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
     return getPyCSWMapping<LayerMetadata>(new LayerMetadata(), prop);
