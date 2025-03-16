@@ -13,7 +13,7 @@ describe('PolygonParts class static methods', () => {
     expect(ppGQLMappings?.fields.length).toBeGreaterThan(0);
   });
 
-  fit('getWFSMappings(): class property members HAS WFS mapped fields', () => {
+  it('getWFSMappings(): class property members HAS WFS mapped fields', () => {
     const ppWFSMappings = PolygonPartRecord.getWFSMappings();
     console.log(ppWFSMappings);
 
