@@ -13,8 +13,9 @@ describe('PolygonParts class static methods', () => {
     expect(ppGQLMappings?.fields.length).toBeGreaterThan(0);
   });
 
-  it('getWFSMappings(): class property members HAS WFS mapped fields', () => {
+  fit('getWFSMappings(): class property members HAS WFS mapped fields', () => {
     const ppWFSMappings = PolygonPartRecord.getWFSMappings();
+    console.log(ppWFSMappings);
 
     expect(ppWFSMappings.length).toBeGreaterThan(0);
   });
