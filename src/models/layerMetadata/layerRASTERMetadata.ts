@@ -1098,9 +1098,9 @@ export class LayerMetadata implements RasterLayerMetadata {
   //#region RASTER: tilesMimeFormat
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:tilesMimeFormat',
-    queryableField: 'mc:tilesMimeFormat',
-    pycswField: 'pycsw:tilesMimeFormat',
+    xmlElement: 'mc:mimeType',
+    queryableField: 'mc:mimeType',
+    pycswField: 'pycsw:MimeType',
   })
   @catalogDB({
     column: {
