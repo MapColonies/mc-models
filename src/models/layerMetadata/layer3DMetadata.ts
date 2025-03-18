@@ -1,4 +1,5 @@
 import { GeoJSON } from 'geojson';
+import { RecordType, ProductType, RecordStatus } from '@map-colonies/types';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import {
   FieldCategory,
@@ -7,12 +8,10 @@ import {
   IFieldConfigInfo,
   IPropFieldConfigInfo,
 } from '../common/decorators/fieldConfig/fieldConfig.decorator';
-import { RecordType } from '../pycsw/coreEnums';
+import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 import { getPyCSWMapping, IPYCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
-import { ProductType, RecordStatus } from './enums';
 import { catalogDB, ORMColumnType } from './decorators/property/catalogDB.decorator';
-import { IMetadataCommonModel } from './interfaces/metadataCommonModel';
 
 export interface ILayer3DMetadata {
   srsId: string | undefined;
@@ -856,6 +855,8 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.GENERAL,
     infoMsgCode: ['info-field-tooltip.region.tooltip', 'info-general-tooltip.required'],
+    isMultiSelection: true,
+    lookupTable: 'countries',
     validation: [
       {
         errorMsgCode: 'validation-general.required',

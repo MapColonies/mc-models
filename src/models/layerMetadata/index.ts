@@ -1,4 +1,4 @@
-export * from './layerMetadata';
+export * from './layerRASTERMetadata';
 export { Layer3DMetadata } from './layer3DMetadata';
 export { LayerDemMetadata } from './layerDEMMetadata';
 export * from './layerMetadata-StatusFields';
@@ -15,5 +15,4 @@ export * from './pycsw3DCatalogRecord';
 export * from './pycswDEMCatalogRecord';
 export * from './pycswVectorBestCatalogRecord';
 export * from './pycswQuantizedMeshBestCatalogRecord';
-
 export * from './enums';

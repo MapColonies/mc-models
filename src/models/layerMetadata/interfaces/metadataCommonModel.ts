@@ -1,6 +1,5 @@
 import { GeoJSON } from 'geojson';
-import { ProductType } from '../enums';
-import { RecordType } from '../../pycsw/coreEnums';
+import { ProductType, RecordType } from '@map-colonies/types';
 
 export interface IMetadataCommonModel {
   // PROFILES COMMON FIELDS

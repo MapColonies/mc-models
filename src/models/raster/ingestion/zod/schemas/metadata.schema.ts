@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-import { z, ZodType } from 'zod';
+import { z } from 'zod';
 import { MultiPolygon, Polygon } from 'geojson';
+import { Transparency } from '@map-colonies/raster-shared';
+import { ProductType } from '@map-colonies/types';
 import { VALIDATIONS } from '../../../constants';
-import { ProductType, Transparency } from '../../../../layerMetadata/enums';
 
 export const newMetadataSchema = z
   .object({
