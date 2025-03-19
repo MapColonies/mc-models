@@ -16,6 +16,9 @@ export interface IDescribeTsType {
   importFromPackage?: string;
 }
 
+//****** IMPORTANT: ALL external enums which in use MUST be proxied by mc-models.
+//****** In other words, enums MUST be imported in generated code(graphQL) from MC_MODELS ONLY,
+//****** in order to be compliant to types package which in use by MC-MODELS
 /* eslint-disable @typescript-eslint/naming-convention */
 export const TsTypes = {
   STRING: {
@@ -59,6 +62,14 @@ export const TsTypes = {
     value: 'Link',
     type: PropertiesTypes.ARRAY,
   },
+  FEATURESTRUCTURE: {
+    value: 'VectorFeatureTypeStructure',
+    type: PropertiesTypes.CLASS,
+  },
+  FIELDFEATURETYPES: {
+    value: 'FieldFeatureType',
+    type: PropertiesTypes.ARRAY,
+  },
   RECORDTYPE: {
     value: 'RecordType',
     type: PropertiesTypes.ENUM,
@@ -97,12 +108,12 @@ export const TsTypes = {
   PRODUCTTYPE: {
     value: 'ProductType',
     type: PropertiesTypes.ENUM,
-    importFromPackage: '@map-colonies/types',
+    importFromPackage: '@map-colonies/mc-model-types',
   },
   TRANSPARENCY: {
     value: 'Transparency',
     type: PropertiesTypes.ENUM,
-    importFromPackage: '@map-colonies/types',
+    importFromPackage: '@map-colonies/mc-model-types',
   },
   TILE_OUTPUT_FORMAT: {
     value: 'TileOutputFormat',
@@ -112,7 +123,7 @@ export const TsTypes = {
   RECORD_STATUS: {
     value: 'RecordStatus',
     type: PropertiesTypes.ENUM,
-    importFromPackage: '@map-colonies/types',
+    importFromPackage: '@map-colonies/mc-model-types',
   },
 } satisfies Record<string, IDescribeTsType>;
 

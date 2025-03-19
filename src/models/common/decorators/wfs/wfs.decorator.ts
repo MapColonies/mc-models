@@ -13,14 +13,22 @@ export enum JAVA_BINDINGS {
 }
 
 export interface IWFSMapping {
-  binding: JAVA_BINDINGS; // java type 'java.util.UUID'
-  name?: string; // property name that will be exposed by WFS service
-  minOccurs?: number;
-  maxOccurs?: number;
+  geoserver?: {
+    binding: JAVA_BINDINGS; // java type 'java.util.UUID'
+    name?: string; // property name that will be exposed by WFS service
+    minOccurs?: number;
+    maxOccurs?: number;
+  };
+  capabilitiesMapping?: {
+    xmlElement: string;
+  };
 }
 
 export interface IPropWFSMapping extends IWFSMapping {
   prop: string; // prop name for convinience
+}
+
+export interface IWFSGeoServerMapping extends IWFSMapping, IPropWFSMapping {
   source: string; // DB column name. IMPORTANT: Will be derived from catalogDB decorator metadata
   nillable: boolean; // is nullable by DB definitions
 }

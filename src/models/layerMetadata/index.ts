@@ -13,6 +13,7 @@ export { IOrmCatalog } from '../common/interfaces/ormCatalog.interface';
 export * from './pycswLayerCatalogRecord';
 export * from './pycsw3DCatalogRecord';
 export * from './pycswDEMCatalogRecord';
-export * from './pycswVectorBestCatalogRecord';
+export * from './vectorBestMetadata';
 export * from './pycswQuantizedMeshBestCatalogRecord';
+export * from './vectorFeatureTypeStructure';
 export * from './enums';

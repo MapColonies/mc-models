@@ -1136,6 +1136,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     const DUMMY_VALUE_TRANSPARENCY = Transparency.OPAQUE;
     const DUMMY_VALUE_TILE_OUTPUT_FORMAT = TileOutputFormat.JPEG;
     const DUMMY_VALUE_TILE_MIME_FORMAT = 'image/png';
+    const DUMMY_VALUE_GEOJSON = { features: [], type: 'FeatureCollection' } as GeoJSON;
 
     this.classification = DUMMY_VALUE_STRING;
     this.id = DUMMY_VALUE_STRING;
@@ -1151,6 +1152,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     this.maxHorizontalAccuracyCE90 = DUMMY_VALUE_NUMBER;
     this.region = [DUMMY_VALUE_STRING];
     this.sensors = [DUMMY_VALUE_STRING];
+    this.footprint = DUMMY_VALUE_GEOJSON;
     this.imagingTimeBeginUTC = new Date();
     this.imagingTimeEndUTC = new Date();
     this.updateDateUTC = new Date();
