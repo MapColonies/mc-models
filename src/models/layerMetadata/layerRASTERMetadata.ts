@@ -1,7 +1,7 @@
 import { keys } from 'ts-transformer-keys';
 import { NewRasterLayerMetadata, UpdateRasterLayerMetadata, RasterLayerMetadata, Transparency, TileOutputFormat } from '@map-colonies/raster-shared';
 import { GeoJSON } from 'geojson';
-import { TilesMimeFormat, RecordType, ProductType } from '@map-colonies/types';
+import { TilesMimeFormat, RecordType, ProductType, RecordStatus } from '@map-colonies/types';
 import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import {
@@ -1127,6 +1127,36 @@ export class LayerMetadata implements RasterLayerMetadata {
   })
   //#endregion
   public tileOutputFormat!: TileOutputFormat;
+
+  //#region Raster: productStatus
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:productStatus',
+    queryableField: 'mc:productStatus',
+    pycswField: 'pycsw:productStatus',
+  })
+  @catalogDB({
+    column: {
+      name: 'product_status',
+      type: 'text',
+      default: RecordStatus.UNPUBLISHED,
+      nullable: false,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.RECORD_STATUS,
+  })
+  @graphql({
+    nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+    default: RecordStatus.PUBLISHED,
+    isLifecycleEnvolved: true,
+  })
+  //#endregion
+  public productStatus: RecordStatus | undefined = RecordStatus.PUBLISHED;
+  //#endregion
 
   //#endregion
 
