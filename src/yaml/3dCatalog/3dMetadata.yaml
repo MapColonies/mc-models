@@ -37,7 +37,7 @@ components:
           description: ID of product
         productName:
           type: string
-          maxLength: 50
+          maxLength: 120
           description: Name of product
         productType:
           type: string
@@ -217,7 +217,7 @@ components:
           description: ID of product
         productName:
           type: string
-          maxLength: 50
+          maxLength: 120
           description: Name of product
         productType:
           type: string
@@ -401,7 +401,7 @@ components:
           description: ID of product
         productName:
           type: string
-          maxLength: 50
+          maxLength: 120
           description: Name of product
         productType:
           type: string
@@ -592,7 +592,7 @@ components:
       properties:
         productName:
           type: string
-          maxLength: 50
+          maxLength: 120
           description: Name of product
         description:
           type: string
