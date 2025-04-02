@@ -1163,13 +1163,10 @@ export class LayerMetadata implements RasterLayerMetadata {
     this.tileMimeFormat = DUMMY_VALUE_TILE_MIME_FORMAT;
     this.tileOutputFormat = DUMMY_VALUE_TILE_OUTPUT_FORMAT;
     this.type = RecordType.RECORD_RASTER;
-    this.classification = DUMMY_VALUE_STRING;
     this.productName = DUMMY_VALUE_STRING;
     this.description = DUMMY_VALUE_STRING;
     this.srsName = DUMMY_VALUE_STRING;
     this.producerName = DUMMY_VALUE_STRING;
-    this.sensors = [DUMMY_VALUE_STRING];
-    this.region = [DUMMY_VALUE_STRING];
     this.productId = DUMMY_VALUE_STRING;
     this.productType = ProductType.ORTHOPHOTO;
   }
