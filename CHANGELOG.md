@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.17.0](https://github.com/MapColonies/mc-models/compare/v17.14.0...v17.17.0) (2025-04-02)
+
+
+### Features
+
+* Country list from lookuptables ([#252](https://github.com/MapColonies/mc-models/issues/252)) ([a3d17ef](https://github.com/MapColonies/mc-models/commit/a3d17efa3edb6c4e93f0c02a8c2c4ce3089e58c1))
+* shape file providers mappings ([#250](https://github.com/MapColonies/mc-models/issues/250)) ([375a38f](https://github.com/MapColonies/mc-models/commit/375a38f9be717e9e9cda08c6e2a844e0b69529f4))
+
+
+### Bug Fixes
+
+* mimeType mapping in pycsw decorator ([#254](https://github.com/MapColonies/mc-models/issues/254)) ([d810d6d](https://github.com/MapColonies/mc-models/commit/d810d6d497e111032d1466ada62c3baef1b0aaf3))
+* set 3D product name length to 120 ([#256](https://github.com/MapColonies/mc-models/issues/256)) ([07381eb](https://github.com/MapColonies/mc-models/commit/07381eb2553bb2ec81c48221109b474da4988a8a))
+
 ## [17.16.0](https://github.com/MapColonies/mc-models/compare/v17.15.1...v17.16.0) (2025-03-11)
 
 
