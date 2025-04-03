@@ -43,7 +43,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
       name: 'schema',
       type: 'text',
       nullable: false,
-      default: 'mc_raster', // maybe?
+      default: 'mc_raster',
     },
   })
   @tsTypes({
