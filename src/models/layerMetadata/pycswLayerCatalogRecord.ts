@@ -9,7 +9,7 @@ import { FieldCategory, fieldConfig, getFieldConfig, IPropFieldConfigInfo } from
 import { getFieldConfigClassInfo } from '../common/decorators/fieldConfig/classFieldConfig.decorator';
 import { NewRasterLayerMetadata, UpdateRasterLayerMetadata } from '../raster/ingestion';
 import { Link } from './link';
-import { catalogDB, getCatalogDBMapping } from './decorators/property/catalogDB.decorator';
+import { catalogDB, getCatalogDBMapping, ORMColumnType } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
 import { IPropPYCSWMapping, LayerMetadata } from './layerRASTERMetadata';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
@@ -27,6 +27,8 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     column: {
       name: 'typename',
       type: 'text',
+      nullable: false,
+      default: 'mc_MCRasterRecord',
     },
   })
   @tsTypes({
@@ -40,6 +42,8 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     column: {
       name: 'schema',
       type: 'text',
+      nullable: false,
+      default: 'mc_raster',
     },
   })
   @tsTypes({
@@ -52,6 +56,8 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     column: {
       name: 'mdsource',
       type: 'text',
+      nullable: false,
+      default: '',
     },
   })
   @tsTypes({
@@ -65,6 +71,8 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     column: {
       name: 'xml',
       type: 'text',
+      nullable: false,
+      default: '',
     },
   })
   @tsTypes({
@@ -78,6 +86,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     column: {
       name: 'anytext',
       type: 'text',
+      nullable: false,
     },
   })
   @tsTypes({
@@ -96,8 +105,10 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   @catalogDB({
     column: {
       name: 'insert_date',
-      type: 'timestamp without time zone',
-      default: 'CURRENT_TIMESTAMP',
+      type: 'timestamp with time zone',
+      nullable: false,
+      insert: false,
+      columnType: ORMColumnType.CREATE_DATE_COLUMN,
     },
   })
   @tsTypes({
@@ -118,7 +129,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     column: {
       name: 'wkt_geometry',
       type: 'text',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
@@ -134,7 +145,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
       type: 'geometry',
       spatialFeatureType: 'Geometry',
       srid: 4326,
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
@@ -154,6 +165,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
     column: {
       name: 'keywords',
       type: 'text',
+      nullable: true,
     },
   })
   @tsTypes({
