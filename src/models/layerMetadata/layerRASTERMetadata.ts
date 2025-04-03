@@ -1155,7 +1155,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     isLifecycleEnvolved: true,
   })
   //#endregion
-  public productStatus: RecordStatus | undefined = RecordStatus.PUBLISHED;
+  public productStatus: RecordStatus | undefined = RecordStatus.UNPUBLISHED;
   //#endregion
 
   //#endregion
