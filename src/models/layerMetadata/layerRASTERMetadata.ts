@@ -1169,6 +1169,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     this.producerName = DUMMY_VALUE_STRING;
     this.productId = DUMMY_VALUE_STRING;
     this.productType = ProductType.ORTHOPHOTO;
+    this.footprint = {} as GeoJSON;
   }
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
