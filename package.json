@@ -1,6 +1,6 @@
 {
   "name": "@map-colonies/mc-model-types",
-  "version": "17.17.2",
+  "version": "17.17.3",
   "description": "json schemas for validations and generated ts models",
   "author": "",
   "license": "MIT",
@@ -37,7 +37,7 @@
     "test:integration": "jest --config=./tests/configurations/integration/jest.config.js"
   },
   "dependencies": {
-    "@map-colonies/raster-shared": "^1.9.2",
+    "@map-colonies/raster-shared": "file:../../raster/raster-shared/map-colonies-raster-shared-1.9.2.tgz",
     "@types/geojson": "^7946.0.7",
     "change-case-all": "^2.1.0",
     "reflect-metadata": "^0.1.13",

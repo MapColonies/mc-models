@@ -1155,7 +1155,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     isLifecycleEnvolved: true,
   })
   //#endregion
-  public productStatus: RecordStatus | undefined = RecordStatus.UNPUBLISHED;
+  public productStatus!: RecordStatus;
   //#endregion
 
   //#endregion
@@ -1200,6 +1200,7 @@ export class LayerMetadata implements RasterLayerMetadata {
     this.productId = DUMMY_VALUE_STRING;
     this.productType = ProductType.ORTHOPHOTO;
     this.footprint = {} as GeoJSON;
+    this.productStatus = RecordStatus.UNPUBLISHED;
   }
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
