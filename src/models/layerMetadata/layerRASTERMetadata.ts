@@ -1151,11 +1151,11 @@ export class LayerMetadata implements RasterLayerMetadata {
   })
   @fieldConfig({
     category: FieldCategory.MAIN,
-    default: RecordStatus.PUBLISHED,
+    default: RecordStatus.UNPUBLISHED,
     isLifecycleEnvolved: true,
   })
   //#endregion
-  public productStatus!: RecordStatus;
+  public productStatus?: RecordStatus | undefined = RecordStatus.UNPUBLISHED;
   //#endregion
 
   //#endregion
