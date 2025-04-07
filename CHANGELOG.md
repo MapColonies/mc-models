@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [18.0.0](https://github.com/MapColonies/mc-models/compare/v17.17.2...v18.0.0) (2025-04-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* add product status to raster(MAPCO-6581) (#249)
+
+### Features
+
+* add product status to raster(MAPCO-6581) ([#249](https://github.com/MapColonies/mc-models/issues/249)) ([88a373a](https://github.com/MapColonies/mc-models/commit/88a373a994f4646e95d8180fea560b97400836a1))
+
 ### [17.17.2](https://github.com/MapColonies/mc-models/compare/v17.16.1...v17.17.2) (2025-04-03)
 
 ### [17.17.1](https://github.com/MapColonies/mc-models/compare/v17.16.1...v17.17.1) (2025-04-03)
