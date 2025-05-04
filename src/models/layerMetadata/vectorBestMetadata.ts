@@ -8,28 +8,26 @@ import {
   IFieldConfigInfo,
   IPropFieldConfigInfo,
 } from '../common/decorators/fieldConfig/fieldConfig.decorator';
-// import { getCatalogDBMapping, ICatalogDBMapping } from './decorators/property/catalogDB.decorator';
-import { getTsTypesMapping, tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
+import { tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 import { IPropSHPMapping } from './decorators/property/shp.decorator';
-
 import { getWFSMapping, graphqlClass, IPropWFSMapping, IWFSMapping, Link, wfs } from '../common';
 import { getFieldConfigClassInfo } from '../common/decorators/fieldConfig/classFieldConfig.decorator';
 import { IPropPYCSWMapping } from './layerRASTERMetadata';
 import { VectorFeatureTypeStructure } from './vectorFeatureTypeStructure';
 
 export interface IVectorBestMetadata {
-  id: string | undefined; // **
+  id: string | undefined;
   keywords: string | undefined;
-  links: Link[] | undefined; // **
-  type: RecordType | undefined; // **
-  classification: string | undefined; //HardCoded 'Top secret'
-  productName: string | undefined; // **
+  links: Link[] | undefined;
+  type: RecordType | undefined;
+  classification: string | undefined;
+  productName: string | undefined;
   description: string | undefined;
-  srsId: string | undefined; // **
-  srsName: string | undefined; // **
-  producerName: string | undefined; //HardCoded 'Moria'
-  footprint: GeoJSON | undefined; // **
-  productType: ProductType | undefined; // ** //vector best
+  srsId: string | undefined;
+  srsName: string | undefined;
+  producerName: string | undefined;
+  footprint: GeoJSON | undefined;
+  productType: ProductType | undefined;
   featureStructure: VectorFeatureTypeStructure | undefined;
 }
 
@@ -38,11 +36,11 @@ export class VectorBestMetadata implements IVectorBestMetadata {
   //#region COMMON FIELDS
 
   //#region CORE: id
-  // @wfs({
-  //   capabilitiesMapping: {
-  //     xmlElement: 'mc:id',
-  //   }
-  // })
+  @wfs({
+    capabilitiesMapping: {
+      xmlElement: '',
+    },
+  })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
@@ -74,11 +72,11 @@ export class VectorBestMetadata implements IVectorBestMetadata {
   public keywords: string | undefined = undefined;
 
   //#region CORE: links
-  // @wfs({
-  //   capabilitiesMapping: {
-  //     xmlElement: 'mc:links',
-  //   }
-  // })
+  @wfs({
+    capabilitiesMapping: {
+      xmlElement: 'name',
+    },
+  })
   @tsTypes({
     mappingType: TsTypes.LINKS,
   })
@@ -94,11 +92,11 @@ export class VectorBestMetadata implements IVectorBestMetadata {
   public links: Link[] | undefined = undefined;
 
   //#region COMMON: type
-  // @wfs({
-  //   capabilitiesMapping: {
-  //     xmlElement: 'type',
-  //   }
-  // })
+  @wfs({
+    capabilitiesMapping: {
+      xmlElement: '',
+    },
+  })
   @tsTypes({
     mappingType: TsTypes.RECORDTYPE,
   })
@@ -109,11 +107,11 @@ export class VectorBestMetadata implements IVectorBestMetadata {
   public type: RecordType | undefined = RecordType.RECORD_RASTER;
 
   //#region COMMON: classification
-  // @wfs({
-  //   capabilitiesMapping: {
-  //     xmlElement: 'classification',
-  //   },
-  // })
+  @wfs({
+    capabilitiesMapping: {
+      xmlElement: '',
+    },
+  })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
@@ -161,11 +159,11 @@ export class VectorBestMetadata implements IVectorBestMetadata {
   public productName: string | undefined = undefined;
 
   //#region COMMON: description
-  // @wfs({
-  //   capabilitiesMapping: {
-  //     xmlElement: 'description',
-  //   }
-  // })
+  @wfs({
+    capabilitiesMapping: {
+      xmlElement: '',
+    },
+  })
   @tsTypes({
     mappingType: TsTypes.STRING,
   })
@@ -202,7 +200,7 @@ export class VectorBestMetadata implements IVectorBestMetadata {
   //#region COMMON: producerName
   @wfs({
     capabilitiesMapping: {
-      xmlElement: 'name.namespaceURI',
+      xmlElement: 'name',
     },
   })
   @tsTypes({
@@ -227,11 +225,11 @@ export class VectorBestMetadata implements IVectorBestMetadata {
   public producerName: string | undefined = undefined;
 
   //#region VECTOR_BEST: productType
-  // @wfs({
-  //   capabilitiesMapping: {
-  //     xmlElement: 'mc:productType',
-  //   }
-  // })
+  @wfs({
+    capabilitiesMapping: {
+      xmlElement: '',
+    },
+  })
   @tsTypes({
     mappingType: TsTypes.PRODUCTTYPE,
   })
@@ -336,32 +334,11 @@ export class VectorBestMetadata implements IVectorBestMetadata {
     return getFieldConfig<VectorBestMetadata>(new VectorBestMetadata(), prop);
   }
 
-  // public static getWFSGeoServerMappings(): IPropWFSMapping[] {
-  //   const ret = [];
-  //   const layer = new VectorBestMetadata();
-  //   for (const prop in layer) {
-  //     const wfsMap = getWFSMapping<VectorBestMetadata>(layer, prop);
-  //     if (wfsMap) {
-  //       ret.push({
-  //         prop: prop,
-  //         ...wfsMap,
-  //       });
-  //     }
-  //   }
-  //   return ret;
-  // }
-
   public static getPyCSWMappings(): IPropPYCSWMapping[] {
-    // return [];
-    //@ts-ignore
-    return this.getWFSCapabilitiesMappings();
+    throw new Error('NOT IMPLEMENTED');
   }
 
-  public static getWFSGeoServerMappings(): IPropWFSMapping[] {
-    throw 'NOT IMPLEMENTED';
-  }
-
-  public static getWFSCapabilitiesMappings(): IPropWFSMapping[] {
+  public static getWFSMappings(): IPropWFSMapping[] {
     const ret = [];
     const layer = new VectorBestMetadata();
     for (const prop in layer) {
@@ -369,7 +346,7 @@ export class VectorBestMetadata implements IVectorBestMetadata {
       if (wfsMap) {
         ret.push({
           prop: prop,
-          ...wfsMap.capabilitiesMapping,
+          ...wfsMap,
         });
       }
     }
