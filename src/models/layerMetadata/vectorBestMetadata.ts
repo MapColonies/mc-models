@@ -1,6 +1,7 @@
 import { GeoJSON } from 'geojson';
 import { RecordType, ProductType } from '@map-colonies/types';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
+import { getFieldConfigClassInfo } from '../common/decorators/fieldConfig/classFieldConfig.decorator';
 import {
   FieldCategory,
   fieldConfig,
@@ -8,28 +9,11 @@ import {
   IFieldConfigInfo,
   IPropFieldConfigInfo,
 } from '../common/decorators/fieldConfig/fieldConfig.decorator';
+import { getWFSMapping, graphqlClass, IPropWFSMapping, IWFSMapping, Link, wfs } from '../common';
 import { tsTypes, TsTypes } from './decorators/property/tsTypes.decorator';
 import { IPropSHPMapping } from './decorators/property/shp.decorator';
-import { getWFSMapping, graphqlClass, IPropWFSMapping, IWFSMapping, Link, wfs } from '../common';
-import { getFieldConfigClassInfo } from '../common/decorators/fieldConfig/classFieldConfig.decorator';
 import { IPropPYCSWMapping } from './layerRASTERMetadata';
 import { VectorFeatureTypeStructure } from './vectorFeatureTypeStructure';
-
-export interface IVectorBestMetadata {
-  id: string | undefined;
-  keywords: string | undefined;
-  links: Link[] | undefined;
-  type: RecordType | undefined;
-  classification: string | undefined;
-  productName: string | undefined;
-  description: string | undefined;
-  srsId: string | undefined;
-  srsName: string | undefined;
-  producerName: string | undefined;
-  footprint: GeoJSON | undefined;
-  productType: ProductType | undefined;
-  featureStructure: VectorFeatureTypeStructure | undefined;
-}
 
 @graphqlClass({ alias: 'VectorBestRecord' })
 export class VectorBestMetadata implements IVectorBestMetadata {
@@ -372,4 +356,20 @@ export class VectorBestMetadata implements IVectorBestMetadata {
   public static getShpMappings(): IPropSHPMapping[] {
     return [];
   }
+}
+
+export interface IVectorBestMetadata {
+  id: string | undefined;
+  keywords: string | undefined;
+  links: Link[] | undefined;
+  type: RecordType | undefined;
+  classification: string | undefined;
+  productName: string | undefined;
+  description: string | undefined;
+  srsId: string | undefined;
+  srsName: string | undefined;
+  producerName: string | undefined;
+  footprint: GeoJSON | undefined;
+  productType: ProductType | undefined;
+  featureStructure: VectorFeatureTypeStructure | undefined;
 }
