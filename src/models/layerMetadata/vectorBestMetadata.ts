@@ -319,7 +319,7 @@ export class VectorBestMetadata implements IVectorBestMetadata {
   }
 
   public static getPyCSWMappings(): IPropPYCSWMapping[] {
-    throw new Error('NOT IMPLEMENTED');
+    return [];
   }
 
   public static getWFSMappings(): IPropWFSMapping[] {
