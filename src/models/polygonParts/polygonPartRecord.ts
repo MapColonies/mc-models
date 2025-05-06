@@ -13,7 +13,7 @@ import {
 import { catalogDB, getCatalogDBMapping, ORMColumnType } from '../layerMetadata/decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, tsTypes, TsTypes } from '../layerMetadata/decorators/property/tsTypes.decorator';
 import { ICatalogDBEntityMapping, IOrmCatalog, IPYCSWMapping } from '../layerMetadata';
-import { getWFSMapping, graphqlClass, IPropCatalogDBMapping, IPropWFSMapping, JAVA_BINDINGS, wfs } from '../common';
+import { getWFSMapping, graphqlClass, IPropCatalogDBMapping, IWFSGeoServerMapping, JAVA_BINDINGS, wfs } from '../common';
 import { VALIDATIONS } from '../raster/constants';
 import { camelCaseToSnakeCase } from '../helpers/utils';
 import { DBEntity, getDBEntityMapping } from '../layerMetadata/decorators/class/DBEntity.decorator';
@@ -43,7 +43,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     },
   })
   @wfs({
-    binding: JAVA_BINDINGS.STRING,
+    geoserver: {
+      binding: JAVA_BINDINGS.STRING,
+    },
   })
   @inputDataMapping([
     {
@@ -84,7 +86,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     },
   })
   @wfs({
-    binding: JAVA_BINDINGS.STRING,
+    geoserver: {
+      binding: JAVA_BINDINGS.STRING,
+    },
   })
   @inputDataMapping([
     {
@@ -131,7 +135,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     index: {},
   })
   @wfs({
-    binding: JAVA_BINDINGS.STRING,
+    geoserver: {
+      binding: JAVA_BINDINGS.STRING,
+    },
   })
   @inputDataMapping([
     {
@@ -196,7 +202,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     index: {},
   })
   @wfs({
-    binding: JAVA_BINDINGS.STRING,
+    geoserver: {
+      binding: JAVA_BINDINGS.STRING,
+    },
   })
   @tsTypes({
     mappingType: TsTypes.PRODUCTTYPE,
@@ -218,7 +226,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     },
   })
   @wfs({
-    binding: JAVA_BINDINGS.STRING,
+    geoserver: {
+      binding: JAVA_BINDINGS.STRING,
+    },
   })
   @inputDataMapping([
     {
@@ -259,7 +269,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     index: {},
   })
   @wfs({
-    binding: JAVA_BINDINGS.TIMESTAMP,
+    geoserver: {
+      binding: JAVA_BINDINGS.TIMESTAMP,
+    },
   })
   @inputDataMapping([
     {
@@ -315,7 +327,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     index: {},
   })
   @wfs({
-    binding: JAVA_BINDINGS.TIMESTAMP,
+    geoserver: {
+      binding: JAVA_BINDINGS.TIMESTAMP,
+    },
   })
   @inputDataMapping([
     {
@@ -365,7 +379,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     },
   })
   @wfs({
-    binding: JAVA_BINDINGS.FLOAT,
+    geoserver: {
+      binding: JAVA_BINDINGS.FLOAT,
+    },
   })
   @inputDataMapping([
     {
@@ -424,7 +440,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     },
   })
   @wfs({
-    binding: JAVA_BINDINGS.STRING,
+    geoserver: {
+      binding: JAVA_BINDINGS.STRING,
+    },
   })
   @inputDataMapping([
     {
@@ -473,7 +491,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     },
   })
   @wfs({
-    binding: JAVA_BINDINGS.STRING,
+    geoserver: {
+      binding: JAVA_BINDINGS.STRING,
+    },
   })
   @inputDataMapping([
     {
@@ -517,7 +537,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     },
   })
   @wfs({
-    binding: JAVA_BINDINGS.STRING,
+    geoserver: {
+      binding: JAVA_BINDINGS.STRING,
+    },
   })
   @inputDataMapping([
     {
@@ -558,7 +580,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     index: {},
   })
   @wfs({
-    binding: JAVA_BINDINGS.BIGDECIMAL,
+    geoserver: {
+      binding: JAVA_BINDINGS.BIGDECIMAL,
+    },
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
@@ -599,7 +623,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     index: {},
   })
   @wfs({
-    binding: JAVA_BINDINGS.BIGDECIMAL,
+    geoserver: {
+      binding: JAVA_BINDINGS.BIGDECIMAL,
+    },
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
@@ -634,7 +660,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     },
   })
   @wfs({
-    binding: JAVA_BINDINGS.BIGDECIMAL,
+    geoserver: {
+      binding: JAVA_BINDINGS.BIGDECIMAL,
+    },
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
@@ -705,7 +733,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     index: { spatial: true },
   })
   @wfs({
-    binding: JAVA_BINDINGS.POLYGON,
+    geoserver: {
+      binding: JAVA_BINDINGS.POLYGON,
+    },
   })
   @inputDataMapping([
     {
@@ -755,7 +785,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     },
   })
   @wfs({
-    binding: JAVA_BINDINGS.UUID,
+    geoserver: {
+      binding: JAVA_BINDINGS.UUID,
+    },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -776,7 +808,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     },
   })
   @wfs({
-    binding: JAVA_BINDINGS.UUID,
+    geoserver: {
+      binding: JAVA_BINDINGS.UUID,
+    },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -799,7 +833,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     index: {},
   })
   @wfs({
-    binding: JAVA_BINDINGS.UUID,
+    geoserver: {
+      binding: JAVA_BINDINGS.UUID,
+    },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -821,7 +857,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     },
   })
   @wfs({
-    binding: JAVA_BINDINGS.STRING,
+    geoserver: {
+      binding: JAVA_BINDINGS.STRING,
+    },
   })
   @tsTypes({
     mappingType: TsTypes.STRING,
@@ -856,7 +894,9 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     index: {},
   })
   @wfs({
-    binding: JAVA_BINDINGS.TIMESTAMP,
+    geoserver: {
+      binding: JAVA_BINDINGS.TIMESTAMP,
+    },
   })
   @tsTypes({
     mappingType: TsTypes.DATE,
@@ -872,20 +912,23 @@ export class PolygonPartRecord implements IPolygonPart, IOrmCatalog {
     return [];
   }
 
-  public static getWFSMappings(): IPropWFSMapping[] {
-    const ret: IPropWFSMapping[] = [];
+  public static getWFSMappings(): IWFSGeoServerMapping[] {
+    const ret: IWFSGeoServerMapping[] = [];
     const layer = new PolygonPartRecord();
     POLYGON_PARTS_SERVED_KEYS.forEach((prop) => {
       const catalogDbMap = getCatalogDBMapping(layer, prop);
       const wfsMap = getWFSMapping<PolygonPartRecord>(layer, prop);
       if (catalogDbMap && wfsMap) {
-        const { name, ...rest } = wfsMap;
+        const { name, binding, ...rest } = wfsMap.geoserver ?? {};
         ret.push({
           prop: prop,
-          name: name ?? prop,
           source: catalogDbMap.column.name as string,
           nillable: catalogDbMap.column.nullable ?? false,
-          ...rest,
+          geoserver: {
+            name: name ?? prop,
+            binding: binding ?? JAVA_BINDINGS.STRING,
+            ...rest,
+          },
         });
       }
     });
