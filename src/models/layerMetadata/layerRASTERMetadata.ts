@@ -1,7 +1,7 @@
 import { keys } from 'ts-transformer-keys';
 import { NewRasterLayerMetadata, UpdateRasterLayerMetadata, RasterLayerMetadata, Transparency, TileOutputFormat } from '@map-colonies/raster-shared';
 import { GeoJSON } from 'geojson';
-import { TilesMimeFormat, RecordType, ProductType } from '@map-colonies/types';
+import { TilesMimeFormat, RecordType, ProductType, RecordStatus } from '@map-colonies/types';
 import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import {
@@ -1098,9 +1098,9 @@ export class LayerMetadata implements RasterLayerMetadata {
   //#region RASTER: tilesMimeFormat
   @pycsw({
     profile: 'mc_raster',
-    xmlElement: 'mc:tilesMimeFormat',
-    queryableField: 'mc:tilesMimeFormat',
-    pycswField: 'pycsw:tilesMimeFormat',
+    xmlElement: 'mc:mimeType',
+    queryableField: 'mc:mimeType',
+    pycswField: 'pycsw:MimeType',
   })
   @catalogDB({
     column: {
@@ -1127,6 +1127,36 @@ export class LayerMetadata implements RasterLayerMetadata {
   })
   //#endregion
   public tileOutputFormat!: TileOutputFormat;
+
+  //#region Raster: productStatus
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:productStatus',
+    queryableField: 'mc:productStatus',
+    pycswField: 'pycsw:productStatus',
+  })
+  @catalogDB({
+    column: {
+      name: 'product_status',
+      type: 'text',
+      default: RecordStatus.UNPUBLISHED,
+      nullable: false,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.RECORD_STATUS,
+  })
+  @graphql({
+    nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+    default: RecordStatus.UNPUBLISHED,
+    isLifecycleEnvolved: true,
+  })
+  //#endregion
+  public productStatus?: RecordStatus | undefined = RecordStatus.UNPUBLISHED;
+  //#endregion
 
   //#endregion
 
@@ -1165,15 +1195,14 @@ export class LayerMetadata implements RasterLayerMetadata {
     this.tileMimeFormat = DUMMY_VALUE_TILE_MIME_FORMAT;
     this.tileOutputFormat = DUMMY_VALUE_TILE_OUTPUT_FORMAT;
     this.type = RecordType.RECORD_RASTER;
-    this.classification = DUMMY_VALUE_STRING;
     this.productName = DUMMY_VALUE_STRING;
     this.description = DUMMY_VALUE_STRING;
     this.srsName = DUMMY_VALUE_STRING;
     this.producerName = DUMMY_VALUE_STRING;
-    this.sensors = [DUMMY_VALUE_STRING];
-    this.region = [DUMMY_VALUE_STRING];
     this.productId = DUMMY_VALUE_STRING;
     this.productType = ProductType.ORTHOPHOTO;
+    this.footprint = {} as GeoJSON;
+    this.productStatus = RecordStatus.UNPUBLISHED;
   }
 
   public static getPyCSWMapping(prop: string): IPYCSWMapping | undefined {
