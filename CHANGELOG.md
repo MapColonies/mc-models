@@ -5,21 +5,9 @@ All notable changes to this project will be documented in this file. See [standa
 ## [19.0.0](https://github.com/MapColonies/mc-models/compare/v17.14.0...v19.0.0) (2025-07-24)
 
 
-### ⚠ BREAKING CHANGES
-
-* add product status to raster(MAPCO-6581) (#249)
-
-### Features
-
-* add product status to raster(MAPCO-6581) ([#249](https://github.com/MapColonies/mc-models/issues/249)) ([88a373a](https://github.com/MapColonies/mc-models/commit/88a373a994f4646e95d8180fea560b97400836a1))
-* Country list from lookuptables ([#252](https://github.com/MapColonies/mc-models/issues/252)) ([a3d17ef](https://github.com/MapColonies/mc-models/commit/a3d17efa3edb6c4e93f0c02a8c2c4ce3089e58c1))
-* shape file providers mappings ([#250](https://github.com/MapColonies/mc-models/issues/250)) ([375a38f](https://github.com/MapColonies/mc-models/commit/375a38f9be717e9e9cda08c6e2a844e0b69529f4))
-* update vector record ([#253](https://github.com/MapColonies/mc-models/issues/253)) ([96d3530](https://github.com/MapColonies/mc-models/commit/96d353016ab749fad5e225f6989be0ca765deb36))
-
 
 ### Bug Fixes
 
-* mimeType mapping in pycsw decorator ([#254](https://github.com/MapColonies/mc-models/issues/254)) ([d810d6d](https://github.com/MapColonies/mc-models/commit/d810d6d497e111032d1466ada62c3baef1b0aaf3))
 * raster generated entity ([#257](https://github.com/MapColonies/mc-models/issues/257)) ([39c570d](https://github.com/MapColonies/mc-models/commit/39c570d331073681cec5a7b8dae5ede89a0af95f))
 * set 3D product name length to 120 ([#256](https://github.com/MapColonies/mc-models/issues/256)) ([07381eb](https://github.com/MapColonies/mc-models/commit/07381eb2553bb2ec81c48221109b474da4988a8a))
 
