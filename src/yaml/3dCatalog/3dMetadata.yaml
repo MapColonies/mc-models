@@ -176,7 +176,7 @@ components:
           description: Area inside the region
         productStatus:
           type: string
-          pattern: '^(UNPUBLISHED|PUBLISHED)$'
+          pattern: '^(UNPUBLISHED|PUBLISHED|BEING_DELETED)$'
           default: 'UNPUBLISHED'
           description: The status of the model
         keywords:
@@ -540,7 +540,7 @@ components:
           description: Area inside the region
         productStatus:
           type: string
-          pattern: '^(UNPUBLISHED|PUBLISHED)$'
+          pattern: '^(UNPUBLISHED|PUBLISHED|BEING_DELETED)$'
           default: 'UNPUBLISHED'
           description: The status of the model
         productSource:
@@ -719,7 +719,7 @@ components:
         productStatus:
           type: string
           nullable: false
-          pattern: '^(UNPUBLISHED|PUBLISHED)$'
+          pattern: '^(UNPUBLISHED|PUBLISHED|BEING_DELETED)$'
           description: The status of the model
       additionalProperties: false
           
