@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.0.0](https://github.com/MapColonies/mc-models/compare/v17.14.0...v19.0.0) (2025-07-24)
+
+
+
+### Bug Fixes
+
+* raster generated entity ([#257](https://github.com/MapColonies/mc-models/issues/257)) ([39c570d](https://github.com/MapColonies/mc-models/commit/39c570d331073681cec5a7b8dae5ede89a0af95f))
+* set 3D product name length to 120 ([#256](https://github.com/MapColonies/mc-models/issues/256)) ([07381eb](https://github.com/MapColonies/mc-models/commit/07381eb2553bb2ec81c48221109b474da4988a8a))
+
 ## [18.1.0](https://github.com/MapColonies/mc-models/compare/v18.0.1...v18.1.0) (2025-05-06)
 
 
