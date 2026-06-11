@@ -5,6 +5,14 @@ info:
   version: 2.0.0
 components:
   schemas:
+    productType:
+      type: string
+      enum:
+        - 3DPhotorealistic
+        - 3DPhotoRealisticBest
+        - 3DSemantic
+        - 3DSemanticMesh
+      description: Type of product
     basic-payload:
       type: object
       description: 3d tiles metadata payload
@@ -40,9 +48,11 @@ components:
           maxLength: 120
           description: Name of product
         productType:
+          $ref: '#/components/schemas/productType'
+        productSubType:
           type: string
-          description: Type of product (3DPhotoRealistic)
-          example: 3DPhotoRealistic
+          nullable: true
+          description: Product sub type
         description:
           type: string
           maxLength: 500
@@ -220,9 +230,11 @@ components:
           maxLength: 120
           description: Name of product
         productType:
+          $ref: '#/components/schemas/productType'
+        productSubType:
           type: string
-          description: Type of product (3DPhotoRealistic)
-          example: 3DPhotoRealistic
+          nullable: true
+          description: Product sub type
         description:
           type: string
           maxLength: 500
@@ -404,9 +416,11 @@ components:
           maxLength: 120
           description: Name of product
         productType:
+          $ref: '#/components/schemas/productType'
+        productSubType:
           type: string
-          description: Type of product (3DPhotoRealistic)
-          example: 3DPhotoRealistic
+          nullable: true
+          description: Product sub type
         description:
           type: string
           maxLength: 500
@@ -594,6 +608,10 @@ components:
           type: string
           maxLength: 120
           description: Name of product
+        productSubType:
+          type: string
+          nullable: true
+          description: Product sub type
         description:
           type: string
           nullable: true

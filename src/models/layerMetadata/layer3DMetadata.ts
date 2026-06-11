@@ -186,6 +186,37 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   //#endregion
   public productType: ProductType | undefined = ProductType.PHOTO_REALISTIC_3D;
 
+  //#region 3D: productSubType
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:productSubType',
+    queryableField: 'mc:productSubType',
+    pycswField: 'pycsw:productSubType',
+  })
+  @catalogDB({
+    column: {
+      name: 'product_sub_type',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.MAIN,
+    isManuallyEditable: true,
+    autocomplete: {
+      type: 'domain',
+      value: 'mc:productSubType',
+    },
+  })
+  //#endregion
+  public productSubType: string | undefined = undefined;
+
   //#region 3D: description
   @pycsw({
     profile: 'mc_3d',
