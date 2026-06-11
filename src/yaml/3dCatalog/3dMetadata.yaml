@@ -235,7 +235,7 @@ components:
         productSubType:
           type: string
           nullable: true
-          description: Product sub type
+          description: Sub-Type of 3D product
         description:
           type: string
           maxLength: 500
@@ -421,7 +421,7 @@ components:
         productSubType:
           type: string
           nullable: true
-          description: Product sub type
+          description: Sub-Type of 3D product
         description:
           type: string
           maxLength: 500
