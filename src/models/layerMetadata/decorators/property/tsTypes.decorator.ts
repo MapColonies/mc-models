@@ -110,11 +110,6 @@ export const TsTypes = {
     type: PropertiesTypes.ENUM,
     importFromPackage: '@map-colonies/mc-model-types',
   },
-  THREE_D_PRODUCT_TYPE: {
-    value: 'ThreeDProductType',
-    type: PropertiesTypes.ENUM,
-    importFromPackage: '@map-colonies/mc-model-types',
-  },
   TRANSPARENCY: {
     value: 'Transparency',
     type: PropertiesTypes.ENUM,

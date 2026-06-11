@@ -1,6 +1,6 @@
 import { GeoJSON } from 'geojson';
-import { RecordType, RecordStatus } from '@map-colonies/types';
-import { ThreeDProductType } from '../3dCatalog/constants';
+import { RecordType, RecordStatus, ProductType } from '@map-colonies/types';
+
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import {
   FieldCategory,
@@ -171,7 +171,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     },
   })
   @tsTypes({
-    mappingType: TsTypes.THREE_D_PRODUCT_TYPE,
+    mappingType: TsTypes.PRODUCTTYPE,
   })
   @graphql()
   @fieldConfig({
@@ -185,7 +185,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     ],
   })
   //#endregion
-  public productType: ThreeDProductType | undefined = ThreeDProductType.PHOTOREALISTIC;
+  public productType: ProductType | undefined = ProductType.PHOTO_REALISTIC_3D;
 
   //#region 3D: productSubType
   @pycsw({

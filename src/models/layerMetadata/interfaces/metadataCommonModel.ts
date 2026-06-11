@@ -1,6 +1,5 @@
 import { GeoJSON } from 'geojson';
 import { ProductType, RecordType } from '@map-colonies/types';
-import { ThreeDProductType } from '../../3dCatalog/constants';
 
 export interface IMetadataCommonModel {
   // PROFILES COMMON FIELDS
@@ -14,5 +13,5 @@ export interface IMetadataCommonModel {
   region: string[] | undefined;
   footprint: GeoJSON | undefined;
   productId: string | undefined;
-  productType: ProductType | ThreeDProductType | undefined;
+  productType: ProductType | undefined;
 }

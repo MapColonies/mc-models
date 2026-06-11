@@ -12,7 +12,8 @@ components:
         - 3DPhotoRealisticBest
         - 3DSemantic
         - 3DSemanticMesh
-      description: Type of product
+        - 3DPointCloud
+      description: Type of 3D product
     basic-payload:
       type: object
       description: 3d tiles metadata payload
@@ -52,7 +53,7 @@ components:
         productSubType:
           type: string
           nullable: true
-          description: Product sub type
+          description: Sub-Type of 3D product
         description:
           type: string
           maxLength: 500
