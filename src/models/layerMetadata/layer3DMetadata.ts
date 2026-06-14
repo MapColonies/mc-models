@@ -185,7 +185,7 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
     ],
   })
   //#endregion
-  public productType: ProductType | undefined = ProductType.PHOTO_REALISTIC_3D;
+  public productType: ProductType | undefined = ProductType.PHOTO_REALISTIC;
 
   //#region 3D: productSubType
   @pycsw({
