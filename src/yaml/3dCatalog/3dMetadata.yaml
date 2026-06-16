@@ -14,6 +14,10 @@ components:
         - 3DSemanticMesh
         - 3DPointCloud
       description: Type of 3D product
+    productSubType:
+      type: string
+      nullable: true
+      description: Sub-Type of 3D product
     basic-payload:
       type: object
       description: 3d tiles metadata payload
@@ -51,9 +55,7 @@ components:
         productType:
           $ref: '#/components/schemas/productType'
         productSubType:
-          type: string
-          nullable: true
-          description: Sub-Type of 3D product
+          $ref: '#/components/schemas/productSubType'
         description:
           type: string
           maxLength: 500
@@ -612,7 +614,7 @@ components:
         productSubType:
           type: string
           nullable: true
-          description: Product sub type
+          description: Sub-Type of 3D product
         description:
           type: string
           nullable: true

@@ -17,6 +17,7 @@ import { catalogDB, ORMColumnType } from './decorators/property/catalogDB.decora
 export interface ILayer3DMetadata {
   srsId: string | undefined;
   productVersion: number | undefined;
+  productSubType: string | undefined;
   creationDate: Date | undefined;
   minResolutionMeter: number | undefined;
   maxResolutionMeter: number | undefined;
