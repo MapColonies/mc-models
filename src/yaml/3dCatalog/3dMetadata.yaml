@@ -235,9 +235,7 @@ components:
         productType:
           $ref: '#/components/schemas/productType'
         productSubType:
-          type: string
-          nullable: true
-          description: Sub-Type of 3D product
+          $ref: '#/components/schemas/productSubType'
         description:
           type: string
           maxLength: 500
@@ -421,9 +419,7 @@ components:
         productType:
           $ref: '#/components/schemas/productType'
         productSubType:
-          type: string
-          nullable: true
-          description: Sub-Type of 3D product
+          $ref: '#/components/schemas/productSubType'
         description:
           type: string
           maxLength: 500
@@ -612,9 +608,7 @@ components:
           maxLength: 120
           description: Name of product
         productSubType:
-          type: string
-          nullable: true
-          description: Sub-Type of 3D product
+          $ref: '#/components/schemas/productSubType'
         description:
           type: string
           nullable: true
