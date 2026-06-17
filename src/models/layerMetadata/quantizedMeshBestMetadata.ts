@@ -193,7 +193,7 @@ export class QuantizedMeshBestMetadata implements IQuantizedMeshBestMetadata, IM
     ],
   })
   //#endregion
-  public productType: ProductType | undefined = ProductType.PHOTO_REALISTIC_3D;
+  public productType: ProductType | undefined = ProductType.QUANTIZED_MESH_DTM_BEST;
 
   //#region QUANTIZED_MESH_BEST: description
   @pycsw({
