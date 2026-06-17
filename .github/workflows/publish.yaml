@@ -16,5 +16,5 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Init nodejs
-        uses: MapColonies/shared-workflows/actions/init-npm@init-npm-v1.2.0
+        uses: MapColonies/shared-workflows/actions/init-npm@init-npm-v1
       - run: npm publish --access public
