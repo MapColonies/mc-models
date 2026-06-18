@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.1.0](https://github.com/MapColonies/mc-models/compare/v19.0.0...v19.1.0) (2026-06-17)
+
+
+### Features
+
+* add types for ProductType and added field ProductSubType (MAPCO-10802) ([#262](https://github.com/MapColonies/mc-models/issues/262)) ([03cd039](https://github.com/MapColonies/mc-models/commit/03cd0394e9f312600f36d02993398badfe118ec0))
+
+
+### Bug Fixes
+
+* added released please and changed publish.yaml ([#263](https://github.com/MapColonies/mc-models/issues/263)) ([11608fb](https://github.com/MapColonies/mc-models/commit/11608fba63e9ad88cb91ca917ebbf5ee37eb33f2))
+* downgrade release-on-tag-push version ([#277](https://github.com/MapColonies/mc-models/issues/277)) ([43567a7](https://github.com/MapColonies/mc-models/commit/43567a7d8829d6aa786fa049c44d68608a1c2e90))
+
 ## [19.0.0](https://github.com/MapColonies/mc-models/compare/v17.14.0...v19.0.0) (2025-07-24)
 
 
