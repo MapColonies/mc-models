@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.1.1](https://github.com/MapColonies/mc-models/compare/v19.1.0...v19.1.1) (2026-06-18)
+
+
+### Bug Fixes
+
+* fix package lock file for CI process  ([#279](https://github.com/MapColonies/mc-models/issues/279)) ([c94c5f2](https://github.com/MapColonies/mc-models/commit/c94c5f26b1d2677da3d4bfb1da1c64cb88e0ed96))
+
 ## [19.1.0](https://github.com/MapColonies/mc-models/compare/v19.0.0...v19.1.0) (2026-06-17)
 
 
