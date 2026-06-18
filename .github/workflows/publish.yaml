@@ -19,4 +19,5 @@ jobs:
         uses: MapColonies/shared-workflows/actions/init-npm@init-npm-v1
         with:
           node-version: '20.x'
+      - run: npm i -g npm@11.17.0
       - run: npm publish --access public
