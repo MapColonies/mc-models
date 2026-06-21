@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.1.3](https://github.com/MapColonies/mc-models/compare/v19.1.2...v19.1.3) (2026-06-21)
+
+
+### Bug Fixes
+
+* fix enum yaml value ([#283](https://github.com/MapColonies/mc-models/issues/283)) ([dfe3bdd](https://github.com/MapColonies/mc-models/commit/dfe3bdd107c792899c23e32f3617249040b1110a))
+
 ## [19.1.2](https://github.com/MapColonies/mc-models/compare/v19.1.1...v19.1.2) (2026-06-18)
 
 
