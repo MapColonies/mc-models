@@ -50,3 +50,6 @@ components:
               maximum: 4000
               format: double
               description: minimum Horizontal Accuracy
+            keywords:
+              type: string
+              description: Layer's keywords

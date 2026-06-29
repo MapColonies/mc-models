@@ -1050,33 +1050,6 @@ export class LayerMetadata implements RasterLayerMetadata {
   //#endregion
   public productBoundingBox: string | undefined = undefined;
 
-  //#region CORE: keywords
-  @pycsw({
-    profile: 'mc_raster',
-    xmlElement: 'mc:keywords',
-    queryableField: 'mc:keywords',
-    pycswField: 'pycsw:Keywords',
-  })
-  @catalogDB({
-    column: {
-      name: 'keywords',
-      type: 'text',
-      nullable: true,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  @fieldConfig({
-    category: FieldCategory.GENERAL,
-    isManuallyEditable: true,
-  })
-  //#endregion
-  public keywords: string | undefined = undefined;
-
   //#region RASTER: dispalyPath
   @catalogDB({
     column: {

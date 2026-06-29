@@ -9,7 +9,7 @@ export type EditLayerMetadata = Partial<
 >;
 
 export interface IRasterCatalogUpsertRequestBody {
-  metadata: LayerMetadata;
+  metadata: LayerMetadata & Pick<PycswLayerCatalogRecord, 'keywords'>;
   links?: Link[];
 }
 

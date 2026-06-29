@@ -154,6 +154,33 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   //#endregion
   public wkbGeometry: string | undefined = undefined;
 
+  //#region CORE: keywords
+  @pycsw({
+    profile: 'mc_raster',
+    xmlElement: 'mc:keywords',
+    queryableField: 'mc:keywords',
+    pycswField: 'pycsw:Keywords',
+  })
+  @catalogDB({
+    column: {
+      name: 'keywords',
+      type: 'text',
+      nullable: true,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.STRING,
+  })
+  @graphql({
+    nullable: true,
+  })
+  @fieldConfig({
+    category: FieldCategory.GENERAL,
+    isManuallyEditable: true,
+  })
+  //#endregion
+  public keywords: string | undefined = undefined;
+
   //#region CORE: anyTextTsvector
   @catalogDB({
     column: {
