@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.2.0](https://github.com/MapColonies/mc-models/compare/v19.1.3...v19.2.0) (2026-07-01)
+
+
+### Features
+
+* add keywords to base LayerMetadata class ([#287](https://github.com/MapColonies/mc-models/issues/287)) ([1e0088a](https://github.com/MapColonies/mc-models/commit/1e0088a2d73475705198b942b3d29944959ec483))
+
 ## [19.1.3](https://github.com/MapColonies/mc-models/compare/v19.1.2...v19.1.3) (2026-06-21)
 
 
