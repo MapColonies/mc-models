@@ -40,7 +40,7 @@
     "@types/geojson": "^7946.0.7",
     "change-case-all": "^2.1.0",
     "reflect-metadata": "^0.1.13",
-    "zod": "^3.23.8"
+    "zod": "^4.4.3"
   },
   "peerDependencies": {
     "@map-colonies/mc-utils": ">=1.8.0",
