@@ -1,5 +1,5 @@
-import { Transparency } from '@map-colonies/raster-shared';
-import { ProductType } from '@map-colonies/types';
+import { keys } from 'ts-transformer-keys';
+import { NewRasterLayerMetadata, UpdateRasterLayerMetadata } from '@map-colonies/raster-shared';
 import { IPycswCoreModel } from '../pycsw/interfaces/pycswCoreModel';
 import { IPropCatalogDBMapping } from '../common/interfaces/propCatalogDBMapping.interface';
 import { IOrmCatalog } from '../common/interfaces/ormCatalog.interface';
@@ -7,7 +7,6 @@ import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import { graphqlClass } from '../common/decorators/graphQL/classGraphql.decorator';
 import { FieldCategory, fieldConfig, getFieldConfig, IPropFieldConfigInfo } from '../common/decorators/fieldConfig/fieldConfig.decorator';
 import { getFieldConfigClassInfo } from '../common/decorators/fieldConfig/classFieldConfig.decorator';
-import { NewRasterLayerMetadata, UpdateRasterLayerMetadata } from '../raster/ingestion';
 import { Link } from './link';
 import { catalogDB, getCatalogDBMapping, ORMColumnType } from './decorators/property/catalogDB.decorator';
 import { getTsTypesMapping, TsTypes, tsTypes } from './decorators/property/tsTypes.decorator';
@@ -15,6 +14,9 @@ import { IPropPYCSWMapping, LayerMetadata } from './layerRASTERMetadata';
 import { getCatalogDBEntityMapping, catalogDBEntity, ICatalogDBEntityMapping } from './decorators/class/catalogDBEntity.decorator';
 import { getPyCSWMapping, pycsw } from './decorators/property/csw.decorator';
 import { IPropSHPMapping } from './decorators/property/shp.decorator';
+
+const NEW_RASTER_LAYER_METADATA_PROPS = keys<NewRasterLayerMetadata>();
+const UPDATE_RASTER_LAYER_METADATA_PROPS = keys<UpdateRasterLayerMetadata>();
 
 @catalogDBEntity({
   table: 'records',
@@ -248,8 +250,6 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
 
   public static getFieldConfigs(): IPropFieldConfigInfo[] {
     const ret = [];
-    const newLayerMetadataProps = Object.keys(new NewRasterLayerMetadata('', ProductType.ORTHOPHOTO, '', '', Transparency.TRANSPARENT, '', [''], ''));
-    const updatedLayerMetadataProps = Object.keys(new UpdateRasterLayerMetadata(''));
     const layer = new PycswLayerCatalogRecord();
     for (const prop in layer) {
       const fieldConfigMap = getFieldConfig<PycswLayerCatalogRecord>(layer, prop);
@@ -257,8 +257,8 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
         const fieldConfig = {
           prop: prop,
           ...fieldConfigMap,
-          isCreateEssential: newLayerMetadataProps.includes(prop),
-          isUpdateEssential: updatedLayerMetadataProps.includes(prop),
+          isCreateEssential: NEW_RASTER_LAYER_METADATA_PROPS.find((p) => p === prop) !== undefined,
+          isUpdateEssential: UPDATE_RASTER_LAYER_METADATA_PROPS.find((p) => p === prop) !== undefined,
         };
         if (fieldConfigMap.complexType) {
           fieldConfig.subFields = getFieldConfigClassInfo(fieldConfigMap.complexType.value);
@@ -266,7 +266,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
         ret.push(fieldConfig);
       }
     }
-    return ret as IPropFieldConfigInfo[];
+    return ret;
   }
 
   public static getShpMappings(): IPropSHPMapping[] {
