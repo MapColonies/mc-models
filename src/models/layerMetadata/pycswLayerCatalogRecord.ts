@@ -177,6 +177,7 @@ export class PycswLayerCatalogRecord extends LayerMetadata implements IPycswCore
   @fieldConfig({
     category: FieldCategory.GENERAL,
     isManuallyEditable: true,
+    isCreateEssential: true,
   })
   //#endregion
   public keywords: string | undefined = undefined;

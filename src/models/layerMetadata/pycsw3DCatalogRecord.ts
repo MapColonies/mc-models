@@ -203,6 +203,7 @@ export class Pycsw3DCatalogRecord extends Layer3DMetadata implements IPycswCoreM
   @fieldConfig({
     category: FieldCategory.GENERAL,
     isManuallyEditable: true,
+    isCreateEssential: true,
   })
   //#endregion
   public keywords: string | undefined = '';

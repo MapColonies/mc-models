@@ -193,6 +193,7 @@ export class PycswQuantizedMeshBestCatalogRecord extends QuantizedMeshBestMetada
   @fieldConfig({
     category: FieldCategory.GENERAL,
     isManuallyEditable: true,
+    isCreateEssential: true,
   })
   //#endregion
   public keywords: string | undefined = undefined;
