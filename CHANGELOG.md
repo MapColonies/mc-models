@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.2.1](https://github.com/MapColonies/mc-models/compare/v19.2.0...v19.2.1) (2026-07-07)
+
+
+### Bug Fixes
+
+* keywords as ingestion field for all entities ([#290](https://github.com/MapColonies/mc-models/issues/290)) ([dc5f66f](https://github.com/MapColonies/mc-models/commit/dc5f66f7d885855f505e72cb665bf56c2c977804))
+
 ## [19.2.0](https://github.com/MapColonies/mc-models/compare/v19.1.3...v19.2.0) (2026-07-01)
 
 
