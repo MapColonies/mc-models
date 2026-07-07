@@ -199,6 +199,7 @@ export class PycswDemCatalogRecord extends LayerDemMetadata implements IPycswCor
   @fieldConfig({
     category: FieldCategory.GENERAL,
     isManuallyEditable: true,
+    isCreateEssential: true,
   })
   //#endregion
   public keywords: string | undefined = undefined;
