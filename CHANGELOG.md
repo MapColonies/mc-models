@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.2.2](https://github.com/MapColonies/mc-models/compare/v19.2.1...v19.2.2) (2026-07-07)
+
+
+### Bug Fixes
+
+* use raster types from raster shared ( MAPCO-11057 )  ([#292](https://github.com/MapColonies/mc-models/issues/292)) ([0ced3df](https://github.com/MapColonies/mc-models/commit/0ced3df71fff5cfc2af36eae3e0c3f86a5ebf10c))
+
 ## [19.2.1](https://github.com/MapColonies/mc-models/compare/v19.2.0...v19.2.1) (2026-07-07)
 
 
