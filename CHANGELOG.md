@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.2.3](https://github.com/MapColonies/mc-models/compare/v19.2.2...v19.2.3) (2026-08-04)
+
+
+### Bug Fixes
+
+* **deps:** upgrade @map-colonies/raster-shared to ^8.3.0 ([#296](https://github.com/MapColonies/mc-models/issues/296)) ([bf63b1c](https://github.com/MapColonies/mc-models/commit/bf63b1c6178ccb28f2ed707ead0710ddc742a126))
+
 ## [19.2.2](https://github.com/MapColonies/mc-models/compare/v19.2.1...v19.2.2) (2026-07-07)
 
 
