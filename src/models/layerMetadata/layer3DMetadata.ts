@@ -21,10 +21,12 @@ export interface ILayer3DMetadata {
   creationDate: Date | undefined;
   minResolutionMeter: number | undefined;
   maxResolutionMeter: number | undefined;
-  maxAccuracyCE90: number | undefined;
-  absoluteAccuracyLE90: number | undefined;
-  accuracySE90: number | undefined;
-  relativeAccuracySE90: number | undefined;
+  maxAbsoluteAccuracyCEP90: number | undefined;
+  maxAbsoluteAccuracyLEP90: number | undefined;
+  maxAbsoluteAccuracySEP90: number | undefined;
+  maxRelativeAccuracySEP90: number | undefined;
+  maxRelativeAccuracyCEP90: number | undefined;
+  maxRelativeAccuracyLEP90: number | undefined;
   visualAccuracy: number | undefined;
   heightRangeFrom: number | undefined;
   heightRangeTo: number | undefined;
@@ -34,7 +36,6 @@ export interface ILayer3DMetadata {
   maxFlightAlt: number | undefined;
   geographicArea: string | undefined;
   productBoundingBox: string | undefined;
-  productSource: string | undefined;
   productStatus: RecordStatus | undefined;
   sourceDateStart: Date | undefined;
   sourceDateEnd: Date | undefined;
@@ -457,12 +458,12 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   //#endregion
   public maxResolutionMeter: number | undefined = undefined;
 
-  //#region 3D: maxAccuracyCE90
+  //#region 3D: maxAbsoluteAccuracyCEP90
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:maxHorizontalAccuracyCE90',
-    queryableField: 'mc:maxHorizontalAccuracyCE90',
-    pycswField: 'pycsw:horizontalAccuracyCE90',
+    xmlElement: 'mc:maxAbsoluteAccuracyCEP90',
+    queryableField: 'mc:maxAbsoluteAccuracyCEP90',
+    pycswField: 'pycsw:maxAbsoluteAccuracyCEP90',
   })
   @catalogDB({
     column: {
@@ -480,33 +481,37 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
     isManuallyEditable: true,
-    infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.maxAccuracyCE90.min', 'info-field-tooltip.maxAccuracyCE90.max'],
+    infoMsgCode: [
+      'info-general-tooltip.required',
+      'info-field-tooltip.maxAbsoluteAccuracyCEP90.min',
+      'info-field-tooltip.maxAbsoluteAccuracyCEP90.max',
+    ],
     validation: [
       {
         errorMsgCode: 'validation-general.required',
         required: true,
       },
       {
-        errorMsgCode: 'validation-field.maxAccuracyCE90.min',
+        errorMsgCode: 'validation-field.maxAbsoluteAccuracyCEP90.min',
         valueType: 'value',
         min: 0,
       },
       {
-        errorMsgCode: 'validation-field.maxAccuracyCE90.max',
+        errorMsgCode: 'validation-field.maxAbsoluteAccuracyCEP90.max',
         valueType: 'value',
         max: 999,
       },
     ],
   })
   //#endregion
-  public maxAccuracyCE90: number | undefined = undefined;
+  public maxAbsoluteAccuracyCEP90: number | undefined = undefined;
 
-  //#region 3D: absoluteAccuracyLE90
+  //#region 3D: maxAbsoluteAccuracyLEP90
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:accuracyLE90',
-    queryableField: 'mc:accuracyLE90',
-    pycswField: 'pycsw:accuracyLE90',
+    xmlElement: 'mc:maxAbsoluteAccuracyLEP90',
+    queryableField: 'mc:maxAbsoluteAccuracyLEP90',
+    pycswField: 'pycsw:maxAbsoluteAccuracyLEP90',
   })
   @catalogDB({
     column: {
@@ -524,33 +529,37 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
     isManuallyEditable: true,
-    infoMsgCode: ['info-general-tooltip.required', 'info-field-tooltip.absoluteAccuracyLE90.min', 'info-field-tooltip.absoluteAccuracyLE90.max'],
+    infoMsgCode: [
+      'info-general-tooltip.required',
+      'info-field-tooltip.maxAbsoluteAccuracyLEP90.min',
+      'info-field-tooltip.maxAbsoluteAccuracyLEP90.max',
+    ],
     validation: [
       {
         errorMsgCode: 'validation-general.required',
         required: true,
       },
       {
-        errorMsgCode: 'validation-field.absoluteAccuracyLE90.min',
+        errorMsgCode: 'validation-field.maxAbsoluteAccuracyLEP90.min',
         valueType: 'value',
         min: 0,
       },
       {
-        errorMsgCode: 'validation-field.absoluteAccuracyLE90.max',
+        errorMsgCode: 'validation-field.maxAbsoluteAccuracyLEP90.max',
         valueType: 'value',
         max: 999,
       },
     ],
   })
   //#endregion
-  public absoluteAccuracyLE90: number | undefined = undefined;
+  public maxAbsoluteAccuracyLEP90: number | undefined = undefined;
 
-  //#region 3D: accuracySE90
+  //#region 3D: maxAbsoluteAccuracySEP90
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:accuracySE90',
-    queryableField: 'mc:accuracySE90',
-    pycswField: 'pycsw:accuracySE90',
+    xmlElement: 'mc:maxAbsoluteAccuracySEP90',
+    queryableField: 'mc:maxAbsoluteAccuracySEP90',
+    pycswField: 'pycsw:maxAbsoluteAccuracySEP90',
   })
   @catalogDB({
     column: {
@@ -568,29 +577,29 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
     isManuallyEditable: true,
-    infoMsgCode: ['info-field-tooltip.accuracySE90.min', 'info-field-tooltip.accuracySE90.max'],
+    infoMsgCode: ['info-field-tooltip.maxAbsoluteAccuracySEP90.min', 'info-field-tooltip.maxAbsoluteAccuracySEP90.max'],
     validation: [
       {
-        errorMsgCode: 'validation-field.accuracySE90.min',
+        errorMsgCode: 'validation-field.maxAbsoluteAccuracySEP90.min',
         valueType: 'value',
         min: 0,
       },
       {
-        errorMsgCode: 'validation-field.accuracySE90.max',
+        errorMsgCode: 'validation-field.maxAbsoluteAccuracySEP90.max',
         valueType: 'value',
         max: 250,
       },
     ],
   })
   //#endregion
-  public accuracySE90: number | undefined = undefined;
+  public maxAbsoluteAccuracySEP90: number | undefined = undefined;
 
-  //#region 3D: relativeAccuracySE90
+  //#region 3D: maxRelativeAccuracySEP90
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:relativeAccuracySE90',
-    queryableField: 'mc:relativeAccuracySE90',
-    pycswField: 'pycsw:relativeAccuracySE90',
+    xmlElement: 'mc:maxRelativeAccuracySEP90',
+    queryableField: 'mc:maxRelativeAccuracySEP90',
+    pycswField: 'pycsw:maxRelativeAccuracySEP90',
   })
   @catalogDB({
     column: {
@@ -608,22 +617,118 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
     isManuallyEditable: true,
-    infoMsgCode: ['info-field-tooltip.relativeAccuracySE90.min', 'info-field-tooltip.relativeAccuracySE90.max'],
+    infoMsgCode: ['info-field-tooltip.maxRelativeAccuracySEP90.min', 'info-field-tooltip.maxRelativeAccuracySEP90.max'],
     validation: [
       {
-        errorMsgCode: 'validation-field.relativeAccuracySE90.min',
+        errorMsgCode: 'validation-field.maxRelativeAccuracySEP90.min',
         valueType: 'value',
         min: 0,
       },
       {
-        errorMsgCode: 'validation-field.relativeAccuracySE90.max',
+        errorMsgCode: 'validation-field.maxRelativeAccuracySEP90.max',
         valueType: 'value',
         max: 100,
       },
     ],
   })
   //#endregion
-  public relativeAccuracySE90: number | undefined = undefined;
+  public maxRelativeAccuracySEP90: number | undefined = undefined;
+
+  //#region 3D: maxRelativeAccuracyCEP90
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:maxRelativeAccuracyCEP90',
+    queryableField: 'mc:maxRelativeAccuracyCEP90',
+    pycswField: 'pycsw:maxRelativeAccuracyCEP90',
+  })
+  @catalogDB({
+    column: {
+      name: 'relative_accuracy_cep_90',
+      type: 'real',
+      nullable: false,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.NUMBER,
+  })
+  @graphql({
+    nullable: false,
+  })
+  @fieldConfig({
+    category: FieldCategory.GEO_INFO,
+    isManuallyEditable: true,
+    infoMsgCode: [
+      'info-general-tooltip.required',
+      'info-field-tooltip.maxRelativeAccuracyCEP90.min',
+      'info-field-tooltip.maxRelativeAccuracyCEP90.max',
+    ],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        required: true,
+      },
+      {
+        errorMsgCode: 'validation-field.maxRelativeAccuracyCEP90.min',
+        valueType: 'value',
+        min: 0,
+      },
+      {
+        errorMsgCode: 'validation-field.maxRelativeAccuracyCEP90.max',
+        valueType: 'value',
+        max: 999,
+      },
+    ],
+  })
+  //#endregion
+  public maxRelativeAccuracyCEP90: number | undefined = undefined;
+
+  //#region 3D: maxRelativeAccuracyLEP90
+  @pycsw({
+    profile: 'mc_3d',
+    xmlElement: 'mc:maxRelativeAccuracyLEP90',
+    queryableField: 'mc:maxRelativeAccuracyLEP90',
+    pycswField: 'pycsw:maxRelativeAccuracyLEP90',
+  })
+  @catalogDB({
+    column: {
+      name: 'relative_accuracy_lep_90',
+      type: 'real',
+      nullable: false,
+    },
+  })
+  @tsTypes({
+    mappingType: TsTypes.NUMBER,
+  })
+  @graphql({
+    nullable: false,
+  })
+  @fieldConfig({
+    category: FieldCategory.GEO_INFO,
+    isManuallyEditable: true,
+    infoMsgCode: [
+      'info-general-tooltip.required',
+      'info-field-tooltip.maxRelativeAccuracyLEP90.min',
+      'info-field-tooltip.maxRelativeAccuracyLEP90.max',
+    ],
+    validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        required: true,
+      },
+      {
+        errorMsgCode: 'validation-field.maxRelativeAccuracyLEP90.min',
+        valueType: 'value',
+        min: 0,
+      },
+      {
+        errorMsgCode: 'validation-field.maxRelativeAccuracyLEP90.max',
+        valueType: 'value',
+        max: 999,
+      },
+    ],
+  })
+  //#endregion
+  public maxRelativeAccuracyLEP90: number | undefined = undefined;
 
   //#region 3D: visualAccuracy
   @pycsw({
@@ -1123,9 +1228,9 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   //#region 3D: productBoundingBox
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:productBBox',
-    queryableField: 'mc:productBBox',
-    pycswField: 'pycsw:productBBox',
+    xmlElement: 'mc:productBoundingBox',
+    queryableField: 'mc:productBoundingBox',
+    pycswField: 'pycsw:productBoundingBox',
   })
   @catalogDB({
     column: {
@@ -1146,34 +1251,6 @@ export class Layer3DMetadata implements ILayer3DMetadata, IMetadataCommonModel {
   })
   //#endregion
   public productBoundingBox: string | undefined = undefined;
-  //#endregion
-
-  //#region 3D: productSource
-  @pycsw({
-    profile: 'mc_3d',
-    xmlElement: 'mc:productSource',
-    queryableField: 'mc:productSource',
-    pycswField: 'pycsw:productSource',
-  })
-  @catalogDB({
-    column: {
-      name: 'product_source',
-      type: 'text',
-      nullable: false,
-    },
-  })
-  @tsTypes({
-    mappingType: TsTypes.STRING,
-  })
-  @graphql({
-    nullable: true,
-  })
-  @fieldConfig({
-    category: FieldCategory.MAIN,
-    isAutoGenerated: true,
-  })
-  //#endregion
-  public productSource: string | undefined = undefined;
   //#endregion
 
   //#region 3D: productStatus
