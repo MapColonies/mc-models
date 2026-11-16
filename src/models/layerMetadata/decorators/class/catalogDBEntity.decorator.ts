@@ -4,6 +4,7 @@ const catalogDbEntityMetadataKey = Symbol('catalogdbentitymapping');
 
 export interface ICatalogDBEntityMapping {
   table: string; // database table name
+  schema?: string;
   className: string;
   isPartial?: boolean; // if isPartial is true, the Entity decorator will not be generated
 }
