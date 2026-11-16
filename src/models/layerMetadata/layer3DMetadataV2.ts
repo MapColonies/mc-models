@@ -793,13 +793,13 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
   //#region 3D: srsId
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:SRS',
-    queryableField: 'mc:SRS',
+    xmlElement: 'mc:srsId',
+    queryableField: 'mc:srsId',
     pycswField: 'pycsw:CRS',
   })
   @catalogDB({
     column: {
-      name: 'srs',
+      name: 'srs_id',
       type: 'text',
       nullable: false,
       default: '4326',
@@ -828,8 +828,8 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
   //#region 3D: srsName
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:SRSName',
-    queryableField: 'mc:SRSName',
+    xmlElement: 'mc:srsName',
+    queryableField: 'mc:srsName',
     pycswField: 'pycsw:CRSName',
   })
   @catalogDB({
