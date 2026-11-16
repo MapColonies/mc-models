@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.3.0](https://github.com/MapColonies/mc-models/compare/v19.2.3...v19.3.0) (2026-11-16)
+
+
+### Features
+
+* zod schema annotations and basemap entity ([#302](https://github.com/MapColonies/mc-models/issues/302)) ([ea3ab39](https://github.com/MapColonies/mc-models/commit/ea3ab39655c058c5bd30436e24ef5a2072979754))
+
 ## [19.2.3](https://github.com/MapColonies/mc-models/compare/v19.2.2...v19.2.3) (2026-08-04)
 
 
