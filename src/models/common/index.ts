@@ -5,4 +5,6 @@ export * from './interfaces/ormCatalog.interface';
 export * from './interfaces/propCatalogDBMapping.interface';
 export * from './interfaces/propGraphQLMapping.interface';
 export * from './decorators/fieldConfig/fieldConfig.decorator';
+export { IFieldConfigClassInfo, getFieldConfigClassInfo } from './decorators/fieldConfig/classFieldConfig.decorator';
 export * from './decorators/wfs/wfs.decorator';
+export * from './zod';

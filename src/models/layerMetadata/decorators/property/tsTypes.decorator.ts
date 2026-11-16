@@ -9,11 +9,28 @@ export enum PropertiesTypes {
   ARRAY = 'array',
   OBJECT = 'object',
   ENUM_ARRAY = 'enumArray',
+  UNION = 'union',
 }
+
+/** `PropertiesTypes.UNION` only: one member of the union, paired with the literal value of its discriminant field. */
+export interface IUnionBranch {
+  className: string;
+  discriminantValue: string;
+}
+
 export interface IDescribeTsType {
   value: string;
   type: PropertiesTypes;
   importFromPackage?: string;
+  /** `PropertiesTypes.UNION` only: the field name read on each branch to pick its GraphQL ObjectType (e.g. `'type'`). */
+  discriminant?: string;
+  /** `PropertiesTypes.UNION` only: the registered CLASS names forming the union. */
+  branches?: IUnionBranch[];
+  /**
+   * `PropertiesTypes.UNION` only: the type this field resolves to on the generated InputType side,
+   * since GraphQL has no input-type union - e.g. a flat CLASS merging every branch's fields.
+   */
+  inputType?: IDescribeTsType;
 }
 
 //****** IMPORTANT: ALL external enums which in use MUST be proxied by mc-models.
@@ -124,6 +141,25 @@ export const TsTypes = {
     value: 'RecordStatus',
     type: PropertiesTypes.ENUM,
     importFromPackage: '@map-colonies/mc-model-types',
+  },
+  SOURCE_TYPE: {
+    value: 'SourceType',
+    type: PropertiesTypes.ENUM,
+    importFromPackage: '@map-colonies/mc-model-types',
+  },
+  DOMAIN: {
+    value: 'Domain',
+    type: PropertiesTypes.ENUM,
+    importFromPackage: '@map-colonies/mc-model-types',
+  },
+  RESOURCE_RESOLUTION_STATUS: {
+    value: 'ResourceResolutionStatus',
+    type: PropertiesTypes.ENUM,
+    importFromPackage: '@map-colonies/mc-model-types',
+  },
+  BASEMAP_LAYER: {
+    value: 'BasemapLayer',
+    type: PropertiesTypes.CLASS,
   },
 } satisfies Record<string, IDescribeTsType>;
 
