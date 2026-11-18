@@ -12,6 +12,8 @@ components:
         - 3DPhotoRealisticBest
         - 3DSemantic
         - 3DSemanticMesh
+        - QuantizedMeshDTMBest
+        - QuantizedMeshDSMBest
         - 3DPointCloud
       description: Type of 3D product
     productSubType:
