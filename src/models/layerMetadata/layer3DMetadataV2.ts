@@ -1,5 +1,6 @@
 import { GeoJSON } from 'geojson';
-import { RecordType, RecordStatus, ProductType } from '@map-colonies/types';
+import { RecordType, RecordStatus } from '@map-colonies/types';
+import { INGESTION_VALIDATIONS, Layer3DProductTypes } from '@map-colonies/3d-shared';
 
 import { graphql } from '../common/decorators/graphQL/graphql.decorator';
 import {
@@ -176,7 +177,7 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
     ],
   })
   //#endregion
-  public productType: ProductType | undefined = ProductType.PHOTO_REALISTIC;
+  public productType: Layer3DProductTypes | undefined = Layer3DProductTypes.PHOTO_REALISTIC;
 
   //#region 3D: productSubType
   @pycsw({
@@ -395,12 +396,12 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
       {
         errorMsgCode: 'validation-field.minResolutionMeter.min',
         valueType: 'value',
-        min: 0.01,
+        min: INGESTION_VALIDATIONS.resolutionMeter.min,
       },
       {
         errorMsgCode: 'validation-field.minResolutionMeter.max',
         valueType: 'value',
-        max: 8000,
+        max: INGESTION_VALIDATIONS.resolutionMeter.max,
       },
     ],
   })
@@ -435,12 +436,12 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.min',
         valueType: 'value',
-        min: 0.01,
+        min: INGESTION_VALIDATIONS.resolutionMeter.min,
       },
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.max',
         valueType: 'value',
-        max: 8000,
+        max: INGESTION_VALIDATIONS.resolutionMeter.max,
       },
     ],
   })
@@ -483,12 +484,12 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
       {
         errorMsgCode: 'validation-field.maxAbsoluteAccuracyCEP90.min',
         valueType: 'value',
-        min: 0,
+        min: INGESTION_VALIDATIONS.accuracy.min,
       },
       {
         errorMsgCode: 'validation-field.maxAbsoluteAccuracyCEP90.max',
         valueType: 'value',
-        max: 999,
+        max: INGESTION_VALIDATIONS.accuracy.max,
       },
     ],
   })
@@ -531,12 +532,12 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
       {
         errorMsgCode: 'validation-field.maxAbsoluteAccuracyLEP90.min',
         valueType: 'value',
-        min: 0,
+        min: INGESTION_VALIDATIONS.accuracy.min,
       },
       {
         errorMsgCode: 'validation-field.maxAbsoluteAccuracyLEP90.max',
         valueType: 'value',
-        max: 999,
+        max: INGESTION_VALIDATIONS.accuracy.max,
       },
     ],
   })
@@ -571,12 +572,12 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
       {
         errorMsgCode: 'validation-field.maxAbsoluteAccuracySEP90.min',
         valueType: 'value',
-        min: 0,
+        min: INGESTION_VALIDATIONS.absoluteAccuracySep90.min,
       },
       {
         errorMsgCode: 'validation-field.maxAbsoluteAccuracySEP90.max',
         valueType: 'value',
-        max: 250,
+        max: INGESTION_VALIDATIONS.absoluteAccuracySep90.max,
       },
     ],
   })
@@ -611,12 +612,12 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
       {
         errorMsgCode: 'validation-field.maxRelativeAccuracySEP90.min',
         valueType: 'value',
-        min: 0,
+        min: INGESTION_VALIDATIONS.relativeAccuracySep90.min,
       },
       {
         errorMsgCode: 'validation-field.maxRelativeAccuracySEP90.max',
         valueType: 'value',
-        max: 100,
+        max: INGESTION_VALIDATIONS.relativeAccuracySep90.max,
       },
     ],
   })
@@ -659,12 +660,12 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
       {
         errorMsgCode: 'validation-field.maxRelativeAccuracyCEP90.min',
         valueType: 'value',
-        min: 0,
+        min: INGESTION_VALIDATIONS.accuracy.min,
       },
       {
         errorMsgCode: 'validation-field.maxRelativeAccuracyCEP90.max',
         valueType: 'value',
-        max: 999,
+        max: INGESTION_VALIDATIONS.accuracy.max,
       },
     ],
   })
@@ -707,12 +708,12 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
       {
         errorMsgCode: 'validation-field.maxRelativeAccuracyLEP90.min',
         valueType: 'value',
-        min: 0,
+        min: INGESTION_VALIDATIONS.accuracy.min,
       },
       {
         errorMsgCode: 'validation-field.maxRelativeAccuracyLEP90.max',
         valueType: 'value',
-        max: 999,
+        max: INGESTION_VALIDATIONS.accuracy.max,
       },
     ],
   })
