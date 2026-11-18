@@ -28,9 +28,10 @@ components:
         - productType
         - imagingTimeBeginUTC
         - imagingTimeEndUTC
+        - minResolutionMeter
+        - maxResolutionMeter
         - maxAbsoluteAccuracyCEP90
-        - maxRelativeAccuracyCEP90
-        - maxRelativeAccuracyLEP90
+        - maxAbsoluteAccuracyLEP90
         - sensors
         - footprint
         - srsId
@@ -56,6 +57,11 @@ components:
           type: string
           maxLength: 120
           description: Name of product
+        productVersion:
+          type: integer
+          minimum: 1
+          nullable: true
+          description: Version of product, set by the backend
         productType:
           $ref: '#/components/schemas/productType'
         productSubType:
@@ -81,7 +87,6 @@ components:
         minResolutionMeter:
           type: number
           format: double
-          nullable: true
           example: 1.1
           minimum: 0.01
           maximum: 8000
@@ -89,7 +94,6 @@ components:
         maxResolutionMeter:
           type: number
           format: double
-          nullable: true
           example: 1.5
           minimum: 0.01
           maximum: 8000
@@ -103,12 +107,14 @@ components:
         maxRelativeAccuracyCEP90:
           type: number
           format: double
+          nullable: true
           minimum: 0
           maximum: 999
           description: Maximum relative CEP90 horizontal accuracy
         maxRelativeAccuracyLEP90:
           type: number
           format: double
+          nullable: true
           minimum: 0
           maximum: 999
           description: Maximum relative LEP90 vertical accuracy
@@ -117,7 +123,6 @@ components:
           format: double
           minimum: 0
           maximum: 999
-          nullable: true
           description: Maximum absolute LEP90 vertical accuracy
         maxAbsoluteAccuracySEP90:
           type: number
@@ -196,9 +201,10 @@ components:
         - productType
         - imagingTimeBeginUTC
         - imagingTimeEndUTC
+        - minResolutionMeter
+        - maxResolutionMeter
         - maxAbsoluteAccuracyCEP90
-        - maxRelativeAccuracyCEP90
-        - maxRelativeAccuracyLEP90
+        - maxAbsoluteAccuracyLEP90
         - sensors
         - footprint
         - srsId
@@ -224,6 +230,11 @@ components:
           type: string
           maxLength: 120
           description: Name of product
+        productVersion:
+          type: integer
+          minimum: 1
+          nullable: true
+          description: Version of product, set by the backend
         productType:
           $ref: '#/components/schemas/productType'
         productSubType:
@@ -249,7 +260,6 @@ components:
         minResolutionMeter:
           type: number
           format: double
-          nullable: true
           example: 1.1
           minimum: 0.01
           maximum: 8000
@@ -257,7 +267,6 @@ components:
         maxResolutionMeter:
           type: number
           format: double
-          nullable: true
           example: 1.5
           minimum: 0.01
           maximum: 8000
@@ -271,12 +280,14 @@ components:
         maxRelativeAccuracyCEP90:
           type: number
           format: double
+          nullable: true
           minimum: 0
           maximum: 999
           description: Maximum relative CEP90 horizontal accuracy
         maxRelativeAccuracyLEP90:
           type: number
           format: double
+          nullable: true
           minimum: 0
           maximum: 999
           description: Maximum relative LEP90 vertical accuracy
@@ -285,7 +296,6 @@ components:
           format: double
           minimum: 0
           maximum: 999
-          nullable: true
           description: Maximum absolute LEP90 vertical accuracy
         maxAbsoluteAccuracySEP90:
           type: number
@@ -364,9 +374,10 @@ components:
         - productType
         - imagingTimeBeginUTC
         - imagingTimeEndUTC
+        - minResolutionMeter
+        - maxResolutionMeter
         - maxAbsoluteAccuracyCEP90
-        - maxRelativeAccuracyCEP90
-        - maxRelativeAccuracyLEP90
+        - maxAbsoluteAccuracyLEP90
         - sensors
         - footprint
         - srsId
@@ -394,6 +405,11 @@ components:
           type: string
           maxLength: 120
           description: Name of product
+        productVersion:
+          type: integer
+          minimum: 1
+          nullable: true
+          description: Version of product, set by the backend
         productType:
           $ref: '#/components/schemas/productType'
         productSubType:
@@ -419,7 +435,6 @@ components:
         minResolutionMeter:
           type: number
           format: double
-          nullable: true
           example: 1.1
           minimum: 0.01
           maximum: 8000
@@ -427,7 +442,6 @@ components:
         maxResolutionMeter:
           type: number
           format: double
-          nullable: true
           example: 1.5
           minimum: 0.01
           maximum: 8000
@@ -441,12 +455,14 @@ components:
         maxRelativeAccuracyCEP90:
           type: number
           format: double
+          nullable: true
           minimum: 0
           maximum: 999
           description: Maximum relative CEP90 horizontal accuracy
         maxRelativeAccuracyLEP90:
           type: number
           format: double
+          nullable: true
           minimum: 0
           maximum: 999
           description: Maximum relative LEP90 vertical accuracy
@@ -455,7 +471,6 @@ components:
           format: double
           minimum: 0
           maximum: 999
-          nullable: true
           description: Maximum absolute LEP90 vertical accuracy
         maxAbsoluteAccuracySEP90:
           type: number
@@ -592,7 +607,6 @@ components:
         minResolutionMeter:
           type: number
           format: double
-          nullable: true
           example: 1.1
           minimum: 0.01
           maximum: 8000
@@ -600,7 +614,6 @@ components:
         maxResolutionMeter:
           type: number
           format: double
-          nullable: true
           example: 1.5
           minimum: 0.01
           maximum: 8000
@@ -614,12 +627,14 @@ components:
         maxRelativeAccuracyCEP90:
           type: number
           format: double
+          nullable: true
           minimum: 0
           maximum: 999
           description: Maximum relative CEP90 horizontal accuracy
         maxRelativeAccuracyLEP90:
           type: number
           format: double
+          nullable: true
           minimum: 0
           maximum: 999
           description: Maximum relative LEP90 vertical accuracy
@@ -628,7 +643,6 @@ components:
           format: double
           minimum: 0
           maximum: 999
-          nullable: true
           description: Maximum absolute LEP90 vertical accuracy
         maxAbsoluteAccuracySEP90:
           type: number

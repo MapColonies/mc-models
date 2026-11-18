@@ -379,20 +379,29 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
     column: {
       name: 'min_resolution',
       type: 'real',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.MAIN,
     isManuallyEditable: true,
-    infoMsgCode: ['info-field-tooltip.meter.tooltip', 'info-field-tooltip.minResolutionMeter.min', 'info-field-tooltip.minResolutionMeter.max'],
+    infoMsgCode: [
+      'info-general-tooltip.required',
+      'info-field-tooltip.meter.tooltip',
+      'info-field-tooltip.minResolutionMeter.min',
+      'info-field-tooltip.minResolutionMeter.max',
+    ],
     validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        required: true,
+      },
       {
         errorMsgCode: 'validation-field.minResolutionMeter.min',
         valueType: 'value',
@@ -419,20 +428,29 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
     column: {
       name: 'max_resolution',
       type: 'real',
-      nullable: true,
+      nullable: false,
     },
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: true,
+    nullable: false,
   })
   @fieldConfig({
     category: FieldCategory.MAIN,
     isManuallyEditable: true,
-    infoMsgCode: ['info-field-tooltip.meter.tooltip', 'info-field-tooltip.maxResolutionMeter.min', 'info-field-tooltip.maxResolutionMeter.max'],
+    infoMsgCode: [
+      'info-general-tooltip.required',
+      'info-field-tooltip.meter.tooltip',
+      'info-field-tooltip.maxResolutionMeter.min',
+      'info-field-tooltip.maxResolutionMeter.max',
+    ],
     validation: [
+      {
+        errorMsgCode: 'validation-general.required',
+        required: true,
+      },
       {
         errorMsgCode: 'validation-field.maxResolutionMeter.min',
         valueType: 'value',
@@ -635,28 +653,20 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
     column: {
       name: 'relative_accuracy_cep_90',
       type: 'real',
-      nullable: false,
+      nullable: true,
     },
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: false,
+    nullable: true,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
     isManuallyEditable: true,
-    infoMsgCode: [
-      'info-general-tooltip.required',
-      'info-field-tooltip.maxRelativeAccuracyCEP90.min',
-      'info-field-tooltip.maxRelativeAccuracyCEP90.max',
-    ],
+    infoMsgCode: ['info-field-tooltip.maxRelativeAccuracyCEP90.min', 'info-field-tooltip.maxRelativeAccuracyCEP90.max'],
     validation: [
-      {
-        errorMsgCode: 'validation-general.required',
-        required: true,
-      },
       {
         errorMsgCode: 'validation-field.maxRelativeAccuracyCEP90.min',
         valueType: 'value',
@@ -683,28 +693,20 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
     column: {
       name: 'relative_accuracy_lep_90',
       type: 'real',
-      nullable: false,
+      nullable: true,
     },
   })
   @tsTypes({
     mappingType: TsTypes.NUMBER,
   })
   @graphql({
-    nullable: false,
+    nullable: true,
   })
   @fieldConfig({
     category: FieldCategory.GEO_INFO,
     isManuallyEditable: true,
-    infoMsgCode: [
-      'info-general-tooltip.required',
-      'info-field-tooltip.maxRelativeAccuracyLEP90.min',
-      'info-field-tooltip.maxRelativeAccuracyLEP90.max',
-    ],
+    infoMsgCode: ['info-field-tooltip.maxRelativeAccuracyLEP90.min', 'info-field-tooltip.maxRelativeAccuracyLEP90.max'],
     validation: [
-      {
-        errorMsgCode: 'validation-general.required',
-        required: true,
-      },
       {
         errorMsgCode: 'validation-field.maxRelativeAccuracyLEP90.min',
         valueType: 'value',
