@@ -8,6 +8,4 @@ export * from './3dCatalog/index';
 export * from './raster/index';
 export * from './raster/ingestion/index';
 export * from './polygonParts/index';
-export * from './3d/index';
-export * from './3d/ingestion/index';
 export * from './basemap/index';
