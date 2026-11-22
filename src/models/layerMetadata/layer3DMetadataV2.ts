@@ -240,8 +240,8 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
   //#region 3D: creationDate
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:creationDate',
-    queryableField: 'mc:creationDate',
+    xmlElement: 'mc:creationDateUTC',
+    queryableField: 'mc:creationDateUTC',
     pycswField: 'pycsw:creationDate',
   })
   @catalogDB({
@@ -269,8 +269,8 @@ export class Layer3DMetadataV2 implements ILayer3DMetadataV2, IMetadataCommonMod
   //#region COMMON: updateDate
   @pycsw({
     profile: 'mc_3d',
-    xmlElement: 'mc:updateDate',
-    queryableField: 'mc:updateDate',
+    xmlElement: 'mc:updateDateUTC',
+    queryableField: 'mc:updateDateUTC',
     pycswField: 'pycsw:updateDate',
   })
   @catalogDB({
