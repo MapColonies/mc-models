@@ -1,3 +1,4 @@
+import { getZodFieldConfigClassInfo } from '../../zod/zodModelRegistry';
 import { getFieldConfig, IPropFieldConfigInfo } from './fieldConfig.decorator';
 
 type KeyValueDict = Record<string, unknown>;
@@ -38,5 +39,6 @@ export function fieldConfigClass(): ClassDecorator {
 }
 
 export function getFieldConfigClassInfo(className: string): IFieldConfigClassInfo {
-  return target.find((classInfo) => classInfo.name === className) as IFieldConfigClassInfo;
+  const classInfo = target.find((candidate) => candidate.name === className);
+  return (classInfo ?? getZodFieldConfigClassInfo(className)) as IFieldConfigClassInfo;
 }

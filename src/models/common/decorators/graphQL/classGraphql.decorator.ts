@@ -1,5 +1,6 @@
 import { getTsTypesMapping } from '../../../layerMetadata/decorators/property/tsTypes.decorator';
 import { IPropGraphQLMapping } from '../../interfaces/propGraphQLMapping.interface';
+import { getZodGraphQLClassMappings } from '../../zod/zodModelRegistry';
 import { getFieldConfig } from '../fieldConfig/fieldConfig.decorator';
 import { getGraphQLMapping } from './graphql.decorator';
 
@@ -9,11 +10,17 @@ const target: IGraphQLClassMapping[] = [];
 export interface IGraphQLClass {
   alias?: string;
   fields?: string[];
+  /** Skip generating this mapping's `${name}Input` class - e.g. a union branch with no legitimate input shape of its own. */
+  skipInputType?: boolean;
+  /** Skip generating this mapping's `${name}` ObjectType (and `${name}Resolver`) - e.g. a parameters-only shape. */
+  skipObjectType?: boolean;
 }
 
 export interface IGraphQLClassMapping {
   name: string;
   fields: IPropGraphQLMapping[];
+  skipInputType?: boolean;
+  skipObjectType?: boolean;
 }
 
 export function graphqlClass(args?: IGraphQLClass): ClassDecorator {
@@ -24,6 +31,8 @@ export function graphqlClass(args?: IGraphQLClass): ClassDecorator {
     const classData: IGraphQLClassMapping = {
       fields: getGraphQLMappings(classInstance, args?.fields),
       name: args?.alias ?? classCtr.name,
+      skipInputType: args?.skipInputType,
+      skipObjectType: args?.skipObjectType,
     };
 
     target.push(classData);
@@ -32,7 +41,7 @@ export function graphqlClass(args?: IGraphQLClass): ClassDecorator {
 }
 
 export function getGraphQLClassMapping(): IGraphQLClassMapping[] {
-  return target;
+  return [...target, ...getZodGraphQLClassMappings()];
 }
 
 export function getGraphQLMappings(object: KeyValueDict, fields?: string[]): IPropGraphQLMapping[] {
