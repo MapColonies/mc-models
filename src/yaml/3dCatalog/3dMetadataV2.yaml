@@ -390,10 +390,12 @@ components:
         - producerName
         - links
         - id
+        - type
+        - productVersion
+        - creationDate
       properties:
         type:
           type: string
-          nullable: true
           default: RECORD_3D
           description: Type of records
         productId:
@@ -408,7 +410,6 @@ components:
         productVersion:
           type: integer
           minimum: 1
-          nullable: true
           description: Version of product, set by the backend
         productType:
           $ref: '#/components/schemas/productType'
@@ -422,7 +423,6 @@ components:
         creationDate:
           type: string
           format: date-time
-          nullable: true
           description: Creation date
         imagingTimeBeginUTC:
           type: string
