@@ -36,6 +36,7 @@
     "test:integration": "jest --config=./tests/configurations/integration/jest.config.js"
   },
   "dependencies": {
+    "@map-colonies/3d-shared": "^1.1.0",
     "@map-colonies/app-shared": "^0.2.4",
     "@map-colonies/raster-shared": "^8.3.0",
     "@types/geojson": "^7946.0.7",

@@ -1,5 +1,6 @@
 export * from './layerRASTERMetadata';
 export { Layer3DMetadata } from './layer3DMetadata';
+export { Layer3DMetadataV2, ILayer3DMetadataV2 } from './layer3DMetadataV2';
 export { LayerDemMetadata } from './layerDEMMetadata';
 export * from './layerMetadata-StatusFields';
 
@@ -12,6 +13,7 @@ export { IOrmCatalog } from '../common/interfaces/ormCatalog.interface';
 
 export * from './pycswLayerCatalogRecord';
 export * from './pycsw3DCatalogRecord';
+export * from './pycsw3DCatalogRecordV2';
 export * from './pycswDEMCatalogRecord';
 export * from './vectorBestMetadata';
 export * from './pycswQuantizedMeshBestCatalogRecord';
