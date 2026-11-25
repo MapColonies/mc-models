@@ -39,7 +39,7 @@ jobs:
       - name: Install TS Project dependencies
         run: npm ci
       - name: build docs
-        run: npx typedoc
+        run: npx -y typedoc@0.25.13 --tsconfig tsconfig.build.json --entryPointStrategy expand ./src --out ./docs
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
