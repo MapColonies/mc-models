@@ -21,6 +21,10 @@ const externalLayerDetailsAnnotations: ZodFieldAnnotations<ExternalLayerDetailsS
     fieldConfig: { category: FieldCategory.GENERAL, isRequired: true },
     graphql: { nullable: false },
   },
+  extras: {
+    fieldConfig: { category: FieldCategory.GENERAL, isRequired: false },
+    graphql: { nullable: true },
+  },
 };
 
 export const externalLayerDetailsModel = registerAnnotatedZodObject(
