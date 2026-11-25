@@ -97,11 +97,6 @@ export const TsTypes = {
     type: PropertiesTypes.ENUM,
     importFromPackage: '@map-colonies/mc-model-types',
   },
-  UNDULATION_MODEL: {
-    value: 'UndulationModel',
-    type: PropertiesTypes.ENUM,
-    importFromPackage: '@map-colonies/mc-model-types',
-  },
   DATATYPE: {
     value: 'DataType',
     type: PropertiesTypes.ENUM,
@@ -109,11 +104,6 @@ export const TsTypes = {
   },
   DEM_DATATYPE: {
     value: 'DEMDataType',
-    type: PropertiesTypes.ENUM,
-    importFromPackage: '@map-colonies/mc-model-types',
-  },
-  NO_DATA_VALUE: {
-    value: 'NoDataValue',
     type: PropertiesTypes.ENUM,
     importFromPackage: '@map-colonies/mc-model-types',
   },
