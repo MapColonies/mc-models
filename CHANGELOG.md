@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.3.1](https://github.com/MapColonies/mc-models/compare/v19.3.0...v19.3.1) (2026-11-25)
+
+
+### Bug Fixes
+
+* external layer details with extras object prop ([#304](https://github.com/MapColonies/mc-models/issues/304)) ([7e02827](https://github.com/MapColonies/mc-models/commit/7e028271a644917995cd025eb35bbdc1458d3d72))
+
 ## [19.3.0](https://github.com/MapColonies/mc-models/compare/v19.2.3...v19.3.0) (2026-11-16)
 
 
